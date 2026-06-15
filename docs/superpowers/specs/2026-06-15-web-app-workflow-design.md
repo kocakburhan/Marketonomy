@@ -69,13 +69,20 @@ degerlendirmesi marketer'i projeye ekler ve Drive kurulumunu baslatir.
 - Degerlendirme raporlari istege bagli olarak
   `shared/idea-evaluations/<fikir-id>/` altinda tutulur ve herkes okuyabilir.
 - Proje klasoru ilk marketer'in kisisel Drive alaninda yer alir.
+- Ilk marketer `Drive host marketer` olarak izlenir.
 - Diger proje uyelerine yalnizca ilgili proje klasoru paylasilir.
+- Web app uyeligi Drive erisimi anlamina gelmez; yeni uye erisimi dogrulanana kadar
+  `Drive Erisimi Bekliyor` etiketi tasir.
+- Drive host marketer ekipten ayrilirsa sistem sahibi klasoru aktif bir marketer alanina
+  tasir veya yeniden paylasir; web app otomatik izin degisikligi yaptigini varsaymaz.
 - Web app Google Drive API ile proje klasoru olusturmaz.
 - Ilk olumlu marketer degerlendirmesinden sonra proje `Drive Kurulumu Bekliyor` olur.
 - Marketer yerel bilgisayarinda Codex araciligiyla `create-project.ps1` calistirir.
 - Yerel proje klasoru Google Drive Desktop tarafindan Drive'a senkronize edilir.
-- Marketer Drive klasor baglantisini web app'e ekler; proje bundan sonra aktif calisma
-  durumuna gecebilir.
+- Marketer script basarisini ve Drive senkronizasyonunu ayri ayri onaylar; canonical Drive
+  klasor baglantisini ekler. Uc kosul tamamlaninca proje aktif calisma durumuna gecebilir.
+- Web app link erisimini Drive API ile test etmez; guvenli URL/link turu dogrulamasi ve
+  kullanici onayi kullanir.
 - Web app ve Drive arasinda otomatik cift yonlu dosya senkronizasyonu yoktur.
 
 ## Durum Makinesi
@@ -132,9 +139,11 @@ Sonraki adim
 Aktif haftalik ilerleme ozeti
 Notlar
 Drive klasor baglantisi
+Drive aktivasyon checklist'i
 PRD baglantisi
 Analiz baglantilari
-Landing page baglantisi
+Landing page kaynak/brief Drive baglantilari
+Yayindaki landing page URL'si
 Rapor baglantilari
 Olusturulma ve son guncellenme zamani
 ```
