@@ -3,71 +3,71 @@ name: directory-submissions
 description: Urun ve sirket dizinleri icin basvuru stratejisi ve takip listesi olustur. Product Hunt, G2, Capterra veya startup dizinlerinde kullan.
 ---
 
-# Dizin Başvuruları
+# Directory Submissions
 
-Dizin dağıtım stratejisti. Amaç: backlink ve keşfedilebilirlik için doğru dizinlere, doğru sırayla, doğru konumlandırmayla başvurmak.
+Directory distribution strategist. Goal: submit to the right directories, in the right order, with the right positioning, for backlinks and discoverability.
 
-## Temel Prensip
+## Core Principle
 
-Dizinler stratejinin temel katmanıdır — tüm strateji değil. Üç şey yaparlar:
-1. Yüksek domain rating'li sitelerden dofollow backlink geçirir
-2. Keşif yüzey alanı yaratır (dizinlerde gezenler alıcıdır)
-3. AI arama motorları tarafından kaynak olarak alıntılanır
+Directories are the base layer of strategy — not the entire strategy. They do three things:
+1. Pass dofollow backlinks from high domain rating sites
+2. Create discovery surface area (people browsing directories are buyers)
+3. Get cited as a source by AI search engines
 
-## Başvuru Öncesi Hazırlık
+## Pre-Submission Preparation
 
-Başvurmadan önce landing page'in şunlara sahip olmalı:
-- Tek H1 + sıralı başlık hiyerarşisi
-- Gerçek fiyatlandırma sayfası
-- Gizlilik politikası + kullanım koşulları
-- Logo (PNG, SVG, kare 1024x1024, favicon)
-- 5-8 gerçek ürün ekran görüntüsü
-- 60-90 sn demo videosu (Product Hunt için kritik)
+Before submitting, the landing page must have:
+- Single H1 + ordered heading hierarchy
+- Real pricing page
+- Privacy policy + terms of service
+- Logo (PNG, SVG, square 1024x1024, favicon)
+- 5-8 real product screenshots
+- 60-90s demo video (critical for Product Hunt)
 - FAQ schema markup
 
-## Dizin Kategorileri
+## Directory Categories
 
-| Kategori | Örnekler | Ne Zaman |
-|----------|----------|----------|
-| **Lansman amiral gemisi** | Product Hunt, BetaList | Lansman haftası |
-| **Startup/SaaS** | AlternativeTo, SaaSHub, G2, Capterra | 1. hafta |
-| **AI dizinleri** | TAAFT, Futurepedia, Toolify | 1-3. hafta |
-| **İnceleme siteleri** | G2, Capterra, TrustRadius | Devam eden |
+| Category | Examples | When |
+|----------|----------|------|
+| **Launch flagship** | Product Hunt, BetaList | Launch week |
+| **Startup/SaaS** | AlternativeTo, SaaSHub, G2, Capterra | Week 1 |
+| **AI directories** | TAAFT, Futurepedia, Toolify | Weeks 1-3 |
+| **Review sites** | G2, Capterra, TrustRadius | Ongoing |
 
 ## Product Hunt Deep Dive
 
-En yüksek kaldıraçlı ama en kolay harcanabilir başvuru.
+The highest-leverage but most easily wasted submission.
 
-### 3 Haftalık Hazırlık
-- **-21 gün:** Hesabı ısıt — günde 3 ürüne oy ver/yorum yap
-- **-14 gün:** "Upcoming" sayfası oluştur
-- **-7 gün:** Lansman günü asset'lerini hazırla
-- **-3 gün:** Email listesini ısıt
-- **-1 gün:** Son kontrol — her şey çalışıyor mu?
+### 3-Week Preparation
+- **-21 days:** Warm up the account — upvote/comment on 3 products per day
+- **-14 days:** Create "Upcoming" page
+- **-7 days:** Prepare launch day assets
+- **-3 days:** Warm up the email list
+- **-1 day:** Final check — is everything working?
 
-### Lansman Günü
-- **Saat 12:01 AM PT'de başlat** (Pasifik saati)
-- Salı-Çarşamba-Perşembe (hafta sonu %60-70 daha az trafik)
-- İlk 2 saat kritik — 50+ destekçi lazım
-- İlk yorumu KENDİN at — neden yaptın, ne farklı, ilk ne denenmeli
-- Her yoruma 30 dk içinde cevap ver
+### Launch Day
+- **Launch at 12:01 AM PT** (Pacific Time)
+- Tuesday-Wednesday-Thursday (weekends get 60-70% less traffic)
+- First 2 hours critical — need 50+ supporters
+- Post the first comment YOURSELF — why you built it, what's different, what to try first
+- Respond to every comment within 30 minutes
 
-## Konumlandırma Varyantları
+## Positioning Variants
 
-Her dizin tipi için farklı açıklama:
-| Dizin Tipi | Öne Çıkar | 
-|-----------|-----------|
-| Startup | Sonuç/çıktı |
-| SaaS | Alternatif framing ("X alternatifi") |
-| AI | AI mimarisi |
-| İnceleme | ROI + kullanım senaryosu |
+Different description for each directory type:
+| Directory Type | Highlight |
+|---------------|-----------|
+| Startup | Result/output |
+| SaaS | Alternative framing ("X alternative") |
+| AI | AI architecture |
+| Review | ROI + use case |
 
-## Başvuru Takip Sistemi
+## Submission Tracking System
 
-Her başvuru için kaydet:
-- Dizin adı
-- Başvuru tarihi
+Record for every submission:
+- Directory name
+- Submission date
 - URL
-- Durum (başvuruldu/onaylandı/reddedildi)
-- Backlink (dofollow mu?)
-- Notlar
+- Status (submitted/approved/rejected)
+- Backlink (is it dofollow?)
+- Notes

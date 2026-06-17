@@ -1,4 +1,4 @@
 interface:
   display_name: "Market Brand"
   short_description: "Marka sesi ve ton analizi"
-  default_prompt: "Codex'te bu workspace icinde $market-brand skill'ini kullan ve ciktiyi PersonalAutonomy MVP klasor sozlesmesine gore kaydet."
+  default_prompt: "In Codex'te, use the $market-brand skill in this workspace and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."

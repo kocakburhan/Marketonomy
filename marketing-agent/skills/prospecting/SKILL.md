@@ -3,69 +3,69 @@ name: prospecting
 description: B2B potansiyel musteri kriteri, kaynaklari ve listeleme planini olustur. ICP bazli lead veya hesap listesi istendiginde kullan.
 ---
 
-# Prospecting (Müşteri Adayı Bulma)
+# Prospecting (Finding Customer Leads)
 
-Potansiyel müşteri araştırma uzmanı. Hedef kitleye uygun prospect'leri bulur, kalifiye eder, liste oluşturur.
+Potential customer research specialist. Finds, qualifies, and builds a list of prospects that fit the target audience.
 
-## Başlamadan Önce
+## Before You Start
 
-1. **product-marketing** context'ini kontrol et
-2. Şunları anla:
-   - Hedef kitle profili (ICP — Ideal Customer Profile)
-   - Kaç prospect lazım?
-   - Hangi kanallar? (LinkedIn, Apollo, manual)
+1. Check **product-marketing** context
+2. Understand:
+   - Target audience profile (ICP — Ideal Customer Profile)
+   - How many prospects are needed?
+   - Which channels? (LinkedIn, Apollo, manual)
 
-## Prospect Kaynakları
+## Prospect Sources
 
-| Kaynak | Ne İçin | Yöntem |
-|--------|---------|--------|
-| LinkedIn Sales Navigator | B2B, unvan/şirket filtresi | Manuel + scraping |
-| Apollo.io | B2B, email + telefon | CSV export |
-| BuiltWith / Wappalyzer | Tech stack bazlı | Site analizi |
-| CrunchBase | Startup, funding | Veritabanı |
-| Google Maps | Lokal işletme | Manuel |
-| İş ilanları | Büyüyen şirketler | Indeed, LinkedIn Jobs |
-| Konferans katılımcıları | Sektör spesifik | Etkinlik siteleri |
+| Source | What For | Method |
+|--------|----------|--------|
+| LinkedIn Sales Navigator | B2B, title/company filter | Manual + scraping |
+| Apollo.io | B2B, email + phone | CSV export |
+| BuiltWith / Wappalyzer | Tech stack based | Site analysis |
+| CrunchBase | Startup, funding | Database |
+| Google Maps | Local business | Manual |
+| Job postings | Growing companies | Indeed, LinkedIn Jobs |
+| Conference attendees | Industry specific | Event sites |
 
-## ICP (Ideal Customer Profile) Tanımı
+## ICP (Ideal Customer Profile) Definition
 
-Net tanımla ki doğru kişileri bulasın:
+Define clearly so you find the right people:
 
-- **Şirket:** Sektör, büyüklük, lokasyon, aşama
-- **Karar verici:** Unvan, departman, kıdem
-- **Tetikleyiciler:** Yeni işe başlama, funding, büyüme, tech stack değişimi
-- **Acı noktası:** Hangi problem için senin ürününü ararlar?
+- **Company:** Industry, size, location, stage
+- **Decision maker:** Title, department, seniority
+- **Triggers:** New hire, funding, growth, tech stack change
+- **Pain point:** What problem would make them search for your product?
 
-## Sıcak Prospect Sinyalleri
+## Hot Prospect Signals
 
-- Yeni işe başlayan yönetici (eski sistemi değiştirmek için bütçe almıştır)
-- Yeni funding alan startup (büyüme bütçesi vardır)
-- Rakip ürünü kullanan ama şikayet eden (Twitter/Reddit/G2)
-- Sektör etkinliğinde konuşmacı (sektörde aktif)
-- İş ilanında senin ürün kategorini arayan şirket
+- Newly hired executive (has budget to replace old system)
+- Freshly funded startup (has growth budget)
+- Uses competitor product but complains (Twitter/Reddit/G2)
+- Speaker at an industry event (active in industry)
+- Company posting a job in your product category
 
-## Prospect Listesi Formatı
+## Prospect List Format
 
 ```csv
-İsim,Şirket,Unvan,LinkedIn,Email,Tahmini Email,Notlar,Sıcaklık
-Ahmet Yılmaz,TechCorp,CTO,linkedin.com/in/...,ahmet@techcorp.com,ahmet@techcorp.com,Jira kullanıyor,Yüksek
+Name,Company,Title,LinkedIn,Email,Estimated Email,Notes,Heat
+Ahmet Yılmaz,TechCorp,CTO,linkedin.com/in/...,ahmet@techcorp.com,ahmet@techcorp.com,Uses Jira,High
 ```
 
-- **Sıcaklık:** Yüksek (tetikleyici var) / Orta (ICP uyuyor) / Düşük (potansiyel)
+- **Heat:** High (has trigger) / Medium (matches ICP) / Low (potential)
 
-## Outreach Öncesi Araştırma
+## Pre-Outreach Research
 
-Her prospect için 2 dk araştırma:
-- Son LinkedIn paylaşımı
-- Şirket haberi
+2 min research per prospect:
+- Latest LinkedIn post
+- Company news
 - Tech stack
-- Ortak bağlantı
-- Kişiselleştirme için bir "hook"
+- Mutual connection
+- A "hook" for personalization
 
-## Kalifikasyon Soruları
+## Qualification Questions
 
-Listeyi cold-email'e başlamadan önce süz:
-- Bütçe var mı? (şirket büyüklüğü, funding)
-- İhtiyaç var mı? (mevcut çözüm, acı noktası)
-- Zamanlama doğru mu? (büyüme, değişim sinyali)
-- Karar verici mi? (unvan kontrolü)
+Filter the list before starting cold email:
+- Is there a budget? (company size, funding)
+- Is there a need? (current solution, pain point)
+- Is the timing right? (growth, change signal)
+- Is this a decision maker? (title check)

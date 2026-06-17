@@ -3,73 +3,73 @@ name: aso
 description: App Store ve Google Play optimizasyonu yap. Uygulama magazasi anahtar kelimesi, listing, yorum veya rakip app analizi istendiginde kullan.
 ---
 
-# ASO (App Store Optimizasyonu)
+# ASO (App Store Optimization)
 
-Mobil uygulama mağazası optimizasyon uzmanı. App Store ve Google Play'de sıralama yükseltme.
+Mobile app store optimization specialist. Ranking improvement in App Store and Google Play.
 
-## Optimizasyon Alanları
+## Optimization Areas
 
-### 1. Uygulama Adı ve Alt Başlık
-- App Store: 30 karakter (ad) + 30 karakter (alt başlık)
-- Google Play: 50 karakter (ad) + 80 karakter (kısa açıklama)
-- Ana anahtar kelimeyi ada ekle
-- Örnek: "ProjectFlow: Proje Yönetimi & Ekip İletişimi"
+### 1. App Name and Subtitle
+- App Store: 30 characters (name) + 30 characters (subtitle)
+- Google Play: 50 characters (name) + 80 characters (short description)
+- Include the main keyword in the name
+- Example: "ProjectFlow: Project Management & Team Communication"
 
-### 2. Anahtar Kelimeler
-- App Store: 100 karakter keyword alanı
-- Google Play: Açıklamada doğal olarak geçmeli
-- Rakip analizi: Rakipler hangi kelimeleri kullanıyor?
-- Uzun kuyruklu (long-tail) fırsatları ara
+### 2. Keywords
+- App Store: 100 character keyword field
+- Google Play: Must appear naturally in the description
+- Competitor analysis: Which keywords are competitors using?
+- Search for long-tail opportunities
 
-### 3. Açıklama
-- İlk 3 satır en kritik — arama sonuçlarında görünen kısım
-- Değer önerisi hemen başta
-- Fayda odaklı, özellik listesi değil
-- Sosyal kanıt: ödüller, kullanıcı sayısı, puan
+### 3. Description
+- First 3 lines are most critical — the portion visible in search results
+- Value proposition right at the start
+- Benefit-focused, not a feature list
+- Social proof: awards, user count, rating
 
-### 4. Görsel Asset'ler
-- **Simge (Icon):** Basit, tanınabilir, renk kontrastı yüksek
-- **Ekran görüntüleri:** Fayda göster, sadece arayüz değil
-  - App Store: 10 adede kadar
-  - Google Play: 8 adede kadar
-- **Öne çıkan görsel (Feature Graphic):** Google Play için zorunlu
-- **Video:** App Store 30 sn, Google Play 30 sn-2 dk
+### 4. Visual Assets
+- **Icon:** Simple, recognizable, high color contrast
+- **Screenshots:** Show benefit, not just the interface
+  - App Store: up to 10
+  - Google Play: up to 8
+- **Feature Graphic:** Mandatory for Google Play
+- **Video:** App Store 30s, Google Play 30s-2 min
 
-### 5. Puan ve Yorumlar
-- Hedef: 4+ yıldız, en az 50 yorum
-- Her güncellemede yorum iste
-- Negatif yorumlara hızlı ve yapıcı cevap ver
-- iOS: SKStoreReviewController API ile uygulama içi yorum iste
+### 5. Rating and Reviews
+- Target: 4+ stars, at least 50 reviews
+- Request reviews at every update
+- Respond quickly and constructively to negative reviews
+- iOS: In-app review request via SKStoreReviewController API
 
-## Sıralama Faktörleri
+## Ranking Factors
 
-| Faktör | App Store | Google Play |
+| Factor | App Store | Google Play |
 |--------|:---------:|:-----------:|
-| Uygulama adı | Yüksek | Yüksek |
-| Anahtar kelimeler | Yüksek | Orta |
-| İndirme sayısı | Yüksek | Yüksek |
-| Puan ve yorum | Orta | Yüksek |
-| İndirme hızı | Yüksek | Orta |
-| Güncelleme sıklığı | Orta | Orta |
-| Etkileşim (açılma) | Düşük | Yüksek |
+| App name | High | High |
+| Keywords | High | Medium |
+| Download count | High | High |
+| Rating and reviews | Medium | High |
+| Download velocity | High | Medium |
+| Update frequency | Medium | Medium |
+| Engagement (opens) | Low | High |
 
-## ASO Denetim Adımları
+## ASO Audit Steps
 
-1. Mevcut sıralamayı kontrol et (App Store Connect, Google Play Console)
-2. Rakiplerin sıralandığı kelimeleri araştır
-3. Başlık, alt başlık, açıklamayı optimize et
-4. Görselleri güncelle
-5. Yorum stratejisi uygula
+1. Check current ranking (App Store Connect, Google Play Console)
+2. Research keywords competitors rank for
+3. Optimize title, subtitle, description
+4. Update visuals
+5. Implement review strategy
 6. A/B test (Google Play listing experiments)
-7. 2 hafta sonra tekrar ölç
+7. Measure again after 2 weeks
 
-## Codex ve MCP Kullanimi
+## Codex and MCP Usage
 
-- App Store / Google Play verisi icin mcp-appstore yalnizca aktif Codex tool listesinde
-  gorunuyorsa kullanilir.
-- MCP yoksa resmi magazalar, Codex web/Browser/Chrome, kullanici exportu veya manuel veri
-  fallback'i kullan; erisilemeyen metrikleri raporda belirt.
-- Keyword, siralama, puan, yorum sayisi ve fiyat gibi degisebilir alanlarda kaynak, tarih ve
-  ulke/market parametresini yaz.
-- Ham yorum veya keyword listesini ozetlemeden once kaynak olarak koru; tema sayilarini ve
-  ornek kullanici dilini ayri ver.
+- For App Store / Google Play data, mcp-appstore is used only if visible in the active Codex
+  tool list.
+- If MCP is unavailable, use official stores, Codex web/Browser/Chrome, user export, or manual
+  data fallback; note unreachable metrics in the report.
+- For changeable fields such as keyword, ranking, rating, review count, and price, write the
+  source, date, and country/market parameter.
+- Preserve raw reviews or keyword lists as source before summarizing; keep theme counts and
+  sample user language separately.

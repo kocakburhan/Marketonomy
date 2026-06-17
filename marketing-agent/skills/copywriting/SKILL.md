@@ -5,66 +5,66 @@ description: Landing page, homepage ve urun sayfasi icin ikna edici metin yaz. D
 
 # Copywriting
 
-Dönüşüm odaklı pazarlama metni yazarı. Amaç: net, ikna edici, aksiyona yönlendiren metinler yazmak.
+Conversion-focused marketing copywriter. Goal: write clear, persuasive, action-driving copy.
 
-## Yazmadan Önce
+## Before Writing
 
-1. **product-marketing** context'ini kontrol et
-2. Şu bağlamı topla:
-   - Sayfa tipi (homepage, landing, pricing, feature)
-   - TEK ana aksiyon ne?
-   - Hedef kitle kim?
-   - Ürün/teklif ne?
-   - Trafik nereden geliyor?
+1. Check the **product-marketing** context
+2. Gather this context:
+   - Page type (homepage, landing, pricing, feature)
+   - What is the ONE main action?
+   - Who is the target audience?
+   - What is the product/offer?
+   - Where is the traffic coming from?
 
-## Temel Prensipler
+## Core Principles
 
-1. **Netlik > Zeka** — Açık olmak, yaratıcı olmaktan iyidir
-2. **Fayda > Özellik** — Ne yaptığı değil, müşteriye ne kazandırdığı
-3. **Spesifik > Muğlak** — "Zaman kazandırır" değil, "4 saat kazandırır"
-4. **Müşteri dili > Şirket dili** — Müşterinin kullandığı kelimelerle yaz
+1. **Clarity > Cleverness** — Being clear is better than being creative
+2. **Benefit > Feature** — Not what it does, but what the customer gains
+3. **Specific > Vague** — Not "saves time" but "saves 4 hours"
+4. **Customer language > Company language** — Write with the words customers use
 
-## Yazım Stili
+## Writing Style
 
-- Basit > Karmaşık — "kullan" de, "utilize etme"
-- Aktif > Pasif — "Raporlar üretiriz", "Raporlar üretilir" değil
-- Kendinden emin > Temkinli — "çok", "neredeyse", "gerçekten" gibi kelimeleri at
-- Göster > Anlat — Sıfat yerine sonucu tarif et
+- Simple > Complex — say "use," not "utilize"
+- Active > Passive — "We generate reports," not "Reports are generated"
+- Confident > Cautious — drop words like "very," "almost," "really"
+- Show > Tell — Describe the outcome instead of using adjectives
 
-## Sayfa Yapısı
+## Page Structure
 
-### Above the Fold (Ekranın Üstü)
-- **Başlık:** En önemli mesaj, spesifik
-- **Alt başlık:** Başlığı genişletir, spesifiklik ekler (1-2 cümle)
-- **Primary CTA:** Aksiyon odaklı buton metni
+### Above the Fold
+- **Headline:** Most important message, specific
+- **Subheadline:** Expands the headline, adds specificity (1-2 sentences)
+- **Primary CTA:** Action-oriented button text
 
-### Başlık Formülleri
-- "{Sonuç} elde et, {acı noktası} olmadan"
-- "{Hedef kitle} için {kategori}"
-- "Bir daha asla {istenmeyen olay}"
-- "{Ana acı noktasını vurgulayan soru}"
+### Headline Formulas
+- "Get {outcome} without {pain point}"
+- "{Category} for {target audience}"
+- "Never {undesirable event} again"
+- "{Question that highlights the main pain point}"
 
-### Temel Bölümler
-| Bölüm | Amaç |
-|-------|------|
-| Sosyal Kanıt | Güven inşa et (logolar, istatistikler, yorumlar) |
-| Problem/Acı | Durumlarını anladığını göster |
-| Çözüm/Faydalar | Sonuçlara bağla (3-5 ana fayda) |
-| Nasıl Çalışır | Algılanan karmaşıklığı azalt (3-4 adım) |
-| İtiraz Yanıtlama | SSS, karşılaştırmalar, garantiler |
-| Final CTA | Değeri özetle, CTA'yı tekrarla |
+### Core Sections
+| Section | Purpose |
+|---------|---------|
+| Social Proof | Build trust (logos, stats, testimonials) |
+| Problem/Pain | Show you understand their situation |
+| Solution/Benefits | Link to outcomes (3-5 core benefits) |
+| How It Works | Reduce perceived complexity (3-4 steps) |
+| Objection Handling | FAQ, comparisons, guarantees |
+| Final CTA | Summarize value, repeat CTA |
 
-## CTA Kuralları
+## CTA Rules
 
-❌ Zayıf: Gönder, Kaydol, Daha Fazla, Tıkla, Başla
-✅ Güçlü: Ücretsiz Dene, [Spesifik Şey] Al, [Ürün]'ü Gör, İlk [Şey]'ini Oluştur
+❌ Weak: Submit, Register, More, Click, Get Started
+✅ Strong: Try Free, Get [Specific Thing], See [Product], Create Your First [Thing]
 
-Formül: [Aksiyon Fiili] + [Ne Alacakları]
+Formula: [Action Verb] + [What They'll Get]
 
-## Çıktı Formatı
+## Output Format
 
-Her sayfa için:
-- Başlık, alt başlık, CTA
-- Bölüm başlıkları ve gövde metni
-- Alternatif başlık ve CTA varyasyonları (2-3 seçenek)
-- Gerekirse SEO meta (page title, meta description)
+For each page:
+- Headline, subheadline, CTA
+- Section headings and body copy
+- Alternative headline and CTA variations (2-3 options)
+- SEO meta if needed (page title, meta description)

@@ -1,184 +1,187 @@
-# Pipeline 1: Fikir Keşif ve Doğrulama (Idea Discovery)
+# Pipeline 1: Idea Discovery and Validation
 
-**Zincirdeki yeri:** Zincir A (ilk adım) — sonrasında P5'e geçer.
+**Position in chain:** Chain A (first step) — then transitions to P5.
 
-**Ne zaman çalışır:** Kullanıcı "sıfırdan bir fikir bulmak istiyorum" dediğinde veya henüz
-somut bir fikir getirmediğinde. Kullanıcı hazır bir fikirle geldiyse bu pipeline'ı başlatma;
-`pipelines/idea-to-prd.md` içindeki "denemeye değer mi?" akışına yönlendir.
+**When it runs:** When the user says "I want to find an idea from scratch" or when they haven't
+brought a concrete idea yet. If the user comes with a ready idea, do not start this pipeline;
+direct them to the "is it worth trying?" flow in `pipelines/idea-to-prd.md`.
 
-**Amaç:** Pazardaki boşlukları ve fırsatları tarayıp kullanıcıyla birlikte denenebilir bir ürün
-fikrine ulaşmak. Fikir netleştiğinde agent, iyimser davranmak yerine kanıt ve kullanıcı
-pazarlama avantajı üzerinden fikri sert biçimde doğrular.
+**Purpose:** Scan the market for gaps and opportunities to reach a testable product idea together
+with the user. When the idea becomes clear, the agent validates the idea rigorously based on
+evidence and the user's marketing advantage rather than being optimistic.
 
-**Ön koşul:** `PROJE.md ve 01-baglam/ altindaki ilgili dosyalar` oluşturulmuş olmalı.
-
----
-
-## Pipeline Akışı
-
-```
-Kullanıcı giriş yapar
-        │
-        ▼
-[1.1] Orchestrator → İlgi alanı/sektör/ürün tipi sor
-        │
-        ▼
-[1.2] Market Scout → Kaynakları tara, fırsat haritası çıkar
-        │  Çıktı: firsat-haritasi.md
-        ▼
-[1.3] Orchestrator → Fırsatları kullanıcıya sun, kategori seçtir
-        │  Kullanıcı: "X kategorisini analiz et" (veya "vazgeç")
-        ▼
-[1.4] Market Scout → Seçilen kategoride derin analiz
-        │  Çıktı: kategori-analizi.md
-        ▼
-[1.5] Strategy Analyst → Rekabet analizi, boşluk tespiti
-        │  Çıktı: strateji-analizi.md
-        ▼
-[1.6] Orchestrator → Boşlukları kullanıcıya sun, fırsat seçtir
-        │  Kullanıcı: bir boşluk/fırsat seçer (veya "diğer kategoriye dön")
-        ▼
-[1.7] Product Architect → Seçilen fırsattan fikir üret
-        │  Çıktı: idea-brief.md
-        ▼
-[1.8] Orchestrator → Fikri kullanıcıyla tartış, şekillendir
-        │  Kullanıcı: fikri onaylar / revize ister / vazgeçer
-        ▼
-[1.9] Orchestrator → Onaylı fikri P5 değerleme kapısına aktar
-           P5: kullanıcı pazarlama avantajı + research + sert doğrulama
-           Değer kararı çıkarsa: MVP → PRD → coder brief
-```
+**Prerequisite:** `PROJE.md and relevant files under 01-baglam/` must be created.
 
 ---
 
-## Adım Detayları
+## Pipeline Flow
 
-### 1.1 — İlgi Alanı ve Ürün Tipi Belirleme
+```
+User enters
+        │
+        ▼
+[1.1] Orchestrator → Ask interest area/sector/product type
+        │
+        ▼
+[1.2] Market Scout → Scan sources, produce opportunity map
+        │  Output: firsat-haritasi.md
+        ▼
+[1.3] Orchestrator → Present opportunities to user, have them select a category
+        │  User: "Analyze category X" (or "cancel")
+        ▼
+[1.4] Market Scout → Deep analysis in selected category
+        │  Output: kategori-analizi.md
+        ▼
+[1.5] Strategy Analyst → Competitive analysis, gap detection
+        │  Output: strateji-analizi.md
+        ▼
+[1.6] Orchestrator → Present gaps to user, have them select an opportunity
+        │  User: selects a gap/opportunity (or "return to other category")
+        ▼
+[1.7] Product Architect → Generate idea from selected opportunity
+        │  Output: idea-brief.md
+        ▼
+[1.8] Orchestrator → Discuss and shape the idea with the user
+        │  User: approves / requests revision / cancels
+        ▼
+[1.9] Orchestrator → Pass approved idea to P5 valuation gate
+           P5: user marketing advantage + research + rigorous validation
+           If value decision is made: MVP → PRD → coder brief
+```
+
+---
+
+## Step Details
+
+### 1.1 — Interest Area and Product Type Determination
 **Agent:** Orchestrator
-**Kullanıcıya sorulan:**
-1. Hangi sektörle ilgileniyorsun? (açık uçlu veya önerili liste)
-2. Ne tür ürün? (Mobil app / SaaS / E-ticaret / ...)
-3. Özel bir ilgi alanın var mı? (spor, sağlık, eğitim, finans...)
+**Questions to user:**
+1. Which sector are you interested in? (open-ended or suggested list)
+2. What type of product? (Mobile app / SaaS / E-commerce / ...)
+3. Do you have a specific interest area? (sports, health, education, finance...)
 
-**Not:** Kullanıcı "bilmiyorum" derse tüm popüler kategorileri tara.
+**Note:** If the user says "I don't know," scan all popular categories.
 
-### 1.2 — Fırsat Haritası
+### 1.2 — Opportunity Map
 **Agent:** Market Scout
-**Opsiyonel capability'ler:**
-- Mobil App: `search_app` ile kategorilerdeki top app'leri bul, `analyze_top_keywords` ile keyword trafiğini ölç
-- SaaS: etkin Codex web/Browser/Chrome araci ile G2/Capterra/Reddit tara
-- Fiziksel İşletme: etkin Codex web/Browser/Chrome araci ile Google Maps/GBP tara
+**Optional capabilities:**
+- Mobile App: use `search_app` to find top apps in categories, use `analyze_top_keywords` to measure keyword traffic
+- SaaS: scan G2/Capterra/Reddit with active Codex web/Browser/Chrome tool
+- Physical Business: scan Google Maps/GBP with active Codex web/Browser/Chrome tool
 
-**Eylem:** Ürün tipine uygun tüm kaynakları tara.
+**Action:** Scan all sources appropriate for the product type.
 - App Store / Google Play → **mcp-appstore `search_app` + `analyze_top_keywords`**
-- G2 / Capterra / Reddit → **etkin Codex web/Browser/Chrome araci**
-- Google Maps / GBP → **etkin Codex web/Browser/Chrome araci**
+- G2 / Capterra / Reddit → **active Codex web/Browser/Chrome tool**
+- Google Maps / GBP → **active Codex web/Browser/Chrome tool**
 
-**Not:** Kullanıcı sektör belirtmişse sadece o sektörü tara. Belirtmemişse tüm kategorileri tara ve en hızlı büyüyenleri sırala.
+**Note:** If the user specified a sector, scan only that sector. If not, scan all categories and rank the fastest-growing ones.
 
-### 1.3 — Kategori Seçimi
+### 1.3 — Category Selection
 **Agent:** Orchestrator
-**Kullanıcıya sunulan:** En az 3 yükselen kategori, her biri için:
-- Kaç app/rakip var
-- Büyüme oranı
-- Ortalama gelir (varsa)
-- Öne çıkan bir örnek
+**Presented to user:** At least 3 rising categories, for each:
+- How many apps/competitors exist
+- Growth rate
+- Average revenue (if available)
+- One standout example
 
-**Kullanıcı kararı:** "X kategorisini derinlemesine analiz et" veya "vazgeç, başka kaynak tara"
+**User decision:** "Deeply analyze category X" or "cancel, scan another source"
 
-### 1.4 — Derin Kategori Analizi
+### 1.4 — Deep Category Analysis
 **Agent:** Market Scout
-**Opsiyonel capability'ler (her rakip app için):**
-1. `get_app_details(appId, platform)` → indirme, puan histogramı, kategori, ekran görüntüleri
+**Optional capabilities (for each competitor app):**
+1. `get_app_details(appId, platform)` → downloads, rating histogram, category, screenshots
 2. `analyze_reviews(appId, platform, sort="rating", num=200)` → sentiment, top negative keywords, common themes
-3. `get_pricing_details(appId, platform)` → IAP fiyatları, monetization modeli
-4. `get_similar_apps(appId, platform)` → rakip keşfi
-5. **Revenue tahmini:** `rating_count × avg_subscription_price × 0.02`
+3. `get_pricing_details(appId, platform)` → IAP prices, monetization model
+4. `get_similar_apps(appId, platform)` → competitor discovery
+5. **Revenue estimate:** `rating_count × avg_subscription_price × 0.02`
 
-**Süre:** Kategorideki rakip sayısına bağlı. En az 3, en çok 10 rakip analiz edilir.
+**Duration:** Depends on number of competitors in the category. At least 3, at most 10 competitors analyzed.
 
-### 1.5 — Stratejik Analiz
+### 1.5 — Strategic Analysis
 **Agent:** Strategy Analyst
-**Girdi:** `kategori-analizi.md`
-**Çıktı:** SWOT, pozisyon haritası, boşluk listesi
+**Input:** `kategori-analizi.md`
+**Output:** SWOT, positioning map, gap list
 
-### 1.6 — Fırsat Seçimi
+### 1.6 — Opportunity Selection
 **Agent:** Orchestrator
-**Kullanıcıya sunulan:** En az 3 somut fırsat alanı (boşluk). Her biri için:
-- Hangi rakiplerin eksikliği
-- Kullanıcıların neyden şikayet ettiği
-- Tahmini pazar büyüklüğü
+**Presented to user:** At least 3 concrete opportunity areas (gaps). For each:
+- Which competitors' deficiency
+- What users complain about
+- Estimated market size
 
-### 1.7 — Fikir Üretimi
+### 1.7 — Idea Generation
 **Agent:** Product Architect
-**Girdi:** Seçilen fırsat alanı
-**Çıktı:** `idea-brief.md` — problem, çözüm, hedef kitle, MVP kapsamı, gelir modeli
+**Input:** Selected opportunity area
+**Output:** `idea-brief.md` — problem, solution, target audience, MVP scope, revenue model
 
-### 1.8 — Fikir Tartışması
+### 1.8 — Idea Discussion
 **Agent:** Orchestrator
-**Kullanıcıyla yapılan:** Fikrin artıları/eksileri, riskler, alternatif açılar, hedef kitle netleştirme. Kullanıcı fikri şekillendirir.
+**Done with user:** Pros/cons of the idea, risks, alternative angles, target audience clarification. The user shapes the idea.
 
-### 1.9 — P5 Değerleme Kapısına Geçiş
+### 1.9 — Transition to P5 Valuation Gate
 **Agent:** Orchestrator
-**Girdi:** Onaylanmış `idea-brief.md` + tartışma notları
-**Eylem:** Fikri hazır fikir gibi ele al ve `pipelines/idea-to-prd.md` akışını başlat.
+**Input:** Approved `idea-brief.md` + discussion notes
+**Action:** Treat the idea as a ready idea and start the `pipelines/idea-to-prd.md` flow.
 
-Bu geçişte kullanıcıya tekrar iyimser davranma. P5 içinde kullanıcının networkü, bilgi birikimi,
-çalıştığı alan/sektör, yaşadığı şehir/ülke, satış/pazarlama deneyimi ve ilk kullanıcıya erişim
-kanalları sorgulanır. Fikir değerli bulunursa önce `04-urun/fikir-ozetleri/mvp.md`, sonra
-`04-urun/prd/prd.md`, ardından `04-urun/coder-briefleri/coder-brief.md` üretilir.
-
----
-
-## Karar Noktaları
-
-| Adım | Karar | Seçenekler |
-|------|-------|-----------|
-| 1.3 | Kategori seçimi | "X'i analiz et" / "Başka öner" / "Vazgeç" |
-| 1.6 | Fırsat seçimi | "X fırsatından fikir üret" / "Başka kategoriye dön" / "Vazgeç" |
-| 1.8 | Fikir onayı | "P5 değerleme kapısına geçir" / "Şu kısmı değiştir" / "Vazgeç" |
-| 1.9 | Değerleme geçişi | "P5'i başlat" / "Önce fikri revize et" / "Vazgeç" |
+In this transition, do not be optimistic toward the user again. Within P5, the user's network,
+knowledge, field/sector of work, city/country of residence, sales/marketing experience, and first
+user access channels are queried. If the idea is found valuable, first
+`04-urun/fikir-ozetleri/mvp.md`, then `04-urun/prd/prd.md`, then
+`04-urun/coder-briefleri/coder-brief.md` are produced.
 
 ---
 
-## Çıktı Dosyaları
+## Decision Points
 
-| Dosya | Üreten | Açıklama |
-|-------|--------|----------|
-| `firsat-haritasi.md` | Market Scout | Tüm kategoriler, büyüme oranları |
-| `kategori-analizi.md` | Market Scout | Seçilen kategorideki rakip profilleri |
-| `strateji-analizi.md` | Strategy Analyst | SWOT, boşluklar, fırsat alanları |
-| `idea-brief.md` | Product Architect | Detaylandırılmış fikir |
-| P5 çıktıları | Orchestrator + uzmanlar | Değer kararı çıkarsa MVP, PRD ve coder brief |
+| Step | Decision | Options |
+|------|----------|---------|
+| 1.3 | Category selection | "Analyze X" / "Suggest another" / "Cancel" |
+| 1.6 | Opportunity selection | "Generate idea from X opportunity" / "Return to other category" / "Cancel" |
+| 1.8 | Idea approval | "Pass to P5 valuation gate" / "Change this part" / "Cancel" |
+| 1.9 | Valuation transition | "Start P5" / "Revise idea first" / "Cancel" |
 
 ---
 
-## Sonraki Pipeline
+## Output Files
 
-Pipeline 1 tamamlandığında orchestrator otomatik olarak şu mesajı verir:
+| File | Produced by | Description |
+|------|-------------|-------------|
+| `firsat-haritasi.md` | Market Scout | All categories, growth rates |
+| `kategori-analizi.md` | Market Scout | Competitor profiles in selected category |
+| `strateji-analizi.md` | Strategy Analyst | SWOT, gaps, opportunity areas |
+| `idea-brief.md` | Product Architect | Detailed idea |
+| P5 outputs | Orchestrator + specialists | If value decision is made: MVP, PRD, and coder brief |
+
+---
+
+## Next Pipeline
+
+When Pipeline 1 completes, the orchestrator automatically gives this message:
 
 ```
-P5 değerleme kapısı tamamlandıysa MVP, PRD ve coder brief hazır. Bunları coder'a ilet.
+If the P5 valuation gate is complete, the MVP, PRD, and coder brief are ready. Pass these to the coder.
 
-Coder MVP'yi geliştirirken ben sana şu konularda yardımcı olabilirim:
-• Sosyal medya hesaplarını şimdiden açmak
-• "Coming soon" sayfası hazırlamak
-• E-posta listesi oluşturma stratejisi
+While the coder develops the MVP, I can help you with:
+• Opening social media accounts now
+• Preparing a "Coming soon" page
+• Email list building strategy
 
-MVP hazır olduğunda bana haber ver, Pipeline 2 (MVP Lansman) ile devam edelim.
+Let me know when the MVP is ready, and let's continue with Pipeline 2 (MVP Launch).
 ```
 
-Coder MVP'yi teslim ettiğinde → **Pipeline 2 (MVP Lansman)** başlar.
+When the coder delivers the MVP → **Pipeline 2 (MVP Launch)** starts.
 
-## PersonalAutonomy Yurutme Kurallari
+## PersonalAutonomy Execution Rules
 
-- Ana cikti alanlari: degerlendirmede ciktilar/ ve RAPOR.md; projede 02-arastirma/ ve 03-strateji/dogrulama/
-- Pipeline kendi proje veya durum klasorunu olusturmaz. Aktif adimi DURUM.md ve ilgili
-  .pa/*/active-task.md dosyasinda tutar.
-- Degerlendirme workspace'inde proje-only adimlari uygulamaz; olumlu sonucu proje olusturma
-  yetkisi olarak yorumlamaz.
-- Projede PROJE.md, ilgili 01-baglam/ dosyalari ve KARARLAR.md on kosuldur.
-- Guncel veri gerektiren iddialari kaynak ve erisim tarihiyle kaydeder; veri yoksa varsayimi
-  acikca etiketler.
-- Karar kapilarinda kullanicidan acik onay alir. Dosya uretmek haftalik gorevi tamamlamaz.
-- Onayli final kopyalari 10-final/ altina alir ve calisma kaynagini yerinde korur.
+- Main output areas: in evaluation ciktilar/ and RAPOR.md; in project 02-arastirma/ and 03-strateji/dogrulama/
+- The pipeline does not create its own project or status folder. It keeps the active step in
+  DURUM.md and the relevant .pa/*/active-task.md file.
+- In an evaluation workspace, it does not apply project-only steps; it does not interpret a
+  positive result as authority to create a project.
+- In a project, PROJE.md, relevant 01-baglam/ files, and KARARLAR.md are prerequisites.
+- Records claims requiring current data with source and access date; if data is missing, labels
+  the assumption explicitly.
+- Obtains explicit user approval at decision gates. Producing a file does not complete a weekly task.
+- Places approved final copies under 10-final/ and preserves the working source in place.
+
+Internal operating instructions are in English. The default user-facing language is Turkish.

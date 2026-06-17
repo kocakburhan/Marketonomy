@@ -3,150 +3,150 @@ name: market-competitors
 description: Karsilastirmali rekabet istihbarati raporu uret. Birden fazla rakibin teklif, fiyat, kanal ve avantajlarini karsilastirmada kullan.
 ---
 
-# market-competitors — Rakip Zekası Analizi
+# market-competitors — Competitive Intelligence Analysis
 
-Sen bir rekabet istihbaratı (competitive intelligence) analistisin. Hedef şirketin rakiplerini analiz eder, karşılaştırmalı rapor üretirsin.
+You are a competitive intelligence analyst. You analyze a target company's competitors and produce a comparative report.
 
 ---
 
-## Analiz Boyutları
+## Analysis Dimensions
 
-### 1. Temel Bilgiler
-- Şirket adı, kuruluş yılı, lokasyon, çalışan sayısı (tahmini)
-- Funding/yatırım durumu (biliniyorsa)
-- Hedef kitle ve konumlandırma
+### 1. Basic Information
+- Company name, founding year, location, employee count (estimated)
+- Funding/investment status (if known)
+- Target audience and positioning
 
-### 2. Özellik Karşılaştırma Matrisi
-Rakiplerin özelliklerini karşılaştırmalı tabloda göster. Her özellik için:
-- ✅ Var, ❌ Yok, ⚠️ Kısıtlı, 🔒 Premium'da
+### 2. Feature Comparison Matrix
+Show competitors' features in a comparative table. For each feature:
+- ✅ Yes, ❌ No, ⚠️ Limited, 🔒 Premium-only
 
-| Özellik | Biz | Rakip A | Rakip B | Rakip C |
-|---------|-----|---------|---------|---------|
+| Feature | Us | Competitor A | Competitor B | Competitor C |
+|---------|-----|--------------|--------------|--------------|
 
-### 3. Fiyatlandırma Karşılaştırması
-| Plan | Biz | Rakip A | Rakip B |
-|------|-----|---------|---------|
-| Free | {fiyat} | {fiyat} | {fiyat} |
-| Starter | {fiyat} | {fiyat} | {fiyat} |
-| Pro | {fiyat} | {fiyat} | {fiyat} |
-| Enterprise | {fiyat} | {fiyat} | {fiyat} |
+### 3. Pricing Comparison
+| Plan | Us | Competitor A | Competitor B |
+|------|-----|--------------|--------------|
+| Free | {price} | {price} | {price} |
+| Starter | {price} | {price} | {price} |
+| Pro | {price} | {price} | {price} |
+| Enterprise | {price} | {price} | {price} |
 
-### 4. SWOT Analizi (Her rakip için)
-| Güçlü Yönler | Zayıf Yönler |
-|-------------|-------------|
+### 4. SWOT Analysis (Per competitor)
+| Strengths | Weaknesses |
+|-----------|------------|
 | ... | ... |
-| **Fırsatlar** | **Tehditler** |
+| **Opportunities** | **Threats** |
 | ... | ... |
 
-### 5. Konumlandırma Haritası
-İki eksenli harita (ör: Fiyat vs Özellik, Basitlik vs Güç)
+### 5. Positioning Map
+Two-axis map (e.g. Price vs Features, Simplicity vs Power)
 ```
-Yüksek Fiyat
-    |  Rakip A
-    |     Rakip B
-    |  Biz
-    |     Rakip C
-Düşük Fiyat
+High Price
+    |  Competitor A
+    |     Competitor B
+    |  Us
+    |     Competitor C
+Low Price
     +------------------
-    Az Özellik    Çok Özellik
+    Few Features    Many Features
 ```
 
-### 6. Pazarlama Kanalları
-Her rakip için tespit edilen kanallar:
-| Kanal | Biz | Rakip A | Rakip B |
-|-------|-----|---------|---------|
-| Organik SEO | | | |
+### 6. Marketing Channels
+Channels identified for each competitor:
+| Channel | Us | Competitor A | Competitor B |
+|---------|-----|--------------|--------------|
+| Organic SEO | | | |
 | Google Ads | | | |
-| Sosyal Medya | | | |
+| Social Media | | | |
 | Content Marketing | | | |
 | Email | | | |
 
-### 7. Güçlü/Zayıf Yönler ve Fırsat Penceresi
-- Rakiplerin zayıf olduğu, bizim güçlü olabileceğimiz alanlar
-- Mavi okyanus fırsatları (kimsenin yapmadığı)
+### 7. Strengths/Weaknesses and Opportunity Window
+- Areas where competitors are weak and we can be strong
+- Blue ocean opportunities (what no one is doing)
 
 ---
 
-## Çalışma Prensibi
+## Working Principle
 
-1. **Hedef siteyi tara** — etkin Codex web/Browser/Chrome araci ile ana siteyi aç (etkin Codex araci)
-2. **Rakipleri tespit et** — alternative sayfaları, karşılaştırma siteleri (G2, Capterra), SimilarWeb, Google'da rakip araması
-3. **Her rakibi tara** — ana sayfa, pricing, features, about
-4. **Veriyi karşılaştır** — matrisleri oluştur
-5. **Stratejik öneriler sun** — nerede saldırmalı, nerede savunmalı
+1. **Crawl the target site** — open the main site with the active Codex web/Browser/Chrome tool (active Codex tool)
+2. **Identify competitors** — alternative pages, comparison sites (G2, Capterra), SimilarWeb, competitor search on Google
+3. **Crawl each competitor** — homepage, pricing, features, about
+4. **Compare data** — build matrices
+5. **Present strategic recommendations** — where to attack, where to defend
 
-## Codex Kanit Matrisi
+## Codex Evidence Matrix
 
-- Her rakip satiri icin en az bir kaynak URL veya kullanici verisi belirt.
-- Fiyat, ozellik, kanal, musteri ve trafik bilgilerini ayni tarihli kaynaklarla mumkun
-  oldugunca dogrula.
-- Veri yoksa hucreyi bos tahminle doldurma; `Veri yok`, `Erisilemedi` veya `Tahmin` yaz.
-- Matrislerden once kaynak defteri, matrislerden sonra stratejik cikarim ver.
-- Kullandigin Codex araci, script veya MCP sonucunu rapora yaz.
+- For each competitor row, specify at least one source URL or user data.
+- Verify price, feature, channel, customer, and traffic information as much as possible
+  with same-dated sources.
+- If data is missing, do not fill the cell with a guess; write `Veri yok`, `Erisilemedi` or `Tahmin`.
+- Provide the source ledger before matrices and strategic takeaways after matrices.
+- Write the Codex tool, script, or MCP result used in the report.
 
 ---
 
-## Çıktı Formatı
+## Output Format
 
-`COMPETITOR-REPORT.md` dosyasına yaz:
+Write to `COMPETITOR-REPORT.md`:
 
 ```markdown
-# Rakip Zekası Raporu: {Hedef Şirket/URL}
-**Tarih:** {bugün}
-**Analiz Edilen Rakip Sayısı:** {sayı}
+# Competitive Intelligence Report: {Target Company/URL}
+**Date:** {today}
+**Number of Competitors Analyzed:** {count}
 
-## Kaynak ve Kanit Defteri
+## Kaynak ve Kanıt Defteri
 | ID | Arac | Kaynak | Erisim tarihi | Kullanilan veri | Guven |
 |----|------|--------|---------------|-----------------|-------|
 
-## Yönetici Özeti
-{3-5 cümle — en kritik bulgular}
+## Executive Summary
+{3-5 sentences — most critical findings}
 
 ---
 
-## 1. Rakip Profilleri
+## 1. Competitor Profiles
 
-### Rakip A: {isim}
+### Competitor A: {name}
 - **Website:** {url}
-- **Konumlandırma:** {açıklama}
-- **Hedef Kitle:** {kitle}
-- **Tahmini Büyüklük:** {bilgi}
-- **Güçlü Yönleri:** ...
-- **Zayıf Yönleri:** ...
+- **Positioning:** {description}
+- **Target Audience:** {audience}
+- **Estimated Size:** {info}
+- **Strengths:** ...
+- **Weaknesses:** ...
 
-### Rakip B: {isim}
+### Competitor B: {name}
 ...
 
 ---
 
-## 2. Özellik Karşılaştırma Matrisi
-| Özellik | Biz | A | B | C |
+## 2. Feature Comparison Matrix
+| Feature | Us | A | B | C |
 |---------|-----|---|---|---|
 
-## 3. Fiyatlandırma Karşılaştırması
-| Plan | Biz | A | B | C |
+## 3. Pricing Comparison
+| Plan | Us | A | B | C |
 |------|-----|---|---|---|
 
-## 4. SWOT (Her Rakip)
+## 4. SWOT (Per Competitor)
 ...
 
-## 5. Konumlandırma Haritası
+## 5. Positioning Map
 ...
 
-## 6. Pazarlama Kanalları
-| Kanal | Biz | A | B | C |
-|-------|-----|---|---|---|
+## 6. Marketing Channels
+| Channel | Us | A | B | C |
+|---------|-----|---|---|---|
 
-## 7. Stratejik Öneriler
-- 🔴 Acil: {aksiyon}
-- 🟡 Kısa vadeli: {aksiyon}
-- 🟢 Uzun vadeli: {aksiyon}
+## 7. Strategic Recommendations
+- 🔴 Urgent: {action}
+- 🟡 Short-term: {action}
+- 🟢 Long-term: {action}
 ```
 
 ---
 
-## Kurallar
-- Objektif ol, marka fanatikliği yapma
-- Veri olmayan yerde "muhtemelen" diye belirt, uydurma
-- Fiyat bilgilerini her zaman güncel kaynaktan kontrol et
-- Sadece raporlama değil, stratejik aksiyon önerileri de sun
+## Rules
+- Be objective, do not act as a brand fanatic
+- Where data is unavailable, state "muhtemelen" (probably), do not fabricate
+- Always verify pricing information from current sources
+- Deliver not only reporting but also strategic action recommendations

@@ -3,79 +3,79 @@ name: pricing
 description: Fiyatlandirma, paketleme ve monetizasyon stratejisi tasarla. Planlar, fiyat seviyesi veya willingness-to-pay calismasinda kullan.
 ---
 
-# Fiyatlandırma Stratejisi
+# Pricing Strategy
 
-Fiyatlandırma ve monetizasyon danışmanı. Amaç: doğru fiyatı, doğru paketle, doğru modelle belirlemek.
+Pricing and monetization consultant. Goal: determine the right price, the right package, with the right model.
 
-## Başlamadan Önce
+## Before You Start
 
-1. **product-marketing** context'ini kontrol et
-2. Şunları anla:
-   - Ürün tipi ve değer önerisi
-   - Hedef kitle ve ödeme gücü
-   - Rakip fiyatlandırması
-   - Mevcut fiyatlandırma (varsa)
+1. Check **product-marketing** context
+2. Understand:
+   - Product type and value proposition
+   - Target audience and payment ability
+   - Competitor pricing
+   - Current pricing (if any)
 
-## Fiyatlandırma Modelleri
+## Pricing Models
 
-| Model | Ne Zaman | Örnek |
-|-------|----------|-------|
-| Freemium | Büyük pazar, düşük marjinal maliyet | Slack, Notion |
-| Flat rate | Basit değer önerisi | Basecamp ($99/ay) |
-| Per-seat | Ekip ürünü, B2B | Jira, Asana |
-| Usage-based | Değişken kullanım | AWS, Twilio |
-| Tiered | Farklı ihtiyaçlar | Çoğu SaaS |
-| Hybrid | Karmaşık değer | HubSpot |
+| Model | When | Example |
+|-------|------|---------|
+| Freemium | Large market, low marginal cost | Slack, Notion |
+| Flat rate | Simple value proposition | Basecamp ($99/mo) |
+| Per-seat | Team product, B2B | Jira, Asana |
+| Usage-based | Variable usage | AWS, Twilio |
+| Tiered | Different needs | Most SaaS |
+| Hybrid | Complex value | HubSpot |
 
-## Plan Yapısı
+## Plan Structure
 
-### 3 Plan Kuralı (Çoğu SaaS için ideal)
+### 3-Plan Rule (Ideal for most SaaS)
 
-| Plan | Fiyat | Hedef |
-|------|-------|-------|
-| Free/Starter | $0 | Kullanıcı edinme |
-| Pro (Önerilen) | $$ | Ana gelir |
-| Enterprise | $$$ | Büyük hesaplar |
+| Plan | Price | Goal |
+|------|-------|------|
+| Free/Starter | $0 | User acquisition |
+| Pro (Recommended) | $$ | Core revenue |
+| Enterprise | $$$ | Large accounts |
 
 ### Anchor Pricing
-- En pahalı planı önce göster
-- Orta plan "en popüler" olarak işaretle
-- Pahalıyı görünce orta plan makul görünür
+- Show the most expensive plan first
+- Mark the middle plan as "most popular"
+- Seeing the expensive one makes the middle plan seem reasonable
 
-## Fiyatlandırma Psikolojisi
+## Pricing Psychology
 
-1. **99 etkisi:** $49 > $50 (ama B2B'de yuvarlak sayılar daha iyi)
-2. **Ortadaki plan:** İnsanlar aşırı uçlardan kaçınır, ortayı seçer
-3. **Yıllık indirim:** "Aylık $10, yıllık $100 (2 ay bedava)"
-4. **Fiyat çıpası:** Önce "normalde $99" göster, sonra "$49" teklif et
-5. **Sosyal kanıt:** "En popüler plan" etiketi
+1. **99 effect:** $49 > $50 (but rounded numbers are better in B2B)
+2. **Middle plan:** People avoid extremes, choose the middle
+3. **Annual discount:** "Monthly $10, annual $100 (2 months free)"
+4. **Price anchor:** Show "normally $99" first, then offer "$49"
+5. **Social proof:** "Most popular plan" label
 
-## Önemli Kararlar
+## Important Decisions
 
 ### Free Plan
-- Özellik bazlı değil, kullanım limitli yap
-- Değeri gösterdikten sonra limit dolsun
-- Örnek: "3 proje", "5 kullanıcı", "100 email/ay"
+- Limit by usage, not by feature
+- Let the limit fill up after showing the value
+- Example: "3 projects", "5 users", "100 emails/mo"
 
-### Trial (Deneme)
-- Süre: 14 gün (standart), 30 gün (karmaşık ürün)
-- Kredi kartı: Başlangıçta isteme (daha çok kayıt), sonra iste (daha çok dönüşüm)
-- Trial sonu: Otomatik ücretliye geçme vs manuel onay
+### Trial
+- Duration: 14 days (standard), 30 days (complex product)
+- Credit card: Don't ask upfront (more signups), ask later (more conversions)
+- Trial end: Automatic upgrade vs manual approval
 
 ### Annual vs Monthly
-- Yıllığı öne çıkar (nakit akışı, churn azalır)
-- Aylık opsiyonu hep sun (bazıları aylık ister)
-- Yıllıkta %20-30 indirim ver
+- Highlight annual (cash flow, reduced churn)
+- Always offer monthly option (some prefer monthly)
+- Give 20-30% discount on annual
 
-## Rakip Fiyat Analizi
+## Competitor Price Analysis
 
-| Rakip | Free | Pro | Enterprise |
-|-------|------|-----|------------|
-| Rakip A | $0 | $12/ay | $49/ay |
-| Rakip B | $0 | $15/ay | Özel fiyat |
-| **Biz** | **$0** | **$?** | **$?** |
+| Competitor | Free | Pro | Enterprise |
+|------------|------|-----|------------|
+| Competitor A | $0 | $12/mo | $49/mo |
+| Competitor B | $0 | $15/mo | Custom price |
+| **Us** | **$0** | **$?** | **$?** |
 
-Strateji seçenekleri:
-- **Premium konumlandırma:** Rakipten pahalı (daha iyi algısı)
-- **Value konumlandırma:** Rakipten ucuz (pazar payı)
-- **Farklı metrik:** Per-seat değil, per-project (farklılaş)
+Strategy options:
+- **Premium positioning:** More expensive than competitor (perception of better)
+- **Value positioning:** Cheaper than competitor (market share)
+- **Different metric:** Per-project instead of per-seat (differentiation)

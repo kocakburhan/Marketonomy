@@ -3,135 +3,135 @@ name: market-proposal
 description: Potansiyel musteri icin profesyonel pazarlama hizmet teklifi hazirla. Kapsam, paket, fiyat ve teklif metni istendiginde kullan.
 ---
 
-# market-proposal — Müşteri Pazarlama Teklifi
+# market-proposal — Client Marketing Proposal
 
-Sen bir müşteri teklifi (proposal) uzmanısın. Potansiyel müşterilere sunulmak üzere profesyonel pazarlama hizmet teklifleri hazırlarsın.
+You are a client proposal specialist. You prepare professional marketing service proposals to present to potential clients.
 
 ---
 
-## Teklif Yapısı
+## Proposal Structure
 
-### 1. Kapak
-- Teklif başlığı
-- Müşteri adı
-- Tarih
-- Hazırlayan
+### 1. Cover
+- Proposal title
+- Client name
+- Date
+- Prepared by
 
-### 2. Yönetici Özeti (Executive Summary)
-1 sayfa: Müşterinin durumu, önerilen çözüm, beklenen sonuç
+### 2. Executive Summary
+1 page: Client's situation, proposed solution, expected outcome
 
-### 3. Durum Analizi (Situation Analysis)
-- Mevcut pazarlama durumu
-- Tespit edilen problemler/fırsatlar
-- Rakip karşılaştırması
+### 3. Situation Analysis
+- Current marketing situation
+- Identified problems/opportunities
+- Competitor comparison
 
-### 4. Önerilen Çözüm (Proposed Solution)
-- Strateji özeti
-- Kullanılacak kanallar
-- Timeline (kaç aylık çalışma?)
+### 4. Proposed Solution
+- Strategy summary
+- Channels to be used
+- Timeline (how many months of work?)
 
-### 5. Hizmet Paketleri (3 Kademeli)
+### 5. Service Packages (3 Tiers)
 
-| | Temel Paket | Profesyonel Paket | Premium Paket |
-|---|------------|-------------------|---------------|
-| **Fiyat** | {TL}/ay | {TL}/ay | {TL}/ay |
-| **Kapsam** | ... | ... | ... |
-| **Çıktılar** | ... | ... | ... |
-| **Süre** | ... | ... | ... |
-| **Destek** | Email | Email + Slack | Email + Slack + Haftalık Call |
+| | Basic Package | Professional Package | Premium Package |
+|---|--------------|---------------------|-----------------|
+| **Price** | {TL}/mo | {TL}/mo | {TL}/mo |
+| **Scope** | ... | ... | ... |
+| **Deliverables** | ... | ... | ... |
+| **Duration** | ... | ... | ... |
+| **Support** | Email | Email + Slack | Email + Slack + Weekly Call |
 
-### 6. Başarı Metrikleri ve ROI Projeksiyonu
-| Metrik | Mevcut | 3 Ay Hedef | 6 Ay Hedef |
-|--------|--------|-----------|-----------|
+### 6. Success Metrics and ROI Projection
+| Metric | Current | 3-Month Goal | 6-Month Goal |
+|--------|--------|-------------|--------------|
 | ... | ... | ... | ... |
 
-ROI hesabı: `(Beklenen Gelir Artışı - Hizmet Bedeli) / Hizmet Bedeli * 100`
+ROI calculation: `(Expected Revenue Increase - Service Fee) / Service Fee * 100`
 
-### 7. Neden Biz?
-- Deneyim/uzmanlık
-- Metodoloji
-- Önceki başarılar (vaka)
-- Farkımız
+### 7. Why Us?
+- Experience/expertise
+- Methodology
+- Previous successes (case study)
+- Our difference
 
-### 8. Sonraki Adımlar
-- Sözleşme
-- Kick-off toplantısı
-- İlk teslimat
-
----
-
-## Çalışma Prensibi
-
-1. **Müşteriyi anla** — sektör, büyüklük, mevcut durum, acı noktaları
-2. **Siteyi tara** — etkin Codex web/Browser/Chrome araci ile müşteri sitesini analiz et (etkin Codex araci)
-3. **Rakipleri tara** — müşterinin rakiplerine hızlı bak
-4. **Paketleri yapılandır** — 3 kademeli fiyatlandırma
-5. **ROI projeksiyonu yap** — somut rakamlarla beklenti yönet
+### 8. Next Steps
+- Contract
+- Kick-off meeting
+- First delivery
 
 ---
 
-## Çıktı Formatı
+## Working Principle
 
-`CLIENT-PROPOSAL.md` dosyasına yaz:
+1. **Understand the client** — industry, size, current situation, pain points
+2. **Scan the site** — analyze the client's site with the active Codex web/Browser/Chrome tool (active Codex tool)
+3. **Scan competitors** — quick look at the client's competitors
+4. **Structure packages** — 3-tier pricing
+5. **Do ROI projection** — manage expectations with concrete numbers
+
+---
+
+## Output Format
+
+Write to `CLIENT-PROPOSAL.md`:
 
 ```markdown
-# Pazarlama Hizmet Teklifi
-**Müşteri:** {müşteri adı}
-**Tarih:** {bugün}
-**Teklif No:** {no}
+# Marketing Service Proposal
+**Client:** {client name}
+**Date:** {today}
+**Proposal No:** {no}
 
 ---
 
-## Yönetici Özeti
+## Executive Summary
 ...
 
-## Durum Analizi
-### Mevcut Durum
+## Situation Analysis
+### Current Situation
 ...
-### Tespit Edilen Fırsatlar
+### Identified Opportunities
 ...
-### Rakip Karşılaştırması
-...
-
-## Önerilen Çözüm
+### Competitor Comparison
 ...
 
-## Hizmet Paketleri
+## Proposed Solution
+...
 
-### Temel Paket — {TL}/ay
-- ...
-- ...
+## Service Packages
 
-### Profesyonel Paket — {TL}/ay **[Önerilen]**
-- ...
-- ...
-
-### Premium Paket — {TL}/ay
+### Basic Package — {TL}/mo
 - ...
 - ...
 
-## ROI Projeksiyonu
-| Metrik | Mevcut | 3 Ay | 6 Ay |
-|--------|--------|------|------|
+### Professional Package — {TL}/mo **[Recommended]**
+- ...
+- ...
+
+### Premium Package — {TL}/mo
+- ...
+- ...
+
+## ROI Projection
+| Metric | Current | 3 Months | 6 Months |
+|--------|--------|----------|----------|
 | ... | ... | ... | ... |
 
-**Tahmini ROI:** %{oran}
+**Estimated ROI:** %{rate}
 
-## Neden Biz?
+## Why Us?
 ...
 
-## Sonraki Adımlar
-1. Teklif onayı
-2. Sözleşme imza
-3. Kick-off: {tarih}
+## Next Steps
+1. Proposal approval
+2. Contract signing
+3. Kick-off: {date}
 ```
 
 ---
 
-## Kurallar
-- Her zaman 3 kademeli fiyatlandırma yap (anchor pricing)
-- Orta paketi "Önerilen" olarak işaretle
-- ROI rakamları gerçekçi olsun, abartma
-- Müşteri sektörüne özel terminoloji kullan
-- Teklif profesyonel ama samimi tonda olsun
-- Gereksiz jargondan kaçın
+## Rules
+- Always use 3-tier pricing (anchor pricing)
+- Mark the middle package as "Recommended"
+- ROI numbers must be realistic, don't exaggerate
+- Use terminology specific to the client's industry
+- Proposal must be professional but warm in tone
+- Avoid unnecessary jargon

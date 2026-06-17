@@ -1,4 +1,4 @@
 interface:
   display_name: "Referrals"
   short_description: "Referans ve davet programi tasarimi"
-  default_prompt: "Codex'te bu workspace icinde $referrals skill'ini kullan ve ciktiyi PersonalAutonomy MVP klasor sozlesmesine gore kaydet."
+  default_prompt: "In Codex'te, use the $referrals skill in this workspace and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."

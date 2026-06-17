@@ -3,82 +3,84 @@ name: seo-audit
 description: Teknik ve on-page SEO denetimi yap. Title, meta, heading, schema, hiz, indexleme veya ic baglanti analizi istendiginde kullan.
 ---
 
-# SEO Denetimi
+# SEO Audit
 
-SEO teknik denetim uzmanı. Sitenin arama motoru sağlığını kontrol eder, hataları tespit eder, öncelikli düzeltmeleri sıralar.
+SEO technical audit specialist. Checks the site's search engine health, detects errors, prioritizes fixes.
 
-## Denetim Kategorileri
+## Audit Categories
 
 ### 1. On-Page SEO
-- **Title tag:** 50-60 karakter, anahtar kelime başta, benzersiz
-- **Meta description:** 150-155 karakter, CTA, anahtar kelime
-- **H1:** Tek olmalı, anahtar kelime içermeli
-- **Heading hiyerarşisi:** H1 → H2 → H3 mantıksal sıralı
-- **URL yapısı:** Temiz, okunabilir, anahtar kelimeli
-- **Görsel alt tag:** Tüm görsellerde, açıklayıcı
+- **Title tag:** 50-60 characters, keyword at the front, unique
+- **Meta description:** 150-155 characters, CTA, keyword
+- **H1:** Must be single, must include keyword
+- **Heading hierarchy:** H1 → H2 → H3 logically ordered
+- **URL structure:** Clean, readable, keyword-rich
+- **Image alt tag:** On all images, descriptive
 
-### 2. Teknik SEO
-- SSL sertifikası
-- Mobil uyumluluk
-- Sayfa hızı (hedef < 3sn)
+### 2. Technical SEO
+- SSL certificate
+- Mobile compatibility
+- Page speed (target < 3s)
 - Schema markup (Article, Product, FAQ, Breadcrumb)
-- Robots.txt yapılandırması
+- Robots.txt configuration
 - XML sitemap
-- Canonical URL'ler
-- Kırık linkler
+- Canonical URLs
+- Broken links
 
-### 3. İçerik Kalitesi
-- İçerik uzunluğu ve derinliği
-- Özgünlük (duplicate content kontrolü)
-- E-E-A-T sinyalleri (Experience, Expertise, Authoritativeness, Trustworthiness)
-- Tazelik (güncellenme tarihi)
+### 3. Content Quality
+- Content length and depth
+- Originality (duplicate content check)
+- E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness)
+- Freshness (last updated date)
 
-### 4. İç Bağlantı Yapısı
-- Sayfalar arası linkleme
-- Önemli sayfalara kaç iç link var
-- Anchor text çeşitliliği
-- Yetim sayfalar (hiç link almayan)
+### 4. Internal Link Structure
+- Inter-page linking
+- How many internal links to important pages
+- Anchor text diversity
+- Orphan pages (receiving no links)
 
-## Denetim Süreci
+## Audit Process
 
-1. **Siteyi tara** — etkin Codex web/Browser/Chrome araci veya etkin Codex web araci ile
-2. **On-page elementleri çıkar:** title, meta, headings, images, links
-3. **Teknik kontrolleri yap:** SSL, robots.txt, sitemap
-4. **İçeriği değerlendir:** E-E-A-T kriterleri
-5. **Hataları önceliklendir:** Kritik → Önemli → İyileştirme
+1. **Crawl the site** — with active Codex web/Browser/Chrome tool or active Codex web tool
+2. **Extract on-page elements:** title, meta, headings, images, links
+3. **Perform technical checks:** SSL, robots.txt, sitemap
+4. **Evaluate content:** E-E-A-T criteria
+5. **Prioritize errors:** Critical → Important → Improvement
 
-## Codex Kanit Kurali
+## Codex Evidence Rule
 
-- Denetimde kullandigin her URL'yi, Codex aracini ve erisim tarihini kaydet.
-- Robots.txt, sitemap, schema, canonical, hiz veya indexleme gibi teknik bulgularda kaynagi
-  ve kontrol yontemini belirt.
-- PageSpeed veya Search Console gibi dis veri yoksa tahmini skor uretme; eksik veriyi yaz.
-- Teknik bulgu ile oneriyi ayri tut; bulgu dogrulanmadiysa `Kontrol gerekli` de.
+- Record every URL, Codex tool, and access date used in the audit.
+- For technical findings such as robots.txt, sitemap, schema, canonical, speed, or indexing,
+  specify the source and verification method.
+- If external data such as PageSpeed or Search Console is unavailable, do not produce an estimated
+  score; document the missing data.
+- Keep the technical finding and recommendation separate; if a finding is unverified, write
+  `Kontrol gerekli`.
 
-## Çıktı Formatı
+## Output Format
 
 ```markdown
-# SEO Denetimi: {URL}
-**Tarih:** {bugün}
-**SEO Skoru:** {0-100}
+# SEO Audit: {URL}
+**Date:** {today}
+**SEO Score:** {0-100}
 
-## Kaynak ve Kanit Defteri
+## Kaynak ve Kanıt Defteri
 | ID | Arac | Kaynak | Erisim tarihi | Kullanilan veri | Guven |
 |----|------|--------|---------------|-----------------|-------|
 
-## Kritik Hatalar (Hemen Düzeltilmeli)
-| # | Sorun | Sayfa | Çözüm |
-|---|-------|-------|-------|
+## Critical Errors (Must Fix Immediately)
+| # | Issue | Page | Solution |
+|---|-------|------|----------|
 
 ## On-Page SEO
-| Öğe | Durum | Mevcut | Önerilen |
-|-----|-------|--------|----------|
+| Element | Status | Current | Recommended |
+|---------|--------|---------|-------------|
 
-## Teknik SEO
-| Öğe | Durum | Not |
-|-----|-------|-----|
+## Technical SEO
+| Element | Status | Note |
+|---------|--------|------|
 
-## Öncelikli Aksiyonlar
+## Priority Actions
 1. 🔴 ...
 2. 🟡 ...
 3. 🟢 ...

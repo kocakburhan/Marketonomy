@@ -1,237 +1,239 @@
-# Pipeline 3: Feedback ve İyileştirme (Feedback & Improvement)
+# Pipeline 3: Feedback & Improvement
 
-**Zincirdeki yeri:** Zincir A, B ve C (P2 veya P9'dan sonra). Döngüsel — P3 → P5 veya P3 → P9 şeklinde tekrarlanır.
+**Position in chain:** Chain A, B, and C (after P2 or P9). Cyclical — repeats as P3 → P5 or P3 → P9.
 
-**Ne zaman çalışır:**
-- Lansmandan 2-4 hafta sonra
-- Kullanıcı "feedback toplayalım" dediğinde
-- Her iyileştirme döngüsünde
+**When it runs:**
+- 2-4 weeks after launch
+- When the user says "let's collect feedback"
+- In every improvement cycle
 
-**Amaç:** Kullanıcı, müşteri, lead, satış, saha ve kampanya geri bildirimlerini analiz edip
-iyileştirme alanlarını belirlemek. Gerekiyorsa coder için güncellenmiş PRD üretir; fiziksel,
-B2B veya kampanya süreçlerinde ise teklif, materyal, satış script'i, kanal stratejisi veya
-operasyon planını günceller.
+**Purpose:** Analyze user, customer, lead, sales, field, and campaign feedback to identify
+improvement areas. If needed, produces an updated PRD for the coder; for physical, B2B, or
+campaign processes, updates the offering, materials, sales script, channel strategy, or
+operations plan.
 
-**Ön koşul:** Ürün, hizmet, kampanya veya satış süreci kullanıcı/müşteri/lead ile temas etmiş
-olmalı.
-
----
-
-## Pipeline Akışı
-
-```
-Orchestrator: "Feedback toplama zamanı"
-        │
-        ▼
-[3.1] Orchestrator → Kullanıcıdan temel metrikleri iste
-        │  Sorular: indirme, yorum, gelir, ziyaretçi, sosyal medya etkileşimi
-        ▼
-[3.2] Market Scout → Kullanıcı yorumlarını analiz et
-        │  Kaynaklar: App Store, Google Play, Google Maps, forumlar, sosyal medya
-        │  Çıktı: yorum-analizi.md
-        ▼
-[3.3] Analytics Master → Metrik analizi yap
-        │  Çıktı: analytics-raporu.md
-        ▼
-[3.4] Strategy Analyst → İyileştirme alanlarını belirle
-        │  Çıktı: iyilestirme-onerileri.md
-        ▼
-[3.5] Orchestrator → Bulguları kullanıcıya sun, öncelikleri sor
-        │
-        ▼
-[3.6] Orchestrator → İyileştirme türünü seç
-        │  Ürün/teknik ise Product Architect → prd-v2.md
-        │  Pazarlama/saha/satış ise ilgili uzman → revizyon dosyaları
-        ▼
-[3.7] Orchestrator → Uygulama brief'ini hazırla
-           Çıktı: coder-brief-v2.md veya pazarlama-iyilestirme-briefi.md
-```
+**Prerequisite:** The product, service, campaign, or sales process must have been in contact with
+users/customers/leads.
 
 ---
 
-## Adım Detayları
+## Pipeline Flow
 
-### 3.1 — Metrik Toplama
+```
+Orchestrator: "Time to collect feedback"
+        │
+        ▼
+[3.1] Orchestrator → Request basic metrics from user
+        │  Questions: downloads, reviews, revenue, visitors, social media engagement
+        ▼
+[3.2] Market Scout → Analyze user reviews
+        │  Sources: App Store, Google Play, Google Maps, forums, social media
+        │  Output: yorum-analizi.md
+        ▼
+[3.3] Analytics Master → Perform metric analysis
+        │  Output: analytics-raporu.md
+        ▼
+[3.4] Strategy Analyst → Identify improvement areas
+        │  Output: iyilestirme-onerileri.md
+        ▼
+[3.5] Orchestrator → Present findings to user, ask for priorities
+        │
+        ▼
+[3.6] Orchestrator → Select improvement type
+        │  If product/technical: Product Architect → prd-v2.md
+        │  If marketing/field/sales: relevant specialist → revision files
+        ▼
+[3.7] Orchestrator → Prepare implementation brief
+           Output: coder-brief-v2.md or pazarlama-iyilestirme-briefi.md
+```
+
+---
+
+## Step Details
+
+### 3.1 — Metric Collection
 **Agent:** Orchestrator
 
 ```
-📊 Lansman sonrası verileri toplama zamanı!
+📊 Time to collect post-launch data!
 
-Bana şu verileri iletebilir misin?
+Can you send me the following data?
 
-App Store / Google Play'den:
-• Toplam indirme sayısı
-• Günlük aktif kullanıcı (varsa)
-• Ortalama puan ve yorum sayısı
-• Son 30 gündeki gelir (varsa)
+From App Store / Google Play:
+• Total download count
+• Daily active users (if available)
+• Average rating and review count
+• Revenue in the last 30 days (if available)
 
-Web sitesinden (varsa):
-• Ziyaretçi sayısı
-• Dönüşüm oranı
+From the website (if any):
+• Visitor count
+• Conversion rate
 
-Sosyal medyadan:
-• Gönderi etkileşimleri
-• Takipçi sayısı
+From social media:
+• Post engagement
+• Follower count
 
-Kullanıcılardan:
-• Gelen e-postalar/mesajlar (özet)
-• Test kullanıcılarının sözlü geri bildirimleri
+From users:
+• Incoming emails/messages (summary)
+• Verbal feedback from test users
 
-Fiziksel/saha kampanyasından:
-• Kaç kişiyle temas edildi?
-• Kaç demo/tadım/deneme oldu?
-• Kaç satış/randevu/WhatsApp dönüşü oldu?
-• Hangi lokasyon/gün/saat çalıştı?
-• Hangi afiş/broşür/kupon/mesaj işe yaramadı?
+From physical/field campaign:
+• How many people were contacted?
+• How many demos/tastings/trials occurred?
+• How many sales/appointments/WhatsApp conversions?
+• Which location/day/time worked?
+• Which poster/brochure/coupon/message didn't work?
 
-B2B satıştan:
-• Kaç hedef hesaba temas edildi?
-• Cevap, toplantı, demo, teklif ve kazanım sayıları
-• En sık itirazlar
-• Hangi segment/kanal daha iyi döndü?
+From B2B sales:
+• How many target accounts were contacted?
+• Response, meeting, demo, proposal, and win counts
+• Top objections
+• Which segment/channel performed better?
 
-(Bu verilerin bir kısmını coder'dan da isteyebilirsin — onun erişimi olan dashboard'lar olabilir)
+(You can also request some of this data from the coder — they may have access to dashboards)
 ```
 
-### 3.2 — Kullanıcı Yorumu Analizi
+### 3.2 — User Review Analysis
 **Agent:** Market Scout
-**Opsiyonel capability'ler:**
-- `fetch_reviews(appId, platform, sort="rating", num=500)` → düşük puanlı ham yorumları çek
-- `analyze_reviews(appId, platform, num=500)` → sentiment dağılımı, keyword frequency, common themes, top negative keywords
-- Fiziksel işletme: etkin Codex web/Browser/Chrome araci ile Google Maps/GBP yorumları + Şikayetvar/forumlar
+**Optional capabilities:**
+- `fetch_reviews(appId, platform, sort="rating", num=500)` → pull raw low-rated reviews
+- `analyze_reviews(appId, platform, num=500)` → sentiment distribution, keyword frequency, common themes, top negative keywords
+- Physical business: Google Maps/GBP reviews + Şikayetvar/forums with active Codex web/Browser/Chrome tool
 
-**Eylem:**
-- App Store/Google Play yorumları → **mcp-appstore**
-- Google Maps/GBP yorumları → **etkin Codex web/Browser/Chrome araci**
-- Sosyal medya bahisleri → **etkin Codex web/Browser/Chrome araci**
-- Forum/şikayet sitesi yorumları → **etkin Codex web/Browser/Chrome araci**
-- B2B toplantı/demo notları → **kullanıcı notları, CRM exportu veya manuel özet**
-- Fiziksel saha geri bildirimi → **manuel sayım, fotoğraf, kupon/QR verisi, satış notu**
+**Action:**
+- App Store/Google Play reviews → **mcp-appstore**
+- Google Maps/GBP reviews → **active Codex web/Browser/Chrome tool**
+- Social media mentions → **active Codex web/Browser/Chrome tool**
+- Forum/complaint site reviews → **active Codex web/Browser/Chrome tool**
+- B2B meeting/demo notes → **user notes, CRM export, or manual summary**
+- Physical field feedback → **manual count, photos, coupon/QR data, sales notes**
 
-**Çıktı (`yorum-analizi.md`):**
+**Output (`yorum-analizi.md`):**
 ```markdown
-# Kullanıcı Yorum Analizi: [Ürün]
-- Dönem: [tarih aralığı]
-- Toplam yorum: [sayı]
-- Ortalama puan: [x/5]
-- Olumlu oranı: [%] | Olumsuz oranı: [%]
+# Kullanıcı Yorum Analizi: [Product]
+- Period: [date range]
+- Total reviews: [count]
+- Average rating: [x/5]
+- Positive ratio: [%] | Negative ratio: [%]
 
-## Olumlu Yorumlardan Pattern'lar
-1. [pattern] — [kaç yorumda geçiyor]
+## Patterns from Positive Reviews
+1. [pattern] — [appears in how many reviews]
 
-## Olumsuz Yorumlardan Pattern'lar
-1. [pattern] — [kaç yorumda geçiyor]
+## Patterns from Negative Reviews
+1. [pattern] — [appears in how many reviews]
 
-## En Sık Talep Edilen Özellikler
-1. [özellik] — [kaç kez istendi]
+## Most Requested Features
+1. [feature] — [how many times requested]
 
 ## Customer Language Mining
-Kullanıcıların ürünü tanımlarken kullandığı ifadeler:
+Expressions users use to describe the product:
 - ...
 ```
 
-### 3.3 — Metrik Analizi
+### 3.3 — Metric Analysis
 **Agent:** Analytics Master
-**Girdi:** Kullanıcıdan alınan metrik verileri
-**Çıktı (`analytics-raporu.md`):**
-- Kritik metrikler tablosu (değer vs hedef)
-- Trend analizi
-- Alarm durumları
-- Büyüme/düşüş yorumları
+**Input:** Metric data gathered from user
+**Output (`analytics-raporu.md`):**
+- Critical metrics table (value vs target)
+- Trend analysis
+- Alarm situations
+- Growth/decline comments
 
-### 3.4 — İyileştirme Önerileri
+### 3.4 — Improvement Recommendations
 **Agent:** Strategy Analyst
-**Girdi:** `yorum-analizi.md` + `analytics-raporu.md`
-**Çıktı (`iyilestirme-onerileri.md`):**
-- 3 seviyeli önceliklendirme:
-  - 🔴 Kritik (hemen yapılmalı)
-  - 🟡 Önemli (bu ay yapılmalı)
-  - 🟢 Güzel olur (zaman kalırsa)
+**Input:** `yorum-analizi.md` + `analytics-raporu.md`
+**Output (`iyilestirme-onerileri.md`):**
+- 3-level prioritization:
+  - 🔴 Critical (must be done immediately)
+  - 🟡 Important (should be done this month)
+  - 🟢 Nice to have (if time permits)
 
-### 3.5 — Kullanıcıya Sunum
+### 3.5 — User Presentation
 **Agent:** Orchestrator
 
 ```
-📈 FEEDBACK ANALİZ RAPORU
+📈 FEEDBACK ANALYSIS REPORT
 
-İlgi var mı?
-✅ / ⚠️ / ❌ [durum değerlendirmesi]
+Is there interest?
+✅ / ⚠️ / ❌ [status assessment]
 
-Öne çıkan bulgular:
-❤️ Kullanıcıların sevdiği: [ilk 3]
-💔 Kullanıcıların şikayet ettiği: [ilk 3]
-📊 Metriklerde alarm: [varsa]
+Key findings:
+❤️ What users liked: [top 3]
+💔 What users complained about: [top 3]
+📊 Metric alerts: [if any]
 
-Önerilen iyileştirmeler:
-🔴 Kritik: ...
-🟡 Önemli: ...
-🟢 Güzel olur: ...
+Recommended improvements:
+🔴 Critical: ...
+🟡 Important: ...
+🟢 Nice to have: ...
 
-Hangi önceliklerle ilerleyelim?
-A) Sadece kritik olanları yapalım
-B) Kritik + önemlileri yapalım
-C) Hepsini yapalım
-D) Kendi seçtiklerimi belirteyim
+Which priorities should we proceed with?
+A) Only critical ones
+B) Critical + important ones
+C) All of them
+D) Let me specify my own selections
 ```
 
-### 3.6 — İyileştirme Türü ve Revizyon
-**Agent:** Orchestrator + ilgili uzman
-**Girdi:** `iyilestirme-onerileri.md` + kullanıcının öncelik kararı
+### 3.6 — Improvement Type and Revision
+**Agent:** Orchestrator + relevant specialist
+**Input:** `iyilestirme-onerileri.md` + user's priority decision
 
-Revizyon türünü seç:
+Select revision type:
 
-- Ürün/teknik değişiklik: Product Architect → `04-urun/prd/prd-v2.md`
-- B2C fiziksel pazarlama: Content Creator / Campaign Manager / Launch Commander →
-  materyal, kampanya veya aktivasyon revizyonu
-- B2B satış: Outreach Specialist / Brand Guardian → mesaj, demo, teklif, itiraz veya pipeline revizyonu
-- Dijital kampanya: Campaign Manager / Content Creator → reklam, içerik, landing veya lifecycle revizyonu
+- Product/technical change: Product Architect → `04-urun/prd/prd-v2.md`
+- B2C physical marketing: Content Creator / Campaign Manager / Launch Commander →
+  material, campaign, or activation revision
+- B2B sales: Outreach Specialist / Brand Guardian → message, demo, proposal, objection, or pipeline revision
+- Digital campaign: Campaign Manager / Content Creator → ad, content, landing, or lifecycle revision
 
-### 3.7 — Uygulama Brief'i
+### 3.7 — Implementation Brief
 **Agent:** Orchestrator
-**Çıktı:** `coder-brief-v2.md` veya `08-raporlar/pazarlama/pazarlama-iyilestirme-briefi.md`
+**Output:** `coder-brief-v2.md` or `08-raporlar/pazarlama/pazarlama-iyilestirme-briefi.md`
 
 ---
 
-## Karar Noktaları
+## Decision Points
 
-| Adım | Karar |
-|------|-------|
-| 3.5 | İyileştirme önceliklerini seç |
+| Step | Decision |
+|------|----------|
+| 3.5 | Select improvement priorities |
 
 ---
 
-## Çıktı Dosyaları
+## Output Files
 
-| Dosya | Üreten |
-|-------|--------|
+| File | Produced by |
+|------|-------------|
 | `yorum-analizi.md` | Market Scout |
 | `analytics-raporu.md` | Analytics Master |
 | `iyilestirme-onerileri.md` | Strategy Analyst |
-| `prd-v2.md` | Product Architect, yalnızca ürün/teknik revizyon gerekiyorsa |
-| `pazarlama-iyilestirme-briefi.md` | Orchestrator, pazarlama/saha/satış revizyonu gerekiyorsa |
+| `prd-v2.md` | Product Architect, only if product/technical revision is needed |
+| `pazarlama-iyilestirme-briefi.md` | Orchestrator, if marketing/field/sales revision is needed |
 
 ---
 
-## Sonraki Pipeline
+## Next Pipeline
 
-Ürün/teknik iyileştirme varsa coder uygular → ürün güncellenir → istenirse tekrar **Pipeline 3**
-çalıştırılır.
+If product/technical improvement exists, the coder implements it → product is updated → if
+desired, **Pipeline 3** runs again.
 
-Pazarlama/saha/satış iyileştirmesi varsa ilgili kampanya veya satış planı güncellenir →
-haftalık plana yeni görevler eklenir → tekrar **Pipeline 3** ile ölçülür.
+If marketing/field/sales improvement exists, the relevant campaign or sales plan is updated →
+new tasks are added to the weekly plan → measured again with **Pipeline 3**.
 
-Veya traction varsa → **Pipeline 4 (Büyüme Motoru)** başlatılır.
+Or if there is traction → **Pipeline 4 (Growth Engine)** is started.
 
-## PersonalAutonomy Yurutme Kurallari
+## PersonalAutonomy Execution Rules
 
-- Ana cikti alanlari: 02-arastirma/musteri-arastirmasi/, 04-urun/urun-kararlari/,
-  06-pazarlama-uygulamalari/, 08-raporlar/pazarlama/ ve 08-raporlar/analitik/
-- Pipeline kendi proje veya durum klasorunu olusturmaz. Aktif adimi DURUM.md ve ilgili
-  .pa/*/active-task.md dosyasinda tutar.
-- Degerlendirme workspace'inde proje-only adimlari uygulamaz; olumlu sonucu proje olusturma
-  yetkisi olarak yorumlamaz.
-- Projede PROJE.md, ilgili 01-baglam/ dosyalari ve KARARLAR.md on kosuldur.
-- Guncel veri gerektiren iddialari kaynak ve erisim tarihiyle kaydeder; veri yoksa varsayimi
-  acikca etiketler.
-- Karar kapilarinda kullanicidan acik onay alir. Dosya uretmek haftalik gorevi tamamlamaz.
-- Onayli final kopyalari 10-final/ altina alir ve calisma kaynagini yerinde korur.
+- Main output areas: 02-arastirma/musteri-arastirmasi/, 04-urun/urun-kararlari/,
+  06-pazarlama-uygulamalari/, 08-raporlar/pazarlama/, and 08-raporlar/analitik/
+- The pipeline does not create its own project or status folder. It keeps the active step in
+  DURUM.md and the relevant .pa/*/active-task.md file.
+- In an evaluation workspace, it does not apply project-only steps; it does not interpret a
+  positive result as authority to create a project.
+- In a project, PROJE.md, relevant 01-baglam/ files, and KARARLAR.md are prerequisites.
+- Records claims requiring current data with source and access date; if data is missing, labels
+  the assumption explicitly.
+- Obtains explicit user approval at decision gates. Producing a file does not complete a weekly task.
+- Places approved final copies under 10-final/ and preserves the working source in place.
+
+Internal operating instructions are in English. The default user-facing language is Turkish.

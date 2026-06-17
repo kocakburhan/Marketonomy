@@ -21,6 +21,19 @@ function Read-Utf8([string]$Path) {
     return [System.IO.File]::ReadAllText($Path, [System.Text.UTF8Encoding]::new($false))
 }
 
+function Normalize-Tr([string]$Text) {
+    return $Text -replace [char]0x0131,'i' -replace [char]0x0130,'I' -replace [char]0x015F,'s' -replace [char]0x015E,'S' -replace [char]0x011F,'g' -replace [char]0x011E,'G' -replace [char]0x00E7,'c' -replace [char]0x00C7,'C' -replace [char]0x00F6,'o' -replace [char]0x00D6,'O' -replace [char]0x00FC,'u' -replace [char]0x00DC,'U'
+}
+
+function Assert-Text([string]$FilePath, [string]$Term, [string]$Label) {
+    $content = Read-Utf8 $FilePath
+    $normalizedContent = Normalize-Tr $content
+    $normalizedTerm = Normalize-Tr $Term
+    if ($normalizedContent -notmatch [regex]::Escape($normalizedTerm)) {
+        Add-Failure "$Label : $Term"
+    }
+}
+
 $required = @(
     "AGENTS.md", "ARCHITECTURE.md", "SKILLS.md", "agents", "pipelines", "skills",
     "scripts", "templates", "mcps.json", "agent-version.json", "release-manifest.json"
@@ -65,7 +78,7 @@ foreach ($entry in $forbiddenPatterns.GetEnumerator()) {
     }
 }
 
-$agentsText = Read-Utf8 (Join-Path $AgentRoot "AGENTS.md")
+$agentsPath = Join-Path $AgentRoot "AGENTS.md"
 foreach ($requiredText in @(
     "DEGERLENDIRME.md",
     "PROJE.md",
@@ -74,14 +87,13 @@ foreach ($requiredText in @(
     "Europe/Istanbul",
     "05-haftalik-planlar",
     "10-final",
-    "workspace kokunun disina",
-    "Codex Research ve Veri Isleme Standardi",
+    "Do not leave the workspace root",
+    "Codex Research and Data Processing Standard",
+    "Default user-facing language is Turkish",
     "Kaynak ve Kanit Defteri",
     "Veri Isleme Notlari"
 )) {
-    if ($agentsText -notmatch [regex]::Escape($requiredText)) {
-        Add-Failure "AGENTS.md zorunlu MVP kurali icermiyor: $requiredText"
-    }
+    Assert-Text $agentsPath $requiredText "AGENTS.md zorunlu MVP kurali icermiyor"
 }
 
 $skillFiles = Get-ChildItem -LiteralPath (Join-Path $AgentRoot "skills") -Directory |
@@ -133,92 +145,83 @@ foreach ($agentName in @(
     "product-architect.md", "strategy-analyst.md"
 )) {
     $path = Join-Path $AgentRoot "agents\$agentName"
-    if ((Read-Utf8 $path) -notmatch "PersonalAutonomy Workspace Sozlesmesi") {
-        Add-Failure "Uzman workspace sozlesmesi eksik: agents/$agentName"
-    }
+    Assert-Text $path "PersonalAutonomy Workspace Contract" "Uzman workspace sozlesmesi eksik: agents/$agentName"
 }
 
 $imageFlowRequirements = @(
     @{
         Path = "skills\social\SKILL.md"
-        Terms = @("Codex Image Generation Zorunlulugu", "Codex icindeki aktif image generation akisini kullanarak gorseli uret", "Gorsel Dosyasi")
+        Terms = @("Codex Image Generation Mandate", "Generate the visual using the active image generation flow within Codex", "Gorsel Dosyasi")
     },
     @{
         Path = "skills\image\SKILL.md"
-        Terms = @("Codex Image Generation Akisi", "briefte kalma", "Codex image generation akisini kullanarak gorseli uret")
+        Terms = @("Codex Image Generation Flow", "do not stop at a brief", "generate the visual using the active image generation flow within Codex")
     },
     @{
         Path = "agents\content-creator.md"
-        Terms = @("Codex Image Generation Kurali", "kapsamli promptu otomatik yaz", "gorsel dosya yolunu ekle")
+        Terms = @("Codex Image Generation Rule", "Automatically write a comprehensive prompt", "visual file path to the post file")
     }
 )
 
 foreach ($requirement in $imageFlowRequirements) {
     $path = Join-Path $AgentRoot $requirement.Path
-    $text = Read-Utf8 $path
     foreach ($term in $requirement.Terms) {
-        if ($text -notmatch [regex]::Escape($term)) {
-            Add-Failure "Codex image generation akisi eksik: $($requirement.Path) -> $term"
-        }
+        Assert-Text $path $term "Codex image generation akisi eksik: $($requirement.Path)"
     }
 }
 
 foreach ($pipeline in Get-ChildItem -LiteralPath (Join-Path $AgentRoot "pipelines") -Filter *.md) {
-    if ((Read-Utf8 $pipeline.FullName) -notmatch "PersonalAutonomy Yurutme Kurallari") {
-        Add-Failure "Pipeline MVP yurutme kurali eksik: pipelines/$($pipeline.Name)"
-    }
+    $path = $pipeline.FullName
+    Assert-Text $path "PersonalAutonomy Execution Rules" "Pipeline MVP yurutme kurali eksik: pipelines/$($pipeline.Name)"
 }
 
 $researchContracts = @(
     @{
         Path = "agents\orchestrator.md"
-        Terms = @("Codex Research Kapisi", "Kaynak ve Kanit Defteri", "Veri Isleme Notlari")
+        Terms = @("Codex Research Gate", "Kaynak ve Kanit Defteri", "Veri Isleme Notlari")
     },
     @{
         Path = "agents\market-scout.md"
-        Terms = @("Codex Research Protokolu", "Ham yorum", "Veri Isleme Notlari")
+        Terms = @("Codex Research Protocol", "Raw reviews", "Veri Isleme Notlari")
     },
     @{
         Path = "agents\analytics-master.md"
-        Terms = @("Codex Veri Isleme Protokolu", "Ham veriyi koru", "formulu")
+        Terms = @("Codex Data Processing Protocol", "Preserve raw data", "formula")
     },
     @{
         Path = "skills\web-research\SKILL.md"
-        Terms = @("research omurgasidir", "Kaynak ve Kanit Defteri", "Veri Isleme Notlari")
+        Terms = @("research backbone", "Kaynak ve Kanit Defteri", "Veri Isleme Notlari")
     },
     @{
         Path = "skills\competitor-profiling\SKILL.md"
-        Terms = @("Codex Kanit ve Veri Kurali", "Tahmin", "Kaynak ve Kanit Defteri")
+        Terms = @("Codex Evidence and Data Rule", "Tahmin", "Kaynak ve Kanit Defteri")
     },
     @{
         Path = "skills\market-competitors\SKILL.md"
-        Terms = @("Codex Kanit Matrisi", "Veri yok", "Kaynak ve Kanit Defteri")
+        Terms = @("Codex Evidence Matrix", "Veri yok", "Kaynak ve Kanit Defteri")
     },
     @{
         Path = "skills\market-report\SKILL.md"
-        Terms = @("Kanit Defteri ve Veri Ayrimi", "Revenue impact", "Veri Isleme Notlari")
+        Terms = @("Evidence Ledger and Data Separation", "Revenue impact", "Veri Isleme Notlari")
     },
     @{
         Path = "skills\seo-audit\SKILL.md"
-        Terms = @("Codex Kanit Kurali", "Kontrol gerekli", "Kaynak ve Kanit Defteri")
+        Terms = @("Codex Evidence Rule", "Kontrol gerekli", "Kaynak ve Kanit Defteri")
     },
     @{
         Path = "skills\aso\SKILL.md"
-        Terms = @("Codex ve MCP Kullanimi", "ulke/market parametresini", "Ham yorum")
+        Terms = @("Codex and MCP Usage", "country/market parameter", "Preserve raw reviews")
     },
     @{
         Path = "skills\ai-seo\SKILL.md"
-        Terms = @("Codex Arastirma Kurali", "runtime talimati degildir", "Olcum yok")
+        Terms = @("Codex Research Rule", "runtime instructions", "Olcum yok")
     }
 )
 
 foreach ($contract in $researchContracts) {
     $path = Join-Path $AgentRoot $contract.Path
-    $text = Read-Utf8 $path
     foreach ($term in $contract.Terms) {
-        if ($text -notmatch [regex]::Escape($term)) {
-            Add-Failure "Codex research/veri sozlesmesi eksik: $($contract.Path) -> $term"
-        }
+        Assert-Text $path $term "Codex research/veri sozlesmesi eksik: $($contract.Path)"
     }
 }
 

@@ -1,4 +1,4 @@
 interface:
   display_name: "Emails"
   short_description: "Lifecycle ve kampanya email dizileri"
-  default_prompt: "Codex'te bu workspace icinde $emails skill'ini kullan ve ciktiyi PersonalAutonomy MVP klasor sozlesmesine gore kaydet."
+  default_prompt: "In Codex'te, use the $emails skill in this workspace and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."

@@ -3,48 +3,48 @@ name: video
 description: Pazarlama videosu icin strateji, senaryo, shot list ve uretim briefi hazirla. Demo, tanitim, tutorial veya social clip istendiginde kullan.
 ---
 
-# Video İçerik Üretimi
+# Video Content Production
 
-AI destekli video içerik üretim uzmanı. Demo videosu, ürün tanıtımı, sosyal medya clip'leri, tutorial videoları.
+AI-assisted video content production specialist. Demo video, product introduction, social media clips, tutorial videos.
 
-## ONEMLI NOT
+## IMPORTANT NOTE
 
-Video uretim araci yalnizca Codex oturumunda etkinse kullanilir. Arac etkin degilse bu skill
-video stratejisi, senaryo, shot list ve yapim plani hazirlar; gercek render alindigini
-varsaymaz.
+The video production tool is used only if active in the Codex session. If the tool is not active,
+this skill prepares video strategy, script, shot list, and production plan; it does not assume
+actual rendering has occurred.
 
-## Arac Bagimsizligi
+## Tool Independence
 
-Codex oturumunda etkin bir video, ses veya ekran kaydi araci varsa kullanicinin acik istegiyle
-o araca uygun senaryo, shot list, prompt veya kayit plani hazirla. Etkin arac yoksa herhangi
-bir entegrasyon, hesap, token veya render islemi varsayma. Ciktiyi uygulanabilir yapim briefi
-olarak kaydet.
+If there is an active video, audio, or screen recording tool in the Codex session, prepare a
+script, shot list, prompt, or recording plan suitable for that tool at the user's explicit
+request. If no active tool exists, do not assume any integration, account, token, or rendering
+process. Save the output as an actionable production brief.
 
-## Video Tipleri
+## Video Types
 
-| Tip | Süre | Amaç |
-|-----|------|------|
-| Demo videosu | 60-90 sn | Ürünü göster, değeri anlat |
-| Sosyal clip | 15-60 sn | Dikkat çek, profile çek |
-| Tutorial | 2-5 dk | Öğret, değer göster |
-| Lansman videosu | 60-90 sn | Heyecan yarat, aksiyona yönlendir |
-| Müşteri hikayesi | 60-120 sn | Sosyal kanıt |
+| Type | Duration | Purpose |
+|------|----------|---------|
+| Demo video | 60-90s | Show the product, convey the value |
+| Social clip | 15-60s | Grab attention, drive to profile |
+| Tutorial | 2-5 min | Teach, demonstrate value |
+| Launch video | 60-90s | Create excitement, drive action |
+| Customer story | 60-120s | Social proof |
 
-## Demo Videosu Script Yapısı
+## Demo Video Script Structure
 
 ```
-0-10 sn: PROBLEM — "Her hafta 4 saatini raporlamaya harcıyorsun."
-10-35 sn: ÇÖZÜM — Ekran kaydı + "ProjectFlow otomatik raporlar."
-35-50 sn: SONUÇLAR — "Kullanıcılar haftada 5 saat kazanıyor."
-50-60 sn: CTA — "14 gün ücretsiz dene."
+0-10s: PROBLEM — "You spend 4 hours every week on reporting."
+10-35s: SOLUTION — Screen recording + "ProjectFlow automated reports."
+35-50s: RESULTS — "Users save 5 hours per week."
+50-60s: CTA — "Try free for 14 days."
 ```
 
-## Platform Bazlı Format
+## Platform-Based Format
 
-| Platform | Format | Süre |
-|----------|--------|------|
-| LinkedIn | Yatay 16:9 | 30-90 sn |
-| Instagram Reels | Dikey 9:16 | 15-60 sn |
-| TikTok | Dikey 9:16 | 15-60 sn |
-| YouTube | Yatay 16:9 | 1-10 dk |
-| Landing Page | Yatay 16:9 | 60-90 sn |
+| Platform | Format | Duration |
+|----------|--------|----------|
+| LinkedIn | Horizontal 16:9 | 30-90s |
+| Instagram Reels | Vertical 9:16 | 15-60s |
+| TikTok | Vertical 9:16 | 15-60s |
+| YouTube | Horizontal 16:9 | 1-10 min |
+| Landing Page | Horizontal 16:9 | 60-90s |

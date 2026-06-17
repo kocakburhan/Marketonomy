@@ -3,13 +3,13 @@ name: market-report-pdf
 description: Onayli Markdown pazarlama raporunu profesyonel PDF'e donustur ve ciktisini dogrula. PDF teslimi acikca istendiginde kullan.
 ---
 
-# market-report-pdf — Profesyonel PDF Rapor Üreticisi
+# market-report-pdf — Professional PDF Report Generator
 
-Sen bir PDF rapor üreticisisin. `market-report` skill'inin ürettiği Markdown raporu, profesyonel bir PDF'e dönüştürürsün. Bunun için `scripts/generate_pdf_report.py` script'ini kullanırsın.
+You are a PDF report generator. You convert the Markdown report produced by the `market-report` skill into a professional PDF. You use the `scripts/generate_pdf_report.py` script for this.
 
 ---
 
-## Ön Koşullar
+## Prerequisites
 
 ```bash
 pip install reportlab
@@ -17,59 +17,59 @@ pip install reportlab
 
 ---
 
-## Çalışma Prensibi
+## Working Principle
 
-### Adım 1: Kaynak Veriyi Topla
-- `market-report` çıktısından veriyi al (veya kullanıcı URL verirse önce `market-report` çalıştır)
-- Alternatif olarak `scripts/analyze_page.py` çıktısını kullan
+### Step 1: Collect Source Data
+- Take data from `market-report` output (or run `market-report` first if the user provides a URL)
+- Alternatively, use the `scripts/analyze_page.py` output
 
-### Adım 2: PDF'i Oluştur
-`scripts/generate_pdf_report.py` script'ini çalıştır. Script şunları üretir:
+### Step 2: Generate the PDF
+Run the `scripts/generate_pdf_report.py` script. The script produces:
 
-- **Kapak sayfası:** URL, tarih, genel skor (büyük gauge)
-- **Executive Summary:** 1 sayfa özet
-- **Skor özeti:** Her kategori için bar chart
-- **Detay sayfaları:** Her kategori için 1 sayfa
-- **Aksiyon planı:** Önceliklendirilmiş tablo
+- **Cover page:** URL, date, overall score (large gauge)
+- **Executive Summary:** 1-page summary
+- **Score summary:** Bar chart for each category
+- **Detail pages:** 1 page per category
+- **Action plan:** Prioritized table
 
-### Adım 3: Script Kullanımı
+### Step 3: Script Usage
 
 ```bash
 python scripts/generate_pdf_report.py \
   --input MARKETING-REPORT.md \
   --output MARKETING-REPORT.pdf \
-  --title "Pazarlama Raporu: {site}"
+  --title "Marketing Report: {site}"
 ```
 
-Script `MARKETING-REPORT.md` dosyasındaki yapılandırılmış veriyi parse edip PDF'e dönüştürür.
+The script parses the structured data in the `MARKETING-REPORT.md` file and converts it to PDF.
 
-### Script Olmadan Fallback
-Eğer `generate_pdf_report.py` mevcut değilse veya reportlab kurulu değilse, PDF üretimi için şu adımları uygula:
+### Fallback Without Script
+If `generate_pdf_report.py` is not available or reportlab is not installed, apply these steps for PDF generation:
 
-1. **Clean Markdown üret:** Tüm tablolar, başlıklar, listeler düzgün formatlansın
-2. **Pandoc ile dönüştür:** `pandoc MARKETING-REPORT.md -o MARKETING-REPORT.pdf --pdf-engine=xelatex`
-3. **Veya WeasyPrint:** `weasyprint MARKETING-REPORT.md MARKETING-REPORT.pdf`
+1. **Generate clean Markdown:** All tables, headings, lists must be properly formatted
+2. **Convert with Pandoc:** `pandoc MARKETING-REPORT.md -o MARKETING-REPORT.pdf --pdf-engine=xelatex`
+3. **Or WeasyPrint:** `weasyprint MARKETING-REPORT.md MARKETING-REPORT.pdf`
 
 ---
 
-## Çıktı Formatı
+## Output Format
 
-`MARKETING-REPORT.pdf` dosyası:
+`MARKETING-REPORT.pdf` file:
 
 ```
-Sayfa 1: Kapak
-  - Başlık: "Pazarlama Raporu"
+Page 1: Cover
+  - Title: "Marketing Report"
   - URL
-  - Tarih
-  - Genel Skor: 69/100 (büyük gauge)
-  - Hazırlayan: Marketing Agent
+  - Date
+  - Overall Score: 69/100 (large gauge)
+  - Prepared by: Marketing Agent
 
-Sayfa 2: Yönetici Özeti
-  - 3 güçlü yön
-  - 3 gelişim alanı
-  - Revenue impact tahmini
+Page 2: Executive Summary
+  - 3 strengths
+  - 3 improvement areas
+  - Revenue impact estimate
 
-Sayfa 3: Skor Özeti (Tablo + Bar Chart)
+Page 3: Score Summary (Table + Bar Chart)
   - Content & Messaging     ████████░░  72/100
   - Conversion              █████░░░░░  58/100
   - SEO                     ████████░░  81/100
@@ -77,23 +77,23 @@ Sayfa 3: Skor Özeti (Tablo + Bar Chart)
   - Brand & Trust           ███████░░░  76/100
   - Growth & Strategy       ██████░░░░  61/100
 
-Sayfa 4-9: Kategori Detayları (her kategori 1 sayfa)
+Pages 4-9: Category Details (1 page per category)
   - Wins
   - Fixes
-  - Before/After örnekleri
+  - Before/After examples
 
-Sayfa 10: Öncelikli Aksiyon Planı
-  - Hemen Yap
-  - Bu Ay Planla
-  - Sonra
+Page 10: Priority Action Plan
+  - Do Immediately
+  - Plan This Month
+  - Later
 ```
 
 ---
 
-## Kurallar
-- PDF her zaman profesyonel ve müşteriye sunulabilir kalitede olmalı
-- Markdown'daki tüm veriyi PDF'e taşı, eksik kalmasın
-- Renkler tutarlı: yeşil (iyi), sarı (orta), kırmızı (kötü)
-- Tablolar PDF'de düzgün görünmeli, wrap ve alignment doğru olmalı
-- Kapak sayfası logo (varsa) ve tarih içermeli
-- Rapor 10 sayfayı geçmemeli, gereksiz detaydan kaçın
+## Rules
+- PDF must always be professional and client-presentable quality
+- Carry all data from Markdown into the PDF, nothing should be missing
+- Colors must be consistent: green (good), yellow (medium), red (bad)
+- Tables must display properly in the PDF, wrap and alignment must be correct
+- Cover page must include logo (if available) and date
+- Report must not exceed 10 pages, avoid unnecessary detail

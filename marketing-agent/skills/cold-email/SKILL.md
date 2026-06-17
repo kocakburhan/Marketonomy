@@ -3,58 +3,58 @@ name: cold-email
 description: B2B cold email ve takip dizileri yaz. Prospect outreach, subject line, ilk temas veya follow-up istendiginde kullan.
 ---
 
-# Cold Email (Soğuk E-posta)
+# Cold Email
 
-B2B cold outreach email uzmanı. Amaç: satış makinesi gibi değil, akıllı bir insan gibi görünen emailler yazmak.
+B2B cold outreach email specialist. Goal: write emails that sound like a smart person, not a sales machine.
 
-## Yazmadan Önce
+## Before Writing
 
-1. **product-marketing** context'ini kontrol et
-2. Şunları anla:
-   - Kime yazıyorsun? (rol, şirket, neden onlar)
-   - Ne istiyorsun? (toplantı, cevap, demo)
-   - Değerin ne? (onlar gibi insanlara çözdüğün spesifik problem)
-   - Kanıtın ne? (sonuç, vaka, güven sinyali)
+1. Check **product-marketing** context
+2. Understand:
+   - Who are you writing to? (role, company, why them)
+   - What do you want? (meeting, reply, demo)
+   - What is your value? (the specific problem you solve for people like them)
+   - What is your proof? (result, case study, trust signal)
 
-## Yazım Prensipleri
+## Writing Principles
 
-1. **Satıcı gibi değil, meslektaş gibi yaz** — Email pazarlama metni gibi değil, bir insan yazmış gibi olmalı
-2. **Her cümle yerini hak etmeli** — Karşı tarafı cevap vermeye yaklaştırmıyorsa, kes
-3. **Kişiselleştirme probleme bağlanmalı** — Kişiselleştirmeyi çıkarınca email hala anlamlıysa, kişiselleştirme çalışmıyor
-4. **Onların dünyasından başla** — "Sen/sizin" > "ben/biz"
+1. **Write like a colleague, not a seller** — Should read like a human wrote it, not marketing copy
+2. **Every sentence must earn its place** — If it doesn't move them closer to replying, cut it
+3. **Personalization must tie to the problem** — If the email still makes sense after removing personalization, the personalization isn't working
+4. **Start from their world** — "You/your" > "I/we"
 
-## Konu Satırı Kuralları
+## Subject Line Rules
 
-- 2-4 kelime, küçük harf, noktalama numarası yok
-- Dahili email gibi görünmeli: "Q2 tahmini", "yanıt oranları"
-- Ürün satışı, aciliyet, emoji, isim YOK
+- 2-4 words, lowercase, no punctuation tricks
+- Should look like an internal email: "Q2 estimate", "reply rates"
+- NO product pitch, urgency, emoji, or name
 
-## Email Yapı Seçenekleri
+## Email Structure Options
 
-- **Gözlem → Problem → Kanıt → Soru:** "X'i fark ettim, bu genelde Y sorunu demek. Z'ye şöyle yardımcı olduk. İlgini çeker mi?"
-- **Soru → Değer → Soru:** "X ile mi boğuşuyorsun? Biz Y yapıyoruz. Z şirketi [sonuç] gördü. Bakmaya değer mi?"
-- **Tetikleyici → İçgörü → Soru:** "X için tebrikler. Bu genelde Y zorluğu yaratır. Benzer şirketlere yardımcı olduk. Merak ettin mi?"
+- **Observation → Problem → Proof → Question:** "I noticed X, this usually means Y problem. We helped Z do this. Would this be interesting?"
+- **Question → Value → Question:** "Are you struggling with X? We do Y. Company Z saw [result]. Worth a look?"
+- **Trigger → Insight → Question:** "Congrats on X. This usually creates Y challenge. We've helped similar companies. Curious?"
 
-## Follow-Up Kuralları
+## Follow-Up Rules
 
-- 3-5 toplam email, araları açılarak
-- Her email yeni bir şey eklemeli — farklı açı, yeni kanıt, faydalı kaynak
-- "Sadece kontrol ediyorum" = en kötü follow-up
-- Her email tek başına anlamlı olmalı (öncekini okumamış olabilirler)
-- Son email = breakup email. Ondan sonra yazma.
+- 3-5 total emails, spaced apart
+- Each email must add something new — different angle, new proof, useful resource
+- "Just checking in" = worst follow-up
+- Each email should stand alone (they may not have read the previous one)
+- Last email = breakup email. Don't write after that.
 
-## Kalite Kontrolü
+## Quality Control
 
-- Sesli oku — insan yazmış gibi mi?
-- SEN bu email'i alsan cevap verir miydin?
-- Tek bir net, düşük sürtünmeli soru var mı?
-- Kişiselleştirme probleme bağlı mı?
+- Read aloud — does it sound like a human wrote it?
+- Would YOU reply if you received this email?
+- Is there a single clear, low-friction question?
+- Is personalization tied to the problem?
 
-## Kaçınılması Gerekenler
+## Things to Avoid
 
-- "Bu email sizi iyi bulur umarım" veya "Ben X şirketinden Y"
-- Jargon: "sinerji", "leverage", "best-in-class"
-- Özellik listesi — bir kanıt noktası on özellikten iyidir
-- HTML, görsel, çoklu link
-- Sahte "Re:" veya "Fwd:" konu satırları
-- İlk temasta 30 dakikalık toplantı istemek
+- "Hope this email finds you well" or "I'm Y from X company"
+- Jargon: "synergy", "leverage", "best-in-class"
+- Feature list — one proof point is better than ten features
+- HTML, images, multiple links
+- Fake "Re:" or "Fwd:" subject lines
+- Asking for a 30-minute meeting on first contact

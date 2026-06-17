@@ -1,288 +1,288 @@
-# Pipeline 8: B2B Gelir ve Outbound Satış
+# Pipeline 8: B2B Revenue and Outbound Sales
 
-**Zincirdeki yeri:** B2B dijital, B2B saha/fiziksel ve hibrit satış hareketleri için ana gelir
-pipeline'ı. Lead generation, prospecting, outbound, inside sales, field sales, demo, teklif,
-partner/channel sales ve takip süreçlerini birlikte yönetir.
+**Position in chain:** Main revenue pipeline for B2B digital, B2B field/physical, and hybrid
+sales motions. Manages lead generation, prospecting, outbound, inside sales, field sales, demo,
+proposal, partner/channel sales, and follow-up processes together.
 
-**Ne zaman çalışır:** Kullanıcı B2B müşteri bulmak, satış pipeline'ı kurmak, toplantı almak,
-demo yapmak, teklif hazırlamak, saha satışı yürütmek, partner/bayi kanalı kurmak veya mevcut
-B2B satış sürecini iyileştirmek istediğinde.
+**When it runs:** When the user wants to find B2B customers, build a sales pipeline, get meetings,
+do demos, prepare proposals, run field sales, set up a partner/dealer channel, or improve the
+existing B2B sales process.
 
-**Amaç:** ICP'yi netleştirip kanıtlı hedef hesap listesi oluşturmak; dijital ve/veya fiziksel
-kanallarla temas planı kurmak; mesaj, teklif, demo, toplantı ve takip materyallerini üretmek;
-pipeline metriklerini izleyip satış sürecini iyileştirmek.
+**Purpose:** Clarify the ICP and build an evidence-based target account list; establish a contact
+plan via digital and/or physical channels; produce message, proposal, demo, meeting, and
+follow-up materials; monitor pipeline metrics and improve the sales process.
 
-**Ön koşul:** Ürün/hizmet B2B veya B2B bileşenli hibrit olmalı. `PROJE.md`, ilgili
-`01-baglam/` dosyaları ve temel teklif bilgisi mevcut olmalı; eksikse pipeline önce bunları
-tamamlar.
+**Prerequisite:** The product/service must be B2B or hybrid with a B2B component. `PROJE.md`,
+relevant `01-baglam/` files, and basic offering information must be present; if missing, the
+pipeline completes these first.
 
 ---
 
-## Ana İlke
+## Core Principle
 
-Bu pipeline cold email ile sınırlı değildir. B2B satış hareketi şu kanallardan biri veya
-birkaçıyla yürütülebilir:
+This pipeline is not limited to cold email. The B2B sales motion can be run through one or more
+of the following channels:
 
 - cold email
 - LinkedIn/social selling
-- telefon/WhatsApp
-- demo ve online toplantı
-- yüz yüze ziyaret, saha satış ve etkinlik/fuar
-- webinar, workshop, topluluk veya partner etkinliği
-- kanal/partner/bayi/referral
-- ABM reklam, retargeting ve içerik destekli lead nurture
+- phone/WhatsApp
+- demo and online meeting
+- face-to-face visit, field sales, and event/trade show
+- webinar, workshop, community, or partner event
+- channel/partner/dealer/referral
+- ABM ads, retargeting, and content-supported lead nurture
 
-Agent kanal seçimini kullanıcının networkü, sektör bilgisi, hedef hesap tipi, satış döngüsü,
-ticket size, karar verici erişimi ve saha kapasitesine göre yapar. Her temas kanalına ölçüm ve
-takip adımı bağlanır.
+The agent selects channels based on the user's network, industry knowledge, target account type,
+sales cycle, ticket size, decision-maker access, and field capacity. Measurement and follow-up
+steps are tied to every contact channel.
 
 ---
 
-## Pipeline Akışı
+## Pipeline Flow
 
 ```text
-Kullanıcı: "B2B müşteri bulalım / satış yapalım"
+User: "Let's find B2B customers / make sales"
         |
         v
-[8.1] Orchestrator -> B2B satış bağlamını ve satış hareketini çıkar
-        |  Çıktı: 01-baglam/b2b-satis-baglami.md
+[8.1] Orchestrator -> Extract B2B sales context and sales motion
+        |  Output: 01-baglam/b2b-satis-baglami.md
         v
-[8.2] Strategy Analyst -> ICP, segment, değer önerisi ve teklif hipotezi
-        |  Çıktı: 03-strateji/pazara-giris/b2b-icp-ve-teklif.md
+[8.2] Strategy Analyst -> ICP, segment, value proposition, and offering hypothesis
+        |  Output: 03-strateji/pazara-giris/b2b-icp-ve-teklif.md
         v
-[8.3] Market Scout + Outreach Specialist -> Hesap/prospect ve kanal araştırması
-        |  Çıktı: 06-pazarlama-uygulamalari/saha/potansiyel-musteriler/prospect-listesi.md
+[8.3] Market Scout + Outreach Specialist -> Account/prospect and channel research
+        |  Output: 06-pazarlama-uygulamalari/saha/potansiyel-musteriler/prospect-listesi.md
         v
-[8.4] Outreach Specialist -> Çok kanallı temas dizisi
-        |  Çıktı: 06-pazarlama-uygulamalari/saha/takip/cok-kanalli-outreach-plani.md
+[8.4] Outreach Specialist -> Multi-channel contact sequence
+        |  Output: 06-pazarlama-uygulamalari/saha/takip/cok-kanalli-outreach-plani.md
         v
-[8.5] Content Creator + Brand Guardian -> Satış materyalleri
-        |  Çıktı: 06-pazarlama-uygulamalari/saha/satis-materyalleri/
+[8.5] Content Creator + Brand Guardian -> Sales materials
+        |  Output: 06-pazarlama-uygulamalari/saha/satis-materyalleri/
         v
-[8.6] Product Architect + Brand Guardian -> Demo, teklif ve objection handling
-        |  Çıktı: 06-pazarlama-uygulamalari/saha/teklifler/
+[8.6] Product Architect + Brand Guardian -> Demo, proposal, and objection handling
+        |  Output: 06-pazarlama-uygulamalari/saha/teklifler/
         v
-[8.7] Campaign Manager -> B2B reklam/ABM/retargeting destek planı
-        |  Çıktı: 06-pazarlama-uygulamalari/dijital/reklamlar/b2b-talep-yaratma-plani.md
+[8.7] Campaign Manager -> B2B ad/ABM/retargeting support plan
+        |  Output: 06-pazarlama-uygulamalari/dijital/reklamlar/b2b-talep-yaratma-plani.md
         v
-[8.8] Outreach Specialist -> Partner, kanal, etkinlik veya saha satış planı
-        |  Çıktı: 06-pazarlama-uygulamalari/saha/toplantilar/ ve etkinlikler/
+[8.8] Outreach Specialist -> Partner, channel, event, or field sales plan
+        |  Output: 06-pazarlama-uygulamalari/saha/toplantilar/ and etkinlikler/
         v
-[8.9] Analytics Master -> Pipeline dashboard'u ve takip ritmi
-        |  Çıktı: 08-raporlar/analitik/b2b-pipeline-dashboard.md
+[8.9] Analytics Master -> Pipeline dashboard and follow-up rhythm
+        |  Output: 08-raporlar/analitik/b2b-pipeline-dashboard.md
         v
-[8.10] Orchestrator -> Haftalık plana görevleri ekle, kullanıcı onayı al
+[8.10] Orchestrator -> Add tasks to weekly plan, get user approval
 ```
 
 ---
 
-## Adım Detayları
+## Step Details
 
-### 8.1 — B2B Satış Bağlamı
+### 8.1 — B2B Sales Context
 **Agent:** Orchestrator
 
-Toplanacak bilgiler:
+Information to gather:
 
-1. Ürün/hizmet nedir ve hangi B2B problemi çözer?
-2. Hedef müşteri: sektör, şirket büyüklüğü, lokasyon, olgunluk seviyesi
-3. Karar vericiler ve etkileyiciler: unvan, departman, satın alma komitesi
-4. Ticket size, fiyat modeli, satış döngüsü ve ödeme beklentisi
-5. Kullanıcının networkü, referansları, sektör güvenilirliği ve erişebildiği hesaplar
-6. Satış hareketi: inside sales, field sales, partner/channel, self-service destekli veya karma
-7. Mevcut materyaller: sunum, demo, case study, landing page, teklif şablonu, referans
-8. Kısıtlar: zaman, ekip, bütçe, coğrafya, regülasyon, entegrasyon, operasyon kapasitesi
+1. What is the product/service and what B2B problem does it solve?
+2. Target customer: industry, company size, location, maturity level
+3. Decision makers and influencers: title, department, buying committee
+4. Ticket size, pricing model, sales cycle, and payment expectation
+5. User's network, references, industry credibility, and accounts they can access
+6. Sales motion: inside sales, field sales, partner/channel, self-service supported, or mixed
+7. Existing materials: presentation, demo, case study, landing page, proposal template, reference
+8. Constraints: time, team, budget, geography, regulation, integration, operational capacity
 
-**Çıktı:** `01-baglam/b2b-satis-baglami.md`
+**Output:** `01-baglam/b2b-satis-baglami.md`
 
-### 8.2 — ICP ve Teklif Stratejisi
+### 8.2 — ICP and Offering Strategy
 **Agent:** Strategy Analyst
 
-**Çıktı (`03-strateji/pazara-giris/b2b-icp-ve-teklif.md`):**
+**Output (`03-strateji/pazara-giris/b2b-icp-ve-teklif.md`):**
 
 ```markdown
-# B2B ICP ve Teklif Stratejisi: [Proje]
+# B2B ICP ve Teklif Stratejisi: [Project]
 
 ## ICP
-| Segment | Problem acısı | Bütçe | Erişim kolaylığı | Satış döngüsü | Öncelik |
-|---------|---------------|-------|------------------|---------------|---------|
+| Segment | Pain point | Budget | Access ease | Sales cycle | Priority |
+|---------|------------|--------|-------------|-------------|----------|
 
-## Karar Verici Haritası
-| Rol | Öncelik | Ana acı | Mesaj | Kanıt |
-|-----|---------|---------|-------|-------|
+## Decision Maker Map
+| Role | Priority | Main pain | Message | Evidence |
+|------|----------|-----------|---------|-----------|
 
-## Değer Önerisi
-- Ana vaat:
-- ROI veya maliyet azaltma:
-- Risk azaltıcı unsur:
-- İlk teklif:
+## Value Proposition
+- Core promise:
+- ROI or cost reduction:
+- Risk mitigation element:
+- Initial offering:
 
-## Kanal Kararı
+## Channel Decision
 - Inside sales:
 - Field sales:
 - Partner/channel:
-- Dijital talep yaratma:
+- Digital demand generation:
 ```
 
-### 8.3 — Hesap ve Prospect Araştırması
+### 8.3 — Account and Prospect Research
 **Agent:** Market Scout + Outreach Specialist
 
-Kaynaklar:
+Sources:
 
-- LinkedIn, şirket siteleri, dizinler, sektör listeleri, oda/dernek listeleri
-- kullanıcı networkü ve mevcut müşteri/referral kaynakları
-- etkinlik/fuar katılımcı listeleri
-- yerel saha hesapları, mağaza/şube/tesis listeleri
-- web arama ve güvenilir kaynaklar
+- LinkedIn, company websites, directories, industry lists, chamber/association lists
+- user network and existing customer/referral sources
+- event/trade show attendee lists
+- local field accounts, store/branch/facility lists
+- web search and reliable sources
 
-**Çıktı (`06-pazarlama-uygulamalari/saha/potansiyel-musteriler/prospect-listesi.md`):**
+**Output (`06-pazarlama-uygulamalari/saha/potansiyel-musteriler/prospect-listesi.md`):**
 
 ```markdown
-# Prospect Listesi: [Proje]
+# Prospect Listesi: [Project]
 - ICP:
-- Kaynaklar:
+- Sources:
 
-| # | Hesap | Segment | Karar verici | Kanal | Neden uygun | Kişiselleştirme notu | Öncelik |
-|---|-------|---------|--------------|-------|-------------|----------------------|---------|
+| # | Account | Segment | Decision maker | Channel | Why suitable | Personalization note | Priority |
+|---|---------|---------|----------------|---------|--------------|----------------------|----------|
 ```
 
-Kişisel veri ve iletişim bilgilerinde veri minimizasyonu uygula. Dış sisteme mesaj göndermeden
-önce açık kullanıcı onayı al.
+Apply data minimization for personal data and contact information. Obtain explicit user approval
+before sending a message to an external system.
 
-### 8.4 — Çok Kanallı Outreach Planı
+### 8.4 — Multi-Channel Outreach Plan
 **Agent:** Outreach Specialist
 
-Kanal seçimi hedef hesaba göre yapılır. Cold email tek seçenek değildir.
+Channel selection is made per target account. Cold email is not the only option.
 
-**Çıktı (`06-pazarlama-uygulamalari/saha/takip/cok-kanalli-outreach-plani.md`):**
+**Output (`06-pazarlama-uygulamalari/saha/takip/cok-kanalli-outreach-plani.md`):**
 
 ```markdown
-# Çok Kanallı Outreach Planı: [Proje]
+# Çok Kanallı Outreach Planı: [Project]
 
-## Temas Dizisi
-| Gün | Kanal | Mesaj amacı | CTA | Takip koşulu |
-|-----|-------|-------------|-----|--------------|
-| 0 | Email | Problem/ROI açılışı | 15 dk görüşme | Cevap yoksa LinkedIn |
-| 2 | LinkedIn | Hafif temas | Bağlantı | Kabul edilirse mesaj |
-| 5 | Telefon/WhatsApp | Toplantı netleştirme | Tarih seçimi | ... |
+## Contact Sequence
+| Day | Channel | Message purpose | CTA | Follow-up condition |
+|-----|---------|-----------------|-----|---------------------|
+| 0 | Email | Problem/ROI opening | 15 min meeting | If no response, LinkedIn |
+| 2 | LinkedIn | Soft touch | Connect | If accepted, message |
+| 5 | Phone/WhatsApp | Finalize meeting | Date selection | ... |
 
-## Mesaj Varyantları
+## Message Variants
 - Email 1:
-- LinkedIn mesajı:
-- Telefon açılış script'i:
-- WhatsApp kısa mesajı:
-- Breakup mesajı:
+- LinkedIn message:
+- Phone opening script:
+- WhatsApp short message:
+- Breakup message:
 ```
 
-### 8.5 — Satış Materyalleri
+### 8.5 — Sales Materials
 **Agent:** Content Creator + Brand Guardian
 
-Üretilecekler:
+Items to produce:
 
-- tek sayfalık satış dokümanı
-- problem/çözüm anlatımı
-- sektör bazlı mesaj varyantları
-- LinkedIn post veya thought leadership içerikleri
-- landing page veya demo sayfası kopyası
-- case study veya referans taslağı
-- saha ziyareti için broşür/sunum özeti
+- one-page sales document
+- problem/solution narrative
+- industry-specific message variants
+- LinkedIn post or thought leadership content
+- landing page or demo page copy
+- case study or reference draft
+- brochure/presentation summary for field visit
 
-**Çıktı klasörü:** `06-pazarlama-uygulamalari/saha/satis-materyalleri/`
+**Output folder:** `06-pazarlama-uygulamalari/saha/satis-materyalleri/`
 
-### 8.6 — Demo, Teklif ve İtiraz Yönetimi
+### 8.6 — Demo, Proposal, and Objection Handling
 **Agent:** Product Architect + Brand Guardian
 
-**Çıktılar:**
+**Outputs:**
 
 - `06-pazarlama-uygulamalari/saha/demolar/demo-akisi.md`
 - `06-pazarlama-uygulamalari/saha/teklifler/teklif-sablonu.md`
 - `06-pazarlama-uygulamalari/saha/toplantilar/toplanti-scripti.md`
 - `06-pazarlama-uygulamalari/saha/takip/itiraz-yanitlari.md`
 
-### 8.7 — B2B Talep Yaratma ve Reklam Desteği
+### 8.7 — B2B Demand Generation and Ad Support
 **Agent:** Campaign Manager
 
-B2B dijital destek gerekiyorsa:
+If B2B digital support is needed:
 
-- LinkedIn Ads veya Meta/Google hedefleme
-- ABM küçük liste reklamları
+- LinkedIn Ads or Meta/Google targeting
+- ABM small-list ads
 - retargeting
-- webinar/workshop kayıt kampanyası
-- lead magnet veya rapor kampanyası
+- webinar/workshop registration campaign
+- lead magnet or report campaign
 
-**Çıktı:** `06-pazarlama-uygulamalari/dijital/reklamlar/b2b-talep-yaratma-plani.md`
+**Output:** `06-pazarlama-uygulamalari/dijital/reklamlar/b2b-talep-yaratma-plani.md`
 
-### 8.8 — Partner, Kanal, Etkinlik ve Saha Satış
+### 8.8 — Partner, Channel, Event, and Field Sales
 **Agent:** Outreach Specialist
 
-B2B fiziksel/saha gerekiyorsa:
+If B2B physical/field is needed:
 
-- fuar/etkinlik listesi
-- saha ziyaret planı
-- bayi/partner hedef listesi
-- demo günü/workshop planı
-- toplantı öncesi ve sonrası takip akışı
+- trade show/event list
+- field visit plan
+- dealer/partner target list
+- demo day/workshop plan
+- pre- and post-meeting follow-up flow
 
-**Çıktılar:**
+**Outputs:**
 
 - `06-pazarlama-uygulamalari/saha/etkinlikler/b2b-etkinlik-plani.md`
 - `06-pazarlama-uygulamalari/saha/toplantilar/saha-ziyaret-plani.md`
 - `06-pazarlama-uygulamalari/saha/potansiyel-musteriler/partner-kanal-listesi.md`
 
-### 8.9 — Pipeline Dashboard'u
+### 8.9 — Pipeline Dashboard
 **Agent:** Analytics Master
 
-**Çıktı (`08-raporlar/analitik/b2b-pipeline-dashboard.md`):**
+**Output (`08-raporlar/analitik/b2b-pipeline-dashboard.md`):**
 
 ```markdown
-# B2B Pipeline Dashboard: [Proje]
-- Dönem:
+# B2B Pipeline Dashboard: [Project]
+- Period:
 
 ## Funnel
-| Aşama | Sayı | Dönüşüm | Hedef |
-|-------|------|---------|-------|
-| Hedef hesap | ... | ... | ... |
-| Temas edildi | ... | ... | ... |
-| Cevap | ... | ... | ... |
-| Toplantı | ... | ... | ... |
+| Stage | Count | Conversion | Target |
+|-------|-------|------------|--------|
+| Target accounts | ... | ... | ... |
+| Contacted | ... | ... | ... |
+| Response | ... | ... | ... |
+| Meeting | ... | ... | ... |
 | Demo | ... | ... | ... |
-| Teklif | ... | ... | ... |
-| Kazanılan | ... | ... | ... |
+| Proposal | ... | ... | ... |
+| Won | ... | ... | ... |
 
-## Kanal Performansı
-| Kanal | Temas | Cevap | Toplantı | Maliyet | Not |
-|-------|-------|-------|----------|---------|-----|
+## Channel Performance
+| Channel | Contacts | Response | Meeting | Cost | Note |
+|---------|----------|----------|---------|------|------|
 
-## Karar
-- Ölçekle:
-- Revize:
-- Durdur:
-- Yeni test:
+## Decision
+- Scale:
+- Revise:
+- Stop:
+- New test:
 ```
 
-### 8.10 — Haftalık Plan
+### 8.10 — Weekly Plan
 **Agent:** Orchestrator
 
-Seçilen temas, demo, teklif, partner ve takip görevlerini aktif haftalık plana işler.
-Tamamlanma yalnızca kullanıcı onayıyla kapanır.
+Loads selected contact, demo, proposal, partner, and follow-up tasks into the active weekly
+plan. Completion is closed only with user approval.
 
 ---
 
-## Karar Noktaları
+## Decision Points
 
-| Adım | Karar |
-|------|-------|
-| 8.2 | Hangi ICP/segment öncelikli? |
-| 8.4 | Hangi temas kanalları kullanılacak? |
-| 8.6 | Demo/teklif paketi onaylı mı? |
-| 8.8 | Saha/partner/etkinlik planı uygulanacak mı? |
-| 8.9 | Ölçekle / revize / durdur |
+| Step | Decision |
+|------|----------|
+| 8.2 | Which ICP/segment is the priority? |
+| 8.4 | Which contact channels will be used? |
+| 8.6 | Is the demo/proposal package approved? |
+| 8.8 | Will the field/partner/event plan be implemented? |
+| 8.9 | Scale / revise / stop |
 
 ---
 
-## Çıktı Dosyaları
+## Output Files
 
-| Dosya | Üreten |
-|-------|--------|
+| File | Produced by |
+|------|-------------|
 | `01-baglam/b2b-satis-baglami.md` | Orchestrator |
 | `03-strateji/pazara-giris/b2b-icp-ve-teklif.md` | Strategy Analyst |
 | `06-pazarlama-uygulamalari/saha/potansiyel-musteriler/prospect-listesi.md` | Market Scout + Outreach Specialist |
@@ -296,19 +296,21 @@ Tamamlanma yalnızca kullanıcı onayıyla kapanır.
 
 ---
 
-## PersonalAutonomy Yurutme Kurallari
+## PersonalAutonomy Execution Rules
 
-- Ana cikti alanlari: `01-baglam/`, `03-strateji/pazara-giris/`,
+- Main output areas: `01-baglam/`, `03-strateji/pazara-giris/`,
   `06-pazarlama-uygulamalari/saha/`, `06-pazarlama-uygulamalari/dijital/`,
-  `06-pazarlama-uygulamalari/hibrit/` ve `08-raporlar/analitik/`
-- Pipeline kendi proje veya durum klasorunu olusturmaz. Aktif adimi DURUM.md ve ilgili
-  .pa/*/active-task.md dosyasinda tutar.
-- Degerlendirme workspace'inde proje-only adimlari uygulamaz; olumlu sonucu proje olusturma
-  yetkisi olarak yorumlamaz.
-- Projede PROJE.md, ilgili 01-baglam/ dosyalari ve KARARLAR.md on kosuldur.
-- Guncel veri gerektiren iddialari kaynak ve erisim tarihiyle kaydeder; veri yoksa varsayimi
-  acikca etiketler.
-- Karar kapilarinda kullanicidan acik onay alir. Dosya uretmek haftalik gorevi tamamlamaz.
-- Dis sisteme email, LinkedIn mesajı, telefon, WhatsApp, form veya başvuru gönderimi için açık
-  kullanıcı onayı alır.
-- Onayli final kopyalari 10-final/ altina alir ve calisma kaynagini yerinde korur.
+  `06-pazarlama-uygulamalari/hibrit/`, and `08-raporlar/analitik/`
+- The pipeline does not create its own project or status folder. It keeps the active step in
+  DURUM.md and the relevant .pa/*/active-task.md file.
+- In an evaluation workspace, it does not apply project-only steps; it does not interpret a
+  positive result as authority to create a project.
+- In a project, PROJE.md, relevant 01-baglam/ files, and KARARLAR.md are prerequisites.
+- Records claims requiring current data with source and access date; if data is missing, labels
+  the assumption explicitly.
+- Obtains explicit user approval at decision gates. Producing a file does not complete a weekly task.
+- Obtains explicit user approval before sending email, LinkedIn message, phone, WhatsApp, form,
+  or application to an external system.
+- Places approved final copies under 10-final/ and preserves the working source in place.
+
+Internal operating instructions are in English. The default user-facing language is Turkish.

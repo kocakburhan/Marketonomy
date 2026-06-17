@@ -1,24 +1,24 @@
 # Marketing Agent Architecture - Codex Release
 
-## Vizyon
+## Vision
 
-Marketer, bir degerlendirme veya proje klasorunu Codex root olarak acar ve tek ana agent ile
-calisir. Ana agent ihtiyaca gore uzman playbook'larini, pipeline'lari ve skill'leri yukler;
-butun kalici durumu PersonalAutonomy workspace dosyalarinda tutar.
+A marketer opens an evaluation or project folder as the Codex root and works with a single main
+agent. The main agent loads specialist playbooks, pipelines, and skills as needed; all persistent
+state is kept in PersonalAutonomy workspace files.
 
 ```text
-Kullanici
-  -> Codex ana agent
+User
+  -> Codex main agent
       -> Orchestrator playbook
-          -> Uzman rol playbook'lari
-          -> Pipeline'lar
-          -> Codex skill'leri ve mevcut araclar
-      -> MVP workspace dosyalari
+          -> Specialist role playbooks
+          -> Pipelines
+          -> Codex skills and available tools
+      -> MVP workspace files
 ```
 
-## Paket ve Workspace Ayrimi
+## Package And Workspace Separation
 
-`.pa/agent/` surumlenen ve merkezi release'ten guncellenen salt davranis paketidir:
+`.pa/agent/` is a versioned behavior-only package that is updated from the central release:
 
 ```text
 AGENTS.md
@@ -34,132 +34,133 @@ release-manifest.json
 agent-version.json
 ```
 
-Kullanici verisi, proje gercekleri, kararlar ve operasyonel durum `.pa/agent/` icine yazilmaz.
-Agent guncellemesi degerlendirmede `.pa/evaluation/`, projede `.pa/project/` ve tum kullanici
-ciktilarini korur.
+User data, project facts, decisions, and operational state are not written inside `.pa/agent/`.
+Agent updates preserve `.pa/evaluation/` in evaluations, `.pa/project/` in projects, and all
+user outputs.
 
-## Iki Workspace Turu
+## Two Workspace Types
 
-### Fikir degerlendirmesi
+### Idea Evaluation
 
-Kimlik ve kriterler `DEGERLENDIRME.md`, teknik durum `.pa/evaluation/`, ham girdiler
-`kaynaklar/`, analizler `ciktilar/`, calisma raporu `RAPOR.md` icinde tutulur. Bu workspace
-Project Pool oncesidir ve proje operasyon klasorlerini kullanmaz.
+Identity and criteria live in `DEGERLENDIRME.md`, technical state in `.pa/evaluation/`, raw inputs
+in `kaynaklar/`, analyses in `ciktilar/`, and the working report in `RAPOR.md`. This workspace is
+pre-Project Pool and does not use project operations folders.
 
-### Proje
+### Project
 
-Kimlik ve urun gercekleri `PROJE.md`, uzun omurlu baglam `01-baglam/`, kararlar
-`KARARLAR.md`, operasyon `DURUM.md` ve `.pa/project/` icinde tutulur. Arastirmadan finale
-tum ciktilar numarali MVP klasorlerine gider.
+Identity and product facts live in `PROJE.md`, long-lived context in `01-baglam/`, decisions in
+`KARARLAR.md`, and operations in `DURUM.md` and `.pa/project/`. All outputs from research to
+final go to the numbered MVP folders.
 
-Proje dosya sistemi agent davranisinin merkezi parcasidir. Ana agent her cikti icin once
-workspace turunu, sonra cikti turunu, sonra canonical hedef klasoru belirler. Ham kullanici
-girdileri `00-gelen-kutusu/` icinde korunur; islenmis arastirma `02-arastirma/`, strateji
-`03-strateji/`, urun dokumani `04-urun/`, haftalik plan `05-haftalik-planlar/`, uygulama
-ciktilari `06-pazarlama-uygulamalari/`, lansman `07-lansman/`, raporlar `08-raporlar/`,
-yeniden kullanilabilir varliklar `09-varliklar/`, onayli teslimler `10-final/` ve eski
-versiyonlar `99-arsiv/` altinda tutulur. `.pa/agent/` icine kullanici verisi veya proje ciktisi
-yazilmaz.
+The project file system is the central part of agent behavior. The main agent determines first the
+workspace type, then the output type, then the canonical target folder for every output. Raw user
+inputs are preserved in `00-gelen-kutusu/`; processed research goes to `02-arastirma/`, strategy
+to `03-strateji/`, product docs to `04-urun/`, weekly plans to `05-haftalik-planlar/`, execution
+outputs to `06-pazarlama-uygulamalari/`, launch to `07-lansman/`, reports to `08-raporlar/`,
+reusable assets to `09-varliklar/`, approved deliverables to `10-final/`, and archived versions to
+`99-arsiv/`. User data or project outputs are not written inside `.pa/agent/`.
 
-## Uzmanlik Modeli
+## Specialist Model
 
-11 uzman rolu korunur: onboarding, pazar arastirmasi, strateji, urun mimarisi, lansman,
-icerik, buyume, outreach, analitik, marka ve kampanya. Bunlar bagimsiz veri depolari veya
-zorunlu ayri islem veya runtime degil, Codex'in goreve gore okudugu odakli talimat dosyalaridir.
+11 specialist roles are maintained: onboarding, market research, strategy, product architecture,
+launch, content, growth, outreach, analytics, brand, and campaign. These are not independent data
+repositories or mandatory separate processes/runtimes; they are focused instruction files that
+Codex reads according to the task.
 
-Codex subagent calismasi yalnizca kullanici acikca istediginde ya da ana talepte acikca
-paralel agent kullanimi belirtildiginde uygulanir. Her durumda ana agent sonuclari workspace
-sozlesmesine gore dogrular ve birlestirir.
+Codex subagent work is applied only when the user explicitly requests it or when the main request
+explicitly specifies parallel agent usage. In all cases, the main agent verifies and consolidates
+results according to the workspace contract.
 
-## Pazarlama Kapsam Modeli
+## Marketing Coverage Model
 
-Release, pazarlama talebini tek bir kanal veya tek bir musteri tipine indirgemez. Orchestrator
-her istekte musteri modelini, kanal modelini, yasam dongusu asamasini, pazar kapsamını ve satis
-hareketini siniflandirir.
-
-```text
-Musteri modeli:
-  B2B | B2C | Hibrit
-
-Kanal modeli:
-  Dijital | Fiziksel/Saha | Hibrit
-
-Yasam dongusu:
-  fikir -> dogrulama -> MVP/teklif -> pre-launch -> launch -> satis
-  -> buyume -> retention -> feedback -> iyilestirme
-```
-
-Ana pipeline'lar tek basina yetmediginde birlestirilir. Ornegin B2B saha satisi
-`outbound-sales` ile baslar ama etkinlik, fiziksel materyal veya yerel aktivasyon gerekiyorsa
-`local-business-launch`, `content-machine`, `campaign-manager` ve `analytics-master` ciktılarıyla
-tamamlanir. B2C fiziksel pazarlamada P9 ana akistir; dijital destek, buyume ve feedback
-döngüleri gerektiğinde eklenir.
-
-Bu nedenle uyumluluk, her senaryoda ayni dosya setinin uretilecegi anlamina gelmez. Dogru
-uyumluluk; arastirma, strateji, teklif, kanal, materyal, uygulama, olcum ve iyilestirme
-katmanlarinin proje tipine uygun ciktilara donusmesidir.
-
-## Skill Modeli
-
-Her `skills/<ad>/SKILL.md` Codex Agent Skills standardinda `name` ve `description`
-frontmatter'i tasir. Skill metadata'si Codex'in gorevle eslestirmesi icindir; ayrintili
-talimatlar yalnizca skill secildiginde yuklenir.
-
-Canonical release kopyasi `.pa/agent/skills/` altindadir. Workspace olusturma veya release
-dagitim scripti, Codex'in repo-scope skill kesfi icin destekledigi alana ayni skill'leri
-ayrica yayinlayabilir. Paket, bu yayin olmadan da ana AGENTS.md talimatiyla canonical skill
-dosyalarini acikca okuyarak calisir.
-
-## Pipeline Durumu
-
-Pipeline dosyalari hazir is akislaridir; kendi state deposunu olusturmaz. Aktif pipeline ve
-adim insan tarafindan okunabilir bicimde `DURUM.md`, makine tarafindan okunabilir gereken
-alanlariyla ilgili state JSON ve `active-task.md` icinde tutulur.
-
-Gorev odakli haftalik takvim proje operasyonunun ana ritmidir. Her ISO hafta
-`05-haftalik-planlar/YYYY-WNN.md` dosyasinda tutulur; plan Pazartesi-Pazar sinirlarini
-`Europe/Istanbul` saat dilimine gore izler. Pipeline ve skill'ler bu dosyadaki gorevleri
-ilerletebilir, ancak dosya uretimi gorev kapanisi sayilmaz. Gorev yalnizca kullanicinin acik
-tamamlanma onayindan sonra `[x]` ve `Tamamlandi` olur; ertelenen veya iptal edilen gorevler
-gerekcesiyle kaydedilir.
-
-## Araclar ve MCP
-
-Dis capability'ler Codex host tarafinda saglanir. `mcps.json`, gerekli veya opsiyonel
-capability'leri ve manuel fallback'i tanimlar; kurulum kaniti degildir. Ana agent yalnizca
-aktif arac listesinde gordugu capability'yi kullanir.
-
-Web arastirmasinda mevcut resmi web, Browser veya Chrome araci kullanilir. Kaynaklar,
-erisim tarihi ve kanit ile ciktida saklanir. Arac yoksa script veya manuel veri akisi secilir.
-
-## Research ve Veri Isleme Omurgasi
-
-Arastirma ve veri isleme release'in birinci sinif davranisidir. Agent sadece nihai yorum
-uretmez; kaynak toplama, kanit defteri, ham veri korunumu, normalizasyon, analiz ve karar
-etkisini ayri katmanlar olarak yurutur.
+The release does not reduce marketing demand to a single channel or single customer type. The
+orchestrator classifies the customer model, channel model, lifecycle stage, market scope, and
+sales motion for every request.
 
 ```text
-Codex araclari / MCP / script / manuel export
-  -> ham kaynak ve kanit notu
-  -> normalize JSON/CSV/Markdown calisma verisi
-  -> analiz, skor, tahmin ve karar etkisi
-  -> RAPOR.md veya ilgili MVP cikti klasoru
+Customer model:
+  B2B | B2C | Hybrid
+
+Channel model:
+  Digital | Physical/Field | Hybrid
+
+Lifecycle:
+  idea -> validation -> MVP/offer -> pre-launch -> launch -> sales
+  -> growth -> retention -> feedback -> improvement
 ```
 
-Bu katmanlarin karismasi release hatasidir. Kaynaksiz sayisal iddia, arac listesinde
-gorunmeyen capability varsayimi veya ham veriyi silen ozetleme Codex uyumlu kabul edilmez.
+When main pipelines are insufficient alone, they are combined. For example, B2B field sales starts
+with `outbound-sales` but is supplemented with `local-business-launch`, `content-machine`,
+`campaign-manager`, and `analytics-master` outputs when events, physical materials, or local
+activation is needed. For B2C physical marketing, P9 is the main flow; digital support, growth,
+and feedback loops are added as needed.
 
-## Durum ve Onay Ilkeleri
+Therefore, compatibility does not mean the same file set is produced in every scenario. Correct
+compatibility means the research, strategy, offer, channel, material, execution, measurement, and
+improvement layers are transformed into outputs appropriate for the project type.
 
-- Dosya uretimi gorev tamamlanmasi degildir.
-- Final teslim ve haftalik gorev kapanisi acik kullanici onayi ister.
-- Proje davranis tercihi degisikligi `overrides.md`, `overrides-approved.md`, SHA-256 state ve
-  `KARARLAR.md` kaydini birlikte gunceller.
-- Proje gercekleri override dosyasina kopyalanmaz.
-- Operasyonel zaman `Europe/Istanbul`, haftalar Pazartesi-Pazar ISO standardindadir.
+## Skill Model
 
-## Hata Sinirlari
+Each `skills/<name>/SKILL.md` carries `name` and `description` frontmatter in the Codex Agent
+Skills standard. Skill metadata is for Codex task matching; detailed instructions are loaded only
+when the skill is selected.
 
-Kimlik uyusmazligi, bozuk workspace turu, okunamayan state veya gecersiz release normal
-calismayi durdurur. Dis veri/arac eksigi ise kanitla belirtilir ve guvenli manuel fallback
-sunulur. Hicbir durumda eksik veri uydurulmaz.
+The canonical release copy is under `.pa/agent/skills/`. The workspace creation or release
+distribution script may additionally publish the same skills to the area Codex supports for
+repo-scope skill discovery. The package also works by explicitly reading canonical skill files
+via the main AGENTS.md instruction without requiring this publication.
+
+## Pipeline State
+
+Pipeline files are ready-to-use workflows; they do not create their own state repository. The
+active pipeline and step are kept in human-readable form in `DURUM.md`, and the machine-readable
+required fields in the relevant state JSON and `active-task.md`.
+
+The task-oriented weekly calendar is the main rhythm of project operations. Each ISO week is kept
+in `05-haftalik-planlar/YYYY-WNN.md`; the plan tracks Monday-Sunday boundaries according to the
+`Europe/Istanbul` timezone. Pipelines and skills can advance tasks in this file, but file
+production does not count as task closure. A task becomes `[x]` and `Tamamlandı` only after
+explicit user completion approval; postponed or cancelled tasks are recorded with reasons.
+
+## Tools And MCP
+
+External capabilities are provided on the Codex host side. `mcps.json` defines required or
+optional capabilities and manual fallback; it is not proof of installation. The main agent uses
+only capabilities it sees in the active tool list.
+
+For web research, the available official web, Browser, or Chrome tool is used. Sources, access
+dates, and evidence are preserved in the output. If a tool is absent, a script or manual data flow
+is selected.
+
+## Research And Data Processing Backbone
+
+Research and data processing is a first-class behavior of the release. The agent does not just
+produce a final interpretation; it executes source collection, evidence ledger, raw data
+preservation, normalization, analysis, and decision impact as separate layers.
+
+```text
+Codex tools / MCP / script / manual export
+  -> raw source and evidence note
+  -> normalized JSON/CSV/Markdown working data
+  -> analysis, score, estimate, and decision impact
+  -> RAPOR.md or relevant MVP output folder
+```
+
+Mixing these layers is a release error. Unsourced numeric claims, assumptions about capabilities
+not visible in the tool list, or summarization that deletes raw data are not considered
+Codex-compliant.
+
+## State And Approval Principles
+
+- File production is not task completion.
+- Final delivery and weekly task closure require explicit user approval.
+- A project behavior preference change updates `overrides.md`, `overrides-approved.md`, SHA-256
+  state, and `KARARLAR.md` together.
+- Project facts are not copied into the override file.
+- Operational time is `Europe/Istanbul`; weeks follow the Monday-Sunday ISO standard.
+
+## Error Boundaries
+
+Identity mismatch, broken workspace type, unreadable state, or invalid release stops normal work.
+Missing external data/tool is noted with evidence and a safe manual fallback is offered. In no
+case is missing data fabricated.

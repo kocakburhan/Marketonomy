@@ -1,182 +1,182 @@
-# Pipeline 2: MVP Lansman (MVP Launch)
+# Pipeline 2: MVP Launch
 
-**Zincirdeki yeri:** Zincir A ve B (P1/P5'ten sonra, coder MVP'yi teslim edince).
+**Position in chain:** Chain A and B (after P1/P5, when coder delivers the MVP).
 
-**Ne zaman çalışır:** Coder MVP'yi teslim ettiğinde, kullanıcı "MVP hazır" dediğinde veya
-B2B/B2C dijital, fiziksel ya da hibrit bir teklif ilk kez pazara çıkarılacak hale geldiğinde.
+**When it runs:** When the coder delivers the MVP, the user says "MVP is ready," or a B2B/B2C
+digital, physical, or hybrid offering is ready to be brought to market for the first time.
 
-**Amaç:** MVP'yi, fiziksel ürünü, hizmet teklifini veya B2B satış paketini pazarlamak için
-strateji, içerik, reklam, saha/kanal ve lansman planı oluşturmak.
+**Purpose:** To create strategy, content, ads, field/channel, and launch plan for marketing the
+MVP, physical product, service offering, or B2B sales package.
 
-**Ön koşul:** Pazara çıkarılacak şey hazır olmalı: app/web MVP, fiziksel ürün, pilot hizmet,
-B2B demo/teklif paketi veya etkinlik/aktivasyon planı. `PROJE.md`, ilgili `01-baglam/` dosyaları
-ve varsa `04-urun/prd/` veya teklif/MVP dokümanları mevcut olmalı.
-
----
-
-## Pipeline Akışı
-
-```
-Kullanıcı: "MVP hazır"
-        │
-        ▼
-[2.1] Orchestrator → MVP detaylarını kullanıcıdan al
-        │  Sorular: link, özellik listesi, bilinen bug'lar, eksikler
-        ▼
-[2.2] Strategy Analyst → MVP'ye özel pazarlama stratejisi
-        │  Çıktı: marketing-strategy.md
-        ▼
-[2.3] Content Creator → Lansman içeriklerini üret
-        │  Çıktı: content-calendar.md, social post'lar, email dizileri
-        ▼
-[2.4] Campaign Manager → Reklam kampanyası tasarla
-        │  Çıktı: ad-campaigns.md, ad-creatives.md
-        ▼
-[2.5] Launch Commander → Lansman checklist'i oluştur
-        │  Çıktı: launch-plan.md, launch-checklist.md
-        ▼
-[2.6] Orchestrator → Tüm planı kullanıcıya sun, onay al
-        │
-        ▼
-[2.7] Launch Commander → Lansmanı başlat
-           (Kullanıcıya adım adım yapılacakları ilet)
-```
+**Prerequisite:** The thing to be brought to market must be ready: app/web MVP, physical product,
+pilot service, B2B demo/proposal package, or event/activation plan. `PROJE.md`, relevant
+`01-baglam/` files, and if applicable, `04-urun/prd/` or offering/MVP documents must be present.
 
 ---
 
-## Adım Detayları
+## Pipeline Flow
 
-### 2.1 — MVP Detaylarını Toplama
+```
+User: "MVP is ready"
+        │
+        ▼
+[2.1] Orchestrator → Gather MVP details from user
+        │  Questions: link, feature list, known bugs, gaps
+        ▼
+[2.2] Strategy Analyst → MVP-specific marketing strategy
+        │  Output: marketing-strategy.md
+        ▼
+[2.3] Content Creator → Produce launch content
+        │  Output: content-calendar.md, social posts, email sequences
+        ▼
+[2.4] Campaign Manager → Design ad campaign
+        │  Output: ad-campaigns.md, ad-creatives.md
+        ▼
+[2.5] Launch Commander → Create launch checklist
+        │  Output: launch-plan.md, launch-checklist.md
+        ▼
+[2.6] Orchestrator → Present the full plan to user, get approval
+        │
+        ▼
+[2.7] Launch Commander → Start the launch
+           (Communicate step-by-step actions to the user)
+```
+
+---
+
+## Step Details
+
+### 2.1 — Gathering MVP Details
 **Agent:** Orchestrator
 
 ```
-MVP detaylarını alabilir miyim? İhtiyacım olanlar:
+Can I get the MVP details? What I need:
 
-ZORUNLU:
-• App/ürün adı
-• Pazara çıkış formatı: app/web, fiziksel ürün, hizmet, B2B demo/teklif, etkinlik veya hibrit
-• Link, satış noktası, lokasyon, demo yolu veya teklif dosyası
-• MVP/teklif kapsamında neler var? (kısaca liste)
-• Hangi özellikler/hizmetler/kapsamlar eksik? (ileride eklenecek)
+MANDATORY:
+• App/product name
+• Go-to-market format: app/web, physical product, service, B2B demo/proposal, event, or hybrid
+• Link, point of sale, location, demo path, or proposal file
+• What is in the MVP/offering scope? (brief list)
+• What features/services/scope are missing? (to be added later)
 
-OPSİYONEL (varsa):
-• Bilinen bug'lar neler?
-• Coder'ın eklemek istediği notlar var mı?
-• Test kullanıcılarından gelen ilk izlenimler?
+OPTIONAL (if available):
+• What are the known bugs?
+• Any notes the coder wants to add?
+• First impressions from test users?
 ```
 
-### 2.2 — Pazarlama Stratejisi
+### 2.2 — Marketing Strategy
 **Agent:** Strategy Analyst
-**Girdi:** `04-urun/prd/ altindaki guncel PRD`, `pazara-giris-stratejisi.md` (varsa), MVP detayları
+**Input:** `current PRD under 04-urun/prd/`, `pazara-giris-stratejisi.md` (if exists), MVP details
 
-**Çıktı (`marketing-strategy.md`):**
+**Output (`marketing-strategy.md`):**
 ```markdown
-# Pazarlama Stratejisi: [Ürün] v1.0
-## Hedef Kitle
-- Primer segment: ...
-- Sekonder segment: ...
+# Pazarlama Stratejisi: [Product] v1.0
+## Target Audience
+- Primary segment: ...
+- Secondary segment: ...
 
-## Konumlandırma
-[1 cümle]
+## Positioning
+[1 sentence]
 
-## Lansman Kanalları (öncelikli)
-1. [kanal] — [neden, hedef]
+## Launch Channels (prioritized)
+1. [channel] — [why, target]
 2. ...
 
-## Model Uyarlaması
-- Müşteri modeli: [B2B/B2C/Hibrit]
-- Kanal modeli: [Dijital/Fiziksel/Hibrit]
-- Satış hareketi:
-- Gerekli saha/dijital destek:
+## Model Adaptation
+- Customer model: [B2B/B2C/Hybrid]
+- Channel model: [Digital/Physical/Hybrid]
+- Sales motion:
+- Required field/digital support:
 
-## Lansman Zamanlaması
+## Launch Timeline
 - D-14: ...
 - D-7: ...
 - D-Day: ...
 - D+7: ...
 
-## Bütçe Planı
-| Kalem | Bütçe | Beklenen Dönüş |
-|-------|-------|---------------|
-| Reklam | ₺xxx | [hedef] |
+## Budget Plan
+| Item | Budget | Expected Return |
+|------|--------|-----------------|
+| Ads | ₺xxx | [target] |
 | ... | ... | ... |
 
-## Başarı Metrikleri
-| Metrik | 7 gün | 30 gün | 90 gün |
-|--------|-------|--------|--------|
-| İndirme | [x] | [x] | [x] |
+## Success Metrics
+| Metric | 7 days | 30 days | 90 days |
+|--------|--------|---------|---------|
+| Downloads | [x] | [x] | [x] |
 | DAU | [x] | [x] | [x] |
-| Gelir | [₺] | [₺] | [₺] |
+| Revenue | [₺] | [₺] | [₺] |
 ```
 
-### 2.3 — Lansman İçerikleri
+### 2.3 — Launch Content
 **Agent:** Content Creator
-**Paralel görevler (hepsi aynı anda yapılabilir):**
+**Parallel tasks (all can be done simultaneously):**
 
-- `social_calendar.py` ile 30 günlük sosyal medya takvimi
-- App Store / Google Play açıklaması (ASO optimize)
-- Lansman email dizisi (email-launch template)
-- Landing page kopyası (varsa web sitesi)
-- Sosyal medya lansman post'ları
-- Tanıtım videosu senaryosu (video skill)
-- Fiziksel ürün/hizmet ise afiş, broşür, QR/kupon ve saha script'i
-- B2B ise demo daveti, toplantı mesajı, teklif özeti ve LinkedIn/email içerikleri
+- 30-day social media calendar with `social_calendar.py`
+- App Store / Google Play description (ASO optimized)
+- Launch email sequence (email-launch template)
+- Landing page copy (if there is a website)
+- Social media launch posts
+- Promo video script (video skill)
+- For physical product/service: poster, brochure, QR/coupon, and field script
+- For B2B: demo invitation, meeting message, proposal summary, and LinkedIn/email content
 
-**Çıktılar:**
+**Outputs:**
 - `content-calendar.md`
 - `content/social-post-*.md`
 - `content/email-launch.md`
 - `content/aso-metni.md`
 
-### 2.4 — Reklam Kampanyası
+### 2.4 — Ad Campaign
 **Agent:** Campaign Manager
-**Çıktılar:**
-- `ad-campaigns.md` — platform seçimi, bütçe, kampanya yapısı
-- `ad-creatives.md` — 3+ varyant (her platform için)
-- B2B ise `b2b-talep-yaratma-plani.md`
-- Fiziksel/hibrid ise `fiziksel-b2c-kampanya-plani.md` veya saha destek kampanyası
+**Outputs:**
+- `ad-campaigns.md` — platform selection, budget, campaign structure
+- `ad-creatives.md` — 3+ variants (for each platform)
+- For B2B: `b2b-talep-yaratma-plani.md`
+- For physical/hybrid: `fiziksel-b2c-kampanya-plani.md` or field support campaign
 
-### 2.5 — Lansman Planı ve Checklist
+### 2.5 — Launch Plan and Checklist
 **Agent:** Launch Commander
-**Çıktılar:**
-- `launch-plan.md` — lansman özeti, kanallar, takvim, metrik hedefleri
-- `launch-checklist.md` — 8 haftalık detaylı checklist (template'ten doldurulur)
+**Outputs:**
+- `launch-plan.md` — launch summary, channels, calendar, metric targets
+- `launch-checklist.md` — 8-week detailed checklist (populated from template)
 
-### 2.6 — Onay
+### 2.6 — Approval
 **Agent:** Orchestrator
 
 ```
-📋 LANSMAN PAKETİ HAZIR
+📋 LAUNCH PACKAGE READY
 
-İşte lansman için hazırladıklarımız:
-• Pazarlama stratejisi → [dosya]
-• İçerik takvimi (30 gün) → [dosya]
-• Reklam kampanyası → [dosya]
-• Lansman planı → [dosya]
+Here's what we've prepared for the launch:
+• Marketing strategy → [file]
+• Content calendar (30 days) → [file]
+• Ad campaign → [file]
+• Launch plan → [file]
 
-Toplam tahmini bütçe: ₺xxx
+Total estimated budget: ₺xxx
 
-Onaylıyor musun? Lansmanı başlatalım mı?
+Do you approve? Shall we start the launch?
 ```
 
-### 2.7 — Lansman
+### 2.7 — Launch
 **Agent:** Launch Commander
-Lansman günü adım adım yapılacakları kullanıcıya iletir.
+Communicates the step-by-step actions to the user on launch day.
 
 ---
 
-## Karar Noktaları
+## Decision Points
 
-| Adım | Karar |
-|------|-------|
-| 2.6 | Lansman planını onayla / revize et |
+| Step | Decision |
+|------|----------|
+| 2.6 | Approve / revise launch plan |
 
 ---
 
-## Çıktı Dosyaları
+## Output Files
 
-| Dosya | Üreten |
-|-------|--------|
+| File | Produced by |
+|------|-------------|
 | `marketing-strategy.md` | Strategy Analyst |
 | `content-calendar.md` | Content Creator |
 | `content/social-post-*.md` | Content Creator |
@@ -186,23 +186,26 @@ Lansman günü adım adım yapılacakları kullanıcıya iletir.
 | `ad-creatives.md` | Campaign Manager |
 | `launch-plan.md` | Launch Commander |
 | `launch-checklist.md` | Launch Commander |
-| Fiziksel/B2B destek materyalleri | İlgili uzmanlar |
+| Physical/B2B support materials | Relevant specialists |
 
 ---
 
-## Sonraki Pipeline
+## Next Pipeline
 
-Lansmandan 2-4 hafta sonra → **Pipeline 3 (Feedback ve İyileştirme)** başlar. Veya kullanıcı "feedback toplamaya başlayalım" dediğinde.
+2-4 weeks after launch → **Pipeline 3 (Feedback & Improvement)** starts. Or when the user says
+"let's start collecting feedback."
 
-## PersonalAutonomy Yurutme Kurallari
+## PersonalAutonomy Execution Rules
 
-- Ana cikti alanlari: 07-lansman/ ve ilgili 06-pazarlama-uygulamalari/ klasorleri
-- Pipeline kendi proje veya durum klasorunu olusturmaz. Aktif adimi DURUM.md ve ilgili
-  .pa/*/active-task.md dosyasinda tutar.
-- Degerlendirme workspace'inde proje-only adimlari uygulamaz; olumlu sonucu proje olusturma
-  yetkisi olarak yorumlamaz.
-- Projede PROJE.md, ilgili 01-baglam/ dosyalari ve KARARLAR.md on kosuldur.
-- Guncel veri gerektiren iddialari kaynak ve erisim tarihiyle kaydeder; veri yoksa varsayimi
-  acikca etiketler.
-- Karar kapilarinda kullanicidan acik onay alir. Dosya uretmek haftalik gorevi tamamlamaz.
-- Onayli final kopyalari 10-final/ altina alir ve calisma kaynagini yerinde korur.
+- Main output areas: 07-lansman/ and relevant 06-pazarlama-uygulamalari/ folders
+- The pipeline does not create its own project or status folder. It keeps the active step in
+  DURUM.md and the relevant .pa/*/active-task.md file.
+- In an evaluation workspace, it does not apply project-only steps; it does not interpret a
+  positive result as authority to create a project.
+- In a project, PROJE.md, relevant 01-baglam/ files, and KARARLAR.md are prerequisites.
+- Records claims requiring current data with source and access date; if data is missing, labels
+  the assumption explicitly.
+- Obtains explicit user approval at decision gates. Producing a file does not complete a weekly task.
+- Places approved final copies under 10-final/ and preserves the working source in place.
+
+Internal operating instructions are in English. The default user-facing language is Turkish.

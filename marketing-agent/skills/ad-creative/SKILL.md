@@ -3,73 +3,73 @@ name: ad-creative
 description: Reklam kreatifi ve A/B test varyasyonlari uret. Kullanici reklam basligi, metni, gorsel briefi veya kitle bazli kreatif istediginde kullan.
 ---
 
-# Reklam Kreatifi (Bulk Üretim)
+# Ad Creative (Bulk Production)
 
-Ölçeklenebilir reklam kreatifi üreticisi. Farklı hedef kitleler, farklı platformlar, A/B test varyasyonları.
+Scalable ad creative producer. Different target audiences, different platforms, A/B test variations.
 
-## Başlamadan Önce
+## Before Starting
 
-1. **product-marketing** context'ini kontrol et
-2. Kampanya detaylarını anla:
-   - Amaç (awareness / consideration / conversion)
-   - Hedef kitle segmentleri
-   - Platformlar
-   - Bütçe kısıtları
+1. Check the **product-marketing** context
+2. Understand campaign details:
+   - Goal (awareness / consideration / conversion)
+   - Target audience segments
+   - Platforms
+   - Budget constraints
 
-## Çoklu Varyasyon Stratejisi
+## Multi-Variation Strategy
 
-Her hedef kitle segmenti için farklı mesaj:
-- **CTO'ya:** "Ekip verimliliği ve maliyet"
-- **PM'e:** "Teslim tarihi ve raporlama"
-- **Founder'a:** "Büyüme ve ölçeklenme"
-- **Freelancer'a:** "Zaman tasarrufu ve profesyonellik"
+Different message for each target audience segment:
+- **For CTO:** "Team productivity and cost"
+- **For PM:** "Deadlines and reporting"
+- **For Founder:** "Growth and scaling"
+- **For Freelancer:** "Time savings and professionalism"
 
-## Platform Bazlı Format
+## Platform-Based Format
 
 ### Google Ads (Search)
-- 3 başlık (30 karakter) + 2 açıklama (90 karakter)
-- Anahtar kelime başlıkta olmalı
-- Her varyant farklı değer önerisi vurgulamalı
+- 3 headlines (30 characters) + 2 descriptions (90 characters)
+- Keyword must be in the headline
+- Each variant should emphasize a different value proposition
 
 ### Meta Ads (Facebook/Instagram)
-- Primary Text: 125 karakter (önerilen)
-- Headline: 40 karakter
-- Description: 30 karakter
+- Primary Text: 125 characters (recommended)
+- Headline: 40 characters
+- Description: 30 characters
 - CTA Button: Shop Now / Learn More / Sign Up
 
 ### LinkedIn Ads
-- Headline: 70 karakter
-- Intro Text: 150 karakter
-- Profesyonel ton
+- Headline: 70 characters
+- Intro Text: 150 characters
+- Professional tone
 
 ### TikTok Ads
-- Caption: 100 karakter (önerilen)
-- Native TikTok tonu
+- Caption: 100 characters (recommended)
+- Native TikTok tone
 
-## Varyasyon Stratejisi
+## Variation Strategy
 
-| Varyant | Odak | Ne Zaman |
-|---------|------|----------|
-| Fayda odaklı | Somut sonuç, sayı | Hemen dönüşüm |
-| Duygu odaklı | Hikaye, aspirasyon | Awareness |
-| Sosyal kanıt | İstatistik, yorum | Güven inşası |
-| Problem odaklı | Acı noktası | Dikkat çekme |
-| Karşılaştırma | "X değil, Y" | Rakip alternatifi |
+| Variant | Focus | When |
+|---------|-------|------|
+| Benefit-focused | Concrete result, number | Immediate conversion |
+| Emotion-focused | Story, aspiration | Awareness |
+| Social proof | Statistics, testimonials | Trust building |
+| Problem-focused | Pain point | Attention grabbing |
+| Comparison | "Not X, but Y" | Competitor alternative |
 
-## A/B Test Planı
+## A/B Test Plan
 
-1. Önce hedef kitleyi test et
-2. Sonra mesajı test et
-3. Sonra kreatifi (görsel/video) test et
-4. Sonra CTA'yı test et
-5. Sonra landing page'i test et
+1. Test target audience first
+2. Then test message
+3. Then test creative (visual/video)
+4. Then test CTA
+5. Then test landing page
 
-Her test: Minimum 1 hafta, istatistiksel anlamlılık için yeterli örneklem.
+Each test: Minimum 1 week, enough sample size for statistical significance.
 
-## Kreatif Kalite Kontrolü
+## Creative Quality Control
 
-- Hook ilk 3 saniyede (video) veya ilk satırda (metin)
-- Tek net mesaj
-- Platform karakter limitlerine uyum
-- Reklam → Landing page mesaj tutarlılığı
-- Spam tetikleyici kelimelerden kaçın
+- Hook in the first 3 seconds (video) or first line (text)
+- Single clear message
+- Compliance with platform character limits
+- Ad → Landing page message consistency
+- Avoid spam trigger words

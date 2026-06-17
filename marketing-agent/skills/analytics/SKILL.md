@@ -3,75 +3,75 @@ name: analytics
 description: Pazarlama analitigi, event tracking ve olcum plani tasarla. GA4, Mixpanel, Amplitude, pixel, KPI veya dashboard gerektiginde kullan.
 ---
 
-# Analitik Kurulumu
+# Analytics Setup
 
-Analitik ve ölçümleme uzmanı. GA4, Mixpanel, Amplitude, Meta Pixel için event tracking stratejisi.
+Analytics and measurement specialist. Event tracking strategy for GA4, Mixpanel, Amplitude, Meta Pixel.
 
-## Başlamadan Önce
+## Before You Start
 
-1. **product-marketing** context'ini kontrol et
-2. Şunları anla:
-   - İş modeli (SaaS, e-ticaret, marketplace)
-   - Dönüşüm aksiyonu ne?
-   - Mevcut analitik kurulumu var mı?
-   - Hangi araçlar kullanılacak?
+1. Check **product-marketing** context
+2. Understand:
+   - Business model (SaaS, e-commerce, marketplace)
+   - What is the conversion action?
+   - Is there an existing analytics setup?
+   - Which tools will be used?
 
-## Event Tracking Stratejisi
+## Event Tracking Strategy
 
-### Kritik Event'ler (SaaS örneği)
+### Critical Events (SaaS example)
 
-| Kategori | Event | Neden Önemli |
-|----------|-------|-------------|
-| **Edinme** | page_view, signup_started, signup_completed | Kanal verimliliği |
-| **Aktivasyon** | onboarding_step_1/2/3, first_project_created | Aha moment |
-| **Etkileşim** | feature_used, invite_team_member, dashboard_view | Ürün kullanımı |
-| **Gelir** | trial_started, upgrade_to_paid, plan_changed | Gelir takibi |
-| **Kayıp** | subscription_cancelled, account_deactivated | Churn analizi |
+| Category | Event | Why Important |
+|----------|-------|---------------|
+| **Acquisition** | page_view, signup_started, signup_completed | Channel efficiency |
+| **Activation** | onboarding_step_1/2/3, first_project_created | Aha moment |
+| **Engagement** | feature_used, invite_team_member, dashboard_view | Product usage |
+| **Revenue** | trial_started, upgrade_to_paid, plan_changed | Revenue tracking |
+| **Loss** | subscription_cancelled, account_deactivated | Churn analysis |
 
-### Event Parametreleri
-Her event için:
+### Event Parameters
+For each event:
 - **Plan:** free / pro / enterprise
-- **Kaynak:** organic / ads / referral / email
-- **Cihaz:** desktop / mobile / tablet
-- **Özellik:** (feature-specific)
+- **Source:** organic / ads / referral / email
+- **Device:** desktop / mobile / tablet
+- **Feature:** (feature-specific)
 
-## Araç Seçimi
+## Tool Selection
 
-| Araç | Ne İçin | Alternatif |
-|------|---------|------------|
-| GA4 | Web analitiği, trafik kaynağı | Plausible, Fathom |
-| Mixpanel | Ürün analitiği, funnel | Amplitude, PostHog |
-| Meta Pixel | Meta reklam dönüşüm takibi | — |
-| LinkedIn Insight Tag | LinkedIn reklam takibi | — |
-| Segment | CDP, event yönlendirme | RudderStack |
-| Hotjar | Oturum kaydı, heatmap | Microsoft Clarity |
+| Tool | What For | Alternative |
+|------|----------|-------------|
+| GA4 | Web analytics, traffic source | Plausible, Fathom |
+| Mixpanel | Product analytics, funnel | Amplitude, PostHog |
+| Meta Pixel | Meta ads conversion tracking | — |
+| LinkedIn Insight Tag | LinkedIn ads tracking | — |
+| Segment | CDP, event routing | RudderStack |
+| Hotjar | Session recording, heatmap | Microsoft Clarity |
 
-## Dashboard Önerileri
+## Dashboard Recommendations
 
-### Haftalık SaaS Dashboard'u
-- Yeni kayıt sayısı
-- Aktivasyon oranı (%)
-- Haftalık aktif kullanıcı
-- Trial → Paid dönüşüm oranı
-- Churn oranı
-- MRR (aylık yinelenen gelir)
+### Weekly SaaS Dashboard
+- New signup count
+- Activation rate (%)
+- Weekly active users
+- Trial → Paid conversion rate
+- Churn rate
+- MRR (monthly recurring revenue)
 
-### Aylık Pazarlama Dashboard'u
-- Kanal bazlı trafik
-- Kanal bazlı dönüşüm
-- CAC (müşteri edinme maliyeti)
-- LTV (müşteri yaşam boyu değer)
-- LTV/CAC oranı
-- ROAS (reklam harcaması getirisi)
+### Monthly Marketing Dashboard
+- Channel-based traffic
+- Channel-based conversion
+- CAC (customer acquisition cost)
+- LTV (customer lifetime value)
+- LTV/CAC ratio
+- ROAS (return on ad spend)
 
-## Uygulama Kontrol Listesi
+## Implementation Checklist
 
-- [ ] GA4 property oluşturuldu
-- [ ] Google Tag Manager kuruldu (önerilir)
-- [ ] Kritik event'ler tanımlandı
-- [ ] Conversion event'leri işaretlendi
-- [ ] Meta Pixel kuruldu
-- [ ] LinkedIn Insight Tag kuruldu
-- [ ] UTM parametre standardı belirlendi
-- [ ] Dashboard oluşturuldu
-- [ ] Anomali uyarıları kuruldu
+- [ ] GA4 property created
+- [ ] Google Tag Manager set up (recommended)
+- [ ] Critical events defined
+- [ ] Conversion events marked
+- [ ] Meta Pixel set up
+- [ ] LinkedIn Insight Tag set up
+- [ ] UTM parameter standard defined
+- [ ] Dashboard created
+- [ ] Anomaly alerts set up

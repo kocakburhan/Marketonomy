@@ -3,69 +3,69 @@ name: customer-research
 description: Musteri gorusmesi, anket, JTBD ve feedback analizini planla veya sentezle. Musteri ihtiyaci ve pain point arastirmasinda kullan.
 ---
 
-# Müşteri Araştırması
+# Customer Research
 
-Müşteri içgörü uzmanı. Amaç: müşterinin ne dediğini değil, ne demek istediğini anlamak.
+Customer insight specialist. Goal: understand not what the customer said, but what they meant.
 
-## Araştırma Yöntemleri
+## Research Methods
 
-| Yöntem | Ne Zaman | Çıktı |
-|--------|----------|-------|
-| Derinlemesine görüşme | Yeni ürün, yeni pazar | JTBD, acı noktaları |
-| Anket (NPS, CSAT) | Mevcut kullanıcılar | Memnuniyet ölçümü |
-| Kullanılabilirlik testi | Ürün geliştirme | UX sorunları |
-| Support ticket analizi | Sürekli | Sık sorunlar |
-| Sosyal dinleme (social listening) | Marka algısı | Duygu analizi |
-| Rakip yorum analizi | Pazar araştırması | Rakip zayıflıkları |
+| Method | When | Output |
+|--------|------|--------|
+| In-depth interview | New product, new market | JTBD, pain points |
+| Survey (NPS, CSAT) | Existing users | Satisfaction measurement |
+| Usability test | Product development | UX issues |
+| Support ticket analysis | Ongoing | Frequent issues |
+| Social listening | Brand perception | Sentiment analysis |
+| Competitor review analysis | Market research | Competitor weaknesses |
 
-## Müşteri Görüşmesi (30 dk format)
+## Customer Interview (30 min format)
 
-### Sorulacak Sorular
+### Questions to Ask
 
-1. **Rolünü anla:** "Şirkette ne yapıyorsun? Günlük işin nasıl geçiyor?"
-2. **Problemi keşfet:** "ProjectFlow'u kullanmaya başlamadan önce ne yapıyordun?"
-3. **Alternatifleri sor:** "ProjectFlow'u kullanmasaydın ne kullanırdın?"
-4. **Değer anını bul:** "ProjectFlow'u ilk ne zaman gerçekten işe yarar buldun?"
-5. **Dönüşüm sebebi:** "Ücretli plana neden geçtin?" (veya "neden geçmedin?")
-6. **Eksikleri sor:** "ProjectFlow'un eksik olduğunu düşündüğün bir şey var mı?"
-7. **Tavsiye:** "ProjectFlow'u bir arkadaşına nasıl anlatırsın?"
+1. **Understand their role:** "What do you do at the company? How does your daily work go?"
+2. **Discover the problem:** "What were you doing before you started using ProjectFlow?"
+3. **Ask about alternatives:** "If you weren't using ProjectFlow, what would you use?"
+4. **Find the value moment:** "When did you first find ProjectFlow really useful?"
+5. **Reason for conversion:** "Why did you switch to the paid plan?" (or "why didn't you?")
+6. **Ask about gaps:** "Is there anything you think ProjectFlow is missing?"
+7. **Recommendation:** "How would you describe ProjectFlow to a friend?"
 
-### Altın Kurallar
+### Golden Rules
 
-- **Sessizliği kucakla** — cevap verdikten sonra sus, daha fazlasını anlatacaklar
-- **"Neden?" diye sor** — her cevaptan sonra bir kat daha derine in
-- **Hikaye anlattır** — spesifik olayları, anıları sor
-- **Yargılama** — "İlginç" de, "yanlış" deme
-- **Kaydet** — izin al, transkript çıkar (otomatik tool ile)
+- **Embrace silence** — after they answer, stay quiet; they'll tell you more
+- **Ask "Why?"** — go one layer deeper after every answer
+- **Have them tell stories** — ask about specific events, memories
+- **Don't judge** — say "Interesting," don't say "Wrong"
+- **Record** — get permission, generate transcript (with an automated tool)
 
-## JTBD (Jobs to Be Done) Framework'ü
+## JTBD (Jobs to Be Done) Framework
 
-Müşteri ürünü "kiralamaz", bir işi yaptırmak için kiralar.
+The customer doesn't "rent" the product, they rent it to get a job done.
 
-### JTBD Soruları
-- "ProjectFlow'u hangi iş için kiraladın?"
-- "ProjectFlow gelmeden önce bu işi nasıl yapıyordun?"
-- "ProjectFlow'u kullanmayı bıraksan ne olur?"
+### JTBD Questions
+- "What job did you hire ProjectFlow for?"
+- "How did you do this job before ProjectFlow came along?"
+- "What would happen if you stopped using ProjectFlow?"
 
 ### JTBD Push-Pull
-- **Push:** Eski çözümden iten güçler
-- **Pull:** Yeni çözüme çeken güçler
-- **Habit:** Eski alışkanlıklar (direnç)
-- **Anxiety:** Yeni çözüm hakkında endişeler
+- **Push:** Forces pushing away from the old solution
+- **Pull:** Forces pulling toward the new solution
+- **Habit:** Old habits (resistance)
+- **Anxiety:** Concerns about the new solution
 
-## NPS Anketi
+## NPS Survey
 
-**Soru:** "ProjectFlow'u bir arkadaşına tavsiye etme olasılığın 0-10 arası kaç?"
+**Question:** "How likely are you to recommend ProjectFlow to a friend on a scale of 0-10?"
 
-- 9-10: Promoter (tavsiye eder)
-- 7-8: Passive (nötr)
-- 0-6: Detractor (kötüler)
+- 9-10: Promoter (recommends)
+- 7-8: Passive (neutral)
+- 0-6: Detractor (speaks negatively)
 
-**Takip sorusu (ZORUNLU):** "Neden bu puanı verdin?"
+**Follow-up question (MANDATORY):** "Why did you give this score?"
 
-## Müşteri Dili Madenciliği
+## Customer Language Mining
 
-- G2/Capterra yorumlarından kelime frekansı çıkar
-- Support ticket'larından sık kullanılan ifadeleri bul
-- Reddit/Quora'da ürünün hakkında ne deniyor?
-- Bu kelimeleri copywriting'de kullan
+- Extract word frequency from G2/Capterra reviews
+- Find frequently used phrases from support tickets
+- What is being said about your product on Reddit/Quora?
+- Use these words in copywriting

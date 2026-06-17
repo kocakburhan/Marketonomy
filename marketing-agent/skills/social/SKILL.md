@@ -3,93 +3,94 @@ name: social
 description: LinkedIn, X, Instagram ve TikTok icin sosyal medya stratejisi, platform postlari, icerik takvimi ve gorsel uretim akisi hazirla. Sosyal post, yayin plani, carousel veya gorsel icerik istendiginde kullan.
 ---
 
-# Social Media Icerik Stratejisi
+# Social Media Content Strategy
 
-Sosyal medya icerik uzmani. Amac: platforma ozel, etkilesim yaratan, marka vaadini net
-tasiyan sosyal medya icerikleri uretmek.
+Social media content specialist. Goal: produce platform-specific, engagement-driving social media
+content that clearly conveys the brand promise.
 
-## Baslamadan Once
+## Before Starting
 
-1. Workspace icindeki `PROJE.md`, `DEGERLENDIRME.md`, `01-baglam/` veya ilgili pazarlama
-   stratejisi dosyalarindan urun, hedef kitle, deger onerisi ve marka tonunu oku.
-2. Platformlari belirle: LinkedIn, X, Instagram, TikTok veya kullanicinin belirttigi kanal.
-3. Hedef kitlenin platformda ne aradigini, hangi itiraza sahip oldugunu ve hangi CTA'nin
-   uygun oldugunu netlestir.
-4. Gorsel gerektiren her post icin `image` skill'ini kullan.
+1. Read the product, target audience, value proposition, and brand tone from `PROJE.md`,
+   `DEGERLENDIRME.md`, `01-baglam/`, or relevant marketing strategy files in the workspace.
+2. Determine platforms: LinkedIn, X, Instagram, TikTok, or the channel specified by the user.
+3. Clarify what the target audience is looking for on the platform, what objections they hold,
+   and which CTA is appropriate.
+4. Use the `image` skill for every post that requires a visual.
 
-## Platform Bazli Strateji
+## Platform-Based Strategy
 
 ### LinkedIn
-- Profesyonel ama samimi ton kullan.
-- Uzun metin, hikaye, icgoru, framework ve carousel formatlarini tercih et.
-- Haftada 2-3 gonderi planla.
-- CTA'yi yorum, demo, bekleme listesi veya kaynak indirme hedefiyle eslestir.
+- Use a professional but warm tone.
+- Prefer long-form text, story, insight, framework, and carousel formats.
+- Plan 2-3 posts per week.
+- Match the CTA to the goal: comment, demo, waitlist, or resource download.
 
 ### X
-- Kisa, direkt ve ritimli yaz.
-- Egitici icerik icin thread kullan.
-- Gunde 1-2 gonderi planla.
-- Guncel konulara marka vaadiyle baglanan hizli reaksiyonlar ekle.
+- Write short, direct, and rhythmic.
+- Use threads for educational content.
+- Plan 1-2 posts per day.
+- Add quick reactions that connect current topics to the brand promise.
 
 ### Instagram
-- Gorsel oncelikli calis.
-- Feed, carousel, story ve reels ayrimini net yap.
-- Estetik tutarlilik, tekrar eden renk paleti ve okunabilir metin katmani kullan.
-- Story icin anket, soru veya link sticker CTA'si oner.
+- Work visual-first.
+- Clearly separate feed, carousel, story, and reels.
+- Use aesthetic consistency, a repeating color palette, and a readable text layer.
+- Suggest poll, question, or link sticker CTAs for stories.
 
 ### TikTok / Reels
-- Ilk 2 saniyede merak veya gerilim kur.
-- Tek mesajli, hizli ritimli senaryo yaz.
-- Ekran metni, sahne akisi ve caption'i birlikte uret.
+- Build curiosity or tension in the first 2 seconds.
+- Write a single-message, fast-paced script.
+- Produce on-screen text, scene flow, and caption together.
 
-## Icerik Kategorileri
+## Content Categories
 
-| Kategori | Oran | Icerik Tipi |
-|---|---:|---|
-| Egitim / Deger | %40 | How-to, framework, veri, icgoru |
-| Sosyal Kanit | %20 | Musteri basarisi, vaka, yorum, UGC |
-| Dusunce Liderligi | %15 | Sektor icgorusu, gelecek ongorusu |
-| Sirket / Kultur | %15 | Behind-the-scenes, ekip, degerler |
-| Urun / Tanitim | %10 | Yeni ozellik, kullanim senaryosu, demo |
+| Category | Ratio | Content Type |
+|----------|------:|--------------|
+| Education / Value | 40% | How-to, framework, data, insight |
+| Social Proof | 20% | Customer success, case study, testimonial, UGC |
+| Thought Leadership | 15% | Industry insight, future prediction |
+| Company / Culture | 15% | Behind-the-scenes, team, values |
+| Product / Promotion | 10% | New feature, use case, demo |
 
-## Icerik Takvimi Formati
+## Content Calendar Format
 
-Her gonderi icin su alanlari uret:
+Produce the following fields for each post:
 
-- **Platform:** Hangi platform veya platformlar.
-- **Format:** Text, single image, carousel, video, story veya thread.
-- **Hook:** Dikkat ceken ilk satir.
-- **Icerik:** Platforma uygun govde metni.
-- **Hashtag:** Platforma uygun hedefli hashtagler.
-- **CTA:** Kullanici ne yapmali.
-- **En iyi gonderim zamani:** Kitleye uygun zaman onerisi.
-- **Gorsel Brief:** Gorsel gerekiyorsa kisa kreatif yon.
-- **Gorsel Promptu:** Codex image generation icin kapsamli prompt.
-- **Gorsel Dosyasi:** Uretilen gorselin dosya yolu veya image generation araci aktif degilse
-  "uretim bekliyor" notu.
+- **Platform:** Which platform or platforms.
+- **Format:** Text, single image, carousel, video, story, or thread.
+- **Hook:** Attention-grabbing first line.
+- **Content:** Platform-appropriate body copy.
+- **Hashtags:** Platform-appropriate targeted hashtags.
+- **CTA:** What the user should do.
+- **Best posting time:** Time suggestion appropriate for the audience.
+- **Visual Brief:** Short creative direction if a visual is needed.
+- **Visual Prompt:** Comprehensive prompt for Codex image generation.
+- **Visual File:** File path of the generated visual, or "uretim bekliyor" note if the image
+  generation tool is not active.
 
-## Codex Image Generation Zorunlulugu
+## Codex Image Generation Mandate
 
-Sosyal medya postu gorsel, carousel kapagi, reklam kreatifi veya story gorseli gerektiriyorsa
-sadece brief yazip durma. Her gorsel post icin:
+When a social media post requires a visual, carousel cover, ad creative, or story visual, do not
+stop at writing a brief. For every visual post:
 
-1. `image` skill'ini kullan.
-2. Platform oranini sec:
-   - Instagram feed: 1080x1080 veya 1080x1350
+1. Use the `image` skill.
+2. Select the platform ratio:
+   - Instagram feed: 1080x1080 or 1080x1350
    - Instagram story/reels cover: 1080x1920
    - LinkedIn: 1200x627
    - X: 1200x675
-   - Reklam kreatifi: platform briefigindeki oran
-3. Marka, hedef kitle, ana mesaj, kompozisyon, renk paleti, stil, isik, duygu, metin
-   yerlesimi ve kacinilacak ogeleri iceren kapsamli image promptu otomatik yaz.
-4. Codex icindeki aktif image generation akisini kullanarak gorseli uret.
-5. Post dosyasina `Gorsel Promptu`, `Uretim Notlari` ve `Gorsel Dosyasi` alanlarini ekle.
+   - Ad creative: ratio from the platform brief
+3. Automatically write a comprehensive image prompt including brand, target audience, core
+   message, composition, color palette, style, lighting, emotion, text placement, and elements
+   to avoid.
+4. Generate the visual using the active image generation flow within Codex.
+5. Add the `Gorsel Promptu`, `Uretim Notlari`, and `Gorsel Dosyasi` fields to the post file.
 
-Codex oturumunda image generation araci aktif degilse gorsel uretilmis gibi yazma. Kapsamli
-promptu ve briefi kaydet, `Gorsel Dosyasi` alanina uretim bekledigini yaz ve kullaniciya aktif
-Codex image generation akisi gerektigini belirt.
+If the image generation tool is not active in the Codex session, do not write as if a visual has
+been generated. Save the comprehensive prompt and brief, write that generation is pending in the
+`Gorsel Dosyasi` field, and inform the user that an active Codex image generation flow is needed.
 
-## Kapsamli Image Prompt Sablonu
+## Comprehensive Image Prompt Template
 
 ```text
 Create a [platform] marketing visual for [brand/product].
@@ -105,10 +106,10 @@ Mood and lighting: [emotion, lighting, contrast].
 Avoid: unreadable text, fake logos, distorted faces/hands, copyrighted characters, off-brand colors.
 ```
 
-## Hook Formulleri
+## Hook Formulas
 
-- "Kimse bundan bahsetmiyor ama..."
-- "[Sayi] seyi yanlis yapiyorsun"
-- "Keske birisi bunu bana [zaman] once soyleseydi"
-- "Populer olmayan gorus: [konu]"
-- "[Hedef kitle] icin en buyuk kayip su..."
+- "No one is talking about this but..."
+- "You're doing [number] things wrong"
+- "I wish someone had told me this [time] ago"
+- "Unpopular opinion: [topic]"
+- "The biggest loss for [target audience] is..."

@@ -1,139 +1,141 @@
-# Pipeline 4: Büyüme Motoru (Growth Engine)
+# Pipeline 4: Growth Engine
 
-**Zincirdeki yeri:** Zincir A ve D (P3'ten sonra, traction kazanınca).
+**Position in chain:** Chain A and D (after P3, when traction is gained).
 
-**Ne zaman çalışır:** Ürün, hizmet, işletme veya B2B satış süreci traction kazandığında;
-düzenli kullanıcı/müşteri/lead/ziyaretçi akışı olduğunda veya gelir oluşmaya başladığında.
+**When it runs:** When the product, service, business, or B2B sales process gains traction;
+when there is a regular flow of users/customers/leads/visitors, or when revenue begins to form.
 
-**Amaç:** İş modeline uygun büyüme deneyleri tasarlayıp uygulayarak kullanıcı, müşteri, lead,
-ziyaret, tekrar satın alma, pipeline veya geliri artırmak.
+**Purpose:** To design and implement growth experiments appropriate for the business model to
+increase users, customers, leads, visits, repeat purchases, pipeline, or revenue.
 
-**Ön koşul:** Ürün/hizmet/satış süreci canlı, en az başlangıç metrikleri mevcut.
-
----
-
-## Pipeline Akışı
-
-```
-Orchestrator: "Büyüme zamanı"
-        │
-        ▼
-[4.1] Analytics Master → Mevcut metrikleri analiz et
-        │  Çıktı: buyume-analizi.md
-        ▼
-[4.2] Growth Hacker → Büyüme deneyleri tasarla
-        │  Çıktı: buyume-deneyleri.md
-        ▼
-[4.3] Orchestrator → Deneyleri kullanıcıya sun, seçtir
-        │
-        ▼
-[4.4] Growth Hacker + Campaign Manager → Deneyleri uygula
-        │  (Referans programı, churn önleme, topluluk, reklam)
-        ▼
-[4.5] Analytics Master → Deney sonuçlarını raporla
-        │  Çıktı: deney-sonuclari.md
-        ▼
-[4.6] Orchestrator → Döngü kararı:
-        ├── Başarılı → ölçekle, yeni deney tasarla
-        └── Başarısız → analiz et, yeni deney tasarla
-```
+**Prerequisite:** Product/service/sales process must be live, with at least initial metrics available.
 
 ---
 
-## Adım Detayları
+## Pipeline Flow
 
-### 4.1 — Büyüme Analizi
+```
+Orchestrator: "Time to grow"
+        │
+        ▼
+[4.1] Analytics Master → Analyze current metrics
+        │  Output: buyume-analizi.md
+        ▼
+[4.2] Growth Hacker → Design growth experiments
+        │  Output: buyume-deneyleri.md
+        ▼
+[4.3] Orchestrator → Present experiments to user, have them select
+        │
+        ▼
+[4.4] Growth Hacker + Campaign Manager → Execute experiments
+        │  (Referral program, churn prevention, community, ads)
+        ▼
+[4.5] Analytics Master → Report experiment results
+        │  Output: deney-sonuclari.md
+        ▼
+[4.6] Orchestrator → Loop decision:
+        ├── Successful → scale, design new experiment
+        └── Failed → analyze, design new experiment
+```
+
+---
+
+## Step Details
+
+### 4.1 — Growth Analysis
 **Agent:** Analytics Master
-**Girdi:** Kullanıcıdan alınan güncel metrikler
-**Çıktı (`buyume-analizi.md`):**
+**Input:** Current metrics gathered from user
+**Output (`buyume-analizi.md`):**
 
 ```markdown
-# Büyüme Analizi: [Ürün]
-## AARRR Metrikleri
-| Aşama | Metrik | Değer | Benchmark | Durum |
-|-------|--------|-------|-----------|-------|
-| Acquisition | İndirme/ziyaret | [x] | [x] | |
-| Activation | Kayıt tamamlama | [%] | [%] | |
+# Büyüme Analizi: [Product]
+## AARRR Metrics
+| Stage | Metric | Value | Benchmark | Status |
+|-------|--------|-------|-----------|--------|
+| Acquisition | Downloads/visits | [x] | [x] | |
+| Activation | Signup completion | [%] | [%] | |
 | Retention | D7/D30 | [%] | [%] | |
 | Revenue | ARPU | [₺] | [₺] | |
-| Referral | Viral katsayı | [x] | [x] | |
+| Referral | Viral coefficient | [x] | [x] | |
 
-## Büyüme Fırsatları
-[En düşük metrikten en yükseğe fırsat alanları]
+## Growth Opportunities
+[Opportunity areas from lowest metric to highest]
 ```
 
-Metrik modeli işe göre uyarlanır:
+The metric model is adapted per business:
 
-- B2C dijital: ziyaret, kayıt, activation, retention, ARPU, referral
-- B2C fiziksel: temas, deneme/demo, satış, tekrar satın alma, yorum, kupon/QR dönüşümü
-- B2B dijital: MQL, SQL, toplantı, demo, teklif, kazanılan müşteri, pipeline değeri
-- B2B fiziksel/saha: hedef hesap, ziyaret, toplantı, demo günü, teklif, kanal/partner dönüşümü
-- Hibrit: fiziksel temas + dijital nurture + satış/retention metrikleri birlikte
+- B2C digital: visits, signups, activation, retention, ARPU, referral
+- B2C physical: contacts, trial/demo, sales, repeat purchase, reviews, coupon/QR conversion
+- B2B digital: MQL, SQL, meeting, demo, proposal, won customers, pipeline value
+- B2B physical/field: target accounts, visits, meetings, demo days, proposals, channel/partner conversion
+- Hybrid: physical contact + digital nurture + sales/retention metrics together
 
-### 4.2 — Büyüme Deneyleri
+### 4.2 — Growth Experiments
 **Agent:** Growth Hacker
-**Çıktı (`buyume-deneyleri.md`):**
-- Her deney için: hipotez, etki alanı, uygulama, süre, başarı kriteri, efor
-- ICE skorlaması (Impact, Confidence, Ease)
+**Output (`buyume-deneyleri.md`):**
+- For each experiment: hypothesis, impact area, implementation, duration, success criteria, effort
+- ICE scoring (Impact, Confidence, Ease)
 
-### 4.3 — Deney Seçimi
+### 4.3 — Experiment Selection
 **Agent:** Orchestrator
-**Kullanıcıya sunulan seçenekler:** En az 3 deney, ICE skoruyla birlikte. Kullanıcı hangilerini uygulayacağını seçer.
+**Options presented to user:** At least 3 experiments, with ICE scores. The user selects which ones to implement.
 
-### 4.4 — Deney Uygulama
-**Agent:** Growth Hacker ve Campaign Manager playbooklarini koordine et
-**Uygulanabilecek deney tipleri:**
-- Referans programı (`referrals` skill)
-- Churn önleme kampanyası (`churn-prevention` skill)
-- Topluluk inşası (`community-marketing` skill)
+### 4.4 — Experiment Execution
+**Agent:** Coordinate Growth Hacker and Campaign Manager playbooks
+**Experiment types that can be implemented:**
+- Referral program (`referrals` skill)
+- Churn prevention campaign (`churn-prevention` skill)
+- Community building (`community-marketing` skill)
 - Paywall/upgrade CRO (`paywalls` skill)
-- Reklam optimizasyonu (`ads` skill)
-- Yaratıcı büyüme fikirleri (`marketing-ideas` skill)
-- B2C fiziksel sadakat, kupon, lokasyon, etkinlik ve tekrar ziyaret deneyleri
-- B2B demo, outbound mesaj, webinar, partner referral ve pipeline hızlandırma deneyleri
+- Ad optimization (`ads` skill)
+- Creative growth ideas (`marketing-ideas` skill)
+- B2C physical loyalty, coupon, location, event, and repeat visit experiments
+- B2B demo, outbound message, webinar, partner referral, and pipeline acceleration experiments
 
-### 4.5 — Sonuç Raporu
+### 4.5 — Results Report
 **Agent:** Analytics Master
-**Çıktı (`deney-sonuclari.md`):**
+**Output (`deney-sonuclari.md`):**
 ```markdown
-# Deney Sonuçları: [Ürün]
-| Deney | Hipotez | Süre | Sonuç | Başarı? | Öğrenilen |
-|-------|---------|------|-------|---------|----------|
-| ... | ... | [gün] | [metrik] | ✅/❌ | ... |
+# Deney Sonuçları: [Product]
+| Experiment | Hypothesis | Duration | Result | Success? | Learned |
+|------------|------------|----------|--------|----------|---------|
+| ... | ... | [days] | [metric] | ✅/❌ | ... |
 ```
 
-### 4.6 — Döngü Kararı
+### 4.6 — Loop Decision
 **Agent:** Orchestrator
-- Başarılı deneyler → ölçeklendir, kalıcı hale getir
-- Başarısız deneyler → neden analizi yap, pivot et
-- Yeni deneyler tasarla → 4.2'ye dön
+- Successful experiments → scale, make permanent
+- Failed experiments → root cause analysis, pivot
+- Design new experiments → return to 4.2
 
 ---
 
-## Çıktı Dosyaları
+## Output Files
 
-| Dosya | Üreten |
-|-------|--------|
+| File | Produced by |
+|------|-------------|
 | `buyume-analizi.md` | Analytics Master |
 | `buyume-deneyleri.md` | Growth Hacker |
 | `deney-sonuclari.md` | Analytics Master |
 
 ---
 
-## Sonraki Adım
+## Next Step
 
-Pipeline 4 döngüseldir. Sürekli çalışır. Gerekirse **Pipeline 6 (Rakip Saldırı)** veya **Pipeline 8 (Outbound Satış)** ile desteklenir.
+Pipeline 4 is cyclical. It runs continuously. If needed, it is supported by **Pipeline 6 (Competitor Attack)** or **Pipeline 8 (Outbound Sales)**.
 
-## PersonalAutonomy Yurutme Kurallari
+## PersonalAutonomy Execution Rules
 
-- Ana cikti alanlari: 03-strateji/buyume/, ilgili 06-pazarlama-uygulamalari/ klasorleri ve
+- Main output areas: 03-strateji/buyume/, relevant 06-pazarlama-uygulamalari/ folders, and
   08-raporlar/analitik/
-- Pipeline kendi proje veya durum klasorunu olusturmaz. Aktif adimi DURUM.md ve ilgili
-  .pa/*/active-task.md dosyasinda tutar.
-- Degerlendirme workspace'inde proje-only adimlari uygulamaz; olumlu sonucu proje olusturma
-  yetkisi olarak yorumlamaz.
-- Projede PROJE.md, ilgili 01-baglam/ dosyalari ve KARARLAR.md on kosuldur.
-- Guncel veri gerektiren iddialari kaynak ve erisim tarihiyle kaydeder; veri yoksa varsayimi
-  acikca etiketler.
-- Karar kapilarinda kullanicidan acik onay alir. Dosya uretmek haftalik gorevi tamamlamaz.
-- Onayli final kopyalari 10-final/ altina alir ve calisma kaynagini yerinde korur.
+- The pipeline does not create its own project or status folder. It keeps the active step in
+  DURUM.md and the relevant .pa/*/active-task.md file.
+- In an evaluation workspace, it does not apply project-only steps; it does not interpret a
+  positive result as authority to create a project.
+- In a project, PROJE.md, relevant 01-baglam/ files, and KARARLAR.md are prerequisites.
+- Records claims requiring current data with source and access date; if data is missing, labels
+  the assumption explicitly.
+- Obtains explicit user approval at decision gates. Producing a file does not complete a weekly task.
+- Places approved final copies under 10-final/ and preserves the working source in place.
+
+Internal operating instructions are in English. The default user-facing language is Turkish.

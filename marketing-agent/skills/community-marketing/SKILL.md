@@ -3,66 +3,66 @@ name: community-marketing
 description: Topluluk pazarlamasi ve kullanici bagliligi plani olustur. Discord, Slack, forum veya ambassador toplulugu istendiginde kullan.
 ---
 
-# Topluluk Pazarlaması
+# Community Marketing
 
-Topluluk inşa stratejisti. Amaç: ürün etrafında kullanıcıların birbirine yardım ettiği, bağ kurduğu bir topluluk oluşturmak.
+Community building strategist. Goal: create a community around the product where users help each other and build connections.
 
-## Topluluk Türleri
+## Community Types
 
-| Platform | Ne Zaman | Avantaj |
-|----------|----------|---------|
-| Discord | Genç kitle, tech ürün | Yüksek etkileşim, anlık |
-| Slack | Profesyonel, B2B | İş bağlamında |
-| Circle/Skool | Kurs, koçluk | Yapılandırılmış içerik |
-| Facebook Group | Geniş kitle, B2C | Keşfedilebilirlik |
-| GitHub Discussions | Geliştirici ürünü | Koda yakın |
-| Discourse/Forum | Uzun vadeli bilgi | SEO değeri |
+| Platform | When | Advantage |
+|----------|------|-----------|
+| Discord | Young audience, tech product | High engagement, real-time |
+| Slack | Professional, B2B | In work context |
+| Circle/Skool | Course, coaching | Structured content |
+| Facebook Group | Broad audience, B2C | Discoverability |
+| GitHub Discussions | Developer product | Close to code |
+| Discourse/Forum | Long-term knowledge | SEO value |
 
-## Topluluk Yapısı
+## Community Structure
 
-### Kanal Kategorileri (Discord örneği)
-- **Hoş geldin:** #kurallar, #kendini-tanıt
-- **Genel:** #genel-sohbet, #duyurular
-- **Yardım:** #destek, #ipuçları, #soru-cevap
-- **Ürün:** #özellik-istek, #bug-bildirim, #beta
-- **Topluluk:** #proje-paylaşımı, #iş-ilanları, #off-topic
+### Channel Categories (Discord example)
+- **Welcome:** #rules, #introduce-yourself
+- **General:** #general-chat, #announcements
+- **Help:** #support, #tips, #q-and-a
+- **Product:** #feature-requests, #bug-reports, #beta
+- **Community:** #project-showcase, #job-board, #off-topic
 
-### İlk 100 Üye Stratejisi
-1. Her yeni üyeye DM ile hoş geldin mesajı
-2. Onboarding: rol ver, ilk gönderiyi atması için teşvik et
-3. İlk hafta: her gün en az 1 konu başlat
-4. İlk ay: haftalık etkinlik (Salı ipuçları, Cuma showcase)
+### First 100 Members Strategy
+1. DM welcome message to every new member
+2. Onboarding: assign role, encourage first post
+3. First week: start at least 1 topic every day
+4. First month: weekly event (Tuesday tips, Friday showcase)
 
-## Etkileşim Stratejisi
+## Engagement Strategy
 
-### Düzenli Etkinlikler
-- Haftalık: #Salıİpuçları, #CumaShowcase
-- Aylık: AMA (Ask Me Anything), webinar
-- Periyodik: Challenge, hackathon
+### Regular Events
+- Weekly: #TuesdayTips, #FridayShowcase
+- Monthly: AMA (Ask Me Anything), webinar
+- Periodic: Challenge, hackathon
 
-### Power User Programı
-- En aktif üyeleri mod yap
-- Özel rol/rozet ver
-- Ürün roadmap'ine input hakkı
-- Erken erişim (beta özellikler)
+### Power User Program
+- Make most active members mods
+- Give special role/badge
+- Input rights on product roadmap
+- Early access (beta features)
 
-## Topluluk → Büyüme Döngüsü
+## Community → Growth Loop
 
 ```
-Üye katılır → Değer görür → Katkı yapar → Başkalarını davet eder → ↑
+Member joins → Sees value → Contributes → Invites others → ↑
 ```
 
-- Topluluk üyeleri en iyi destek ekibindir (birbirlerine yardım ederler)
-- En iyi fikirler topluluktan gelir (public roadmap)
-- En sadık kullanıcılar topluluktadır (churn düşüktür)
+- Community members are the best support team (they help each other)
+- Best ideas come from the community (public roadmap)
+- Most loyal users are in the community (low churn)
 
-## Metrikler
+## Metrics
 
-| Metrik | Ne Ölçer |
-|--------|----------|
-| Günlük aktif üye | Canlılık |
-| Yeni üye / hafta | Büyüme |
-| Gönderi / gün | Etkileşim |
-| Cevap süresi | Destek kalitesi |
-| Davet → Kayıt | Viral büyüme |
-| Topluluk üyesi → Ücretli | Dönüşüm |
+| Metric | What It Measures |
+|--------|------------------|
+| Daily active members | Vitality |
+| New members / week | Growth |
+| Posts / day | Engagement |
+| Response time | Support quality |
+| Invite → Signup | Viral growth |
+| Community member → Paid | Conversion |

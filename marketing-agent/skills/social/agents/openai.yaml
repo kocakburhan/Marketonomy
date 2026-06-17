@@ -1,4 +1,4 @@
 interface:
   display_name: "Social"
   short_description: "Sosyal post ve gorsel akisi"
-  default_prompt: "Codex'te bu workspace icinde $social skill'ini kullan, gorsel postlarda Codex image generation akisini uygula ve ciktiyi PersonalAutonomy MVP klasor sozlesmesine gore kaydet."
+  default_prompt: "In Codex'te, use the $social skill in this workspace, apply Codex image generation flow for visual posts, and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."

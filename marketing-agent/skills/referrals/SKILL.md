@@ -3,56 +3,56 @@ name: referrals
 description: Referans ve davet programi tasarla. Odul, tetikleyici, viral dongu veya partner referral istendiginde kullan.
 ---
 
-# Referans Programı
+# Referral Program
 
-Referans ve affiliate program tasarımcısı. Amaç: mevcut kullanıcıların yeni kullanıcı getirmesini sağlamak.
+Referral and affiliate program designer. Goal: enable existing users to bring in new users.
 
-## Referans Programı Türleri
+## Referral Program Types
 
-| Tür | Nasıl Çalışır | Örnek |
-|-----|-------------|-------|
-| Çift taraflı ödül | Davet eden ve gelen kazanır | Dropbox: ikisine de 500MB |
-| Tek taraflı ödül | Sadece davet eden kazanır | Airbnb: $30 kredi |
-| Kademeli ödül | Ne kadar çok davet, o kadar büyük ödül | Evernote: puan sistemi |
-| Affiliate | Satış başına komisyon | PartnerStack, FirstPromoter |
+| Type | How It Works | Example |
+|------|-------------|---------|
+| Double-sided reward | Both inviter and invitee benefit | Dropbox: 500MB to both |
+| Single-sided reward | Only the inviter benefits | Airbnb: $30 credit |
+| Tiered reward | Bigger reward for more invites | Evernote: points system |
+| Affiliate | Commission per sale | PartnerStack, FirstPromoter |
 
-## Program Tasarımı
+## Program Design
 
-### 1. Ödül Yapısı
-- **Ne verilecek?** Kredi, indirim, ücretsiz ay, özellik
-- **Ne zaman?** Davet eden kaydolunca mı, satın alınca mı?
-- **Limit var mı?** Maksimum ödül, minimum kullanım
+### 1. Reward Structure
+- **What to give?** Credit, discount, free month, feature
+- **When?** When invitee signs up? When they purchase?
+- **Is there a limit?** Maximum reward, minimum usage
 
-### 2. Paylaşımı Kolaylaştır
-- Tek tıkla link kopyalama
-- Hazır email/sosyal medya taslağı
-- Kişiselleştirilmiş davet linki
-- QR kod (mobil için)
+### 2. Make Sharing Easy
+- One-click link copy
+- Pre-written email/social media template
+- Personalized invite link
+- QR code (for mobile)
 
-### 3. Nerede Gösterilecek?
-- Dashboard'da "Arkadaşını davet et" kartı
-- Onboarding'in son adımı
-- Başarı anından sonra (NPS anketi sonrası)
-- Email imzası
-- Header/footer'da kalıcı link
+### 3. Where to Show It?
+- "Invite a friend" card on dashboard
+- Last step of onboarding
+- After a success moment (after NPS survey)
+- Email signature
+- Permanent link in header/footer
 
-### 4. Zamanlama
-- Kullanıcı değeri gördükten SONRA göster
-- NPS 9-10 verenler en iyi davetçilerdir
-- "Power user" statüsüne ulaşanlara özel teklif
+### 4. Timing
+- Show AFTER user has seen value
+- NPS 9-10 givers are the best inviters
+- Special offer for those reaching "power user" status
 
-## Başarı Metrikleri
+## Success Metrics
 
-| Metrik | Hedef |
-|--------|-------|
-| Davet eden kullanıcı oranı | > %15 |
-| Davet başına kayıt | > 0.5 |
-| Referans kaydı → ücretli | > %10 |
-| Viral katsayı (K-factor) | > 0.5 |
-| Referans CAC | Normal CAC'in %50'si altında |
+| Metric | Target |
+|--------|--------|
+| Inviting user rate | > 15% |
+| Signups per invite | > 0.5 |
+| Referral signup → paid | > 10% |
+| Viral coefficient (K-factor) | > 0.5 |
+| Referral CAC | Below 50% of normal CAC |
 
-## Ünlü Örnekler
+## Famous Examples
 
-- **Dropbox:** Çift taraflı 500MB → %3900 büyüme (15 ayda)
-- **PayPal:** $10 davet edene, $10 gelene → %7-10 günlük büyüme
-- **Uber:** "Arkadaşını getir, ikinize de $5" → Şehir şehir büyüme
+- **Dropbox:** Double-sided 500MB → 3900% growth (in 15 months)
+- **PayPal:** $10 to inviter, $10 to invitee → 7-10% daily growth
+- **Uber:** "Bring a friend, $5 for both" → City-by-city growth

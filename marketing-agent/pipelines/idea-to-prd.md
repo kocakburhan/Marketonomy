@@ -1,185 +1,186 @@
-# Pipeline 5: Var Olan Fikirden MVP ve PRD'ye (Idea to PRD)
+# Pipeline 5: From Existing Idea to MVP and PRD (Idea to PRD)
 
-**Zincirdeki yeri:** Zincir B başlangıç noktası veya P1'de üretilen fikrin sert değerleme adımı.
+**Position in the chain:** Starting point for Chain B or the hard evaluation step for an idea produced in P1.
 
-**Ne zaman çalışır:** Kullanıcının aklında zaten bir fikir varsa ve bunu "denemeye değer mi?"
-diye test edip, değerliyse MVP ve PRD'ye dönüştürmek istiyorsa.
+**When it runs:** When the user already has an idea in mind and wants to test "is it worth trying?"
+and if valuable, convert it to MVP and PRD.
 
-**Amaç:** Eldeki fikri kullanıcı avantajı, pazar verisi, rakip gerçekliği, müşteri acısı,
-dağıtım kanalı, gelir potansiyeli ve MVP maliyetiyle yüzleştir. Sadece "değer" kararı çıkarsa
-önce MVP dokümanı, sonra bu MVP'ye dayalı PRD ve coder brief üret.
+**Goal:** Confront the existing idea with user advantage, market data, competitor reality, customer
+pain, distribution channel, revenue potential, and MVP cost. Only if a "worth it" decision emerges,
+produce first the MVP document, then the PRD and coder brief based on this MVP.
 
-**Ön koşul:** Kullanıcının somut bir fikri olmalı. Proje workspace'inde `PROJE.md` ve ilgili
-`01-baglam/` dosyaları oluşturulmuş olmalı. Değerlendirme workspace'inde çalışılıyorsa bu
-pipeline PRD üretmez; karar raporu `RAPOR.md` ve `ciktilar/` altında kalır.
+**Prerequisite:** The user must have a concrete idea. In a project workspace, `PROJE.md` and the relevant
+`01-baglam/` files must be created. If working in an evaluation workspace, this pipeline does not produce
+a PRD; the decision report stays under `RAPOR.md` and `ciktilar/`.
 
----
-
-## Temel Tutum
-
-Bu pipeline'da agent kullanıcıyı yüreklendiren bir koç gibi davranmaz. Agent'ın görevi fikri
-gerçekçi biçimde zorlamak, zayıf sinyalleri saklamamak ve kullanıcıyla birlikte daha denenebilir
-bir forma getirmektir.
-
-Kurallar:
-
-1. "Güzel fikir", "potansiyeli var", "denemeye değer olabilir" gibi kanıtsız olumlu dil kullanma.
-2. Fikir zayıfsa doğrudan söyle; gerekçeyi pazar, dağıtım, maliyet veya kullanıcı avantajı ile açıkla.
-3. Kullanıcının tecrübesini ciddiye al ama tek kanıt sayma. Research çıktılarıyla birlikte tart.
-4. Fikir kullanıcı tarafından pazarlanamayacaksa bu durum tek başına "değmez" veya "revizyon gerekir"
-   kararına sebep olabilir.
-5. Daha iyi bir hedef kitle, niş, kanal, fiyat modeli veya MVP kapsamı görürsen özgürce revizyon öner.
-6. Kullanıcı son fikri ve karar yönünü açıkça onaylamadan MVP, PRD veya coder brief üretme.
+Internal operating instructions are in English. The default user-facing language is Turkish.
 
 ---
 
-## Pipeline Akışı
+## Core Attitude
+
+In this pipeline, the agent does not act like an encouraging coach. The agent's job is to challenge
+the idea realistically, not hide weak signals, and bring it to a more testable form together with
+the user.
+
+Rules:
+
+1. Do not use unsourced positive language like "nice idea", "it has potential", "it could be worth trying".
+2. If the idea is weak, say so directly; explain the reason with market, distribution, cost, or user advantage.
+3. Take the user's experience seriously but do not count it as sole evidence. Weigh it together with research outputs.
+4. If the user cannot market the idea, this alone may result in a "not worth it" or "revision required" decision.
+5. If you see a better target audience, niche, channel, pricing model, or MVP scope, freely suggest a revision.
+6. Do not produce MVP, PRD, or coder brief before the user explicitly approves the final idea and decision direction.
+
+---
+
+## Pipeline Flow
 
 ```text
-Kullanıcı: "Elimde bir fikir var"
+User: "I have an idea"
         |
         v
-[5.1] Orchestrator -> Fikri ve ürün tipini al
+[5.1] Orchestrator -> Collect the idea and product type
         |
         v
-[5.2] Orchestrator -> Kullanıcı profilini ve pazarlama avantajını çıkar
-        |  Çıktı: kullanici-pazarlama-avantaji.md
+[5.2] Orchestrator -> Extract user profile and marketing advantage
+        |  Output: kullanici-pazarlama-avantaji.md
         v
-[5.3] Market Scout -> Pazar, rakip, trend ve müşteri sinyali araştır
-        |  Çıktı: pazar-arastirmasi.md
+[5.3] Market Scout -> Research market, competitors, trends, and customer signals
+        |  Output: pazar-arastirmasi.md
         v
-[5.4] Strategy Analyst -> Fikri "denemeye değer mi?" kriterleriyle puanla
-        |  Çıktı: fikir-dogrulama.md
+[5.4] Strategy Analyst -> Score the idea against "is it worth trying?" criteria
+        |  Output: fikir-dogrulama.md
         v
-[5.5] Orchestrator -> Realist karar tartışması: DEĞER / REVİZYON / DEĞMEZ
+[5.5] Orchestrator -> Realist decision discussion: WORTH / REVISION / NOT WORTH
         |
-        +-- "Denenmeye Değmez" -> Raporu kapat, gerekçeyi yaz, PRD üretme
+        +-- "Denenmeye Değmez" -> Close the report, write the reason, do not produce PRD
         |
-        +-- "Revizyonla Denenmeye Değer" -> Kullanıcıyla fikri revize et -> [5.2]'ye dön
+        +-- "Revizyonla Denenmeye Değer" -> Revise the idea with user -> Return to [5.2]
         |
         +-- "Denenmeye Değer" ->
                  v
-            [5.6] Product Architect -> Onaylı son fikirden MVP yaz
-                 |  Çıktı: 04-urun/fikir-ozetleri/mvp.md
+            [5.6] Product Architect -> Write MVP from the approved final idea
+                 |  Output: 04-urun/fikir-ozetleri/mvp.md
                  v
-            [5.7] Orchestrator -> MVP kapsamını kullanıcıya onaylat
+            [5.7] Orchestrator -> Get MVP scope approved by user
                  v
-            [5.8] Product Architect -> Onaylı MVP'ye göre PRD yaz
-                 |  Çıktı: 04-urun/prd/prd.md
+            [5.8] Product Architect -> Write PRD based on approved MVP
+                 |  Output: 04-urun/prd/prd.md
                  v
-            [5.9] Product Architect -> Coder brief hazırla
-                 |  Çıktı: 04-urun/coder-briefleri/coder-brief.md
+            [5.9] Product Architect -> Prepare coder brief
+                 |  Output: 04-urun/coder-briefleri/coder-brief.md
                  v
-            [5.10] Orchestrator -> Kullanıcıyı MVP ve PRD dosyalarını coder'a iletmeye yönlendir
+            [5.10] Orchestrator -> Direct user to forward MVP and PRD files to coder
 ```
 
 ---
 
-## Adım Detayları
+## Step Details
 
-### 5.1 — Fikir Toplama
+### 5.1 — Idea Collection
 **Agent:** Orchestrator
 
-Kullanıcıdan şu bilgileri al:
+Collect the following information from the user:
 
-1. Fikrini 3-5 cümleyle anlat.
-2. Bu fikir hangi problemi çözüyor?
-3. Problem kimin için acı verici veya maliyetli?
-4. Bu fikir nereden çıktı: kişisel ihtiyaç, iş gözlemi, müşteri talebi, rakip eksiği veya başka kaynak?
-5. Ürün tipi ne: mobil app, SaaS, fiziksel işletme, e-ticaret, hizmet, içerik, hibrit?
-6. Bildiğin rakipler veya alternatif çözümler hangileri?
-7. Bu fikri neden sen yapabilirsin?
+1. Describe the idea in 3-5 sentences.
+2. What problem does this idea solve?
+3. For whom is the problem painful or costly?
+4. Where did this idea come from: personal need, business observation, customer demand, competitor gap, or another source?
+5. What is the product type: mobile app, SaaS, physical business, e-commerce, service, content, hybrid?
+6. Which competitors or alternative solutions do you know?
+7. Why can you execute this idea?
 
-Belirsiz cevaplarda fikri tamamlamaya çalışma; eksik varsayımları açıkça listele.
+Do not try to complete the idea on vague answers; explicitly list missing assumptions.
 
-### 5.2 — Kullanıcı Pazarlama Avantajı
+### 5.2 — User Marketing Advantage
 **Agent:** Orchestrator
 
-Fikrin pazarlanabilirliğini kullanıcı özelinde ölç. Kullanıcıdan şu bilgileri al:
+Measure the marketability of the idea specifically for the user. Collect the following from the user:
 
-1. Yaşadığı şehir/ülke ve hedef pazarla ilişkisi
-2. Çalıştığı alan, sektör ve mesleki deneyim
-3. Konuyla ilgili bilgi birikimi veya kişisel uzmanlık
-4. Network: erişebildiği müşteri, kurum, topluluk, influencer, kanal veya karar verici çevresi
-5. Mevcut kitle: e-posta listesi, sosyal medya, topluluk, müşteri portföyü, mağaza trafiği
-6. Satış ve pazarlama deneyimi
-7. İlk 10-50 kullanıcıya nasıl ulaşabileceği
-8. Haftalık zaman kapasitesi ve deneme bütçesi
-9. Şehir, dil, kültür, regülasyon veya operasyonel avantaj/dezavantaj
+1. City/country of residence and relationship with the target market
+2. Field of work, sector, and professional experience
+3. Knowledge base or personal expertise related to the topic
+4. Network: accessible customer, institution, community, influencer, channel, or decision-maker circles
+5. Existing audience: email list, social media, community, customer portfolio, store traffic
+6. Sales and marketing experience
+7. How they can reach the first 10-50 users
+8. Weekly time capacity and trial budget
+9. City, language, culture, regulation, or operational advantage/disadvantage
 
-**Çıktı formatı (`03-strateji/dogrulama/kullanici-pazarlama-avantaji.md`):**
+**Output format (`03-strateji/dogrulama/kullanici-pazarlama-avantaji.md`):**
 
 ```markdown
-# Kullanıcı Pazarlama Avantajı: [Fikir]
-- Tarih: [tarih]
+# User Marketing Advantage: [Idea]
+- Date: [date]
 
-## Kullanıcı Profili
-- Şehir/ülke:
-- Çalıştığı alan:
-- Sektör bilgisi:
-- Satış/pazarlama deneyimi:
-- Zaman kapasitesi:
-- Deneme bütçesi:
+## User Profile
+- City/country:
+- Field of work:
+- Sector knowledge:
+- Sales/marketing experience:
+- Time capacity:
+- Trial budget:
 
-## Dağıtım Varlıkları
-| Varlık | Güç | Kanıt | Risk |
+## Distribution Assets
+| Asset | Strength | Evidence | Risk |
 |--------|-----|-------|------|
-| Network | [düşük/orta/yüksek] | ... | ... |
-| Mevcut kitle | ... | ... | ... |
-| İlk kullanıcı erişimi | ... | ... | ... |
+| Network | [low/medium/high] | ... | ... |
+| Existing audience | ... | ... | ... |
+| First user access | ... | ... | ... |
 
-## Pazarlayabilirlik Skoru
-| Kriter | Puan (1-10) | Gerekçe |
+## Marketability Score
+| Criterion | Score (1-10) | Rationale |
 |--------|-------------|---------|
-| Hedef kitleye erişim | ... | ... |
-| Sektör güvenilirliği | ... | ... |
-| İlk satış/edinim kanalı | ... | ... |
-| Yerel/kültürel avantaj | ... | ... |
-| Uygulama kapasitesi | ... | ... |
-| **Toplam** | **.../50** | |
+| Target audience access | ... | ... |
+| Sector credibility | ... | ... |
+| First sales/acquisition channel | ... | ... |
+| Local/cultural advantage | ... | ... |
+| Execution capacity | ... | ... |
+| **Total** | **.../50** | |
 
-## Sonuç
-- Kullanıcının bu fikri pazarlama avantajı:
-- Kritik boşluk:
-- Gerekirse revizyon önerisi:
+## Conclusion
+- User's marketing advantage for this idea:
+- Critical gap:
+- Revision suggestion if needed:
 ```
 
-### 5.3 — Pazar Araştırması
+### 5.3 — Market Research
 **Agent:** Market Scout
 
-Ürün tipine göre doğru kaynaklardan veri topla:
+Collect data from the right sources based on the product type:
 
-- Mobil app: aktifse mcp-appstore, App Store, Google Play, yorumlar, keyword/ASO sinyalleri
-- SaaS/web app: etkin Codex web/Browser/Chrome aracıyla G2, Capterra, Product Hunt, Reddit,
-  Hacker News, Trustpilot, rakip siteleri
-- Fiziksel işletme: Google Maps/GBP, Şikayetvar, yerel arama sonuçları, sektörel forumlar
-- E-ticaret: marketplace yorumları, fiyat karşılaştırması, kategori trendleri
-- Tümü: Google Trends, haberler, raporlar, sosyal kanıt, kullanıcı toplulukları
+- Mobile app: if active mcp-appstore, App Store, Google Play, reviews, keyword/ASO signals
+- SaaS/web app: with active Codex web/Browser/Chrome tool, G2, Capterra, Product Hunt, Reddit,
+  Hacker News, Trustpilot, competitor sites
+- Physical business: Google Maps/GBP, Şikayetvar, local search results, sector forums
+- E-commerce: marketplace reviews, price comparison, category trends
+- All: Google Trends, news, reports, social proof, user communities
 
-**Çıktı formatı (`02-arastirma/pazar-arastirmasi/pazar-arastirmasi.md`):**
+**Output format (`02-arastirma/pazar-arastirmasi/pazar-arastirmasi.md`):**
 
 ```markdown
-# Pazar Araştırması: [Fikir]
-- Tarih: [tarih]
+# Market Research: [Idea]
+- Date: [date]
 
 ## Kaynak ve Kanıt Defteri
 | ID | Araç | Kaynak | Erişim tarihi | Kullanılan veri | Güven |
 |----|------|--------|---------------|-----------------|-------|
 
-## Pazar ve Talep Sinyalleri
-- Problem sıklığı:
-- Para ödeme isteği:
-- Trend yönü:
-- Mevcut alternatifler:
+## Market and Demand Signals
+- Problem frequency:
+- Willingness to pay:
+- Trend direction:
+- Existing alternatives:
 
-## Rakip Listesi
-| Rakip | Tip | Güçlü Yan | Zayıf Yan | Fiyat/Gelir Modeli | Kanıt |
+## Competitor List
+| Competitor | Type | Strength | Weakness | Price/Revenue Model | Evidence |
 |-------|-----|-----------|-----------|--------------------|-------|
 
-## Müşteri Sinyalleri
-- En sık şikayetler:
-- Çözülmemiş beklentiler:
-- Kullanıcıların kendi diliyle problem:
+## Customer Signals
+- Most common complaints:
+- Unresolved expectations:
+- Problem in users' own words:
 
 ## Veri İşleme Notları
 - Ham veri:
@@ -188,185 +189,184 @@ Fikrin pazarlanabilirliğini kullanıcı özelinde ölç. Kullanıcıdan şu bil
 - Eksik veya erişilemeyen veri:
 ```
 
-### 5.4 — Fikir Doğrulama
+### 5.4 — Idea Validation
 **Agent:** Strategy Analyst
 
-`pazar-arastirmasi.md`, `kullanici-pazarlama-avantaji.md` ve kullanıcının fikrini birlikte
-değerlendir.
+Evaluate `pazar-arastirmasi.md`, `kullanici-pazarlama-avantaji.md`, and the user's idea together.
 
-**Çıktı formatı (`03-strateji/dogrulama/fikir-dogrulama.md`):**
+**Output format (`03-strateji/dogrulama/fikir-dogrulama.md`):**
 
 ```markdown
-# Fikir Doğrulama: [Fikir]
-- Tarih: [tarih]
-- Kullanılan girdiler: [dosya referansları]
+# Idea Validation: [Idea]
+- Date: [date]
+- Inputs used: [file references]
 
-## Sert Değerlendirme Özeti
-- En güçlü kanıt:
-- En zayıf nokta:
-- Ölümcül risk var mı:
-- Agent'ın net görüşü:
+## Hard Evaluation Summary
+- Strongest evidence:
+- Weakest point:
+- Is there a fatal risk:
+- Agent's clear view:
 
-## Değerlendirme Kriterleri
-| Kriter | Puan (1-10) | Kanıt | Yorum |
+## Evaluation Criteria
+| Criterion | Score (1-10) | Evidence | Comment |
 |--------|-------------|-------|-------|
-| Problem acısı | ... | ... | ... |
-| Hedef kitle netliği | ... | ... | ... |
-| Pazar/talep sinyali | ... | ... | ... |
-| Rekabetten ayrışma | ... | ... | ... |
-| Gelir potansiyeli | ... | ... | ... |
-| MVP yapılabilirliği | ... | ... | ... |
-| Kullanıcının pazarlama avantajı | ... | ... | ... |
-| İlk 10-50 kullanıcıya erişim | ... | ... | ... |
-| Maliyet/risk seviyesi | ... | ... | ... |
-| Zamanlama | ... | ... | ... |
-| **Toplam** | **.../100** | | |
+| Problem pain | ... | ... | ... |
+| Target audience clarity | ... | ... | ... |
+| Market/demand signal | ... | ... | ... |
+| Competitive differentiation | ... | ... | ... |
+| Revenue potential | ... | ... | ... |
+| MVP feasibility | ... | ... | ... |
+| User's marketing advantage | ... | ... | ... |
+| Access to first 10-50 users | ... | ... | ... |
+| Cost/risk level | ... | ... | ... |
+| Timing | ... | ... | ... |
+| **Total** | **.../100** | | |
 
-## Karar
-- Öneri: [Denenmeye Değer / Revizyonla Denenmeye Değer / Denenmeye Değmez]
-- Gerekçe:
-- Devam için zorunlu revizyonlar:
-- Vazgeçme gerekçesi varsa:
+## Decision
+- Recommendation: [Denenmeye Değer / Revizyonla Denenmeye Değer / Denenmeye Değmez]
+- Rationale:
+- Mandatory revisions to proceed:
+- If there is a reason to abandon:
 ```
 
-Karar eşiği:
+Decision threshold:
 
-- `Denenmeye Değer`: toplam skor genelde 70/100 ve üzeri olmalı; problem acısı, pazarlama
-  avantajı ve ilk kullanıcı erişimi ayrı ayrı zayıf olmamalı.
-- `Revizyonla Denenmeye Değer`: fikirde sinyal var ama hedef kitle, kanal, kapsam, fiyat veya
-  kullanıcı avantajı net değil.
-- `Denenmeye Değmez`: acı zayıfsa, kullanıcı hedef kitleye ulaşamıyorsa, rekabet farkı yoksa,
-  MVP maliyeti yüksekse veya gelir yolu gerçekçi değilse.
+- `Denenmeye Değer`: total score should generally be 70/100 and above; problem pain, marketing
+  advantage, and first user access should not be individually weak.
+- `Revizyonla Denenmeye Değer`: there is signal in the idea but target audience, channel, scope,
+  pricing, or user advantage is not clear.
+- `Denenmeye Değmez`: if pain is weak, user cannot reach the target audience, there is no
+  competitive differentiation, MVP cost is high, or the revenue path is unrealistic.
 
-### 5.5 — Realist Karar Tartışması
+### 5.5 — Realist Decision Discussion
 **Agent:** Orchestrator
 
-Kullanıcıya kısa ve net konuş:
+Speak to the user briefly and clearly:
 
 ```text
-Doğrulama sonucu: [Denenmeye Değer / Revizyonla Denenmeye Değer / Denenmeye Değmez]
-Neden:
+Validation result: [Denenmeye Değer / Revizyonla Denenmeye Değer / Denenmeye Değmez]
+Why:
 1. ...
 2. ...
 3. ...
 
-Benim pragmatik önerim:
-- [Devam / şu revizyonla devam / bırak]
+My pragmatic recommendation:
+- [Proceed / proceed with this revision / abandon]
 
-Kullanıcı avantajı açısından kritik gerçek:
+Critical fact regarding user advantage:
 - ...
 
-Kararın:
-1. Bu haliyle devam
-2. Şu revizyonla tekrar değerlendir
-3. Vazgeç
+Your decision:
+1. Proceed as is
+2. Re-evaluate with this revision
+3. Abandon
 ```
 
-Kullanıcı "devam" dese bile agent ölümcül risk görüyorsa bunu tekrar belirtir ve PRD'ye geçmeden
-önce riski `KARARLAR.md` veya değerlendirme raporuna yazar.
+Even if the user says "proceed", if the agent sees a fatal risk, restate it and write the risk to
+`KARARLAR.md` or the evaluation report before moving to PRD.
 
-### 5.6 — MVP Yazımı
+### 5.6 — MVP Writing
 **Agent:** Product Architect
 
-Sadece onaylı değer kararından sonra çalışır. MVP, fikrin minimum denenebilir ürün tanımıdır;
-özellik yığını değildir.
+Runs only after the approved value decision. The MVP is the minimum testable product definition of
+the idea; it is not a feature pile.
 
-**Çıktı:** `04-urun/fikir-ozetleri/mvp.md`
+**Output:** `04-urun/fikir-ozetleri/mvp.md`
 
-MVP şunları içermelidir:
+The MVP must include:
 
-- Nihai fikir tanımı
-- Hedef kullanıcı ve ilk ulaşılacak segment
-- Kullanıcının dağıtım avantajı ve ilk kullanıcı edinim yolu
-- Çözülen ana problem
-- MVP'nin tek ana vaadi
-- Olmazsa olmaz özellikler
-- Kapsam dışı bırakılanlar
-- İlk manuel/concierge deneme yolu varsa
-- Başarı metrikleri
-- İlk 10-50 kullanıcıya ulaşma planı
-- En büyük riskler ve test planı
+- Final idea definition
+- Target user and first segment to reach
+- User's distribution advantage and first user acquisition path
+- Main problem solved
+- Single core promise of the MVP
+- Must-have features
+- Out-of-scope items
+- If there is a first manual/concierge trial path
+- Success metrics
+- Plan to reach first 10-50 users
+- Biggest risks and test plan
 
-### 5.7 — MVP Onayı
+### 5.7 — MVP Approval
 **Agent:** Orchestrator
 
-MVP kapsamını kullanıcıyla tartış. Kapsam şişerse acımasızca daralt. Kullanıcı MVP'yi açıkça
-onaylamadan PRD yazma.
+Discuss the MVP scope with the user. If the scope inflates, narrow it ruthlessly. Do not write the
+PRD before the user explicitly approves the MVP.
 
-### 5.8 — PRD Yazımı
+### 5.8 — PRD Writing
 **Agent:** Product Architect
 
-Onaylı MVP'ye göre PRD üret. PRD, MVP'de olmayan yeni stratejik özellik ekleyemez; eklemek
-gerekiyorsa önce MVP revize edilir.
+Produce a PRD based on the approved MVP. The PRD cannot add new strategic features not in the MVP;
+if needed, first revise the MVP.
 
-**Çıktı:** `04-urun/prd/prd.md`
+**Output:** `04-urun/prd/prd.md`
 
 ### 5.9 — Coder Brief
 **Agent:** Product Architect
 
-PRD'den coder için uygulanabilir brief çıkar.
+Extract an implementable brief for the coder from the PRD.
 
-**Çıktı:** `04-urun/coder-briefleri/coder-brief.md`
+**Output:** `04-urun/coder-briefleri/coder-brief.md`
 
-### 5.10 — Coder'a Yönlendirme
+### 5.10 — Directing to Coder
 **Agent:** Orchestrator
 
-Kullanıcıya şu net yönlendirmeyi yap:
+Give the user this clear direction:
 
 ```text
-MVP ve PRD hazır.
+MVP and PRD are ready.
 
-Coder'a şu dosyaları ilet:
+Forward the following files to the coder:
 - 04-urun/fikir-ozetleri/mvp.md
 - 04-urun/prd/prd.md
 - 04-urun/coder-briefleri/coder-brief.md
 
-Coder bu dosyaları okuyup teknik planı ve uygulama kapsamını çıkarabilir.
+The coder can read these files and extract the technical plan and implementation scope.
 ```
 
 ---
 
-## P1 ve P5 Arasındaki Fark
+## Difference Between P1 and P5
 
-| Özellik | P1 (Fikir Keşif) | P5 (Var Olan Fikir Değerleme) |
+| Feature | P1 (Idea Discovery) | P5 (Existing Idea Evaluation) |
 |---------|------------------|-------------------------------|
-| Başlangıç noktası | Fikir yok | Fikir var |
-| İlk iş | Fırsat üretmek | Fikri sert gerçeklikle test etmek |
-| Kullanıcı profili | İlgi alanı için kullanılır | Pazarlama avantajı olarak skorlanır |
-| Research | Fırsat keşfi için | Fikri öldürmek, revize etmek veya doğrulamak için |
-| Karar | Fırsat seçimi | Denenmeye değer / revizyon / değmez |
-| MVP | Fikir netleşirse | Sadece değer kararından sonra |
-| PRD | MVP/idea brief sonrası | Onaylı MVP sonrası |
+| Starting point | No idea | Has an idea |
+| First task | Generate opportunities | Test the idea against hard reality |
+| User profile | Used for interest area | Scored as marketing advantage |
+| Research | For opportunity discovery | To kill, revise, or validate the idea |
+| Decision | Opportunity selection | Worth trying / revision / not worth |
+| MVP | If the idea becomes clear | Only after value decision |
+| PRD | After MVP/idea brief | After approved MVP |
 
 ---
 
-## Çıktı Dosyaları
+## Output Files
 
-| Dosya | Üreten | Açıklama |
+| File | Produced By | Description |
 |-------|--------|----------|
-| `03-strateji/dogrulama/kullanici-pazarlama-avantaji.md` | Orchestrator | Kullanıcının fikri pazarlama gücü |
-| `02-arastirma/pazar-arastirmasi/pazar-arastirmasi.md` | Market Scout | Rakip, trend, müşteri sinyali |
-| `03-strateji/dogrulama/fikir-dogrulama.md` | Strategy Analyst | Sert skor, risk ve karar |
-| `04-urun/fikir-ozetleri/mvp.md` | Product Architect | Onaylı MVP tanımı |
-| `04-urun/prd/prd.md` | Product Architect | MVP'ye dayalı PRD |
-| `04-urun/coder-briefleri/coder-brief.md` | Product Architect | Coder'a uygulanabilir özet |
+| `03-strateji/dogrulama/kullanici-pazarlama-avantaji.md` | Orchestrator | User's idea marketing power |
+| `02-arastirma/pazar-arastirmasi/pazar-arastirmasi.md` | Market Scout | Competitor, trend, customer signal |
+| `03-strateji/dogrulama/fikir-dogrulama.md` | Strategy Analyst | Hard score, risk, and decision |
+| `04-urun/fikir-ozetleri/mvp.md` | Product Architect | Approved MVP definition |
+| `04-urun/prd/prd.md` | Product Architect | PRD based on MVP |
+| `04-urun/coder-briefleri/coder-brief.md` | Product Architect | Implementable summary for coder |
 
-Değerlendirme workspace'inde karşılık gelen çalışma dosyaları `ciktilar/` altında, nihai sentez
-ise `RAPOR.md` içinde tutulur.
+In an evaluation workspace, corresponding working files are kept under `ciktilar/`, and the final
+synthesis is kept in `RAPOR.md`.
 
 ---
 
-## PersonalAutonomy Yurutme Kurallari
+## PersonalAutonomy Execution Rules
 
-- Ana cikti alanlari: 02-arastirma/, 03-strateji/dogrulama/ ve 04-urun/
-- Pipeline kendi proje veya durum klasorunu olusturmaz. Aktif adimi DURUM.md ve ilgili
-  .pa/*/active-task.md dosyasinda tutar.
-- Degerlendirme workspace'inde proje-only adimlari uygulamaz; olumlu sonucu proje olusturma
-  yetkisi olarak yorumlamaz.
-- Degerlendirme workspace'inde MVP, PRD ve coder brief final teslimi uretme; bunlar proje
-  workspace'inde onayli deger kararindan sonra yazilir.
-- Projede PROJE.md, ilgili 01-baglam/ dosyalari ve KARARLAR.md on kosuldur.
-- Guncel veri gerektiren iddialari kaynak ve erisim tarihiyle kaydeder; veri yoksa varsayimi
-  acikca etiketler.
-- Karar kapilarinda kullanicidan acik onay alir. Dosya uretmek haftalik gorevi tamamlamaz.
-- Onayli final kopyalari 10-final/ altina alir ve calisma kaynagini yerinde korur.
+- Main output areas: 02-arastirma/, 03-strateji/dogrulama/, and 04-urun/
+- The pipeline does not create its own project or status folder. It keeps the active step in
+  DURUM.md and the relevant .pa/*/active-task.md file.
+- In an evaluation workspace, it does not apply project-only steps; it does not interpret a positive
+  result as authorization to create a project.
+- In an evaluation workspace, do not produce MVP, PRD, and coder brief as final delivery; these are
+  written in a project workspace after the approved value decision.
+- In a project, PROJE.md, relevant 01-baglam/ files, and KARARLAR.md are prerequisites.
+- Record claims requiring current data with source and access date; if data is missing, explicitly
+  label the assumption.
+- Obtain explicit user approval at decision gates. Producing a file does not complete a weekly task.
+- Copy approved final copies under 10-final/ and preserve the working source in place.

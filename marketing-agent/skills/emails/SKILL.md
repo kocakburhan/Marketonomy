@@ -3,64 +3,64 @@ name: emails
 description: Welcome, nurture, onboarding ve re-engagement email dizileri tasarla. Lifecycle email veya kampanya email'i istendiginde kullan.
 ---
 
-# Email Sequence Tasarımı
+# Email Sequence Design
 
-Email marketing ve otomasyon uzmanı. Amaç: ilişki kuran, aksiyona yönlendiren email dizileri oluşturmak.
+Email marketing and automation specialist. Goal: create email sequences that build relationships and drive action.
 
-## Dizi Tipleri
+## Sequence Types
 
-| Tip | Email Sayısı | Tetikleyici |
-|-----|-------------|------------|
-| Welcome | 5-7 | Kayıt oldu |
-| Lead Nurture | 6-8 | Lead magnet indirdi |
-| Onboarding | 5-7 | Ürünü kullanmaya başladı |
-| Re-engagement | 3-4 | 30-60 gün aktif değil |
-| Post-purchase | 3-5 | Satın aldı |
+| Type | Email Count | Trigger |
+|------|-------------|---------|
+| Welcome | 5-7 | Signed up |
+| Lead Nurture | 6-8 | Downloaded lead magnet |
+| Onboarding | 5-7 | Started using the product |
+| Re-engagement | 3-4 | Inactive for 30-60 days |
+| Post-purchase | 3-5 | Made a purchase |
 
-## Temel Prensipler
+## Core Principles
 
-1. **Bir email, bir iş** — Her email tek amaca hizmet etsin
-2. **Önce değer, sonra satış** — Faydalı içerikle güven inşa et
-3. **Alakalılık > Hacim** — Az ama iyi email > çok ama alakasız email
-4. **Net yol** — Her email net bir sonraki adım sunsun
+1. **One email, one job** — Each email should serve a single purpose
+2. **Value first, then sell** — Build trust with useful content
+3. **Relevance > Volume** — Few but good emails > many but irrelevant emails
+4. **Clear path** — Each email should offer a clear next step
 
-## Email Yapısı
+## Email Structure
 
-1. **Hook:** İlk satır dikkat çekmeli
-2. **Bağlam:** Bu neden onlar için önemli
-3. **Değer:** Faydalı içerik
-4. **CTA:** Ne yapmaları gerektiği
-5. **Kapanış:** İnsani, sıcak
+1. **Hook:** First line must grab attention
+2. **Context:** Why this matters to them
+3. **Value:** Useful content
+4. **CTA:** What they should do
+5. **Closing:** Human, warm
 
-## Konu Satırı Stratejisi
+## Subject Line Strategy
 
-- Net > Zekice
-- Spesifik > Muğlak
-- 40-60 karakter ideal
-- Çalışan pattern'ler:
-  - Soru: "Hala X ile mi boğuşuyorsun?"
-  - Nasıl: "[Zaman] içinde [sonuç] nasıl elde edilir"
-  - Rakam: "[fayda] için 3 yol"
-  - Direkt: "[İsim], [şey]'in hazır"
+- Clear > Clever
+- Specific > Vague
+- 40-60 characters ideal
+- Working patterns:
+  - Question: "Still struggling with X?"
+  - How-to: "How to get [outcome] in [time]"
+  - Number: "3 ways to [benefit]"
+  - Direct: "[Name], your [thing] is ready"
 
-## Zamanlama
+## Timing
 
-- Welcome: Hemen → 1-2 gün ara → 3-4 gün ara
-- Nurture: 2-4 gün ara
-- B2B: Hafta sonu gönderme
-- B2C: Hafta sonu test et
+- Welcome: Immediately → 1-2 day gap → 3-4 day gap
+- Nurture: 2-4 day gaps
+- B2B: Don't send on weekends
+- B2C: Test weekends
 
-## Formatlama
+## Formatting
 
-- Kısa paragraflar (1-3 cümle)
-- Bölümler arası boşluk
-- Tara(n)abilirlik için madde işaretleri
-- Mobil öncelikli (çoğu kişi telefonda okur)
-- Sohbet tonu, resmi değil
+- Short paragraphs (1-3 sentences)
+- Whitespace between sections
+- Bullet points for scannability
+- Mobile-first (most people read on phone)
+- Conversational tone, not formal
 
-## CTA Kuralları
+## CTA Rules
 
-- Ana aksiyon için buton
-- İkincil aksiyonlar için link
-- Email başına bir ana CTA
-- Buton metni: Aksiyon + sonuç
+- Button for the main action
+- Link for secondary actions
+- One primary CTA per email
+- Button text: Action + outcome

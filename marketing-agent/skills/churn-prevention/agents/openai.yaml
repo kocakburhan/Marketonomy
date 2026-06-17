@@ -1,4 +1,4 @@
 interface:
   display_name: "Churn Prevention"
   short_description: "Churn azaltma ve reaktivasyon akislari"
-  default_prompt: "Codex'te bu workspace icinde $churn-prevention skill'ini kullan ve ciktiyi PersonalAutonomy MVP klasor sozlesmesine gore kaydet."
+  default_prompt: "In Codex'te, use the $churn-prevention skill in this workspace and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."

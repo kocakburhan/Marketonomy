@@ -1,78 +1,81 @@
 ---
 name: product-marketing
-description: Proje urun baglamini, hedef kitleyi, deger onerisini ve konumlandirmayi netlestir. Diger marketing calismalarindan once baglam eksikse kullan.
+description: Clarify the project product context, target audience, value proposition, and positioning. Use when context is missing before other marketing work.
 ---
 
-# Ürün Pazarlama Bağlamı
+# Product Marketing Context
 
-Diğer tüm marketing skill'lerinin temelidir. Kullanıcının ürününü, hedef kitlesini, konumlandırmasını anlamadan hiçbir şey yapmaz.
+Is the foundation of all other marketing skills. Does nothing before understanding the user's
+product, target audience, and positioning.
 
-## Bağlam Dosyası
+Internal operating instructions are in English. The default user-facing language is Turkish.
 
-Pazarlama bağlamı `PROJE.md` ve ilgili `01-baglam/` dosyalarinda saklanir.
+## Context File
 
-## Çalışma Şekli
+The marketing context is stored in `PROJE.md` and the relevant `01-baglam/` files.
 
-1. Önce context dosyası var mı kontrol et
-2. **Var:** Oku, hangi bölümleri güncellemek istediğini sor
-3. **Yok:** İki seçenek sun:
-   - **Otomatik draft:** Repo/web'deki mevcut bilgilerden V1 oluştur
-   - **Sıfırdan:** Her bölümü konuşarak doldur
+## Work Method
 
-## Toplanacak Bilgiler
+1. First check whether a context file exists
+2. **Exists:** Read it, ask which sections to update
+3. **Does not exist:** Offer two options:
+   - **Auto draft:** Create V1 from existing information in repo/web
+   - **From scratch:** Fill in every section through conversation
 
-### 1. Ürün Özeti
-- Tek cümlelik tanım
-- Ne yapar (2-3 cümle)
-- Ürün kategorisi
-- Ürün tipi (SaaS, marketplace, e-ticaret...)
-- İş modeli ve fiyatlandırma
+## Information to Collect
 
-### 2. Hedef Kitle
-- Hedef şirket tipi (sektör, büyüklük, aşama)
-- Karar vericiler (roller, departmanlar)
-- Ana kullanım senaryosu
-- Jobs to be Done (kullanıcının "kiraladığı" 2-3 şey)
+### 1. Product Summary
+- One-sentence definition
+- What it does (2-3 sentences)
+- Product category
+- Product type (SaaS, marketplace, e-commerce...)
+- Business model and pricing
 
-### 3. Problemler ve Acı Noktaları
-- Müşterinin temel problemi
-- Mevcut çözümler neden yetersiz
-- Bunun onlara maliyeti (zaman, para, fırsat)
-- Duygusal gerilim
+### 2. Target Audience
+- Target company type (sector, size, stage)
+- Decision makers (roles, departments)
+- Main use scenario
+- Jobs to be Done (2-3 things the user "hires")
 
-### 4. Rekabet Manzarası
-- Doğrudan rakipler
-- İkincil rakipler
-- Dolaylı rakipler
-- Her biri nerede yetersiz kalıyor
+### 3. Problems and Pain Points
+- Customer's core problem
+- Why existing solutions are insufficient
+- What it costs them (time, money, opportunity)
+- Emotional tension
 
-### 5. Farklılaşma
-- Temel farklılıklar
-- Nasıl farklı çözüyorsun
-- Neden daha iyi
-- Müşteriler neden seni seçiyor
+### 4. Competitive Landscape
+- Direct competitors
+- Secondary competitors
+- Indirect competitors
+- Where each falls short
 
-### 6. Müşteri Dili
-- Problemi nasıl tanımlıyorlar (birebir)
-- Çözümü nasıl tanımlıyorlar
-- Kullanılacak kelimeler
-- Kaçınılacak kelimeler
+### 5. Differentiation
+- Core differences
+- How you solve differently
+- Why it is better
+- Why customers choose you
 
-### 7. Marka Sesi
-- Ton (profesyonel, samimi, oyuncu...)
-- İletişim stili
-- Marka kişiliği (3-5 sıfat)
+### 6. Customer Language
+- How they define the problem (verbatim)
+- How they define the solution
+- Words to use
+- Words to avoid
 
-### 8. Kanıt Noktaları
-- Metrikler veya sonuçlar
-- Önemli müşteriler/logolar
-- Referans alıntıları
+### 7. Brand Voice
+- Tone (professional, friendly, playful...)
+- Communication style
+- Brand personality (3-5 adjectives)
 
-### 9. Hedefler
-- Ana iş hedefi
-- Dönüşüm aksiyonu
-- Mevcut metrikler (biliniyorsa)
+### 8. Proof Points
+- Metrics or results
+- Notable customers/logos
+- Reference quotes
 
-## Çıktı
+### 9. Goals
+- Main business goal
+- Conversion action
+- Current metrics (if known)
 
-Yukaridaki bilgileri `PROJE.md` ve ilgili `01-baglam/` dosyalarina kaydet.
+## Output
+
+Save the above information to `PROJE.md` and the relevant `01-baglam/` files.

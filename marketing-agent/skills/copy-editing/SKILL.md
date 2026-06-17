@@ -3,72 +3,72 @@ name: copy-editing
 description: Mevcut pazarlama metnini duzenle, netlestir ve donusum odakli iyilestir. Kullanici hazir metin verdiginde kullan.
 ---
 
-# Copy Editing (Metin Düzenleme)
+# Copy Editing (Text Editing)
 
-Uzman copy editör. Amaç: mevcut metni sistematik olarak iyileştirmek. Yeniden yazmak değil, geliştirmek.
+Expert copy editor. Goal: systematically improve existing copy. Not rewriting, but refining.
 
-## 7 Aşamalı Düzenleme (Seven Sweeps)
+## 7-Stage Editing (Seven Sweeps)
 
-Her aşama tek bir boyuta odaklanır. Sırayla uygula, her aşamadan sonra öncekileri tekrar kontrol et.
+Each stage focuses on a single dimension. Apply in order, re-check previous stages after each one.
 
-### Aşama 1: Netlik
-- Karışık cümle yapıları
-- Belirsiz ifadeler
+### Stage 1: Clarity
+- Confusing sentence structures
+- Ambiguous expressions
 - Jargon
-- "Bir bölüm = bir fikir" kuralı
+- "One section = one idea" rule
 
-### Aşama 2: Ses ve Ton
-- Tutarsız ton geçişleri
-- Resmi ↔ samimi kaymaları
-- Marka kişiliğiyle uyumsuz kelimeler
+### Stage 2: Voice and Tone
+- Inconsistent tone shifts
+- Formal ↔ casual swings
+- Words misaligned with brand personality
 
-### Aşama 3: "Ee yani?" (So What)
-- Her iddia için "Ee, ne olmuş?" sor
-- Özellikleri faydaya bağla
-- "Yapay zeka destekli" → "Yapay zeka sayesinde manuel olarak gözden kaçıracağın içgörüleri yakala"
+### Stage 3: "So What?"
+- For every claim, ask "So what?"
+- Link features to benefits
+- "AI-powered" → "AI catches insights you'd manually miss"
 
-### Aşama 4: Kanıtla
-- Desteksiz iddiaları bul
-- "Binlerce müşteri" → hangi binlerce?
-- İstatistik, yorum, vaka ekle
+### Stage 4: Prove It
+- Find unsupported claims
+- "Thousands of customers" → which thousands?
+- Add statistics, testimonials, cases
 
-### Aşama 5: Spesifiklik
-- Muğlak kelimeleri değiştir
-- "Zaman kazandırır" → "Haftada 4 saat kazandırır"
-- "Hızlı sonuçlar" → "14 günde sonuç"
+### Stage 5: Specificity
+- Replace vague words
+- "Saves time" → "Saves 4 hours per week"
+- "Fast results" → "Results in 14 days"
 
-### Aşama 6: Duygu Yükseltme
-- Düz, bilgilendirici metinleri canlandır
-- Acı noktasını hissettir
-- "Önce" durumunu canlı resmet
+### Stage 6: Emotion Boost
+- Bring flat, informational text to life
+- Make the pain point felt
+- Vividly depict the "before" state
 
-### Aşama 7: Sıfır Risk
-- CTA yakınındaki sürtünmeyi kaldır
-- İtirazları cevapla
-- Garanti, ücretsiz deneme, "kredi kartı gerekmez" ekle
+### Stage 7: Zero Risk
+- Remove friction near the CTA
+- Answer objections
+- Add guarantee, free trial, "no credit card required"
 
-## Hızlı Düzenleme Kontrolleri
+## Quick Edit Checks
 
-### Atılacak Kelimeler
-çok, gerçekten, aslında, sadece, şeyler
+### Words to Drop
+very, really, actually, just, things
 
-### Değiştirilecek Kelimeler
-| Zayıf | Güçlü |
-|-------|-------|
-| utilize etmek | kullanmak |
-| implemente etmek | kurmak |
-| leverage etmek | kullanmak |
-| inovatif | yeni |
-| robust | güçlü |
-| seamless | pürüzsüz |
+### Words to Replace
+| Weak | Strong |
+|------|--------|
+| utilize | use |
+| implement | set up |
+| leverage | use |
+| innovative | new |
+| robust | strong |
+| seamless | smooth |
 
-### Cümle Kontrolleri
-- Cümle başına bir fikir
-- Kısa-uzun karışık cümleler
-- Maksimum 25 kelime (genelde)
-- Pasif sesi aktif yap
+### Sentence Checks
+- One idea per sentence
+- Mix of short-long sentences
+- Maximum 25 words (generally)
+- Make passive voice active
 
-### Paragraf Kontrolleri
-- Paragraf başına bir konu
-- Web için kısa paragraflar (2-4 cümle)
-- Güçlü açılış cümleleri
+### Paragraph Checks
+- One topic per paragraph
+- Short paragraphs for web (2-4 sentences)
+- Strong opening sentences

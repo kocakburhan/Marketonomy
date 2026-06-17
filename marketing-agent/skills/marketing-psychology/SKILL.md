@@ -3,87 +3,87 @@ name: marketing-psychology
 description: Davranissal ekonomi ve psikoloji ilkelerini etik pazarlama kararlarina uygula. Mesaj, teklif veya donusum psikolojisi istendiginde kullan.
 ---
 
-# Pazarlama Psikolojisi
+# Marketing Psychology
 
-Davranışsal psikoloji uzmanı. Amaç: psikolojik prensipleri kullanarak daha ikna edici pazarlama yapmak.
+Behavioral psychology specialist. Goal: use psychological principles to create more persuasive marketing.
 
-## Temel Prensipler
+## Core Principles
 
-### 1. Sosyal Kanıt (Social Proof)
-İnsanlar başkalarının yaptığını yapar.
-- "5,000+ ekip kullanıyor" (sayı ver)
-- Logo bulutu (tanınan markalar)
-- Gerçek müşteri yorumları (isim + fotoğraf + unvan)
-- "En popüler plan" etiketi
+### 1. Social Proof
+People do what others do.
+- "5,000+ teams use it" (give a number)
+- Logo cloud (recognized brands)
+- Real customer reviews (name + photo + title)
+- "Most popular plan" label
 
-### 2. Kıtlık (Scarcity)
-Az olan değerlidir.
-- "Sadece 3 slot kaldı"
-- "İndirim 48 saat geçerli"
-- "Beta programı sınırlı kontenjan"
-- ⚠️ Sahte kıtlık güveni yok eder
+### 2. Scarcity
+What is scarce is valuable.
+- "Only 3 slots left"
+- "Discount valid for 48 hours"
+- "Beta program limited capacity"
+- ⚠️ Fake scarcity destroys trust
 
-### 3. Çıpalama (Anchoring)
-İlk gördüğün sayı referans olur.
-- Önce pahalı planı göster, sonra "önerilen" planı
-- "Normalde $99, bugün $49"
-- Rakip fiyatını göster, kendi fiyatını göster
+### 3. Anchoring
+The first number you see becomes the reference.
+- Show the expensive plan first, then the "recommended" plan
+- "Normally $99, today $49"
+- Show competitor price, then your price
 
-### 4. Kayıptan Kaçınma (Loss Aversion)
-Kaybetme korkusu, kazanma arzusundan 2x güçlüdür.
-- "Ücretsiz deneme bitince kaybedeceklerin"
-- "Bu özellikleri kaçırma"
-- "Son şans" email'leri
+### 4. Loss Aversion
+Fear of loss is 2x stronger than desire for gain.
+- "What you'll lose when the free trial ends"
+- "Don't miss these features"
+- "Last chance" emails
 
-### 5. Karşılıklılık (Reciprocity)
-Bir şey verirsen, karşılığını alma eğilimi.
-- Ücretsiz değerli içerik (e-kitap, rehber, webinar)
-- Bedava deneme (değeri göster)
-- "Önce biz sana yardım edelim"
+### 5. Reciprocity
+If you give something, people tend to give back.
+- Free valuable content (e-book, guide, webinar)
+- Free trial (show the value)
+- "Let us help you first"
 
-### 6. Bağlılık ve Tutarlılık (Commitment & Consistency)
-Küçük "evet"ler büyük "evet"lere götürür.
-- Mikro-dönüşümler: email ver → ücretsiz dene → ilk projeyi oluştur → ekibi davet et → ücretliye geç
-- Progress bar: "%80 tamamlandı" (bitirme isteği)
+### 6. Commitment & Consistency
+Small "yeses" lead to big "yeses."
+- Micro-conversions: give email → try free → create first project → invite team → go paid
+- Progress bar: "80% complete" (desire to finish)
 
-### 7. Otorite (Authority)
-Uzmanların dediğine güveniriz.
-- Uzman alıntıları
-- Sertifikalar, ödüller
-- Medyada çıkan haberler
-- "G2'de #1"
+### 7. Authority
+We trust what experts say.
+- Expert quotes
+- Certifications, awards
+- Media coverage
+- "#1 on G2"
 
-### 8. Beğenme (Liking)
-Sevdiğimiz insanlardan alırız.
-- Marka kişiliği
-- Founder hikayesi
-- Topluluk hissi
+### 8. Liking
+We buy from people we like.
+- Brand personality
+- Founder story
+- Sense of community
 
-### 9. Birlik (Unity)
-"Aidiyet" hissi.
-- "Biz" dili
-- Özel topluluk
-- Insider hissi
+### 9. Unity
+Feeling of "belonging."
+- "We" language
+- Exclusive community
+- Insider feeling
 
-### 10. IKEA Etkisi
-Kendi emek verdiğin şeye daha çok değer verirsin.
-- Onboarding'de kullanıcıya bir şey yaptır (ilk proje, ilk task)
-- Kişiselleştirme (renk, logo)
+### 10. IKEA Effect
+You value more what you put effort into.
+- Let the user do something during onboarding (first project, first task)
+- Personalization (color, logo)
 
-## Uygulama Alanları
+## Application Areas
 
-| Alan | Prensipler | Örnek |
-|------|-----------|-------|
-| Landing page | Sosyal kanıt, çıpalama, kıtlık | Fiyatlandırmada anchor plan |
-| Email | Kıtlık, kayıptan kaçınma | "Son 24 saat" |
-| Fiyatlandırma | Çıpalama, ortadaki plan | En popüler plan etiketi |
-| Onboarding | IKEA etkisi, bağlılık | Checklist, progress bar |
-| CTA | Kayıptan kaçınma, karşılıklılık | "Ücretsiz dene" > "Kaydol" |
+| Area | Principles | Example |
+|------|-----------|---------|
+| Landing page | Social proof, anchoring, scarcity | Anchor plan in pricing |
+| Email | Scarcity, loss aversion | "Last 24 hours" |
+| Pricing | Anchoring, middle plan | Most popular plan label |
+| Onboarding | IKEA effect, commitment | Checklist, progress bar |
+| CTA | Loss aversion, reciprocity | "Try for free" > "Sign up" |
 
-## Etik Kullanım
+## Ethical Usage
 
-⚠️ Psikoloji prensipleri etik kullanılmalıdır:
-- Sahte kıtlık yapma
-- Sahte sosyal kanıt uydurma
-- Manipüle etme, ikna et
-- Kullanıcının çıkarını gözet
+⚠️ Psychological principles must be used ethically:
+- Don't create fake scarcity
+- Don't fabricate fake social proof
+- Persuade, don't manipulate
+- Look out for the user's interest

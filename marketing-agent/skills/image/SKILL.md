@@ -1,80 +1,82 @@
 ---
 name: image
-description: Pazarlama gorselleri icin kapsamli uretim promptu yaz ve Codex image generation akisiyle gorsel uret. Sosyal grafik, reklam gorseli, blog hero veya infografik istendiginde kullan.
+description: Pazarlama gorselleri icin kapsamli uretim promptu yaz ve Codex image generation akisiyla gorsel uret. Sosyal grafik, reklam gorseli, blog hero veya infografik istendiginde kullan.
 ---
 
-# AI Görsel Üretimi
+# AI Visual Generation
 
-Pazarlama amaçlı AI görsel üretim uzmanı. Blog hero, sosyal medya grafiği, ürün ekran görüntüsü, infografik.
+Marketing-focused AI visual generation specialist. Blog hero, social media graphic, product screenshot, infographic.
 
-## Codex Image Generation Akisi
+## Codex Image Generation Flow
 
-Kullanici sosyal medya gorseli, reklam gorseli, blog hero, infografik veya benzer bir
-pazarlama gorseli istediginde briefte kalma. Once kapsamli uretim promptunu otomatik yaz,
-sonra Codex icindeki aktif image generation akisini kullanarak gorseli uret.
+When the user requests a social media visual, ad visual, blog hero, infographic, or similar
+marketing visual, do not stop at a brief. First automatically write the comprehensive generation
+prompt, then generate the visual using the active image generation flow within Codex.
 
-Uretim promptu su bilgileri tek promptta birlestirmeli:
-- Marka/urun adi, hedef kitle ve ana vaat
-- Platform ve format: Instagram feed/story, LinkedIn, X, reklam, blog hero vb.
-- Boyut/oran: 1080x1080, 1080x1350, 1200x627, 1200x675, 1200x630 vb.
-- Kompozisyon: odak nesne, arka plan, negatif alan, metin icin bosluk
-- Stil: fotografik, editorial, minimal, 3D, flat illustration, premium SaaS UI vb.
-- Renk paleti, isik, duygu ve marka tonu
-- Okunabilir metin gerekiyorsa tam metin ve yerlesim; metin gerekmiyorsa "no text"
-- Kacinilacaklar: bozuk eller/yuzler, okunaksiz yazi, sahte logo, telifli karakter, marka disi stil
+The generation prompt must combine the following information into a single prompt:
+- Brand/product name, target audience, and core promise
+- Platform and format: Instagram feed/story, LinkedIn, X, ad, blog hero, etc.
+- Size/ratio: 1080x1080, 1080x1350, 1200x627, 1200x675, 1200x630, etc.
+- Composition: focal object, background, negative space, room for text
+- Style: photographic, editorial, minimal, 3D, flat illustration, premium SaaS UI, etc.
+- Color palette, lighting, emotion, and brand tone
+- If readable text is needed: exact text and placement; if not: "no text"
+- Things to avoid: distorted hands/faces, illegible text, fake logos, copyrighted characters,
+  off-brand style
 
-Image generation araci aktif degilse gercek uretim yapildigini iddia etme; kapsamli promptu,
-tasarim briefini ve kullanicinin manuel olarak hangi Codex image akisiyle uretmesi gerektigini
-kaydet. Arac aktifse gorseli uret ve ciktiya promptu, varyasyon notlarini ve uretim dosyasi
-yolunu ekle.
+If the image generation tool is not active, do not claim that real generation occurred; save the
+comprehensive prompt, design brief, and which Codex image flow the user should manually use.
+If the tool is active, generate the visual and add the prompt, variation notes, and generation
+file path to the output.
 
-## Sosyal Medya Icin Zorunlu Davranis
+## Mandatory Behavior for Social Media
 
-`social` skill veya Content Creator sosyal post urettiginde ve post formatinda gorsel varsa:
-1. Her post icin gorsel briefi yaz.
-2. Bu briefi platforma uygun kapsamli image promptuna donustur.
-3. Codex image generation akisini kullanarak gorseli uret.
-4. Post dosyasina gorsel promptunu ve olusan gorsel dosya yolunu ekle.
+When the `social` skill or Content Creator produces a social post and the post format includes a
+visual:
+1. Write the visual brief for each post.
+2. Convert this brief into a platform-appropriate comprehensive image prompt.
+3. Generate the visual using the Codex image generation flow.
+4. Add the visual prompt and the resulting visual file path to the post file.
 
-## Görsel Tipleri
+## Visual Types
 
-| Tip | Boyut | Kullanım |
-|-----|-------|----------|
-| Blog hero | 1200x630 (16:9) | Blog yazısı, sosyal paylaşım |
-| Sosyal grafik | 1080x1080 (1:1) veya 1080x1350 (4:5) | Instagram, LinkedIn |
-| Infografik | 800x2000 (dikey) | Blog, Pinterest |
+| Type | Size | Usage |
+|------|------|-------|
+| Blog hero | 1200x630 (16:9) | Blog post, social share |
+| Social graphic | 1080x1080 (1:1) or 1080x1350 (4:5) | Instagram, LinkedIn |
+| Infographic | 800x2000 (vertical) | Blog, Pinterest |
 | Thumbnail | 1280x720 (16:9) | YouTube |
-| Reklam banner'ı | 1200x628 | Google Display, Meta |
+| Ad banner | 1200x628 | Google Display, Meta |
 
-## Prompt Yazımı
+## Prompt Writing
 
-### Midjourney Prompt Formülü
+### Midjourney Prompt Formula
 ```
-[Konu] + [Stil] + [Kompozisyon] + [Renk paleti] + [Teknik detaylar] --ar [en-boy] --v 6
+[Subject] + [Style] + [Composition] + [Color palette] + [Technical details] --ar [width-height] --v 6
 ```
 
-**Örnek:**
+**Example:**
 ```
 Futuristic project management dashboard with AI holograms, clean interface, 
 blue and purple gradient, minimalist style, isometric view --ar 16:9 --v 6
 ```
 
-### DALL-E Prompt Formülü
+### DALL-E Prompt Formula
 ```
-[Detaylı sahne açıklaması], [stil], [aydınlatma], [renk], [kompozisyon]
+[Detailed scene description], [style], [lighting], [color], [composition]
 ```
 
-## Görsel Stratejisi
+## Visual Strategy
 
-- **Tutarlılık:** Tüm görseller aynı stil, renk paleti, tipografi
-- **Marka:** Logo, renkler, font
-- **Duygu:** Hangi duyguyu uyandırmalı?
-- **Hikaye:** Görsel ne anlatıyor?
+- **Consistency:** All visuals share the same style, color palette, typography
+- **Brand:** Logo, colors, font
+- **Emotion:** What emotion should it evoke?
+- **Story:** What does the visual communicate?
 
-## Kullanım Kanalları
+## Usage Channels
 
-| Kanal | Optimal Boyut | Format |
-|-------|-------------|--------|
+| Channel | Optimal Size | Format |
+|---------|-------------|--------|
 | Blog | 1200x630 | JPEG/WebP |
 | LinkedIn | 1200x627 | JPEG |
 | Instagram Feed | 1080x1080 | JPEG |

@@ -3,68 +3,68 @@ name: marketing-ideas
 description: Urun ve kanal baglamina uygun yaratici pazarlama fikirleri uret. Fikir havuzu, deney veya kampanya ilhami istendiginde kullan.
 ---
 
-# Pazarlama Fikirleri
+# Marketing Ideas
 
-Yaratıcı pazarlama fikir üreticisi. Amaç: "Ne yapabilirim?" diye sorulduğunda uygulanabilir, spesifik fikirler sunmak.
+Creative marketing idea generator. Goal: present actionable, specific ideas when asked "What can I do?"
 
-## Kullanım
+## Usage
 
-1. **product-marketing** context'ini oku
-2. Ürün tipine, hedef kitleye ve bütçeye uygun fikirleri filtrele
-3. Her fikri spesifik olarak ürüne uyarla
-4. Uygulanabilirlik ve etkiye göre önceliklendir
+1. Read **product-marketing** context
+2. Filter ideas appropriate for product type, target audience, and budget
+3. Adapt each idea specifically to the product
+4. Prioritize by feasibility and impact
 
-## Fikir Kategorileri
+## Idea Categories
 
-### SEO & İçerik
-- Rakibin en popüler yazısını 10x daha iyisini yaz (Skyscraper tekniği)
-- "X alternatifi" karşılaştırma sayfaları oluştur
-- Ücretsiz araç/calculator yap (SEO + lead magnet)
-- Sektör raporu/orijinal araştırma yayınla
-- Misafir yazısı ile backlink kazan
+### SEO & Content
+- Write a 10x better version of the competitor's most popular post (Skyscraper technique)
+- Create "X alternative" comparison pages
+- Build a free tool/calculator (SEO + lead magnet)
+- Publish an industry report/original research
+- Earn backlinks through guest posts
 
-### Büyüme Hack'leri
-- Açık kaynak projelere sponsor ol (GitHub README'de logon)
-- Üniversite öğrencilerine ücretsiz ver (eğitim kurumlarına özel plan)
-- API/entegrasyon marketplace'ine ekle (Slack, Zapier, Notion)
-- Rakibin churn yapan müşterilerini hedefle
-- Ürün içinde "share" özelliği ekle
+### Growth Hacks
+- Sponsor open-source projects (your logo in GitHub README)
+- Give free access to university students (special plan for educational institutions)
+- Add to API/integration marketplaces (Slack, Zapier, Notion)
+- Target competitor's churning customers
+- Add a "share" feature inside the product
 
-### PR & Görünürlük
-- HARO (Help a Reporter Out) ile gazetecilere kaynak ol
-- Sektör podcast'lerine konuk ol
-- Webinar serisi başlat
-- Ücretsiz sektör etkinliği düzenle
-- Ödüllere başvur
+### PR & Visibility
+- Serve as a source for journalists via HARO (Help a Reporter Out)
+- Guest on industry podcasts
+- Start a webinar series
+- Organize a free industry event
+- Apply for awards
 
-### Satış
-- Outbound: LinkedIn + cold email kombinasyonu
-- "Rakip X'ten geçiş rehberi" oluştur
-- Ücretsiz demo/audit teklif et
-- Case study + ROI hesaplayıcı
+### Sales
+- Outbound: LinkedIn + cold email combination
+- Create a "Migration guide from Competitor X"
+- Offer a free demo/audit
+- Case study + ROI calculator
 
-### Topluluk
-- Slack/Discord topluluğu kur
-- Reddit'te ilgili subreddit'lerde aktif ol
-- Kullanıcı spotlight'ı (müşterini kahraman yap)
-- Beta kullanıcı programı
+### Community
+- Build a Slack/Discord community
+- Be active in relevant subreddits
+- User spotlight (make your customer the hero)
+- Beta user program
 
-### Ürün-Led Büyüme
-- Ücretsiz plana viral özellik ekle (paylaşım, davet)
-- Public roadmap + oylama
-- Ürün içi NPS anketi
-- Kullanım verisine dayalı kişiselleştirilmiş email
+### Product-Led Growth
+- Add a viral feature to the free plan (sharing, invites)
+- Public roadmap + voting
+- In-product NPS survey
+- Personalized emails based on usage data
 
-### Düşük Maliyetli
-- Email imzasına CTA ekle
-- Sosyal medya bio'sunu optimize et
-- Google My Business profili oluştur
-- Quora'da ilgili soruları cevapla
-- Eski blog yazılarını güncelle (SEO tazeleme)
+### Low Cost
+- Add a CTA to email signature
+- Optimize social media bio
+- Create a Google My Business profile
+- Answer relevant questions on Quora
+- Update old blog posts (SEO refresh)
 
-## Önceliklendirme Matrisi
+## Prioritization Matrix
 
-| Etki \ Efor | Düşük Efor | Yüksek Efor |
-|-------------|-----------|-------------|
-| **Yüksek Etki** | HEMEN YAP | PLANLA |
-| **Düşük Etki** | ZAMANIN VARSA | SONRA |
+| Impact \ Effort | Low Effort | High Effort |
+|-----------------|-----------|-------------|
+| **High Impact** | DO NOW | PLAN |
+| **Low Impact** | IF YOU HAVE TIME | LATER |

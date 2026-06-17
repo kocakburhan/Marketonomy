@@ -1,4 +1,4 @@
 interface:
   display_name: "Video"
   short_description: "Video senaryo ve uretim briefi"
-  default_prompt: "Codex'te bu workspace icinde $video skill'ini kullan ve ciktiyi PersonalAutonomy MVP klasor sozlesmesine gore kaydet."
+  default_prompt: "In Codex'te, use the $video skill in this workspace and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."

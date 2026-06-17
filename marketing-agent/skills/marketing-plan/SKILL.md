@@ -3,97 +3,97 @@ name: marketing-plan
 description: AARRR cercevesinde kapsamli pazarlama plani hazirla ve ilgili marketing skill'lerini koordine et. Cok kanalli plan istendiginde kullan.
 ---
 
-# Pazarlama Planı (AARRR)
+# Marketing Plan (AARRR)
 
-Fractional CMO gibi çalışan ana pazarlama planlayıcısı. Amaç: tüm marketing skill'lerini AARRR çatısı altında koordine etmek.
+Main marketing planner working like a Fractional CMO. Goal: coordinate all marketing skills under the AARRR framework.
 
-## Başlamadan Önce
+## Before You Start
 
-1. **product-marketing** context'ini mutlaka oku
-2. Şunları anla:
-   - İş hedefi (gelir, büyüme, kullanıcı sayısı)
-   - Zaman dilimi (3 ay, 6 ay, 12 ay)
-   - Bütçe
-   - Ekip
-   - Mevcut metrikler
+1. Definitely read **product-marketing** context
+2. Understand:
+   - Business goal (revenue, growth, user count)
+   - Timeframe (3 months, 6 months, 12 months)
+   - Budget
+   - Team
+   - Current metrics
 
-## AARRR Framework'ü
+## AARRR Framework
 
-### A — Acquisition (Edinme)
-Kullanıcıları nasıl bulacaksın?
+### A — Acquisition
+How will you find users?
 
-**Kanallar:**
-- Organik: SEO (seo-audit), içerik (content-strategy), sosyal medya (social)
-- Ücretli: Google Ads, Meta Ads, LinkedIn Ads (ads, ad-creative)
-- Viral: Referans programı (referrals)
+**Channels:**
+- Organic: SEO (seo-audit), content (content-strategy), social media (social)
+- Paid: Google Ads, Meta Ads, LinkedIn Ads (ads, ad-creative)
+- Viral: Referral program (referrals)
 - Outbound: Cold email (cold-email), prospecting (prospecting)
-- Dizinler: Directory submissions (directory-submissions)
-- Topluluk: Community (community-marketing)
+- Directories: Directory submissions (directory-submissions)
+- Community: Community (community-marketing)
 
-**KPI'lar:** Trafik, kayıt sayısı, CAC
+**KPIs:** Traffic, signup count, CAC
 
-### A — Activation (Aktivasyon)
-Kullanıcı değeri ilk kez ne zaman görür?
+### A — Activation
+When does the user first see value?
 
-**Stratejiler:**
-- Onboarding flow optimizasyonu
+**Strategies:**
+- Onboarding flow optimization
 - Welcome email sequence (emails)
-- Demo videosu (video)
-- Hızlı "aha moment" tasarımı
+- Demo video (video)
+- Fast "aha moment" design
 
-**KPI'lar:** Aktivasyon oranı, time-to-value
+**KPIs:** Activation rate, time-to-value
 
-### R — Retention (Elde Tutma)
-Kullanıcı neden geri gelsin?
+### R — Retention
+Why should the user come back?
 
-**Stratejiler:**
-- Churn önleme (churn-prevention)
-- Community inşası (community-marketing)
-- Düzenli değer sunumu (emails, social)
-- Ürün kalitesi ve destek
+**Strategies:**
+- Churn prevention (churn-prevention)
+- Community building (community-marketing)
+- Regular value delivery (emails, social)
+- Product quality and support
 
-**KPI'lar:** DAU/WAU/MAU, churn oranı, retention eğrisi
+**KPIs:** DAU/WAU/MAU, churn rate, retention curve
 
-### R — Revenue (Gelir)
-Nasıl para kazanacaksın?
+### R — Revenue
+How will you make money?
 
-**Stratejiler:**
-- Fiyatlandırma optimizasyonu (pricing)
-- Paywall ve upgrade CRO (paywalls)
+**Strategies:**
+- Pricing optimization (pricing)
+- Paywall and upgrade CRO (paywalls)
 - Upsell/cross-sell
 - Annual plan push
 
-**KPI'lar:** MRR, ARPU, LTV, dönüşüm oranı
+**KPIs:** MRR, ARPU, LTV, conversion rate
 
-### R — Referral (Tavsiye)
-Kullanıcılar seni nasıl başkalarına anlatacak?
+### R — Referral
+How will users tell others about you?
 
-**Stratejiler:**
-- Referans programı (referrals)
-- NPS ve customer advocacy
-- Vaka çalışmaları
-- Viral özellikler
+**Strategies:**
+- Referral program (referrals)
+- NPS and customer advocacy
+- Case studies
+- Viral features
 
-**KPI'lar:** NPS, viral katsayı, referral geliri
+**KPIs:** NPS, viral coefficient, referral revenue
 
-## Plan Şablonu
+## Plan Template
 
 ```markdown
-# {Ürün} — {Dönem} Pazarlama Planı
+# {Product} — {Period} Marketing Plan
 
-## Yönetici Özeti
-{1 sayfa — ana hedef, strateji, beklenen sonuç}
+## Executive Summary
+{1 page — main goal, strategy, expected outcome}
 
-## Mevcut Durum
-- Metrikler: ...
-- Güçlü yönler: ...
-- Zayıf yönler: ...
+## Current Situation
+- Metrics: ...
+- Strengths: ...
+- Weaknesses: ...
 
-## AARRR Stratejisi
+## AARRR Strategy
 
 ### Acquisition
-| Kanal | Aksiyon | Bütçe | Hedef | Zaman |
-|-------|---------|-------|-------|-------|
+| Channel | Action | Budget | Target | Timeline |
+|---------|--------|--------|--------|----------|
 
 ### Activation
 ...
@@ -107,29 +107,29 @@ Kullanıcılar seni nasıl başkalarına anlatacak?
 ### Referral
 ...
 
-## Zaman Çizelgesi
-| Ay | Odak | Önemli Aksiyonlar | KPI |
-|----|------|-------------------|-----|
+## Timeline
+| Month | Focus | Key Actions | KPI |
+|-------|-------|-------------|-----|
 
-## Bütçe
-| Kalem | Aylık | Yıllık |
-|-------|-------|--------|
+## Budget
+| Item | Monthly | Annual |
+|------|---------|--------|
 
-## Riskler
-| Risk | Olasılık | Etki | Önlem |
-|------|----------|------|-------|
+## Risks
+| Risk | Probability | Impact | Mitigation |
+|------|------------|--------|------------|
 ```
 
-## Skill Koordinasyonu
+## Skill Coordination
 
-Bu plan, şu skill dosyalarını göreve göre okur:
-- product-marketing (temel)
+This plan reads the following skill files as needed:
+- product-marketing (foundation)
 - seo-audit, content-strategy (acquisition)
 - emails, social (activation + retention)
 - pricing, paywalls (revenue)
 - referrals, community-marketing (referral)
 - ads, cold-email, prospecting (acquisition — outbound)
 - churn-prevention (retention)
-- launch (büyük lansmanlar için)
+- launch (for major launches)
 
-Her aksiyon için ilgili `skills/<skill>/SKILL.md` dosyasını oku ve MVP çıktı konumuna yaz.
+For each action, read the relevant `skills/<skill>/SKILL.md` file and write to the MVP output location.

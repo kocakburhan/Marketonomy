@@ -3,89 +3,89 @@ name: ai-seo
 description: AI arama motorlarinda kaynak olarak gorunurluk icin icerik optimize et. ChatGPT, Perplexity, Claude veya Gemini gorunurlugu istendiginde kullan.
 ---
 
-# AI SEO (AI Arama Motoru Optimizasyonu)
+# AI SEO (AI Search Engine Optimization)
 
-AI arama motorlarında görünürlük uzmanı. ChatGPT, Perplexity, Claude, Gemini tarafından kaynak olarak gösterilmek için optimizasyon.
+AI search engine visibility specialist. Optimization to be cited as a source by ChatGPT, Perplexity, Claude, Gemini.
 
-## Geleneksel SEO'dan Farkı
+## Difference from Traditional SEO
 
-- **Geleneksel SEO:** Sıralamaya girmek için
-- **AI SEO:** Kaynak olarak gösterilmek (cited) için
-- AI sistemleri sayfa 2-3'teki iyi yapılandırılmış içeriği, sayfa 1'deki kötü yapılandırılmış içeriğe tercih edebilir
+- **Traditional SEO:** To rank
+- **AI SEO:** To be cited as a source
+- AI systems may prefer well-structured content on page 2-3 over poorly structured content on page 1
 
-## AI Arama Motorları
+## AI Search Engines
 
-| Platform | Nasıl Çalışır | Kaynak Seçimi |
-|----------|-------------|---------------|
-| Google AI Overviews | İlk sayfa sonuçlarını özetler | Güçlü SEO + E-E-A-T |
-| ChatGPT (search) | Web'de arar, kaynak gösterir | Geniş kaynak havuzu |
-| Perplexity | Her zaman kaynak gösterir | Otoriter, güncel, yapılandırılmış |
-| Gemini | Google index + Knowledge Graph | Google ekosistemi |
-| Claude | Brave Search (aktifse) | Eğitim verisi + arama |
-| Copilot | Bing arama | Bing index + otorite |
+| Platform | How It Works | Source Selection |
+|----------|-------------|------------------|
+| Google AI Overviews | Summarizes first-page results | Strong SEO + E-E-A-T |
+| ChatGPT (search) | Searches the web, cites sources | Broad source pool |
+| Perplexity | Always cites sources | Authoritative, current, structured |
+| Gemini | Google index + Knowledge Graph | Google ecosystem |
+| Claude | Brave Search (if active) | Training data + search |
+| Copilot | Bing search | Bing index + authority |
 
-## Codex Arastirma Kurali
+## Codex Research Rule
 
-- AI gorunurluk iddialari guncel ve degisken oldugu icin Codex web/Browser/Chrome ile
-  kaynak kontrolu yapmadan kesin konusma.
-- Bot erisimi, robots.txt, llms.txt, schema, fiyat sayfalari ve kaynak gosterilme ornekleri
-  icin URL, tarih ve kanit notu tut.
-- ChatGPT, Perplexity, Claude, Gemini ve Copilot burada pazar/arama platformu nesnesidir;
-  runtime talimati degildir.
-- Kaynak olarak gorunurluk olculmemisse `Olcum yok` veya `Tahmini iyilesme` diye etiketle.
+- Since AI visibility claims are current and variable, do not speak definitively without
+  verifying sources via Codex web/Browser/Chrome.
+- For bot access, robots.txt, llms.txt, schema, pricing pages, and citation examples,
+  record URL, date, and evidence note.
+- ChatGPT, Perplexity, Claude, Gemini, and Copilot are market/search platform objects here;
+  they are not runtime instructions.
+- If visibility-as-a-source has not been measured, label it `Olcum yok` or `Tahmini iyilesme`.
 
-## Üç Temel Sütun
+## Three Core Pillars
 
-### 1. Yapı (Çıkarılabilir Ol)
-- Her bölüm kendi başına anlamlı olmalı
-- Tanım blokları, karşılaştırma tabloları, FAQ bölümleri
-- 40-60 kelimelik cevap blokları
-- Başlıklar soru formatında
+### 1. Structure (Be Extractable)
+- Each section must be meaningful on its own
+- Definition blocks, comparison tables, FAQ sections
+- 40-60 word answer blocks
+- Headings in question format
 
-### 2. Otorite (Alıntılanabilir Ol)
-- Kaynak göster (+%40 görünürlük)
-- İstatistik ekle (+%37 görünürlük)
-- Uzman alıntısı (+%30 görünürlük)
-- İçerik tazeliği (son 6 ay)
-- Yazar bilgisi ve uzmanlık sinyali
+### 2. Authority (Be Citable)
+- Cite sources (+40% visibility)
+- Include statistics (+37% visibility)
+- Expert quote (+30% visibility)
+- Content freshness (last 6 months)
+- Author info and expertise signal
 
-### 3. Varlık (AI'ın Baktığı Yerlerde Ol)
-- Wikipedia'da geç
-- Reddit'te otantik katılım
-- İnceleme sitelerinde (G2, Capterra)
-- Sektör yayınlarında misafir yazısı
-- YouTube içeriği
+### 3. Presence (Be Where AI Looks)
+- Appear on Wikipedia
+- Authentic engagement on Reddit
+- On review sites (G2, Capterra)
+- Guest posts in industry publications
+- YouTube content
 
-## AI Bot Erişimi (robots.txt)
+## AI Bot Access (robots.txt)
 
-Bloke edersen alıntılanamazsın:
+If you block them, you cannot be cited:
 - `GPTBot` / `ChatGPT-User` — OpenAI
 - `PerplexityBot` — Perplexity
 - `ClaudeBot` / `anthropic-ai` — Anthropic
-- `Google-Extended` — Gemini ve AI Overviews
+- `Google-Extended` — Gemini and AI Overviews
 
-## AI Ajanlar için Makine-Okunabilir Dosyalar
+## Machine-Readable Files for AI Agents
 
-- `/pricing.md` — Yapılandırılmış fiyatlandırma
-- `/llms.txt` — AI sistemleri için site özeti
+- `/pricing.md` — Structured pricing
+- `/llms.txt` — Site summary for AI systems
 - Schema markup (FAQPage, Article, Product)
 
-## En Çok Alıntılanan İçerik Tipleri
+## Most Cited Content Types
 
-| Tip | Alıntı Payı |
+| Type | Citation Share |
 |-----|:----------:|
-| Karşılaştırma yazıları | ~%33 |
-| Kapsamlı rehberler | ~%15 |
-| Orijinal araştırma/veri | ~%12 |
-| Best-of listeleri | ~%10 |
-| Ürün sayfaları | ~%10 |
-| How-to rehberleri | ~%8 |
+| Comparison posts | ~33% |
+| Comprehensive guides | ~15% |
+| Original research/data | ~12% |
+| Best-of lists | ~10% |
+| Product pages | ~10% |
+| How-to guides | ~8% |
 
-## Kaçınılması Gerekenler
+## Things to Avoid
 
-- AI için ayrı içerik yazmak
-- İçeriği küçük parçalara bölmek
-- Keyword stuffing (-%10 görünürlük)
-- Gated content (AI erişemez)
-- AI bot'ları bloke etmek
-- Fiyatlandırmayı "satışla görüş" arkasına saklamak
+- Writing separate content for AI
+- Breaking content into tiny fragments
+- Keyword stuffing (-10% visibility)
+- Gated content (AI cannot access)
+- Blocking AI bots
+- Hiding pricing behind "talk to sales"

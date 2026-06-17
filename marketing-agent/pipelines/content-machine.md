@@ -1,113 +1,114 @@
-# Pipeline 7: İçerik Makinesi (Content Machine)
+# Pipeline 7: Content Machine
 
-**Zincirdeki yeri:** Zincir C (P9'u destekler) ve Zincir E (bağımsız, sürekli döngü).
+**Position in chain:** Chain C (supports P9) and Chain E (independent, continuous loop).
 
-**Ne zaman çalışır:**
-- Düzenli içerik üretimi gerektiğinde
-- "Sosyal medyada aktif olmak istiyorum" dendiğinde
-- Fiziksel işletme için sürekli içerik akışı gerektiğinde
-- B2B thought leadership, lead nurturing, webinar/rapor veya satış destek içeriği gerektiğinde
-- B2C dijital, B2C fiziksel veya hibrit kampanyaların sürekli içerik ritmi gerektiğinde
+**When it runs:**
+- When regular content production is needed
+- When the user says "I want to be active on social media"
+- When a continuous content flow is needed for a physical business
+- When B2B thought leadership, lead nurturing, webinar/report, or sales support content is needed
+- When a continuous content rhythm is needed for B2C digital, B2C physical, or hybrid campaigns
 
-**Amaç:** İş modeline uygun içerik sistemi kurmak, 30 günlük içerik takvimi ve kanal bazlı
-materyaller üretmek, performansa göre sürekli güncellemek.
+**Purpose:** Build a content system appropriate for the business model, produce a 30-day content
+calendar and channel-based materials, and continuously update based on performance.
 
-**Ön koşul:** `PROJE.md ve 01-baglam/ altindaki ilgili dosyalar` mevcut olmalı. Marka sesi belirlenmiş olmalı (Brand Guardian'dan).
+**Prerequisite:** `PROJE.md and relevant files under 01-baglam/` must be present. Brand voice must
+be defined (from Brand Guardian).
 
 ---
 
-## Pipeline Akışı
+## Pipeline Flow
 
 ```
-Kullanıcı: "İçerik üretmeye başlayalım"
+User: "Let's start producing content"
         │
         ▼
-[7.1] Content Creator → 30 günlük içerik takvimi oluştur
+[7.1] Content Creator → Create 30-day content calendar
         │  Script: social_calendar.py
-        │  Çıktı: content-calendar.md
+        │  Output: content-calendar.md
         ▼
-[7.2] Content Creator → Platform'a özel post'ları yaz
-        │  Çıktı: content/ klasörü (her post bir .md)
+[7.2] Content Creator → Write platform-specific posts
+        │  Output: content/ folder (each post as .md)
         ▼
-[7.3] Analytics Master → İçerik performansını takip et (30 gün sonra)
-        │  Çıktı: icerik-performans.md
+[7.3] Analytics Master → Track content performance (after 30 days)
+        │  Output: icerik-performans.md
         ▼
-[7.4] Content Creator → Performansa göre takvimi güncelle
-           Çıktı: content-calendar-v2.md
+[7.4] Content Creator → Update calendar based on performance
+           Output: content-calendar-v2.md
            │
-           └── [7.2]'ye dön (yeni post'lar) → sürekli döngü
+           └── Return to [7.2] (new posts) → continuous loop
 ```
 
 ---
 
-## Adım Detayları
+## Step Details
 
-### 7.1 — İçerik Takvimi
+### 7.1 — Content Calendar
 **Agent:** Content Creator
-**Script:** `python social_calendar.py --topic "[konu]" --platforms instagram,linkedin --brand "[marka]"`
+**Script:** `python social_calendar.py --topic "[topic]" --platforms instagram,linkedin --brand "[brand]"`
 
-**Çıktı (`content-calendar.md`):**
-- 5 sütun: Eğitim (%40), Sosyal Kanıt (%20), Ürün/Tanıtım (%15), Topluluk/Etkileşim (%15), Marka/Kültür (%10)
-- Haftalık temalar
-- Günlük post başlıkları
+**Output (`content-calendar.md`):**
+- 5 pillars: Education (40%), Social Proof (20%), Product/Promotion (15%), Community/Engagement (15%), Brand/Culture (10%)
+- Weekly themes
+- Daily post headlines
 
-İçerik modeli işe göre uyarlanır:
+The content model is adapted per business:
 
-- B2C dijital: short-form video, sosyal kanıt, ürün faydası, lifecycle email, creator içerik
-- B2C fiziksel: lokasyon, müşteri deneyimi, etkinlik, kampanya, before/after, UGC, Google Maps post
-- B2B dijital: thought leadership, case study, problem/ROI içeriği, webinar, lead magnet, nurture
-- B2B fiziksel/saha: toplantı öncesi içerik, demo destek materyali, etkinlik/fuar içerikleri,
-  teklif destek dokümanları
-- Hibrit: fiziksel temas sonrası dijital takip ve retargeting içerikleri
+- B2C digital: short-form video, social proof, product benefit, lifecycle email, creator content
+- B2C physical: location, customer experience, event, campaign, before/after, UGC, Google Maps post
+- B2B digital: thought leadership, case study, problem/ROI content, webinar, lead magnet, nurture
+- B2B physical/field: pre-meeting content, demo support material, event/trade show content,
+  proposal support documents
+- Hybrid: digital follow-up and retargeting content after physical contact
 
-### 7.2 — Post Üretimi
+### 7.2 — Post Production
 **Agent:** Content Creator
-**Her post için:**
+**For each post:**
 - Platform (Instagram/LinkedIn/TikTok/Twitter)
-- Görsel brief
-- Post metni
-- Hashtag'ler
-- Yayınlanma tarihi
+- Visual brief
+- Post copy
+- Hashtags
+- Publication date
 
-**Platform özel kurallar:**
-- Instagram: görsel odaklı, carousel/reels/story, 15-20 hashtag
-- LinkedIn: profesyonel ton, uzun form, 3-5 hashtag
-- Twitter/X: kısa/direkt, thread opsiyonu, 1-2 hashtag
-- TikTok: trend odaklı, kısa video script, 3-5 hashtag
-- B2B içeriklerinde CTA genellikle toplantı, demo, rapor indirme veya webinar olmalıdır.
-- B2C fiziksel içeriklerinde CTA lokasyon ziyareti, WhatsApp, kupon, QR, yol tarifi veya etkinlik katılımı olabilir.
+**Platform-specific rules:**
+- Instagram: visual-focused, carousel/reels/story, 15-20 hashtags
+- LinkedIn: professional tone, long form, 3-5 hashtags
+- Twitter/X: short/direct, thread option, 1-2 hashtags
+- TikTok: trend-focused, short video script, 3-5 hashtags
+- For B2B content, the CTA should generally be meeting, demo, report download, or webinar.
+- For B2C physical content, the CTA can be location visit, WhatsApp, coupon, QR, directions, or event participation.
 
-### 7.3 — Performans Takibi
-**Agent:** Analytics Master (30 gün sonra)
-**Çıktı (`icerik-performans.md`):**
+### 7.3 — Performance Tracking
+**Agent:** Analytics Master (after 30 days)
+**Output (`icerik-performans.md`):**
 ```markdown
-# İçerik Performansı: [30 günlük dönem]
-## Platform Bazlı
-| Platform | Post Sayısı | Toplam Etkileşim | Ort. Etkileşim | En İyi Post |
-|----------|------------|-----------------|---------------|------------|
+# İçerik Performansı: [30-day period]
+## Per Platform
+| Platform | Post Count | Total Engagement | Avg. Engagement | Best Post |
+|----------|------------|------------------|-----------------|-----------|
 | Instagram | 30 | [x] | [x] | [link] |
 | LinkedIn | 20 | [x] | [x] | [link] |
 
-## En İyi Performans Gösteren İçerik Tipleri
-1. [tip] — ortalama [x] etkileşim
+## Best Performing Content Types
+1. [type] — average [x] engagement
 
-## Öğrenilenler ve Öneriler
+## Learnings and Recommendations
 - ...
 ```
 
-### 7.4 — Takvim Güncelleme
+### 7.4 — Calendar Update
 **Agent:** Content Creator
-Performans verisine göre yeni takvim:
-- İyi performans gösteren içerik tiplerinin oranını artır
-- Kötü performans gösterenleri azalt veya değiştir
-- Yeni trend/konuları ekle
+New calendar based on performance data:
+- Increase ratio of content types that performed well
+- Reduce or change those that performed poorly
+- Add new trends/topics
 
 ---
 
-## Çıktı Dosyaları
+## Output Files
 
-| Dosya | Üreten |
-|-------|--------|
+| File | Produced by |
+|------|-------------|
 | `content-calendar.md` | Content Creator |
 | `content/social-post-*.md` | Content Creator |
 | `icerik-performans.md` | Analytics Master |
@@ -115,20 +116,22 @@ Performans verisine göre yeni takvim:
 
 ---
 
-## Sonraki Adım
+## Next Step
 
-Pipeline 7 sürekli döngü halinde çalışır. Her ay yeni takvim + performans analizi yapılır.
+Pipeline 7 runs in a continuous loop. A new calendar + performance analysis is done every month.
 
-## PersonalAutonomy Yurutme Kurallari
+## PersonalAutonomy Execution Rules
 
-- Ana cikti alanlari: 06-pazarlama-uygulamalari/dijital/icerik/ ve sosyal-medya/; fiziksel
-  veya hibrit işlerde 06-pazarlama-uygulamalari/saha/satis-materyalleri/ ve hibrit/kampanyalar/
-- Pipeline kendi proje veya durum klasorunu olusturmaz. Aktif adimi DURUM.md ve ilgili
-  .pa/*/active-task.md dosyasinda tutar.
-- Degerlendirme workspace'inde proje-only adimlari uygulamaz; olumlu sonucu proje olusturma
-  yetkisi olarak yorumlamaz.
-- Projede PROJE.md, ilgili 01-baglam/ dosyalari ve KARARLAR.md on kosuldur.
-- Guncel veri gerektiren iddialari kaynak ve erisim tarihiyle kaydeder; veri yoksa varsayimi
-  acikca etiketler.
-- Karar kapilarinda kullanicidan acik onay alir. Dosya uretmek haftalik gorevi tamamlamaz.
-- Onayli final kopyalari 10-final/ altina alir ve calisma kaynagini yerinde korur.
+- Main output areas: 06-pazarlama-uygulamalari/dijital/icerik/ and sosyal-medya/; for physical
+  or hybrid businesses 06-pazarlama-uygulamalari/saha/satis-materyalleri/ and hibrit/kampanyalar/
+- The pipeline does not create its own project or status folder. It keeps the active step in
+  DURUM.md and the relevant .pa/*/active-task.md file.
+- In an evaluation workspace, it does not apply project-only steps; it does not interpret a
+  positive result as authority to create a project.
+- In a project, PROJE.md, relevant 01-baglam/ files, and KARARLAR.md are prerequisites.
+- Records claims requiring current data with source and access date; if data is missing, labels
+  the assumption explicitly.
+- Obtains explicit user approval at decision gates. Producing a file does not complete a weekly task.
+- Places approved final copies under 10-final/ and preserves the working source in place.
+
+Internal operating instructions are in English. The default user-facing language is Turkish.

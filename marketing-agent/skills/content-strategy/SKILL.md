@@ -3,72 +3,72 @@ name: content-strategy
 description: Kanal, konu, format ve yayin ritmi iceren icerik stratejisi tasarla. Editorial plan veya icerik sistemi istendiginde kullan.
 ---
 
-# İçerik Stratejisi
+# Content Strategy
 
-İçerik stratejisti. Amaç: ne hakkında içerik üretileceğine, hangi formatta, hangi sıklıkta, hangi kanalda karar vermek.
+Content strategist. Goal: decide what to create content about, in which format, at what frequency, on which channel.
 
-## Başlamadan Önce
+## Before Starting
 
-1. **product-marketing** context'ini kontrol et
-2. Şunları anla:
-   - İş hedefi ne?
-   - Hedef kitle kim?
-   - Mevcut içerik var mı?
-   - Kaynaklar (ekip, bütçe, zaman)
+1. Check the **product-marketing** context
+2. Understand:
+   - What is the business goal?
+   - Who is the target audience?
+   - Is there existing content?
+   - Resources (team, budget, time)
 
-## İçerik Stratejisi Bileşenleri
+## Content Strategy Components
 
-### 1. Hedef Kitle Araştırması
-- Kitle ne okuyor/izliyor?
-- Hangi soruları soruyorlar? (Reddit, Quora, Google "People Also Ask")
-- Hangi formatta tüketiyorlar?
-- Hangi aşamada neye ihtiyaçları var? (farkındalık → değerlendirme → karar)
+### 1. Audience Research
+- What does the audience read/watch?
+- What questions are they asking? (Reddit, Quora, Google "People Also Ask")
+- In which format do they consume?
+- What do they need at each stage? (awareness → consideration → decision)
 
-### 2. Konu Kümeleri (Topic Clusters)
-- **Temel konu:** Ana ürün kategorisi
-- **Alt konular:** Temel konuya bağlı spesifik başlıklar
-- Her küme 1 pillar sayfa + 5-10 destekleyici içerik
+### 2. Topic Clusters
+- **Pillar topic:** Main product category
+- **Sub-topics:** Specific subjects linked to the pillar topic
+- Each cluster: 1 pillar page + 5-10 supporting content pieces
 
-### 3. İçerik Formatları
+### 3. Content Formats
 
-| Format | Ne Zaman | Avantaj |
-|--------|----------|---------|
-| Blog yazısı | SEO, derinlik | Uzun vadeli trafik |
-| Video | Karmaşık konu, demo | Yüksek etkileşim |
-| Sosyal medya | Kısa içgörü, etkileşim | Hızlı dağıtım |
-| Email bülteni | Düzenli temas | Sadakat, dönüşüm |
-| Podcast | Uzmanlık, uzun format | Derin bağlılık |
-| Vaka çalışması | Sosyal kanıt | İkna, satış |
-| E-kitap/Rehber | Lead magnet | Email yakalama |
-| Webinar | Canlı etkileşim | Yüksek dönüşüm |
+| Format | When | Advantage |
+|--------|------|-----------|
+| Blog post | SEO, depth | Long-term traffic |
+| Video | Complex topic, demo | High engagement |
+| Social media | Quick insight, engagement | Fast distribution |
+| Email newsletter | Regular touchpoint | Loyalty, conversion |
+| Podcast | Expertise, long format | Deep loyalty |
+| Case study | Social proof | Persuasion, sales |
+| Ebook/Guide | Lead magnet | Email capture |
+| Webinar | Live interaction | High conversion |
 
-### 4. Yayın Takvimi
-- Haftalık/Mülk frekans
-- Hangi gün, hangi kanal
-- Sezonluk içerik fırsatları
-- Özel günler/etkinlikler
+### 4. Editorial Calendar
+- Weekly/monthly frequency
+- Which day, which channel
+- Seasonal content opportunities
+- Special dates/events
 
-### 5. Dağıtım Stratejisi
-- Organik: SEO, sosyal medya, email
-- Ücretli: Boost, sponsorlu içerik
-- Partner: Misafir yazısı, ortak webinar
-- Topluluk: Reddit, Quora, Slack grupları
+### 5. Distribution Strategy
+- Organic: SEO, social media, email
+- Paid: Boost, sponsored content
+- Partner: Guest post, co-webinar
+- Community: Reddit, Quora, Slack groups
 
-## İçerik Fikri Üretme
+## Content Idea Generation
 
-- **Rakip analizi:** Rakipler ne yazıyor, nerede boşluk var?
-- **Keyword araştırması:** Hangi sorguların hacmi var ama iyi cevabı yok?
-- **Müşteri soruları:** En sık sorulan 20 soru nedir?
-- **Trendler:** Sektörde şu an ne konuşuluyor?
-- **Veri:** Hangi iç verilerin var, neyi araştırabilirsin?
+- **Competitor analysis:** What are competitors writing, where is the gap?
+- **Keyword research:** Which queries have volume but no good answer?
+- **Customer questions:** What are the 20 most frequently asked questions?
+- **Trends:** What is being discussed in the industry right now?
+- **Data:** What internal data do you have, what can you research?
 
-## Başarı Metrikleri
+## Success Metrics
 
-| Metrik | Ne Ölçer |
-|--------|----------|
-| Organik trafik | SEO başarısı |
-| Sayfada kalma süresi | İçerik kalitesi |
-| Dönüşüm oranı | İçerik → aksiyon |
-| Backlink | Otorite |
-| Sosyal paylaşım | Etkileşim |
-| Email kaydı | Lead yakalama |
+| Metric | What It Measures |
+|--------|------------------|
+| Organic traffic | SEO success |
+| Time on page | Content quality |
+| Conversion rate | Content → action |
+| Backlinks | Authority |
+| Social shares | Engagement |
+| Email signups | Lead capture |

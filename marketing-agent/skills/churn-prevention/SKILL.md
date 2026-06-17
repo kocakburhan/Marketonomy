@@ -3,75 +3,75 @@ name: churn-prevention
 description: Musteri terkini azaltan iptal, save offer, odeme kurtarma ve reaktivasyon akislari tasarla. Churn veya retention sorunu istendiginde kullan.
 ---
 
-# Churn Önleme
+# Churn Prevention
 
-Müşteri tutma uzmanı. Amaç: müşteri kaybını azaltmak, iptalleri kurtarmak, pasif kullanıcıları yeniden aktive etmek.
+Customer retention specialist. Goal: reduce customer loss, recover cancellations, reactivate dormant users.
 
-## Churn Türleri
+## Churn Types
 
-| Tür | Neden | Çözüm |
-|-----|-------|-------|
-| Aktif iptal | Kullanıcı bilinçli iptal etti | Save offer, feedback |
-| Pasif churn | Değeri görmedi, unuttu | Re-engagement email |
-| Ödeme churn'u | Kredi kartı reddedildi | Dunning (ödeme kurtarma) |
-| Büyüme churn'u | Kullanıcı büyüdü, ürün küçük kaldı | Enterprise plan |
+| Type | Cause | Solution |
+|------|-------|----------|
+| Active cancellation | User consciously canceled | Save offer, feedback |
+| Passive churn | Didn't see value, forgot | Re-engagement email |
+| Payment churn | Credit card declined | Dunning (payment recovery) |
+| Growth churn | User outgrew, product too small | Enterprise plan |
 
-## İptal Akışı Tasarımı (Save Offer)
+## Cancellation Flow Design (Save Offer)
 
-### Kademeli Save Offer Stratejisi
+### Tiered Save Offer Strategy
 
-1. **İptal butonuna tıklandı:**
-   - Exit survey: "Neden iptal ediyorsun?"
-   - En sık sebebe göre itiraz cevabı göster
+1. **Cancel button clicked:**
+   - Exit survey: "Why are you canceling?"
+   - Show objection response based on most common reason
 
-2. **Birinci save offer:**
-   - "Hesabını 1 ay ücretsiz dondurabilirsin."
-   - Düşük taahhüt, veri kaybı yok
+2. **First save offer:**
+   - "You can freeze your account for 1 free month."
+   - Low commitment, no data loss
 
-3. **İkinci save offer:**
-   - "3 ay %50 indirimli devam et."
-   - Fiyat itirazı için
+3. **Second save offer:**
+   - "Continue at 50% off for 3 months."
+   - For price objections
 
-4. **Son aşama:**
-   - "Hesabın donduruldu. 30 gün içinde geri dönebilirsin."
-   - Veriyi silme, kapıyı açık bırak
+4. **Final stage:**
+   - "Your account has been frozen. You can return within 30 days."
+   - Don't delete data, leave the door open
 
-## Ödeme Kurtarma (Dunning)
+## Payment Recovery (Dunning)
 
-Kredi kartı reddedilince:
-- **Gün 0:** Hemen bildir
-- **Gün 3:** Hatırlatma
-- **Gün 7:** Son uyarı
-- **Gün 14:** Hesabı dondur (iptal etme)
-- Her adımda "Kartını güncelle" butonu
+When credit card is declined:
+- **Day 0:** Notify immediately
+- **Day 3:** Reminder
+- **Day 7:** Final warning
+- **Day 14:** Freeze account (don't cancel)
+- "Update your card" button at every step
 
-## Pasif Kullanıcı Reaktivasyonu
+## Dormant User Reactivation
 
-### Tetikleyiciler
-- 14 gün giriş yapmama
-- 30 gün ana özelliği kullanmama
-- Aktivasyonu tamamlamama
+### Triggers
+- No login for 14 days
+- No use of core feature for 30 days
+- Incomplete activation
 
 ### Re-engagement Email Sequence
-1. **Gün 14:** "Seni özledik" + yeni özellik
-2. **Gün 21:** Kullanıcının kaçırdığı değer
-3. **Gün 30:** Özel teklif / destek teklifi
+1. **Day 14:** "We miss you" + new feature
+2. **Day 21:** Value the user is missing
+3. **Day 30:** Special offer / support offer
 
-## Erken Uyarı Sinyalleri
+## Early Warning Signals
 
-| Sinyal | Aksiyon |
-|--------|---------|
-| Kullanım sıklığı düşüyor | Proaktif destek ulaşsın |
-| Destek ticket'ı arttı | Sorunu çöz, takip et |
-| NPS düşük | Birebir görüşme |
-| Feature kullanımı azalıyor | Eğitim email'i |
-| Ekip küçülüyor (B2B) | Fiyatlandırma esnekliği |
+| Signal | Action |
+|--------|--------|
+| Usage frequency declining | Proactive support outreach |
+| Support tickets increasing | Solve the issue, follow up |
+| Low NPS | One-on-one meeting |
+| Feature usage decreasing | Educational email |
+| Team shrinking (B2B) | Pricing flexibility |
 
-## Churn Metrikleri
+## Churn Metrics
 
-| Metrik | Hesaplama |
-|--------|-----------|
-| Aylık churn oranı | İptal eden / Ay başı müşteri |
-| Net revenue churn | (Kayıp MRR - Genişleme MRR) / Başlangıç MRR |
-| Kurtarma oranı | Kurtarılan iptal / Toplam iptal girişimi |
-| LTV | ARPU / Churn oranı |
+| Metric | Calculation |
+|--------|-------------|
+| Monthly churn rate | Canceled / Beginning-of-month customers |
+| Net revenue churn | (Lost MRR - Expansion MRR) / Starting MRR |
+| Recovery rate | Recovered cancellations / Total cancellation attempts |
+| LTV | ARPU / Churn rate |

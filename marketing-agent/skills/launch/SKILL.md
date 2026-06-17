@@ -3,70 +3,70 @@ name: launch
 description: Pre-launch, launch day ve post-launch plani olustur. Urun, kampanya veya fiziksel isletme lansmani istendiginde kullan.
 ---
 
-# Ürün Lansmanı
+# Product Launch
 
-Lansman stratejisti. Yeni ürün, özellik veya duyuru için kapsamlı lansman planı.
+Launch strategist. Comprehensive launch plan for new product, feature, or announcement.
 
-## Başlamadan Önce
+## Before You Start
 
-1. **product-marketing** context'ini kontrol et
-2. Şunları anla:
-   - Ne lansmanı? (yeni ürün, büyük güncelleme, feature)
-   - Lansman tarihi
-   - Hedef kitle
-   - Bütçe
+1. Check **product-marketing** context
+2. Understand:
+   - What is being launched? (new product, major update, feature)
+   - Launch date
+   - Target audience
+   - Budget
 
-## Lansman Aşamaları
+## Launch Phases
 
-### Pre-Launch (Lansmandan Önce)
-- **4 hafta kala:** Hedef kitle listesi, influencer/partner erişimi
-- **3 hafta kala:** Landing page yayında, email listesi oluşturma
-- **2 hafta kala:** Teaser kampanyası (sosyal medya)
-- **1 hafta kala:** Beta kullanıcılarından feedback, basın listesi
-- **3 gün kala:** Email ısıtma, "geliyor" duyurusu
-- **1 gün kala:** Son kontroller, tüm asset'ler hazır
+### Pre-Launch (Before Launch)
+- **4 weeks before:** Target audience list, influencer/partner outreach
+- **3 weeks before:** Landing page live, email list building
+- **2 weeks before:** Teaser campaign (social media)
+- **1 week before:** Beta user feedback, press list
+- **3 days before:** Email warming, "coming soon" announcement
+- **1 day before:** Final checks, all assets ready
 
 ### Launch Day
-- Product Hunt (veya eşdeğeri) lansmanı
+- Product Hunt (or equivalent) launch
 - Email blast
-- Sosyal medya push (tüm kanallar)
-- Blog post yayını
-- PR dağıtımı
-- Canlı destek ekibi hazır
+- Social media push (all channels)
+- Blog post publish
+- PR distribution
+- Live support team ready
 
 ### Post-Launch
-- **Hafta 1:** Kullanıcı yorumlarını topla, bug'ları düzelt
-- **Hafta 2:** Vaka çalışması yaz, erken kullanıcı röportajı
-- **Hafta 3:** "Kaçıranlar için" email'i
-- **Hafta 4:** Lansman retrospektifi, metrik analizi
+- **Week 1:** Collect user feedback, fix bugs
+- **Week 2:** Write case study, early user interview
+- **Week 3:** "For those who missed it" email
+- **Week 4:** Launch retrospective, metric analysis
 
-## Lansman Kanalları
+## Launch Channels
 
-| Kanal | Öncelik | Not |
-|-------|:------:|-----|
-| Product Hunt | Zorunlu | Tech kitlesi için |
-| Email listesi | Zorunlu | En yüksek dönüşüm |
-| Sosyal medya | Yüksek | LinkedIn + Twitter |
-| Kendi blog'u | Yüksek | SEO + sosyal kanıt |
-| BetaList | Orta | Erken aşama ürün |
-| Hacker News | Orta | Geliştirici kitlesi |
-| Reddit | Orta | r/SaaS, r/startups |
-| PR | Düşük | Büyük bütçe ister |
+| Channel | Priority | Note |
+|---------|:--------:|------|
+| Product Hunt | Required | For tech audience |
+| Email list | Required | Highest conversion |
+| Social media | High | LinkedIn + Twitter |
+| Own blog | High | SEO + social proof |
+| BetaList | Medium | Early stage product |
+| Hacker News | Medium | Developer audience |
+| Reddit | Medium | r/SaaS, r/startups |
+| PR | Low | Requires large budget |
 
-## Lansman Metrikleri
+## Launch Metrics
 
-| Metrik | Hedef |
-|--------|-------|
-| Waitlist / ön kayıt | 500+ |
-| Lansman günü kayıt | 100+ |
-| İlk hafta aktif kullanıcı | 200+ |
-| 30 gün retention | > %40 |
-| İlk ay gelir | Belirle |
+| Metric | Target |
+|--------|--------|
+| Waitlist / pre-registration | 500+ |
+| Launch day signups | 100+ |
+| First week active users | 200+ |
+| 30-day retention | > 40% |
+| First month revenue | Define |
 
-## Yaygın Hatalar
+## Common Mistakes
 
-- Topluluk oluşturmadan lansman yapmak
-- Sadece Product Hunt'a güvenmek
-- Post-launch planı olmaması
-- Lansman sonrası sessizlik
-- Metrikleri takip etmemek
+- Launching without building a community first
+- Relying only on Product Hunt
+- No post-launch plan
+- Silence after launch
+- Not tracking metrics

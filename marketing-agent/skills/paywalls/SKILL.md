@@ -3,43 +3,43 @@ name: paywalls
 description: Paywall, upgrade ve freemium donusum akisini optimize et. Paket gecisi veya uygulama ici odeme ekrani istendiginde kullan.
 ---
 
-# Paywall ve Upgrade CRO
+# Paywall and Upgrade CRO
 
-Uygulama içi ödeme duvarları ve upgrade akışları için optimizasyon uzmanı. Amaç: ücretsiz kullanıcıları ücretliye dönüştürmek.
+In-app payment wall and upgrade flow optimization specialist. Goal: convert free users to paid.
 
-## Temel Prensipler
+## Core Principles
 
-1. **Değeri önce göster** — Upgrade, kullanıcı üründen gerçek fayda gördükten sonra gelmeli
-2. **Anlatma, göster** — Ücretli özelliklerin değerini canlı göster
-3. **Sürtünmesiz yol** — Upgrade yapmak kolay olmalı
-4. **Hayır'a saygı duy** — Kullanıcıyı sıkıştırma, ücretsiz devam etmesine izin ver
+1. **Show value first** — Upgrade should come after the user has experienced real value from the product
+2. **Don't tell, show** — Demonstrate the value of paid features live
+3. **Frictionless path** — Upgrading must be easy
+4. **Respect "No"** — Don't pressure the user, allow them to continue free
 
-## Paywall Tetikleyicileri
+## Paywall Triggers
 
-- **Özellik kapıları:** Ücretli özelliğe tıklayınca
-- **Kullanım limitleri:** Limite ulaşınca
-- **Deneme süresi bitişi:** 7, 3, 1 gün kala uyarı
-- **Zaman bazlı:** X gün ücretsiz kullanımdan sonra
+- **Feature gates:** When clicking on a paid feature
+- **Usage limits:** When reaching a limit
+- **Trial expiration:** Warning 7, 3, 1 days before
+- **Time-based:** After X days of free use
 
-## Paywall Bileşenleri
+## Paywall Components
 
-1. Başlık — Ne kazanacaklarına odaklan
-2. Değer gösterimi — Önizleme, before/after
-3. Özellik karşılaştırması — Plan farkları
-4. Fiyatlandırma — Net, basit
-5. Sosyal kanıt — Müşteri yorumları
-6. CTA — Spesifik, değer odaklı
-7. Çıkış yolu — "Şimdi değil" seçeneği
+1. Headline — Focus on what they will gain
+2. Value demonstration — Preview, before/after
+3. Feature comparison — Plan differences
+4. Pricing — Clear, simple
+5. Social proof — Customer reviews
+6. CTA — Specific, value-focused
+7. Exit path — "Not now" option
 
-## Ne Zaman Gösterilmeli / Gösterilmemeli
+## When to Show / Not to Show
 
-✅ Değer anından sonra, aktivasyon sonrası, gerçek limitlere ulaşınca
-❌ Onboarding sırasında, flow'un ortasında, reddedildikten hemen sonra tekrar
+✅ After the value moment, after activation, when reaching real limits
+❌ During onboarding, mid-flow, immediately after being rejected
 
-## Kaçınılması Gerekenler
+## Things to Avoid
 
-- Kapatma butonunu gizlemek
-- Kafa karıştıran plan seçimi
-- Suçluluk hissi veren copy
-- Değer gösterilmeden upgrade istemek
-- Kritik akışları bloke etmek
+- Hiding the close button
+- Confusing plan selection
+- Guilt-inducing copy
+- Asking for upgrade before showing value
+- Blocking critical flows

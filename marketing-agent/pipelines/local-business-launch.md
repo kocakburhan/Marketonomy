@@ -1,378 +1,378 @@
-# Pipeline 9: B2C Fiziksel ve Yerel Pazarlama
+# Pipeline 9: B2C Physical and Local Marketing
 
-**Zincirdeki yeri:** Fiziksel temas gerektiren B2C projeler için ana pazarlama operasyon
-pipeline'ı. Dijital destek, saha aktivasyonu, yerel iş birlikleri, reklam, içerik, lansman,
-ölçüm ve iyileştirme döngüsünü birlikte yönetir.
+**Position in chain:** Main marketing operations pipeline for B2C projects requiring physical
+contact. Manages digital support, field activation, local partnerships, ads, content, launch,
+measurement, and improvement cycle together.
 
-**Ne zaman çalışır:** Kullanıcının pazarlaması fiziksel dünyada yapılması gereken bir B2C
-ürünü, hizmeti veya işletmesi varsa.
+**When it runs:** When the user has a B2C product, service, or business that needs to be marketed
+in the physical world.
 
-Kapsam örnekleri:
+Scope examples:
 
-- restoran, kafe, spor salonu, klinik, güzellik merkezi, eğitim merkezi, mağaza, etkinlik alanı
-- fiziksel ürün, ambalajlı tüketici ürünü, butik üretim, D2C ama saha/retail gerektiren ürün
-- pop-up, stant, fuar, pazar, AVM, festival, kampüs, mahalle, semt veya şehir bazlı aktivasyon
-- el ilanı, broşür, afiş, kupon, numune dağıtımı, QR yönlendirmesi, WhatsApp, yerel influencer,
-  lokal reklam ve mağaza içi deneyim gerektiren işler
+- restaurant, cafe, gym, clinic, beauty center, education center, store, event venue
+- physical product, packaged consumer goods, boutique production, D2C but requiring field/retail product
+- pop-up, booth, trade show, market, mall, festival, campus, neighborhood, district, or city-based activation
+- flyer, brochure, poster, coupon, sample distribution, QR redirection, WhatsApp, local influencer,
+  local ads, and in-store experience requiring work
 
-**Amaç:** Kullanıcıya fikirden uygulamaya kadar eksiksiz destek vermek: pazarı anlamak, fiziksel
-müşteri yolculuğunu kurmak, uygulanabilir kampanya fikirleri üretmek, materyalleri hazırlamak,
-haftalık aksiyon planı çıkarmak, sonuçları ölçmek ve iyileştirmek.
+**Purpose:** Provide end-to-end support to the user from idea to execution: understand the market,
+build the physical customer journey, generate actionable campaign ideas, prepare materials, produce
+a weekly action plan, measure results, and improve.
 
-**Ön koşul:** Ürün/hizmet/işletme açıklaması, hedef pazar veya lokasyon, yaklaşık bütçe,
-satış noktası/operasyon modeli ve kullanıcı kısıtları toplanmış olmalı. Eksikler varsa pipeline
-önce bu bilgileri tamamlar.
-
----
-
-## Ana İlke
-
-Bu pipeline'da agent sadece tavsiye vermez. Kullanıcının fiziksel pazarlama sürecini baştan sona
-taşır:
-
-- Ne yapılacağını söyler.
-- Neden yapılacağını kanıtlar.
-- Hangi materyalin gerektiğini üretir.
-- Hangi gün, nerede, kimle, hangi bütçeyle uygulanacağını planlar.
-- Hangi metrikle ölçüleceğini yazar.
-- Sonuca göre yeni fikir ve revizyon önerir.
-
-Fikir üretimi zorunludur. Agent, kullanıcının bütçesi ve kapasitesi içinde yaratıcı ama
-uygulanabilir kampanya, iş birliği, etkinlik, sampling, deneyim ve tekrar satın alma fikirleri
-önermelidir. Her fikir maliyet, operasyon zorluğu, izin/etik risk, ölçüm kolaylığı ve beklenen
-etki açısından elenir.
+**Prerequisite:** Product/service/business description, target market or location, approximate
+budget, point of sale/operations model, and user constraints must be gathered. If there are gaps,
+the pipeline completes this information first.
 
 ---
 
-## Pipeline Akışı
+## Core Principle
+
+In this pipeline, the agent does not just give advice. It takes the user's physical marketing
+process from start to finish:
+
+- Tells what to do.
+- Proves why it should be done.
+- Produces what material is needed.
+- Plans which day, where, with whom, with what budget to execute.
+- Writes what metric to measure.
+- Suggests new ideas and revisions based on the result.
+
+Idea generation is mandatory. The agent must propose creative but actionable campaign,
+partnership, event, sampling, experience, and repeat purchase ideas within the user's budget and
+capacity. Every idea is filtered by cost, operational difficulty, permission/ethical risk,
+measurement ease, and expected impact.
+
+---
+
+## Pipeline Flow
 
 ```text
-Kullanıcı: "B2C ürünümü/işletmemi fiziksel olarak pazarlamam gerekiyor"
+User: "I need to physically market my B2C product/business"
         |
         v
-[9.1] Orchestrator -> İş, ürün, lokasyon, bütçe, kapasite ve kısıtları topla
-        |  Çıktı: 01-baglam/fiziksel-pazarlama-baglami.md
+[9.1] Orchestrator -> Gather business, product, location, budget, capacity, and constraints
+        |  Output: 01-baglam/fiziksel-pazarlama-baglami.md
         v
-[9.2] Market Scout -> Yerel pazar, rakip, müşteri ve fiziksel kanal araştırması
-        |  Çıktı: 02-arastirma/pazar-arastirmasi/fiziksel-b2c-pazar-analizi.md
+[9.2] Market Scout -> Local market, competitor, customer, and physical channel research
+        |  Output: 02-arastirma/pazar-arastirmasi/fiziksel-b2c-pazar-analizi.md
         v
-[9.3] Strategy Analyst -> Fiziksel müşteri yolculuğu ve kanal stratejisi
-        |  Çıktı: 03-strateji/pazara-giris/fiziksel-kanal-stratejisi.md
+[9.3] Strategy Analyst -> Physical customer journey and channel strategy
+        |  Output: 03-strateji/pazara-giris/fiziksel-kanal-stratejisi.md
         v
-[9.4] Brand Guardian -> Teklif, konumlandırma ve fiziksel temas marka sistemi
-        |  Çıktı: 03-strateji/konumlandirma/fiziksel-teklif-ve-marka.md
+[9.4] Brand Guardian -> Offering, positioning, and physical touchpoint brand system
+        |  Output: 03-strateji/konumlandirma/fiziksel-teklif-ve-marka.md
         v
-[9.5] Orchestrator -> Kampanya fikir havuzu üret ve kullanıcıyla seç
-        |  Çıktı: 03-strateji/pazara-giris/kampanya-fikir-havuzu.md
+[9.5] Orchestrator -> Generate campaign idea pool and select with user
+        |  Output: 03-strateji/pazara-giris/kampanya-fikir-havuzu.md
         v
-[9.6] Content Creator -> Fiziksel ve dijital destek materyallerini üret
-        |  Çıktı: 06-pazarlama-uygulamalari/saha/satis-materyalleri/
+[9.6] Content Creator -> Produce physical and digital support materials
+        |  Output: 06-pazarlama-uygulamalari/saha/satis-materyalleri/
         v
-[9.7] Outreach Specialist -> Yerel iş birlikleri, retail, etkinlik ve topluluk planı
-        |  Çıktı: 06-pazarlama-uygulamalari/saha/potansiyel-musteriler/ ve etkinlikler/
+[9.7] Outreach Specialist -> Local partnerships, retail, event, and community plan
+        |  Output: 06-pazarlama-uygulamalari/saha/potansiyel-musteriler/ and etkinlikler/
         v
-[9.8] Campaign Manager -> Lokal reklam, saha kampanyası ve bütçe planı
-        |  Çıktı: 06-pazarlama-uygulamalari/hibrit/kampanyalar/fiziksel-b2c-kampanya-plani.md
+[9.8] Campaign Manager -> Local ads, field campaign, and budget plan
+        |  Output: 06-pazarlama-uygulamalari/hibrit/kampanyalar/fiziksel-b2c-kampanya-plani.md
         v
-[9.9] Launch Commander -> Uygulama takvimi, checklist ve saha operasyon planı
-        |  Çıktı: 07-lansman/fiziksel-aktivasyon-plani.md
+[9.9] Launch Commander -> Implementation calendar, checklist, and field operations plan
+        |  Output: 07-lansman/fiziksel-aktivasyon-plani.md
         v
-[9.10] Analytics Master -> Metrik dashboard'u ve takip ritmi
-        |  Çıktı: 08-raporlar/analitik/fiziksel-b2c-dashboard.md
+[9.10] Analytics Master -> Metric dashboard and follow-up rhythm
+        |  Output: 08-raporlar/analitik/fiziksel-b2c-dashboard.md
         v
-[9.11] Orchestrator -> Haftalık plana görevleri ekle, kullanıcı onayı al
-        |  Çıktı: 05-haftalik-planlar/YYYY-WNN.md
+[9.11] Orchestrator -> Add tasks to weekly plan, get user approval
+        |  Output: 05-haftalik-planlar/YYYY-WNN.md
         v
-[9.12] Orchestrator -> Sonuçları yorumla, yeni fikir/iyileştirme döngüsünü başlat
+[9.12] Orchestrator -> Interpret results, start new idea/improvement cycle
 ```
 
 ---
 
-## Adım Detayları
+## Step Details
 
-### 9.1 — Fiziksel Pazarlama Bağlamı
+### 9.1 — Physical Marketing Context
 **Agent:** Orchestrator
 
-Kullanıcıdan şu bilgileri topla:
+Gather the following from the user:
 
-1. Ürün/hizmet/işletme nedir?
-2. Hangi şehir, ilçe, semt, lokasyon veya satış noktalarında pazarlanacak?
-3. Hedef müşteri kim: yaş, gelir, yaşam tarzı, ihtiyaç, alışveriş alışkanlığı?
-4. Satış modeli nedir: mağaza, stant, bayi, online sipariş + fiziksel tanıtım, kapıda satış,
-   etkinlik, pazar, fuar, pop-up, WhatsApp, telefon, randevu?
-5. Fiyat, brüt marj, stok/kapasite ve günlük hizmet verme sınırı nedir?
-6. Aylık/test bütçesi ve kullanıcının haftalık zaman kapasitesi nedir?
-7. Mevcut varlıklar: logo, fotoğraf, ambalaj, sosyal medya, web sitesi, Google Business Profile,
-   müşteri listesi, WhatsApp hattı, fiziksel mekan, ekip, araç, stant, numune.
-8. Yasal/etik/izin kısıtları: sağlık beyanı, gıda, çocuk hedefleme, kamusal alan izni,
-   kişisel veri, çekiliş/kampanya şartları.
+1. What is the product/service/business?
+2. In which city, district, neighborhood, location, or points of sale will it be marketed?
+3. Who is the target customer: age, income, lifestyle, need, shopping habit?
+4. What is the sales model: store, booth, dealer, online order + physical promotion, door-to-door
+   sales, event, market, trade show, pop-up, WhatsApp, phone, appointment?
+5. What is the price, gross margin, stock/capacity, and daily service limit?
+6. What is the monthly/test budget and the user's weekly time capacity?
+7. Existing assets: logo, photos, packaging, social media, website, Google Business Profile,
+   customer list, WhatsApp line, physical space, team, vehicle, booth, samples.
+8. Legal/ethical/permission constraints: health claims, food, child targeting, public space
+   permission, personal data, raffle/campaign terms.
 
-**Çıktı (`01-baglam/fiziksel-pazarlama-baglami.md`):**
+**Output (`01-baglam/fiziksel-pazarlama-baglami.md`):**
 
 ```markdown
-# Fiziksel Pazarlama Bağlamı: [Proje]
-- Tarih: [tarih]
+# Fiziksel Pazarlama Bağlamı: [Project]
+- Date: [date]
 
-## İş ve Teklif
-- Ürün/hizmet:
-- Fiyat:
-- Brüt marj:
-- Kapasite/stok:
-- Satış modeli:
+## Business and Offering
+- Product/service:
+- Price:
+- Gross margin:
+- Capacity/stock:
+- Sales model:
 
-## Hedef Müşteri
-- Primer segment:
-- Sekonder segment:
-- Lokasyon:
-- Satın alma tetikleyicisi:
+## Target Customer
+- Primary segment:
+- Secondary segment:
+- Location:
+- Purchase trigger:
 
-## Mevcut Varlıklar
-- Dijital varlıklar:
-- Fiziksel varlıklar:
-- Ekip ve operasyon:
+## Existing Assets
+- Digital assets:
+- Physical assets:
+- Team and operations:
 
-## Kısıtlar
-- Bütçe:
-- Zaman:
-- İzin/yasal/etik:
-- Operasyon riski:
+## Constraints
+- Budget:
+- Time:
+- Permission/legal/ethical:
+- Operational risk:
 ```
 
-### 9.2 — Yerel Pazar ve Fiziksel Kanal Araştırması
+### 9.2 — Local Market and Physical Channel Research
 **Agent:** Market Scout
 
-Araştırılacak kaynaklar:
+Sources to research:
 
-- Google Maps, Google Business Profile, rakip yorumları
-- Instagram/TikTok lokasyon etiketleri, yerel hesaplar, mikro influencer'lar
-- AVM, cadde, okul/kampüs, spor salonu, pazar, festival, fuar, etkinlik alanı gibi temas
-  noktaları
-- Rakip mağaza/stand/ambalaj/fiyat/promosyon gözlemleri, kullanıcıdan gelen fotoğraf ve notlar
-- Yerel Facebook/WhatsApp/Telegram grupları, forumlar, Şikayetvar, Ekşi Sözlük, sektörel
-  topluluklar
-- Retail/bayi olasılıkları, tamamlayıcı işletmeler, çapraz tanıtım partnerleri
+- Google Maps, Google Business Profile, competitor reviews
+- Instagram/TikTok location tags, local accounts, micro influencers
+- Contact points such as malls, streets, schools/campuses, gyms, markets, festivals, trade shows,
+  event venues
+- Competitor store/booth/packaging/price/promotion observations, photos and notes from the user
+- Local Facebook/WhatsApp/Telegram groups, forums, Şikayetvar, Ekşi Sözlük, industry communities
+- Retail/dealer possibilities, complementary businesses, cross-promotion partners
 
-**Çıktı (`02-arastirma/pazar-arastirmasi/fiziksel-b2c-pazar-analizi.md`):**
+**Output (`02-arastirma/pazar-arastirmasi/fiziksel-b2c-pazar-analizi.md`):**
 
 ```markdown
-# Fiziksel B2C Pazar Analizi: [Proje]
-- Tarih: [tarih]
+# Fiziksel B2C Pazar Analizi: [Project]
+- Date: [date]
 
 ## Kaynak ve Kanıt Defteri
-| ID | Araç | Kaynak | Erişim tarihi | Kullanılan veri | Güven |
-|----|------|--------|---------------|-----------------|-------|
+| ID | Tool | Source | Access date | Data used | Confidence |
+|----|------|--------|-------------|-----------|------------|
 
-## Yerel Talep ve Müşteri Sinyalleri
-- Hedef müşteri nerede bulunuyor:
-- Satın alma tetikleyicileri:
-- Sezon/gün/saat etkisi:
-- Fiyat hassasiyeti:
+## Local Demand and Customer Signals
+- Where the target customer is located:
+- Purchase triggers:
+- Season/day/time effect:
+- Price sensitivity:
 
-## Rakip ve Alternatifler
-| Rakip/Alternatif | Lokasyon/Kanal | Teklif | Fiyat | Güçlü Yan | Zayıf Yan | Kanıt |
-|------------------|----------------|--------|-------|-----------|-----------|-------|
+## Competitors and Alternatives
+| Competitor/Alternative | Location/Channel | Offering | Price | Strength | Weakness | Evidence |
+|------------------------|------------------|----------|-------|----------|----------|----------|
 
-## Fiziksel Kanal Fırsatları
-| Kanal | Uygunluk | Maliyet | Operasyon zorluğu | Ölçüm kolaylığı | Not |
-|-------|----------|---------|-------------------|-----------------|-----|
+## Physical Channel Opportunities
+| Channel | Suitability | Cost | Operational difficulty | Measurement ease | Note |
+|---------|-------------|------|------------------------|-------------------|------|
 
-## Eksik Veri
-- Kullanıcıdan gereken saha gözlemi:
-- Erişilemeyen kaynaklar:
+## Missing Data
+- Field observation needed from user:
+- Inaccessible sources:
 ```
 
-### 9.3 — Fiziksel Müşteri Yolculuğu ve Kanal Stratejisi
+### 9.3 — Physical Customer Journey and Channel Strategy
 **Agent:** Strategy Analyst
 
-Müşteri yolculuğunu fiziksel gerçekliğe göre kur:
+Build the customer journey based on physical reality:
 
-1. Farkındalık: müşteri ürünü/işletmeyi nerede fark eder?
-2. İlgi: hangi mesaj, görsel veya teklif durdurur?
-3. Deneme: numune, demo, tadım, mini hizmet, ücretsiz danışma, ilk ders, kupon?
-4. Satın alma: ödeme, randevu, WhatsApp, mağaza ziyareti, web formu?
-5. Tekrar: sadakat kartı, referans, paket, abonelik, takip mesajı?
-6. Sosyal kanıt: yorum, UGC, before/after, müşteri hikayesi?
+1. Awareness: where does the customer notice the product/business?
+2. Interest: what message, visual, or offer stops them?
+3. Trial: sample, demo, tasting, mini service, free consultation, first class, coupon?
+4. Purchase: payment, appointment, WhatsApp, store visit, web form?
+5. Repeat: loyalty card, referral, package, subscription, follow-up message?
+6. Social proof: review, UGC, before/after, customer story?
 
-**Çıktı (`03-strateji/pazara-giris/fiziksel-kanal-stratejisi.md`):**
+**Output (`03-strateji/pazara-giris/fiziksel-kanal-stratejisi.md`):**
 
 ```markdown
-# Fiziksel Kanal Stratejisi: [Proje]
+# Fiziksel Kanal Stratejisi: [Project]
 
-## Müşteri Yolculuğu
-| Aşama | Fiziksel temas | Mesaj | CTA | Ölçüm |
-|-------|----------------|-------|-----|-------|
+## Customer Journey
+| Stage | Physical touchpoint | Message | CTA | Measurement |
+|-------|---------------------|---------|-----|-------------|
 
-## Kanal Önceliği
-| Kanal | Öncelik | Neden | İlk test | Başarı eşiği |
-|-------|---------|-------|----------|-------------|
+## Channel Priority
+| Channel | Priority | Why | First test | Success threshold |
+|---------|----------|-----|------------|-------------------|
 
-## Teklif ve Kampanya Mantığı
-- Ana teklif:
-- İlk deneme teklifi:
-- Tekrar satın alma teklifi:
-- Referans teklifi:
+## Offering and Campaign Logic
+- Core offering:
+- First-trial offering:
+- Repeat-purchase offering:
+- Referral offering:
 ```
 
-### 9.4 — Teklif, Konumlandırma ve Fiziksel Marka Sistemi
+### 9.4 — Offering, Positioning, and Physical Brand System
 **Agent:** Brand Guardian
 
-Fiziksel dünyada görülecek ve duyulacak marka sistemini kur:
+Build the brand system that will be seen and heard in the physical world:
 
-- tek cümlelik teklif
-- müşteri dilinde ana mesaj
-- afiş/broşür/stand/ambalaj başlıkları
-- personel satış dili
-- itirazlara yanıtlar
-- fiyat/paket yapısı
-- güven sinyalleri
+- one-sentence offering
+- main message in customer language
+- poster/brochure/booth/packaging headlines
+- staff sales language
+- objection responses
+- price/package structure
+- trust signals
 
-**Çıktı (`03-strateji/konumlandirma/fiziksel-teklif-ve-marka.md`)**
+**Output (`03-strateji/konumlandirma/fiziksel-teklif-ve-marka.md`)**
 
-### 9.5 — Kampanya Fikir Havuzu
+### 9.5 — Campaign Idea Pool
 **Agent:** Orchestrator
 
-En az 12 uygulanabilir fikir üret. Fikirler şu kategorilere yayılmalı:
+Generate at least 12 actionable ideas. Ideas should span these categories:
 
-- mağaza içi deneyim veya vitrin/stand fikri
-- numune, demo, tadım, ilk deneme veya ücretsiz mini hizmet
-- kupon, referans, sadakat, paket veya abonelik
-- yerel influencer veya mikro creator
-- komşu işletme/partner çapraz tanıtımı
-- etkinlik, workshop, pop-up, festival, pazar, okul/kampüs, spor salonu gibi saha aktivasyonu
-- WhatsApp/QR/landing page ile fizikselden dijitale takip
-- Google Maps yorum ve sosyal kanıt toplama
+- in-store experience or window/booth idea
+- sample, demo, tasting, first trial, or free mini service
+- coupon, referral, loyalty, package, or subscription
+- local influencer or micro creator
+- neighboring business/partner cross-promotion
+- event, workshop, pop-up, festival, market, school/campus, gym-type field activation
+- physical-to-digital follow-up with WhatsApp/QR/landing page
+- Google Maps review and social proof collection
 
-**Çıktı (`03-strateji/pazara-giris/kampanya-fikir-havuzu.md`):**
+**Output (`03-strateji/pazara-giris/kampanya-fikir-havuzu.md`):**
 
 ```markdown
-# Kampanya Fikir Havuzu: [Proje]
-| Fikir | Kategori | Maliyet | Zorluk | Beklenen etki | Ölçüm | Risk | Karar |
-|-------|----------|---------|--------|---------------|-------|------|-------|
+# Kampanya Fikir Havuzu: [Project]
+| Idea | Category | Cost | Difficulty | Expected impact | Measurement | Risk | Decision |
+|------|----------|------|------------|-----------------|-------------|------|----------|
 ```
 
-Agent her fikri elemelidir. Zayıf fikirleri "reddedildi" diye işaretle ve nedenini yaz.
+The agent must filter every idea. Mark weak ideas as "rejected" and write why.
 
-### 9.6 — Materyal Üretimi
+### 9.6 — Material Production
 **Agent:** Content Creator
 
-Seçilen kampanyalar için gerekli fiziksel ve dijital materyalleri üret:
+Produce the physical and digital materials needed for selected campaigns:
 
-- afiş metni
-- broşür/flyer metni
-- kupon veya kart metni
-- QR/landing page CTA metni
-- WhatsApp karşılama ve takip mesajları
-- personel satış konuşması
-- müşteri itirazlarına yanıt kartı
-- Instagram/TikTok/Reels içerikleri
-- görsel üretim promptları
-- fotoğraf/video shot list
+- poster copy
+- brochure/flyer copy
+- coupon or card copy
+- QR/landing page CTA copy
+- WhatsApp welcome and follow-up messages
+- staff sales script
+- customer objection response card
+- Instagram/TikTok/Reels content
+- visual generation prompts
+- photo/video shot list
 
-**Birincil çıktı klasörü:** `06-pazarlama-uygulamalari/saha/satis-materyalleri/`
+**Primary output folder:** `06-pazarlama-uygulamalari/saha/satis-materyalleri/`
 
-### 9.7 — Yerel İş Birlikleri ve Topluluk Planı
+### 9.7 — Local Partnerships and Community Plan
 **Agent:** Outreach Specialist
 
-Planlanacak alanlar:
+Areas to plan:
 
-- komşu işletmeler ve tamamlayıcı markalar
-- mikro influencer'lar ve yerel içerik üreticileri
-- etkinlik/fuar/festival/pazar/AVM/kampüs fırsatları
-- retail/bayi/raf veya konsinye görüşmeleri
-- kulüp, dernek, okul, spor salonu, kurs, topluluk ve semt grupları
+- neighboring businesses and complementary brands
+- micro influencers and local content creators
+- event/trade show/festival/market/mall/campus opportunities
+- retail/dealer/shelf or consignment discussions
+- club, association, school, gym, course, community, and neighborhood groups
 
-**Çıktılar:**
+**Outputs:**
 
 - `06-pazarlama-uygulamalari/saha/potansiyel-musteriler/yerel-partner-listesi.md`
 - `06-pazarlama-uygulamalari/saha/etkinlikler/etkinlik-ve-pop-up-plani.md`
 - `06-pazarlama-uygulamalari/saha/takip/partner-mesajlari.md`
 
-### 9.8 — Lokal Reklam ve Saha Kampanyası
+### 9.8 — Local Ads and Field Campaign
 **Agent:** Campaign Manager
 
-Kampanya planı dijital ve fiziksel kanalları birlikte ele alır:
+The campaign plan addresses digital and physical channels together:
 
-- Google Local/Search/Maps reklamı
-- Meta/TikTok lokasyon hedefli reklam
-- lokal influencer boost
-- afiş/broşür baskı bütçesi
-- numune/hediye/kupon maliyeti
-- stant/pop-up/etkinlik maliyeti
-- minimum test bütçesi ve maksimum kayıp limiti
+- Google Local/Search/Maps ads
+- Meta/TikTok location-targeted ads
+- local influencer boost
+- poster/brochure print budget
+- sample/gift/coupon cost
+- booth/pop-up/event cost
+- minimum test budget and maximum loss limit
 
-**Çıktı:** `06-pazarlama-uygulamalari/hibrit/kampanyalar/fiziksel-b2c-kampanya-plani.md`
+**Output:** `06-pazarlama-uygulamalari/hibrit/kampanyalar/fiziksel-b2c-kampanya-plani.md`
 
-### 9.9 — Uygulama Takvimi ve Checklist
+### 9.9 — Implementation Calendar and Checklist
 **Agent:** Launch Commander
 
-Saha uygulamasını gün gün planla:
+Plan the field implementation day by day:
 
-- hazırlık listesi
-- materyal üretim ve baskı takvimi
-- ekip/personel görevleri
-- lokasyon/izin kontrolü
-- uygulama günü akışı
-- kötü hava, düşük trafik, stok bitmesi, personel yokluğu gibi risk planı
-- kampanya sonrası takip
+- preparation list
+- material production and print calendar
+- team/staff tasks
+- location/permission check
+- execution day flow
+- risk plan for bad weather, low traffic, stock depletion, staff absence
+- post-campaign follow-up
 
-**Çıktı:** `07-lansman/fiziksel-aktivasyon-plani.md`
+**Output:** `07-lansman/fiziksel-aktivasyon-plani.md`
 
-### 9.10 — Metrik Dashboard'u
+### 9.10 — Metric Dashboard
 **Agent:** Analytics Master
 
-Fiziksel pazarlama için dijital ürün metrikleri yetmez. Aşağıdaki metrikleri kur:
+Digital product metrics alone are not enough for physical marketing. Establish the following
+metrics:
 
-- yaya trafiği veya temas sayısı
-- broşür/kupon/QR tarama sayısı
-- tadım/demo/deneme sayısı
-- satış/randevu/WhatsApp dönüşümü
-- lokasyon bazlı dönüşüm
-- kanal bazlı CAC
-- sepet, marj, stok ve kapasite etkisi
-- Google Maps görüntülenme, yol tarifi, arama, yorum
-- sosyal medya takip/DM/UGC
-- tekrar satın alma ve referans
+- foot traffic or contact count
+- brochure/coupon/QR scan count
+- tasting/demo/trial count
+- sales/appointment/WhatsApp conversion
+- location-based conversion
+- channel-based CAC
+- basket, margin, stock, and capacity impact
+- Google Maps views, directions, searches, reviews
+- social media follow/DM/UGC
+- repeat purchase and referral
 
-**Çıktı:** `08-raporlar/analitik/fiziksel-b2c-dashboard.md`
+**Output:** `08-raporlar/analitik/fiziksel-b2c-dashboard.md`
 
-### 9.11 — Haftalık Plan
+### 9.11 — Weekly Plan
 **Agent:** Orchestrator
 
-Seçilen aksiyonları aktif haftalık plana işler. Her görevde kanal, öncelik, beklenen çıktı,
-çıktı konumu ve `Tamamlanma onayi: Kullanici` bulunur.
+Loads selected actions into the active weekly plan. Every task includes channel, priority,
+expected output, output location, and `Tamamlanma onayi: Kullanici`.
 
-### 9.12 — İyileştirme Döngüsü
-**Agent:** Orchestrator + Analytics Master + ilgili uzmanlar
+### 9.12 — Improvement Cycle
+**Agent:** Orchestrator + Analytics Master + relevant specialists
 
-Kampanya sonrası şu soruları cevapla:
+After the campaign, answer these questions:
 
-1. Hangi kanal gerçekten müşteri getirdi?
-2. Hangi fiziksel materyal veya mesaj çalışmadı?
-3. Teklif mi, lokasyon mu, hedef kitle mi, uygulama mı zayıf?
-4. Bir sonraki hafta hangi fikir tekrar edilmeli, hangisi kesilmeli?
-5. Yeni test fikri ne?
+1. Which channel really brought customers?
+2. Which physical material or message didn't work?
+3. Is the offering, location, target audience, or execution weak?
+4. Which idea should be repeated next week, which should be cut?
+5. What is the new test idea?
 
-Sonuçları `08-raporlar/pazarlama/fiziksel-b2c-iyilestirme-raporu.md` dosyasına yaz.
-
----
-
-## Karar Noktaları
-
-| Adım | Karar |
-|------|-------|
-| 9.1 | Operasyon ve bütçe kısıtları doğru mu? |
-| 9.5 | Hangi kampanya fikirleri test edilecek? |
-| 9.6 | Hangi materyaller baskı/uygulama için onaylı? |
-| 9.8 | Test bütçesi ve maksimum kayıp limiti onaylı mı? |
-| 9.9 | Aktivasyon planı uygulanacak mı? |
-| 9.12 | Devam / revize / durdur kararı |
+Write results to `08-raporlar/pazarlama/fiziksel-b2c-iyilestirme-raporu.md`.
 
 ---
 
-## Çıktı Dosyaları
+## Decision Points
 
-| Dosya | Üreten |
-|-------|--------|
+| Step | Decision |
+|------|----------|
+| 9.1 | Are the operations and budget constraints correct? |
+| 9.5 | Which campaign ideas will be tested? |
+| 9.6 | Which materials are approved for print/implementation? |
+| 9.8 | Is the test budget and maximum loss limit approved? |
+| 9.9 | Will the activation plan be implemented? |
+| 9.12 | Continue / revise / stop decision |
+
+---
+
+## Output Files
+
+| File | Produced by |
+|------|-------------|
 | `01-baglam/fiziksel-pazarlama-baglami.md` | Orchestrator |
 | `02-arastirma/pazar-arastirmasi/fiziksel-b2c-pazar-analizi.md` | Market Scout |
 | `03-strateji/pazara-giris/fiziksel-kanal-stratejisi.md` | Strategy Analyst |
@@ -388,30 +388,32 @@ Sonuçları `08-raporlar/pazarlama/fiziksel-b2c-iyilestirme-raporu.md` dosyasın
 
 ---
 
-## Fiziksel B2C ve Dijital Ürün Farkı
+## Physical B2C vs. Digital Product Differences
 
-| Alan | Dijital Ürün | Fiziksel B2C |
-|------|--------------|--------------|
-| İlk temas | reklam, arama, sosyal | lokasyon, stant, vitrin, etkinlik, insan teması |
-| Kanıt | deneme, yorum, metrik | tadım/demo, gözlem, konuşma, kupon/QR, satış |
-| Kısıt | ürün bug'ı, onboarding | stok, ekip, izin, hava, trafik, baskı, mekan |
-| İçerik | landing, ASO, post | afiş, broşür, satış script'i, QR, mağaza içi mesaj |
-| Başarı metriği | kayıt, DAU, retention | temas, deneme, satış, randevu, yol tarifi, yorum |
-| İyileştirme | funnel optimizasyonu | lokasyon, teklif, materyal, personel, zamanlama |
+| Area | Digital Product | Physical B2C |
+|------|-----------------|--------------|
+| First contact | ads, search, social | location, booth, window, event, human contact |
+| Evidence | trial, reviews, metrics | tasting/demo, observation, conversation, coupon/QR, sales |
+| Constraint | product bug, onboarding | stock, team, permission, weather, traffic, print, venue |
+| Content | landing, ASO, post | poster, brochure, sales script, QR, in-store message |
+| Success metric | signup, DAU, retention | contact, trial, sales, appointment, directions, review |
+| Improvement | funnel optimization | location, offering, material, staff, timing |
 
 ---
 
-## PersonalAutonomy Yurutme Kurallari
+## PersonalAutonomy Execution Rules
 
-- Ana cikti alanlari: `01-baglam/`, `02-arastirma/`, `03-strateji/`,
+- Main output areas: `01-baglam/`, `02-arastirma/`, `03-strateji/`,
   `06-pazarlama-uygulamalari/saha/`, `06-pazarlama-uygulamalari/hibrit/`, `07-lansman/`,
-  `08-raporlar/` ve onayli ciktilar icin `10-final/`
-- Pipeline kendi proje veya durum klasorunu olusturmaz. Aktif adimi DURUM.md ve ilgili
-  .pa/*/active-task.md dosyasinda tutar.
-- Degerlendirme workspace'inde proje-only adimlari uygulamaz; olumlu sonucu proje olusturma
-  yetkisi olarak yorumlamaz.
-- Projede PROJE.md, ilgili 01-baglam/ dosyalari ve KARARLAR.md on kosuldur.
-- Guncel veri gerektiren iddialari kaynak ve erisim tarihiyle kaydeder; veri yoksa varsayimi
-  acikca etiketler.
-- Karar kapilarinda kullanicidan acik onay alir. Dosya uretmek haftalik gorevi tamamlamaz.
-- Onayli final kopyalari 10-final/ altina alir ve calisma kaynagini yerinde korur.
+  `08-raporlar/`, and `10-final/` for approved outputs
+- The pipeline does not create its own project or status folder. It keeps the active step in
+  DURUM.md and the relevant .pa/*/active-task.md file.
+- In an evaluation workspace, it does not apply project-only steps; it does not interpret a
+  positive result as authority to create a project.
+- In a project, PROJE.md, relevant 01-baglam/ files, and KARARLAR.md are prerequisites.
+- Records claims requiring current data with source and access date; if data is missing, labels
+  the assumption explicitly.
+- Obtains explicit user approval at decision gates. Producing a file does not complete a weekly task.
+- Places approved final copies under 10-final/ and preserves the working source in place.
+
+Internal operating instructions are in English. The default user-facing language is Turkish.

@@ -1,0 +1,17 @@
+marketerlar codex appini açtıklarında karar verilen pluginleri elle codex app üzerinden kurmalılardır. --> Bu notu REHBER.md dosyasına aşağıdaki plugin listesi ile beraber yazmanı istiyorum.
+
+
+ek olarak marekting agent sahip olduğu pluginlerden haberdar olmalıdır herhangi bir iş yapacakken uygun olan pluginleri kullanacak şekilde marketing agentı yönlendirmeliyiz. AGENTS.md'yi şişirmeden gerekli yönlendirmeler yapılmalıdır.
+
+---
+
+Google calendar plugini kullanılsın ancak agentın kendi yaptığı Schedule da olsun. yani hem Google calendar hem de marketing agent tarafından yapılan ve kendi klasör sistemimizde duran tablolur Schedule olsun. Marketing-agentta bu takvim ve planlama işini bir subagent mı gerçekleştiriyor kontrol et. Eğer hayır ise bu işi bir subagentla tanımlayabiliriz. Orchestrator agent gerektiğinde bu subagentı çağırır. (Bana bu akış mantıklı geliyor.) Schedule subagentına da hem Google calendar kullanmasını hem de kendisi manuel takvim oluşturmasını isteriz. 
+Ek olarak codex bu planlama Schedule üzerinden özel bir hook ile kullanıcıya görevi hatırlatabilir. Bu görev hatırlatma işlemini web-app ile de yapabiliriz. Bu işi etraflıca seninle tartışmamız ve planlamamız gerekiyor.
+
+
+---
+
+Slack veya teams'e şu anda gerek yok. Şu anda iletişim tarafı daha manuel bir şekilde ilerleyebilir zaten süreç takibi web-app ile gerçekleştiriliyor. İleride belkşi slack veya teams'e geçiş yapabiliriz.
+
+---
+
