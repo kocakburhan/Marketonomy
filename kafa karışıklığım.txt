@@ -1,17 +1,63 @@
 marketerlar codex appini açtıklarında karar verilen pluginleri elle codex app üzerinden kurmalılardır. --> Bu notu REHBER.md dosyasına aşağıdaki plugin listesi ile beraber yazmanı istiyorum.
 
 
-ek olarak marekting agent sahip olduğu pluginlerden haberdar olmalıdır herhangi bir iş yapacakken uygun olan pluginleri kullanacak şekilde marketing agentı yönlendirmeliyiz. AGENTS.md'yi şişirmeden gerekli yönlendirmeler yapılmalıdır.
+ek olarak marketing agent sahip olduğu pluginlerden haberdar olmalıdır herhangi bir iş yapacakken uygun olan pluginleri kullanacak şekilde marketing agentı yönlendirmeliyiz. AGENTS.md'yi şişirmeden gerekli yönlendirmeler yapılmalıdır.
 
 ---
 
-Google calendar plugini kullanılsın ancak agentın kendi yaptığı Schedule da olsun. yani hem Google calendar hem de marketing agent tarafından yapılan ve kendi klasör sistemimizde duran tablolur Schedule olsun. Marketing-agentta bu takvim ve planlama işini bir subagent mı gerçekleştiriyor kontrol et. Eğer hayır ise bu işi bir subagentla tanımlayabiliriz. Orchestrator agent gerektiğinde bu subagentı çağırır. (Bana bu akış mantıklı geliyor.) Schedule subagentına da hem Google calendar kullanmasını hem de kendisi manuel takvim oluşturmasını isteriz. 
+* Google drive olsun.
+
+* Google calendar plugini kullanılsın ancak agentın kendi yaptığı Schedule da olsun. yani hem Google calendar hem de marketing agent tarafından yapılan ve kendi klasör sistemimizde duran tablolur Schedule olsun. Marketing-agentta bu takvim ve planlama işini bir subagent mı gerçekleştiriyor kontrol et. Eğer hayır ise bu işi bir subagentla tanımlayabiliriz. Orchestrator agent gerektiğinde bu subagentı çağırır. (Bana bu akış mantıklı geliyor.) Schedule subagentına da hem Google calendar kullanmasını hem de kendisi manuel takvim oluşturmasını isteriz. 
 Ek olarak codex bu planlama Schedule üzerinden özel bir hook ile kullanıcıya görevi hatırlatabilir. Bu görev hatırlatma işlemini web-app ile de yapabiliriz. Bu işi etraflıca seninle tartışmamız ve planlamamız gerekiyor.
 
+* gmail olsun.
 
----
+* calendly olmasın.
 
-Slack veya teams'e şu anda gerek yok. Şu anda iletişim tarafı daha manuel bir şekilde ilerleyebilir zaten süreç takibi web-app ile gerçekleştiriliyor. İleride belkşi slack veya teams'e geçiş yapabiliriz.
+* Slack olmasın.
 
----
+* Zoom olmasın.
+
+* Fireflies veya Otter.ai --> bu gibi harici uygulamalar istemiyorum. Bu ihtiyaç için marketing-agent'ın kendi iç sistemine kapsamlı bir not alma işlevi ekleyelim. mvp.md dosyasında 4. Degerlendirme ve Proje Klasorleri kısmındaki dosya sistemine genel olarak Notlar gibi bir klasör açabiliriz. Buraya da alk klasörler oluşturabiliriz Kullanıcı isterse kendisi manuel olarak buraya not alabilir, ya da codex'ten buraya not almasını isteyebilir (marketing-agent buraya not alabileceğini vs bilmelidir, gerekli system promptlarını vermeliyiz.). Zaten google drive ile de bu klasörler full senkronize olduğundan dolayı marekter bulut ortamında erişim açısından da sorun yaşamaz. Kısacası mvp.md dosyasındaki Proje Klasörleri kısmını uygun şekilde güncelle.
+
+* HubSpot --> bunlara da gerek yok. pipeline ve takip yönetimi kısmını da tıpkı bir üstteki gibi marketer'ın kendi file sisteminde gerçekleştirelim. Buna göre mvp.md dosyasındaki Proje Klasörleri kısmını uygun şekilde güncelle.
+
+* Read AI olmasın
+
+* canva ve figma olsun
+
+* mixpanel, posthog, amplitude, airtable --> bunlar olmasın ancak "mvp sonrası eklenecek" şeklinde not al bunları"
+
+* Notion olmasın
+
+* github olsun. hatta, marketing agent da ara ara githuba proje için pushlayarak yedekler alsın. yüksek boyutlu dosyalar githubda olmasın. github repoları public olmasın. bunlara dikkat edilsin.
+
+* vercel, netlify, cloudflare, supabase, cloudinary olmasın.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
