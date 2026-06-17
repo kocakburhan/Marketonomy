@@ -1,28 +1,24 @@
 ---
 name: video
-description: AI araçlarıyla pazarlama videosu üretimi — demo, tanıtım, social clip, tutorial.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Pazarlama videosu icin strateji, senaryo, shot list ve uretim briefi hazirla. Demo, tanitim, tutorial veya social clip istendiginde kullan.
 ---
 
 # Video İçerik Üretimi
 
 AI destekli video içerik üretim uzmanı. Demo videosu, ürün tanıtımı, sosyal medya clip'leri, tutorial videoları.
 
-## ÖNEMLİ NOT
+## ONEMLI NOT
 
-**Video üretim araçlarının API entegrasyonu henüz yapılmadı.** Bu skill şu an için video stratejisi, script yazımı ve yapım planı oluşturur. Gerçek video render işlemi için aşağıdaki araçlardan birinin API entegrasyonu gereklidir.
+Video uretim araci yalnizca Codex oturumunda etkinse kullanilir. Arac etkin degilse bu skill
+video stratejisi, senaryo, shot list ve yapim plani hazirlar; gercek render alindigini
+varsaymaz.
 
-**Entegre edilecek araç seçenekleri (proje kodlama aşamasında karar verilecek):**
-- **HeyGen:** AI avatar + voiceover, en profesyonel
-- **Synthesia:** AI avatar + çoklu dil
-- **Runway:** AI video üretimi, yaratıcı
-- **Pika Labs:** Kısa AI clip'ler
-- **Screen Studio:** Ekran kaydı (macOS)
-- **OBS + ElevenLabs:** Ekran kaydı + AI voiceover (ücretsiz alternatif)
+## Arac Bagimsizligi
 
-**API key alımı ve entegrasyon:** Proje geliştirme aşamasında yapılacak.
+Codex oturumunda etkin bir video, ses veya ekran kaydi araci varsa kullanicinin acik istegiyle
+o araca uygun senaryo, shot list, prompt veya kayit plani hazirla. Etkin arac yoksa herhangi
+bir entegrasyon, hesap, token veya render islemi varsayma. Ciktiyi uygulanabilir yapim briefi
+olarak kaydet.
 
 ## Video Tipleri
 

@@ -14,7 +14,7 @@ Büyüme deneyleri, kullanıcı tutma (retention), viral döngüler ve gelir art
 
 ## Aldığın Görevler
 
-Orchestrator'dan standart görev formatında alırsın.
+Ana agent bu playbook'u görev bağlamıyla birlikte okur; aşağıdaki görev formatını çalışma kontrol listesi olarak kullan.
 
 ## Görev Tipleri
 
@@ -65,12 +65,42 @@ Mevcut metrikleri al → büyüme fırsatlarını belirle → deney tasarla.
 - Etkinlik takvimi
 - Power user programı
 
+### 5. Model Bazlı Büyüme Deneyleri
+Projeyi B2B/B2C ve dijital/fiziksel/hibrid modele göre ayırıp uygun büyüme deneyleri tasarla.
+
+**Çıktı (`model-bazli-buyume-deneyleri.md`):**
+```markdown
+# Model Bazlı Büyüme Deneyleri: [Proje]
+- Müşteri modeli: [B2B/B2C/Hibrit]
+- Kanal modeli: [Dijital/Fiziksel/Hibrit]
+
+## Deney Havuzu
+| Deney | Model | Funnel aşaması | Hipotez | Kanal | Başarı metriği | ICE |
+|-------|-------|----------------|---------|-------|----------------|-----|
+
+## Seçilen İlk Deneyler
+1. ...
+
+## Ölçüm Planı
+- Veri kaynağı:
+- Kontrol sıklığı:
+- Durdurma/ölçekleme eşiği:
+```
+
+Örnek deney tipleri:
+
+- B2C dijital: referral, onboarding activation, paywall/offer, lifecycle email, creator içerik
+- B2C fiziksel: sadakat kartı, referans kuponu, lokasyon bazlı tekrar kampanyası, etkinlik sonrası takip
+- B2B dijital: webinar, lead magnet, retargeting, outbound mesaj testi, demo CTA testi
+- B2B fiziksel/saha: demo günü, partner referral, etkinlik sonrası follow-up, saha ziyaret rotası testi
+- Hibrit: fiziksel QR'dan dijital nurture, WhatsApp takip, mağaza/stand sonrası retargeting
+
 ## Rapor Formatın
 
 ```
 DURUM: tamamlandı
 ÇIKTI DOSYALARI:
-  - sessions/[proje]/[dosya].md
+  - 03-strateji/buyume/ ve ilgili 06-pazarlama-uygulamalari/ klasoru
 ÖZET: [3 cümle]
 SONRAKİ ADIM ÖNERİSİ: Deney sonuçlarını Analytics Master'a ilet
 ```
@@ -81,3 +111,15 @@ SONRAKİ ADIM ÖNERİSİ: Deney sonuçlarını Analytics Master'a ilet
 - Deneyleri efor ve etkiye göre önceliklendir (önce düşük efor/yüksek etki).
 - Referans programında Dropbox (+%3900 büyüme) ve PayPal örneklerini referans göster.
 - Churn önlemede "iyileştirme > kazanma" prensibini uygula.
+- Büyüme deneylerini her zaman iş modeline uyarla; B2B pipeline metriği ile B2C tüketici
+  metriğini, dijital funnel ile fiziksel temas metriğini karıştırma.
+
+## PersonalAutonomy Workspace Sozlesmesi
+
+- Birincil cikti konumu: 03-strateji/buyume/ ve ilgili 06-pazarlama-uygulamalari/ klasoru
+- Degerlendirme workspace'inde ayni uzmanlik gerekiyorsa calisma dosyalarini ciktilar/
+  altina yaz ve son sentezi RAPOR.md icinde kullan.
+- Proje kimliklerini, web app rol/uyelik kaydini veya Drive host bilgisini degistirme.
+- Her calismadan sonra DURUM.md ve ilgili .pa/*/active-task.md dosyasini guncelle.
+- Haftalik plan maddesini yalnizca acik kullanici tamamlanma onayindan sonra kapat.
+- 10-final/ altina yalnizca kullanici tarafindan onaylanmis kopyalari al; kaynak dosyayi koru.

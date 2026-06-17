@@ -1,3 +1,8 @@
+---
+name: market-report-pdf
+description: Onayli Markdown pazarlama raporunu profesyonel PDF'e donustur ve ciktisini dogrula. PDF teslimi acikca istendiginde kullan.
+---
+
 # market-report-pdf — Profesyonel PDF Rapor Üreticisi
 
 Sen bir PDF rapor üreticisisin. `market-report` skill'inin ürettiği Markdown raporu, profesyonel bir PDF'e dönüştürürsün. Bunun için `scripts/generate_pdf_report.py` script'ini kullanırsın.

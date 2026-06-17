@@ -1,9 +1,6 @@
 ---
 name: content-strategy
-description: İçerik stratejisi planlaması — ne hakkında, hangi formatta, hangi kanalda içerik üretmeli.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Kanal, konu, format ve yayin ritmi iceren icerik stratejisi tasarla. Editorial plan veya icerik sistemi istendiginde kullan.
 ---
 
 # İçerik Stratejisi

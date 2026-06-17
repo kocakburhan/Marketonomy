@@ -1,120 +1,104 @@
-# Marketing Agent — Skill Manifestosu (v3)
+# Marketing Agent Skill Katalogu
 
-> Son güncelleme: 2026-05-30 | Toplam: 40+ skill | Kaynak: coreyhaines31/marketingskills + özel skill'ler
+Bu release 36 yerel marketing skill'i tasir. Ana agent, goreve uygun skill'in
+`skills/<skill>/SKILL.md` dosyasini okur. Codex'in global veya plugin skill'leri ancak aktif
+skill listesinde gorunuyorsa ek capability olarak kullanilabilir; bu paket onlarin kurulu
+oldugunu varsaymaz.
 
----
+## Dosya Sistemi Kurali
 
-## A. Foundation (1)
+Bu katalogdaki "Varsayilan proje cikti alani" sutunu hizli yonlendirme icindir. Nihai dosyalama
+kurali her zaman `.pa/agent/AGENTS.md` icindeki MVP Dosya Sistemi Hakimiyeti ve `mvp/mvp.md`
+klasor sozlesmesidir.
 
-| # | Skill | Açıklama | Trigger |
-|---|-------|----------|---------|
-| F1 | `product-marketing` | Ürün pazarlama bağlamı. Tüm skill'lerin temeli. | "ürünümü tanımla", "context oluştur" |
+Ana agent bir skill calistirdiginda once workspace turunu belirler:
 
-## B. Strategy & Intelligence (4)
+- Degerlendirme workspace'inde skill ciktilari `kaynaklar/`, `ciktilar/`, `RAPOR.md`,
+  `DURUM.md` ve `.pa/evaluation/` disina yazilmaz.
+- Proje workspace'inde ham girdiler `00-gelen-kutusu/` icinde korunur; islenmis ciktilar
+  baglam, arastirma, strateji, urun, uygulama, lansman, rapor, varlik, final veya arsiv turune
+  gore numarali klasorlerden birine yazilir.
+- `10-final/` yalnizca acik final onayi alan teslimler icindir; kaynak calisma dosyasi kendi
+  canonical klasorunde kalir.
+- Haftalik gorevle bagli her skill, aktif `05-haftalik-planlar/YYYY-WNN.md` gorevini,
+  `DURUM.md` ve `.pa/project/active-task.md` ile tutarli izler; gorevi ancak kullanici onayindan
+  sonra `[x]` ve `Tamamlandi` yapar.
 
-| # | Skill | Açıklama | Trigger |
-|---|-------|----------|---------|
-| S1 | `marketing-plan` | AARRR kapsamlı pazarlama planı. Tüm skill'leri koordine eder. | "pazarlama planı", "6 aylık plan" |
-| S2 | `marketing-ideas` | 140+ SaaS pazarlama fikri havuzu. | "pazarlama fikri", "ne yapabilirim" |
-| S3 | `marketing-psychology` | Davranışsal psikoloji prensipleri. | "pazarlama psikolojisi" |
-| S4 | `customer-research` | Müşteri görüşmesi, JTBD, anket, feedback. | "müşteri araştırması", "JTBD" |
+## Baglam ve Planlama
 
-## C. SEO & Discovery (6)
+| Skill | Gorev | Varsayilan proje cikti alani |
+|---|---|---|
+| `product-marketing` | Urun, hedef kitle, deger onerisi ve konumlandirma baglami | `PROJE.md`, `01-baglam/` |
+| `marketing-plan` | AARRR tabanli cok kanalli pazarlama plani | `03-strateji/pazara-giris/`, `03-strateji/buyume/` |
+| `marketing-ideas` | Baglama uygun kampanya ve deney fikirleri | `03-strateji/buyume/` |
+| `marketing-psychology` | Etik davranissal ekonomi ve mesaj ilkeleri | Ilgili strateji veya uygulama klasoru |
+| `customer-research` | Gorusme, anket, JTBD ve feedback sentezi | `02-arastirma/musteri-arastirmasi/` |
 
-| # | Skill | Açıklama | Trigger |
-|---|-------|----------|---------|
-| SEO1 | `seo-audit` | Teknik ve on-page SEO denetimi. | "SEO denetimi", "SEO audit" |
-| SEO2 | `ai-seo` | AI arama motorları için optimizasyon. | "AI SEO", "ChatGPT'de çıkmak" |
-| SEO3 | `content-strategy` | İçerik stratejisi planlaması. | "içerik stratejisi" |
-| SEO4 | `aso` | App Store / Google Play optimizasyonu. | "app store", "ASO" |
-| SEO5 | `directory-submissions` | Dizin başvuru stratejisi. | "dizin başvurusu", "directory submit" |
-| SEO6 | `competitors` (market-competitors) | Rakip karşılaştırma ve alternatif sayfaları. | "rakip analizi", "alternatif sayfası" |
-| SEO7 | `market-webwright` | Playwright browser agent ile web sayfası analizi. | "site tara", "web analizi" |
+## Arastirma ve Kesfedilebilirlik
 
-## D. Content & Copy (6)
+| Skill | Gorev | Varsayilan proje cikti alani |
+|---|---|---|
+| `web-research` | Kanitli URL ve web kaynagi arastirmasi | Ilgili `02-arastirma/` klasoru |
+| `competitor-profiling` | Tek rakibin derin profili | `02-arastirma/rakip-arastirmasi/` |
+| `market-competitors` | Coklu rakip karsilastirmasi | `02-arastirma/rakip-arastirmasi/` |
+| `seo-audit` | Teknik ve on-page SEO denetimi | `06-pazarlama-uygulamalari/dijital/seo/` |
+| `ai-seo` | AI arama motorlari icin gorunurluk | `06-pazarlama-uygulamalari/dijital/seo/` |
+| `aso` | App Store ve Google Play optimizasyonu | `06-pazarlama-uygulamalari/dijital/seo/` |
+| `directory-submissions` | Dizin secimi ve basvuru takibi | `06-pazarlama-uygulamalari/dijital/` |
 
-| # | Skill | Açıklama | Trigger |
-|---|-------|----------|---------|
-| C1 | `copywriting` | Landing page, homepage için ikna edici metin. | "copy yaz", "metin yaz" |
-| C2 | `copy-editing` | Mevcut metni düzenleme, 7 aşamalı sweep. | "metni düzenle", "copy düzelt" |
-| C3 | `cold-email` | B2B cold outreach email yazımı. | "cold email", "soğuk email" |
-| C4 | `emails` | Email sequence (welcome, nurture, onboarding). | "email dizisi", "welcome email" |
-| C5 | `social` | Sosyal medya içerik stratejisi. | "sosyal medya", "içerik takvimi" |
-| C6 | `market-ads` | Reklam kreatifi (platform spesifik, varyasyonlu). | "reklam metni", "ad creative" |
+## Icerik ve Marka
 
-## E. Paid & Analytics (3)
+| Skill | Gorev | Varsayilan proje cikti alani |
+|---|---|---|
+| `content-strategy` | Konu, format, kanal ve yayin ritmi | `06-pazarlama-uygulamalari/dijital/icerik/` |
+| `copywriting` | Landing page ve urun sayfasi metni | `06-pazarlama-uygulamalari/dijital/landing-page/` |
+| `copy-editing` | Mevcut pazarlama metnini iyilestirme | Kaynak dosyanin calisma klasoru |
+| `emails` | Lifecycle ve kampanya email dizileri | `06-pazarlama-uygulamalari/dijital/eposta/` |
+| `social` | Sosyal medya stratejisi ve takvimi | `06-pazarlama-uygulamalari/dijital/sosyal-medya/` |
+| `market-brand` | Marka sesi ve farklilasma analizi | `01-baglam/marka.md`, `09-varliklar/marka/` |
+| `image` | Kapsamli prompt ve Codex image generation uretimi | `09-varliklar/dijital/` veya `09-varliklar/basili/` |
+| `video` | Video stratejisi, senaryo ve yapim briefi | `06-pazarlama-uygulamalari/dijital/icerik/` |
 
-| # | Skill | Açıklama | Trigger |
-|---|-------|----------|---------|
-| PA1 | `ads` | Reklam stratejisi, bütçe, hedefleme. | "reklam stratejisi", "Google Ads kampanya" |
-| PA2 | `ad-creative` | Büyük ölçekte reklam kreatifi, varyasyonlar. | "reklam varyasyonu", "bulk ad" |
-| PA3 | `analytics` | Event tracking, GA4, dashboard kurulumu. | "analitik kur", "event tracking" |
+## Reklam, Donusum ve Analitik
 
-## F. CRO & Conversion (2)
+| Skill | Gorev | Varsayilan proje cikti alani |
+|---|---|---|
+| `ads` | Ucretli kanal, hedefleme ve butce stratejisi | `06-pazarlama-uygulamalari/dijital/reklamlar/` |
+| `ad-creative` | Kitle bazli kreatif ve A/B varyasyonlari | `06-pazarlama-uygulamalari/dijital/reklamlar/` |
+| `market-ads` | Platforma ozel uygulanabilir reklam paketi | `06-pazarlama-uygulamalari/dijital/reklamlar/` |
+| `market-funnel` | Funnel ve donusum darbogazi analizi | `03-strateji/pazara-giris/` |
+| `analytics` | Event tracking, KPI ve dashboard plani | `08-raporlar/analitik/` |
+| `market-report` | Kapsamli karar odakli pazarlama raporu | `08-raporlar/pazarlama/` |
+| `market-report-pdf` | Onayli Markdown raporundan PDF teslimi | `08-raporlar/pdf/` |
 
-| # | Skill | Açıklama | Trigger |
-|---|-------|----------|---------|
-| CR1 | `market-funnel` | Satış hunisi analizi, drop-off, RPV. | "funnel", "satış hunisi" |
-| CR2 | `paywalls` | In-app ödeme duvarı, upgrade CRO. | "paywall", "ücretliye geçiş" |
+## Buyume, Satis ve Lansman
 
-## G. Growth & Retention (4)
+| Skill | Gorev | Varsayilan proje cikti alani |
+|---|---|---|
+| `pricing` | Fiyatlandirma, paketleme ve monetizasyon | `03-strateji/fiyatlandirma/` |
+| `paywalls` | Paywall ve upgrade donusumu | `03-strateji/fiyatlandirma/` |
+| `churn-prevention` | Iptal, save offer ve reaktivasyon | `03-strateji/buyume/` |
+| `referrals` | Referans ve davet programi | `03-strateji/buyume/` |
+| `community-marketing` | Topluluk ve ambassador sistemi | `06-pazarlama-uygulamalari/hibrit/` |
+| `prospecting` | ICP bazli potansiyel musteri listesi | `06-pazarlama-uygulamalari/saha/potansiyel-musteriler/` |
+| `cold-email` | B2B cold email ve takip dizisi | `06-pazarlama-uygulamalari/saha/takip/` |
+| `market-proposal` | Pazarlama hizmet teklifi | `06-pazarlama-uygulamalari/saha/teklifler/` |
+| `launch` | Pre-launch, launch day ve post-launch | `07-lansman/` |
 
-| # | Skill | Açıklama | Trigger |
-|---|-------|----------|---------|
-| G1 | `referrals` | Referans programı, affiliate. | "referans programı", "arkadaşını getir" |
-| G2 | `churn-prevention` | İptal akışı, save offer, dunning. | "churn", "terk önleme" |
-| G3 | `community-marketing` | Topluluk inşası (Discord, Slack). | "topluluk", "community" |
-| G4 | `prospecting` | Potansiyel müşteri bulma, ICP tanımı. | "prospect bul", "müşteri adayı" |
+## Skill Zincirleri
 
-## H. Sales & GTM (5)
+| Senaryo | Yerel zincir |
+|---|---|
+| Fikir dogrulama | `web-research` -> `customer-research` -> `competitor-profiling` -> `pricing` |
+| Urun lansmani | `product-marketing` -> `launch` -> `emails` -> `social` -> `directory-submissions` |
+| Icerik sistemi | `content-strategy` -> `copywriting` -> `copy-editing` -> `seo-audit` |
+| B2C dijital pazarlama | `product-marketing` -> `content-strategy` -> `social` -> `ads` -> `analytics` |
+| B2C fiziksel pazarlama | `web-research` -> `market-competitors` -> `marketing-ideas` -> `copywriting` -> `image` -> `analytics` |
+| B2B outbound ve satis | `prospecting` -> `cold-email` -> `market-proposal` -> `ads` -> `analytics` |
+| B2B saha/partner satis | `prospecting` -> `market-proposal` -> `copywriting` -> `community-marketing` -> `analytics` |
+| Buyume | `marketing-plan` -> `referrals` -> `churn-prevention` -> `analytics` |
+| Rakip stratejisi | `web-research` -> `competitor-profiling` -> `market-competitors` -> `marketing-psychology` |
+| Hibrit kampanya | `marketing-plan` -> `social` -> `ads` -> `copywriting` -> `market-report` |
 
-| # | Skill | Açıklama | Trigger |
-|---|-------|----------|---------|
-| GT1 | `competitor-profiling` | Derinlemesine tek rakip profili. | "rakip profili", "competitor profile" |
-| GT2 | `launch` | Ürün lansman stratejisi. | "lansman", "launch planı" |
-| GT3 | `pricing` | Fiyatlandırma, paketleme, monetizasyon. | "fiyatlandırma", "pricing" |
-| GT4 | `market-proposal` | 3 kademeli müşteri teklifi. | "teklif hazırla", "proposal" |
-| GT5 | `market-report` / `market-report-pdf` | Markdown/PDF pazarlama raporu. | "pazarlama raporu", "PDF rapor" |
-
-## I. Creative Production (3)
-
-| # | Skill | Açıklama | Trigger |
-|---|-------|----------|---------|
-| CR1 | `video` ⚠️ | Video stratejisi/script. API entegrasyonu yok. | "video script", "demo videosu" |
-| CR2 | `image` ⚠️ | Görsel stratejisi/prompt. API entegrasyonu yok. | "görsel üret", "blog hero" |
-| CR3 | `market-brand` | Marka sesi analizi. | "marka sesi", "brand voice" |
-
-## J. Product & Strategy (13) — Built-in available_skills
-
-| # | Skill ID | Açıklama |
-|---|----------|----------|
-| P1 | `deep-research` | 13-agent derin araştırma pipeline'ı |
-| P2 | `competitive-teardown` | Rakip fiyat, özellik, SWOT, konumlandırma |
-| P3 | `product-manager-toolkit` | RICE, PRD, GTM |
-| P4 | `product-strategist` | OKR, vizyon, quarterly plan |
-| P5 | `product-discovery` | Fırsat validasyonu, discovery |
-| P6 | `product-analytics` | KPI, metrik, cohort, retention |
-| P7 | `roadmap-communicator` | Roadmap, release notes |
-| P8 | `experiment-designer` | A/B test, hipotez |
-| P9 | `landing-page-generator` | Landing page kodu üretimi |
-| P10 | `ux-researcher-designer` | Persona, journey map |
-| P11 | `ui-design-system` | Design token, komponent |
-| P12 | `enhance-prompt` | Brief → prompt |
-| P13 | `saas-scaffolder` | SaaS boilerplate |
-
----
-
-## K. Skill Zincirleri
-
-| Senaryo | Zincir |
-|---------|--------|
-| **Fikir validasyonu** | `deep-research` → `customer-research` → `competitor-profiling` → `pricing` |
-| **Lansman** | `product-marketing` → `launch` → `emails` → `social` → `directory-submissions` |
-| **Büyüme planı** | `marketing-plan` → tüm AARRR skill'leri |
-| **Rakip saldırısı** | `competitor-profiling` → `competitive-teardown` → `marketing-psychology` |
-| **İçerik makinesi** | `content-strategy` → `copywriting` → `copy-editing` → `seo-audit` |
-| **Outbound motoru** | `prospecting` → `cold-email` → `analytics` |
-| **Churn azaltma** | `churn-prevention` → `pricing` → `paywalls` |
-| **Topluluk büyütme** | `community-marketing` → `social` → `referrals` |
-
-⚠️ = API entegrasyonu henüz yapılmadı. Proje geliştirme aşamasında yapılacak.
+Degerlendirme workspace'inde bu cikti yollarinin yerine `ciktilar/` kullanilir ve sentez
+`RAPOR.md` dosyasina islenir. `10-final/` yalnizca acikca onaylanan proje teslimleri icindir.

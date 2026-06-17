@@ -1,9 +1,6 @@
 ---
 name: referrals
-description: Referans programı tasarımı — "arkadaşını getir, kazan" stratejileri.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Referans ve davet programi tasarla. Odul, tetikleyici, viral dongu veya partner referral istendiginde kullan.
 ---
 
 # Referans Programı

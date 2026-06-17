@@ -1,9 +1,6 @@
 ---
 name: community-marketing
-description: Topluluk pazarlaması — Discord, Slack, forum ile kullanıcı bağlılığı ve büyüme.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Topluluk pazarlamasi ve kullanici bagliligi plani olustur. Discord, Slack, forum veya ambassador toplulugu istendiginde kullan.
 ---
 
 # Topluluk Pazarlaması

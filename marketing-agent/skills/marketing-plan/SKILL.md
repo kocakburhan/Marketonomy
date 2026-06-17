@@ -1,9 +1,6 @@
 ---
 name: marketing-plan
-description: AARRR framework'ü ile kapsamlı pazarlama planı. Tüm skill'leri koordine eder.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: AARRR cercevesinde kapsamli pazarlama plani hazirla ve ilgili marketing skill'lerini koordine et. Cok kanalli plan istendiginde kullan.
 ---
 
 # Pazarlama Planı (AARRR)
@@ -125,7 +122,7 @@ Kullanıcılar seni nasıl başkalarına anlatacak?
 
 ## Skill Koordinasyonu
 
-Bu plan, şu skill'leri çağırır:
+Bu plan, şu skill dosyalarını göreve göre okur:
 - product-marketing (temel)
 - seo-audit, content-strategy (acquisition)
 - emails, social (activation + retention)
@@ -135,4 +132,4 @@ Bu plan, şu skill'leri çağırır:
 - churn-prevention (retention)
 - launch (büyük lansmanlar için)
 
-Her aksiyon için ilgili skill'e yönlendir.
+Her aksiyon için ilgili `skills/<skill>/SKILL.md` dosyasını oku ve MVP çıktı konumuna yaz.

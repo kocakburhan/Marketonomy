@@ -1,9 +1,6 @@
 ---
 name: customer-research
-description: Müşteri araştırması — görüşmeler, anketler, JTBD, kullanıcı feedback'i analizi.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Musteri gorusmesi, anket, JTBD ve feedback analizini planla veya sentezle. Musteri ihtiyaci ve pain point arastirmasinda kullan.
 ---
 
 # Müşteri Araştırması

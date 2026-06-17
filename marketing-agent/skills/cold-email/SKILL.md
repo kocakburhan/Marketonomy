@@ -1,9 +1,6 @@
 ---
 name: cold-email
-description: B2B cold email ve follow-up sequence yazma. Yanıt oranı odaklı.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: B2B cold email ve takip dizileri yaz. Prospect outreach, subject line, ilk temas veya follow-up istendiginde kullan.
 ---
 
 # Cold Email (Soğuk E-posta)

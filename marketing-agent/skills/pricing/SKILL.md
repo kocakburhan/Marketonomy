@@ -1,9 +1,6 @@
 ---
 name: pricing
-description: Fiyatlandırma, paketleme ve monetizasyon stratejisi.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Fiyatlandirma, paketleme ve monetizasyon stratejisi tasarla. Planlar, fiyat seviyesi veya willingness-to-pay calismasinda kullan.
 ---
 
 # Fiyatlandırma Stratejisi

@@ -1,9 +1,6 @@
 ---
 name: copywriting
-description: Landing page, homepage, ürün sayfası için ikna edici pazarlama metni yazma.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Landing page, homepage ve urun sayfasi icin ikna edici metin yaz. Deger onerisi, CTA veya sayfa copy'si istendiginde kullan.
 ---
 
 # Copywriting

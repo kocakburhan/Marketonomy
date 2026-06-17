@@ -1,0 +1,4 @@
+interface:
+  display_name: "Web Research"
+  short_description: "Kanitli web ve URL arastirmasi"
+  default_prompt: "Codex'te bu workspace icinde $web-research skill'ini kullan ve ciktiyi PersonalAutonomy MVP klasor sozlesmesine gore kaydet."

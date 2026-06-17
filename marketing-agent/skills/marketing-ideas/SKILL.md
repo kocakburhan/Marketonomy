@@ -1,9 +1,6 @@
 ---
 name: marketing-ideas
-description: 140+ SaaS pazarlama fikri havuzu. Yaratıcı tıkanıklık anında ilham.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Urun ve kanal baglamina uygun yaratici pazarlama fikirleri uret. Fikir havuzu, deney veya kampanya ilhami istendiginde kullan.
 ---
 
 # Pazarlama Fikirleri

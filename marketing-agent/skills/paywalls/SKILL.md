@@ -1,9 +1,6 @@
 ---
 name: paywalls
-description: Uygulama içi ödeme duvarı, upgrade ekranı ve freemium dönüşüm optimizasyonu.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Paywall, upgrade ve freemium donusum akisini optimize et. Paket gecisi veya uygulama ici odeme ekrani istendiginde kullan.
 ---
 
 # Paywall ve Upgrade CRO

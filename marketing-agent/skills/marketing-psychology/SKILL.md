@@ -1,9 +1,6 @@
 ---
 name: marketing-psychology
-description: Davranışsal ekonomi ve psikoloji prensiplerini pazarlamaya uygulama.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Davranissal ekonomi ve psikoloji ilkelerini etik pazarlama kararlarina uygula. Mesaj, teklif veya donusum psikolojisi istendiginde kullan.
 ---
 
 # Pazarlama Psikolojisi

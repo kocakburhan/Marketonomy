@@ -1,9 +1,6 @@
 ---
 name: directory-submissions
-description: Dizin başvuruları stratejisi. Product Hunt, G2, Capterra, AI dizinleri, startup dizinleri.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Urun ve sirket dizinleri icin basvuru stratejisi ve takip listesi olustur. Product Hunt, G2, Capterra veya startup dizinlerinde kullan.
 ---
 
 # Dizin Başvuruları

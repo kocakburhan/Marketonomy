@@ -1,9 +1,6 @@
 ---
 name: prospecting
-description: Potansiyel müşteri bulma ve liste oluşturma. LinkedIn, Apollo, sektör verileri.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: B2B potansiyel musteri kriteri, kaynaklari ve listeleme planini olustur. ICP bazli lead veya hesap listesi istendiginde kullan.
 ---
 
 # Prospecting (Müşteri Adayı Bulma)

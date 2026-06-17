@@ -2,11 +2,15 @@
 
 **Zincirdeki yeri:** Zincir A (ilk adım) — sonrasında P5'e geçer.
 
-**Ne zaman çalışır:** Kullanıcı "sıfırdan bir fikir bulmak istiyorum" dediğinde. Veya onboarding'de bu pipeline'ı seçtiğinde.
+**Ne zaman çalışır:** Kullanıcı "sıfırdan bir fikir bulmak istiyorum" dediğinde veya henüz
+somut bir fikir getirmediğinde. Kullanıcı hazır bir fikirle geldiyse bu pipeline'ı başlatma;
+`pipelines/idea-to-prd.md` içindeki "denemeye değer mi?" akışına yönlendir.
 
-**Amaç:** Pazardaki boşlukları ve fırsatları tarayıp, doğrulanmış bir ürün fikri ve PRD'ye ulaşmak.
+**Amaç:** Pazardaki boşlukları ve fırsatları tarayıp kullanıcıyla birlikte denenebilir bir ürün
+fikrine ulaşmak. Fikir netleştiğinde agent, iyimser davranmak yerine kanıt ve kullanıcı
+pazarlama avantajı üzerinden fikri sert biçimde doğrular.
 
-**Ön koşul:** `product-context.md` oluşturulmuş olmalı.
+**Ön koşul:** `PROJE.md ve 01-baglam/ altindaki ilgili dosyalar` oluşturulmuş olmalı.
 
 ---
 
@@ -40,12 +44,9 @@ Kullanıcı giriş yapar
 [1.8] Orchestrator → Fikri kullanıcıyla tartış, şekillendir
         │  Kullanıcı: fikri onaylar / revize ister / vazgeçer
         ▼
-[1.9] Product Architect → PRD yaz
-        │  Çıktı: prd-v1.md
-        ▼
-[1.10] Orchestrator → PRD'yi onaylat, coder brief'i hazırla
-           Çıktı: coder-brief.md
-           Sonra: "P5 tamamlandı. Coder'a ilet. MVP hazır olunca P2'ye başlayalım."
+[1.9] Orchestrator → Onaylı fikri P5 değerleme kapısına aktar
+           P5: kullanıcı pazarlama avantajı + research + sert doğrulama
+           Değer kararı çıkarsa: MVP → PRD → coder brief
 ```
 
 ---
@@ -63,15 +64,15 @@ Kullanıcı giriş yapar
 
 ### 1.2 — Fırsat Haritası
 **Agent:** Market Scout
-**MCP Tool'ları:**
+**Opsiyonel capability'ler:**
 - Mobil App: `search_app` ile kategorilerdeki top app'leri bul, `analyze_top_keywords` ile keyword trafiğini ölç
-- SaaS: `webwright` ile G2/Capterra/Reddit tara
-- Fiziksel İşletme: `webwright` ile Google Maps/GBP tara
+- SaaS: etkin Codex web/Browser/Chrome araci ile G2/Capterra/Reddit tara
+- Fiziksel İşletme: etkin Codex web/Browser/Chrome araci ile Google Maps/GBP tara
 
 **Eylem:** Ürün tipine uygun tüm kaynakları tara.
 - App Store / Google Play → **mcp-appstore `search_app` + `analyze_top_keywords`**
-- G2 / Capterra / Reddit → **webwright**
-- Google Maps / GBP → **webwright**
+- G2 / Capterra / Reddit → **etkin Codex web/Browser/Chrome araci**
+- Google Maps / GBP → **etkin Codex web/Browser/Chrome araci**
 
 **Not:** Kullanıcı sektör belirtmişse sadece o sektörü tara. Belirtmemişse tüm kategorileri tara ve en hızlı büyüyenleri sırala.
 
@@ -87,7 +88,7 @@ Kullanıcı giriş yapar
 
 ### 1.4 — Derin Kategori Analizi
 **Agent:** Market Scout
-**MCP Tool'ları (her rakip app için):**
+**Opsiyonel capability'ler (her rakip app için):**
 1. `get_app_details(appId, platform)` → indirme, puan histogramı, kategori, ekran görüntüleri
 2. `analyze_reviews(appId, platform, sort="rating", num=200)` → sentiment, top negative keywords, common themes
 3. `get_pricing_details(appId, platform)` → IAP fiyatları, monetization modeli
@@ -117,15 +118,15 @@ Kullanıcı giriş yapar
 **Agent:** Orchestrator
 **Kullanıcıyla yapılan:** Fikrin artıları/eksileri, riskler, alternatif açılar, hedef kitle netleştirme. Kullanıcı fikri şekillendirir.
 
-### 1.9 — PRD Yazımı
-**Agent:** Product Architect
-**Girdi:** Onaylanmış `idea-brief.md` + tartışma notları
-**Çıktı:** `prd-v1.md`
-
-### 1.10 — Onay ve Coder Brief
+### 1.9 — P5 Değerleme Kapısına Geçiş
 **Agent:** Orchestrator
-**Kullanıcıya sorulan:** "PRD'yi onaylıyor musun?"
-**Çıktı:** `coder-brief.md`
+**Girdi:** Onaylanmış `idea-brief.md` + tartışma notları
+**Eylem:** Fikri hazır fikir gibi ele al ve `pipelines/idea-to-prd.md` akışını başlat.
+
+Bu geçişte kullanıcıya tekrar iyimser davranma. P5 içinde kullanıcının networkü, bilgi birikimi,
+çalıştığı alan/sektör, yaşadığı şehir/ülke, satış/pazarlama deneyimi ve ilk kullanıcıya erişim
+kanalları sorgulanır. Fikir değerli bulunursa önce `04-urun/fikir-ozetleri/mvp.md`, sonra
+`04-urun/prd/prd.md`, ardından `04-urun/coder-briefleri/coder-brief.md` üretilir.
 
 ---
 
@@ -135,8 +136,8 @@ Kullanıcı giriş yapar
 |------|-------|-----------|
 | 1.3 | Kategori seçimi | "X'i analiz et" / "Başka öner" / "Vazgeç" |
 | 1.6 | Fırsat seçimi | "X fırsatından fikir üret" / "Başka kategoriye dön" / "Vazgeç" |
-| 1.8 | Fikir onayı | "Devam et, PRD'ye dönüştür" / "Şu kısmı değiştir" / "Vazgeç" |
-| 1.10 | PRD onayı | "Onaylıyorum, coder'a ilet" / "Revizyon isterim" |
+| 1.8 | Fikir onayı | "P5 değerleme kapısına geçir" / "Şu kısmı değiştir" / "Vazgeç" |
+| 1.9 | Değerleme geçişi | "P5'i başlat" / "Önce fikri revize et" / "Vazgeç" |
 
 ---
 
@@ -148,8 +149,7 @@ Kullanıcı giriş yapar
 | `kategori-analizi.md` | Market Scout | Seçilen kategorideki rakip profilleri |
 | `strateji-analizi.md` | Strategy Analyst | SWOT, boşluklar, fırsat alanları |
 | `idea-brief.md` | Product Architect | Detaylandırılmış fikir |
-| `prd-v1.md` | Product Architect | Tam PRD |
-| `coder-brief.md` | Orchestrator | Coder'a iletilecek özet |
+| P5 çıktıları | Orchestrator + uzmanlar | Değer kararı çıkarsa MVP, PRD ve coder brief |
 
 ---
 
@@ -158,7 +158,7 @@ Kullanıcı giriş yapar
 Pipeline 1 tamamlandığında orchestrator otomatik olarak şu mesajı verir:
 
 ```
-PRD ve coder brief hazır. Bunları coder'a ilet.
+P5 değerleme kapısı tamamlandıysa MVP, PRD ve coder brief hazır. Bunları coder'a ilet.
 
 Coder MVP'yi geliştirirken ben sana şu konularda yardımcı olabilirim:
 • Sosyal medya hesaplarını şimdiden açmak
@@ -169,3 +169,16 @@ MVP hazır olduğunda bana haber ver, Pipeline 2 (MVP Lansman) ile devam edelim.
 ```
 
 Coder MVP'yi teslim ettiğinde → **Pipeline 2 (MVP Lansman)** başlar.
+
+## PersonalAutonomy Yurutme Kurallari
+
+- Ana cikti alanlari: degerlendirmede ciktilar/ ve RAPOR.md; projede 02-arastirma/ ve 03-strateji/dogrulama/
+- Pipeline kendi proje veya durum klasorunu olusturmaz. Aktif adimi DURUM.md ve ilgili
+  .pa/*/active-task.md dosyasinda tutar.
+- Degerlendirme workspace'inde proje-only adimlari uygulamaz; olumlu sonucu proje olusturma
+  yetkisi olarak yorumlamaz.
+- Projede PROJE.md, ilgili 01-baglam/ dosyalari ve KARARLAR.md on kosuldur.
+- Guncel veri gerektiren iddialari kaynak ve erisim tarihiyle kaydeder; veri yoksa varsayimi
+  acikca etiketler.
+- Karar kapilarinda kullanicidan acik onay alir. Dosya uretmek haftalik gorevi tamamlamaz.
+- Onayli final kopyalari 10-final/ altina alir ve calisma kaynagini yerinde korur.

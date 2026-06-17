@@ -6,10 +6,13 @@
 - Düzenli içerik üretimi gerektiğinde
 - "Sosyal medyada aktif olmak istiyorum" dendiğinde
 - Fiziksel işletme için sürekli içerik akışı gerektiğinde
+- B2B thought leadership, lead nurturing, webinar/rapor veya satış destek içeriği gerektiğinde
+- B2C dijital, B2C fiziksel veya hibrit kampanyaların sürekli içerik ritmi gerektiğinde
 
-**Amaç:** 30 günlük içerik takvimi oluşturup, performansa göre sürekli güncellemek.
+**Amaç:** İş modeline uygun içerik sistemi kurmak, 30 günlük içerik takvimi ve kanal bazlı
+materyaller üretmek, performansa göre sürekli güncellemek.
 
-**Ön koşul:** `product-context.md` mevcut olmalı. Marka sesi belirlenmiş olmalı (Brand Guardian'dan).
+**Ön koşul:** `PROJE.md ve 01-baglam/ altindaki ilgili dosyalar` mevcut olmalı. Marka sesi belirlenmiş olmalı (Brand Guardian'dan).
 
 ---
 
@@ -48,6 +51,15 @@ Kullanıcı: "İçerik üretmeye başlayalım"
 - Haftalık temalar
 - Günlük post başlıkları
 
+İçerik modeli işe göre uyarlanır:
+
+- B2C dijital: short-form video, sosyal kanıt, ürün faydası, lifecycle email, creator içerik
+- B2C fiziksel: lokasyon, müşteri deneyimi, etkinlik, kampanya, before/after, UGC, Google Maps post
+- B2B dijital: thought leadership, case study, problem/ROI içeriği, webinar, lead magnet, nurture
+- B2B fiziksel/saha: toplantı öncesi içerik, demo destek materyali, etkinlik/fuar içerikleri,
+  teklif destek dokümanları
+- Hibrit: fiziksel temas sonrası dijital takip ve retargeting içerikleri
+
 ### 7.2 — Post Üretimi
 **Agent:** Content Creator
 **Her post için:**
@@ -62,6 +74,8 @@ Kullanıcı: "İçerik üretmeye başlayalım"
 - LinkedIn: profesyonel ton, uzun form, 3-5 hashtag
 - Twitter/X: kısa/direkt, thread opsiyonu, 1-2 hashtag
 - TikTok: trend odaklı, kısa video script, 3-5 hashtag
+- B2B içeriklerinde CTA genellikle toplantı, demo, rapor indirme veya webinar olmalıdır.
+- B2C fiziksel içeriklerinde CTA lokasyon ziyareti, WhatsApp, kupon, QR, yol tarifi veya etkinlik katılımı olabilir.
 
 ### 7.3 — Performans Takibi
 **Agent:** Analytics Master (30 gün sonra)
@@ -104,3 +118,17 @@ Performans verisine göre yeni takvim:
 ## Sonraki Adım
 
 Pipeline 7 sürekli döngü halinde çalışır. Her ay yeni takvim + performans analizi yapılır.
+
+## PersonalAutonomy Yurutme Kurallari
+
+- Ana cikti alanlari: 06-pazarlama-uygulamalari/dijital/icerik/ ve sosyal-medya/; fiziksel
+  veya hibrit işlerde 06-pazarlama-uygulamalari/saha/satis-materyalleri/ ve hibrit/kampanyalar/
+- Pipeline kendi proje veya durum klasorunu olusturmaz. Aktif adimi DURUM.md ve ilgili
+  .pa/*/active-task.md dosyasinda tutar.
+- Degerlendirme workspace'inde proje-only adimlari uygulamaz; olumlu sonucu proje olusturma
+  yetkisi olarak yorumlamaz.
+- Projede PROJE.md, ilgili 01-baglam/ dosyalari ve KARARLAR.md on kosuldur.
+- Guncel veri gerektiren iddialari kaynak ve erisim tarihiyle kaydeder; veri yoksa varsayimi
+  acikca etiketler.
+- Karar kapilarinda kullanicidan acik onay alir. Dosya uretmek haftalik gorevi tamamlamaz.
+- Onayli final kopyalari 10-final/ altina alir ve calisma kaynagini yerinde korur.

@@ -1,9 +1,6 @@
 ---
 name: analytics
-description: Analitik kurulumu ve event tracking planlaması. GA4, Mixpanel, Amplitude, Meta Pixel.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Pazarlama analitigi, event tracking ve olcum plani tasarla. GA4, Mixpanel, Amplitude, pixel, KPI veya dashboard gerektiginde kullan.
 ---
 
 # Analitik Kurulumu

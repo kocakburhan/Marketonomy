@@ -1,9 +1,6 @@
 ---
 name: aso
-description: App Store ve Google Play için uygulama mağazası optimizasyonu.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: App Store ve Google Play optimizasyonu yap. Uygulama magazasi anahtar kelimesi, listing, yorum veya rakip app analizi istendiginde kullan.
 ---
 
 # ASO (App Store Optimizasyonu)
@@ -65,3 +62,14 @@ Mobil uygulama mağazası optimizasyon uzmanı. App Store ve Google Play'de sır
 5. Yorum stratejisi uygula
 6. A/B test (Google Play listing experiments)
 7. 2 hafta sonra tekrar ölç
+
+## Codex ve MCP Kullanimi
+
+- App Store / Google Play verisi icin mcp-appstore yalnizca aktif Codex tool listesinde
+  gorunuyorsa kullanilir.
+- MCP yoksa resmi magazalar, Codex web/Browser/Chrome, kullanici exportu veya manuel veri
+  fallback'i kullan; erisilemeyen metrikleri raporda belirt.
+- Keyword, siralama, puan, yorum sayisi ve fiyat gibi degisebilir alanlarda kaynak, tarih ve
+  ulke/market parametresini yaz.
+- Ham yorum veya keyword listesini ozetlemeden once kaynak olarak koru; tema sayilarini ve
+  ornek kullanici dilini ayri ver.

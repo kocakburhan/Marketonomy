@@ -19,7 +19,7 @@
 
 ## Aldığın Görevler
 
-Orchestrator'dan standart görev formatında alırsın.
+Ana agent bu playbook'u görev bağlamıyla birlikte okur; aşağıdaki görev formatını çalışma kontrol listesi olarak kullan.
 
 ## Görev Tipleri
 
@@ -67,13 +67,54 @@ MVP detaylarını al → lansman stratejisi oluştur.
 ### 3. Lansman Günü Koordinasyonu
 Lansman günü yapılacakları sırala, kullanıcıya adım adım ilet.
 
+### 4. Fiziksel Aktivasyon Planı
+B2C fiziksel pazarlama için stant, pop-up, etkinlik, mağaza içi kampanya, numune/demo, cadde
+veya lokasyon bazlı aktivasyonun uygulama planını çıkar.
+
+**Çıktı (`fiziksel-aktivasyon-plani.md`):**
+```markdown
+# Fiziksel Aktivasyon Planı: [Proje]
+- Aktivasyon türü:
+- Lokasyon:
+- Tarih/saat:
+- Hedef temas:
+- Hedef satış/randevu:
+
+## Hazırlık Checklist'i
+| Görev | Sorumlu | Son tarih | Durum |
+|-------|---------|-----------|-------|
+| Materyal baskısı | ... | ... | ⬜ |
+| QR/kupon testi | ... | ... | ⬜ |
+| Stok/numune hazırlığı | ... | ... | ⬜ |
+| İzin/lokasyon onayı | ... | ... | ⬜ |
+
+## Uygulama Günü Akışı
+| Saat | Aksiyon | Sorumlu | Not |
+|------|---------|---------|-----|
+
+## Saha Script'i
+- İlk temas:
+- Demo/deneme anlatımı:
+- Satın alma/randevu kapanışı:
+- Yorum/referral isteği:
+
+## Risk Planı
+| Risk | Tetikleyici | Alternatif plan |
+|------|-------------|-----------------|
+
+## Kampanya Sonrası Takip
+- Aynı gün:
+- 24 saat:
+- 7 gün:
+```
+
 ## Rapor Formatın
 
 ```
 DURUM: tamamlandı
 ÇIKTI DOSYALARI:
-  - sessions/[proje]/launch-plan.md
-  - sessions/[proje]/launch-checklist.md
+  - 07-lansman/
+  - B2C fiziksel aktivasyonda 07-lansman/fiziksel-aktivasyon-plani.md
 ÖZET: [3 cümle]
 SONRAKİ ADIM ÖNERİSİ: Content Creator ile lansman içeriklerinin üretilmesi
 ```
@@ -84,3 +125,17 @@ SONRAKİ ADIM ÖNERİSİ: Content Creator ile lansman içeriklerinin üretilmesi
 - ASO'yu lansmandan önce mutlaka optimize et.
 - `directory-submissions` skill'i ile dizin başvurularını listele.
 - Lansman günü email, sosyal medya, Product Hunt, blog post'unu aynı güne planla.
+- Fiziksel B2C aktivasyonlarında dijital lansman checklist'i yetmez; lokasyon, izin, baskı,
+  stok, personel, QR/kupon testi, saha script'i, hava/yoğunluk riski ve kampanya sonrası
+  takip planını ayrıca yaz.
+
+## PersonalAutonomy Workspace Sozlesmesi
+
+- Birincil cikti konumu: 07-lansman/; B2C fiziksel aktivasyonda
+  07-lansman/fiziksel-aktivasyon-plani.md; onayli teslimler 10-final/lansman/
+- Degerlendirme workspace'inde ayni uzmanlik gerekiyorsa calisma dosyalarini ciktilar/
+  altina yaz ve son sentezi RAPOR.md icinde kullan.
+- Proje kimliklerini, web app rol/uyelik kaydini veya Drive host bilgisini degistirme.
+- Her calismadan sonra DURUM.md ve ilgili .pa/*/active-task.md dosyasini guncelle.
+- Haftalik plan maddesini yalnizca acik kullanici tamamlanma onayindan sonra kapat.
+- 10-final/ altina yalnizca kullanici tarafindan onaylanmis kopyalari al; kaynak dosyayi koru.

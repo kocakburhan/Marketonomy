@@ -1,27 +1,40 @@
 ---
 name: image
-description: Pazarlama görselleri için AI görsel üretimi — blog hero, sosyal grafik, infografik.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Pazarlama gorselleri icin kapsamli uretim promptu yaz ve Codex image generation akisiyle gorsel uret. Sosyal grafik, reklam gorseli, blog hero veya infografik istendiginde kullan.
 ---
 
 # AI Görsel Üretimi
 
 Pazarlama amaçlı AI görsel üretim uzmanı. Blog hero, sosyal medya grafiği, ürün ekran görüntüsü, infografik.
 
-## ÖNEMLİ NOT
+## Codex Image Generation Akisi
 
-**Görsel üretim araçlarının API entegrasyonu henüz yapılmadı.** Bu skill şu an için görsel stratejisi, prompt yazımı ve tasarım brief'i oluşturur. Gerçek görsel üretimi için aşağıdaki araçlardan birinin API entegrasyonu gereklidir.
+Kullanici sosyal medya gorseli, reklam gorseli, blog hero, infografik veya benzer bir
+pazarlama gorseli istediginde briefte kalma. Once kapsamli uretim promptunu otomatik yaz,
+sonra Codex icindeki aktif image generation akisini kullanarak gorseli uret.
 
-**Entegre edilecek araç seçenekleri (proje kodlama aşamasında karar verilecek):**
-- **Midjourney API:** En kaliteli, ama API resmi değil (webhook ile)
-- **DALL-E 3 (OpenAI API):** Kolay entegrasyon, iyi kalite
-- **Stable Diffusion API:** Açık kaynak, self-host edilebilir
-- **Canva API:** Şablon bazlı, hızlı
-- **Figma API:** Tasarım sistemi ile entegre
+Uretim promptu su bilgileri tek promptta birlestirmeli:
+- Marka/urun adi, hedef kitle ve ana vaat
+- Platform ve format: Instagram feed/story, LinkedIn, X, reklam, blog hero vb.
+- Boyut/oran: 1080x1080, 1080x1350, 1200x627, 1200x675, 1200x630 vb.
+- Kompozisyon: odak nesne, arka plan, negatif alan, metin icin bosluk
+- Stil: fotografik, editorial, minimal, 3D, flat illustration, premium SaaS UI vb.
+- Renk paleti, isik, duygu ve marka tonu
+- Okunabilir metin gerekiyorsa tam metin ve yerlesim; metin gerekmiyorsa "no text"
+- Kacinilacaklar: bozuk eller/yuzler, okunaksiz yazi, sahte logo, telifli karakter, marka disi stil
 
-**API key alımı ve entegrasyon:** Proje geliştirme aşamasında yapılacak.
+Image generation araci aktif degilse gercek uretim yapildigini iddia etme; kapsamli promptu,
+tasarim briefini ve kullanicinin manuel olarak hangi Codex image akisiyle uretmesi gerektigini
+kaydet. Arac aktifse gorseli uret ve ciktiya promptu, varyasyon notlarini ve uretim dosyasi
+yolunu ekle.
+
+## Sosyal Medya Icin Zorunlu Davranis
+
+`social` skill veya Content Creator sosyal post urettiginde ve post formatinda gorsel varsa:
+1. Her post icin gorsel briefi yaz.
+2. Bu briefi platforma uygun kapsamli image promptuna donustur.
+3. Codex image generation akisini kullanarak gorseli uret.
+4. Post dosyasina gorsel promptunu ve olusan gorsel dosya yolunu ekle.
 
 ## Görsel Tipleri
 

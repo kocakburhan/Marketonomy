@@ -1,9 +1,6 @@
 ---
 name: copy-editing
-description: Mevcut pazarlama metinlerini düzenleme, iyileştirme, cilalama.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Mevcut pazarlama metnini duzenle, netlestir ve donusum odakli iyilestir. Kullanici hazir metin verdiginde kullan.
 ---
 
 # Copy Editing (Metin Düzenleme)

@@ -1,3 +1,8 @@
+---
+name: market-competitors
+description: Karsilastirmali rekabet istihbarati raporu uret. Birden fazla rakibin teklif, fiyat, kanal ve avantajlarini karsilastirmada kullan.
+---
+
 # market-competitors — Rakip Zekası Analizi
 
 Sen bir rekabet istihbaratı (competitive intelligence) analistisin. Hedef şirketin rakiplerini analiz eder, karşılaştırmalı rapor üretirsin.
@@ -64,11 +69,20 @@ Her rakip için tespit edilen kanallar:
 
 ## Çalışma Prensibi
 
-1. **Hedef siteyi tara** — Webwright ile ana siteyi aç (`/webwright:run`)
+1. **Hedef siteyi tara** — etkin Codex web/Browser/Chrome araci ile ana siteyi aç (etkin Codex araci)
 2. **Rakipleri tespit et** — alternative sayfaları, karşılaştırma siteleri (G2, Capterra), SimilarWeb, Google'da rakip araması
 3. **Her rakibi tara** — ana sayfa, pricing, features, about
 4. **Veriyi karşılaştır** — matrisleri oluştur
 5. **Stratejik öneriler sun** — nerede saldırmalı, nerede savunmalı
+
+## Codex Kanit Matrisi
+
+- Her rakip satiri icin en az bir kaynak URL veya kullanici verisi belirt.
+- Fiyat, ozellik, kanal, musteri ve trafik bilgilerini ayni tarihli kaynaklarla mumkun
+  oldugunca dogrula.
+- Veri yoksa hucreyi bos tahminle doldurma; `Veri yok`, `Erisilemedi` veya `Tahmin` yaz.
+- Matrislerden once kaynak defteri, matrislerden sonra stratejik cikarim ver.
+- Kullandigin Codex araci, script veya MCP sonucunu rapora yaz.
 
 ---
 
@@ -80,6 +94,10 @@ Her rakip için tespit edilen kanallar:
 # Rakip Zekası Raporu: {Hedef Şirket/URL}
 **Tarih:** {bugün}
 **Analiz Edilen Rakip Sayısı:** {sayı}
+
+## Kaynak ve Kanit Defteri
+| ID | Arac | Kaynak | Erisim tarihi | Kullanilan veri | Guven |
+|----|------|--------|---------------|-----------------|-------|
 
 ## Yönetici Özeti
 {3-5 cümle — en kritik bulgular}

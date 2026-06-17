@@ -1,282 +1,358 @@
-# Pipeline 9: Fiziksel İşletme Dijital Varlık (Local Business Launch)
+# Pipeline 9: B2C Fiziksel ve Yerel Pazarlama
 
-**Zincirdeki yeri:** Zincir C (başlangıç noktası). Sonrasında P7 ve P3 ile devam eder.
+**Zincirdeki yeri:** Fiziksel temas gerektiren B2C projeler için ana pazarlama operasyon
+pipeline'ı. Dijital destek, saha aktivasyonu, yerel iş birlikleri, reklam, içerik, lansman,
+ölçüm ve iyileştirme döngüsünü birlikte yönetir.
 
-**Ne zaman çalışır:** Fiziksel işletme (spor salonu, diş hekimi, mobilyacı, psikolog, restoran, kuaför, vb.) için dijital pazarlama stratejisi gerektiğinde.
+**Ne zaman çalışır:** Kullanıcının pazarlaması fiziksel dünyada yapılması gereken bir B2C
+ürünü, hizmeti veya işletmesi varsa.
 
-**Amaç:** Fiziksel işletmenin dijital varlığını (Google Maps, sosyal medya, web sitesi) oluşturup optimize etmek ve yerel pazarlama stratejisi geliştirmek.
+Kapsam örnekleri:
 
-**Ön koşul:** İşletme bilgileri (isim, adres, telefon, sektör) mevcut olmalı.
+- restoran, kafe, spor salonu, klinik, güzellik merkezi, eğitim merkezi, mağaza, etkinlik alanı
+- fiziksel ürün, ambalajlı tüketici ürünü, butik üretim, D2C ama saha/retail gerektiren ürün
+- pop-up, stant, fuar, pazar, AVM, festival, kampüs, mahalle, semt veya şehir bazlı aktivasyon
+- el ilanı, broşür, afiş, kupon, numune dağıtımı, QR yönlendirmesi, WhatsApp, yerel influencer,
+  lokal reklam ve mağaza içi deneyim gerektiren işler
+
+**Amaç:** Kullanıcıya fikirden uygulamaya kadar eksiksiz destek vermek: pazarı anlamak, fiziksel
+müşteri yolculuğunu kurmak, uygulanabilir kampanya fikirleri üretmek, materyalleri hazırlamak,
+haftalık aksiyon planı çıkarmak, sonuçları ölçmek ve iyileştirmek.
+
+**Ön koşul:** Ürün/hizmet/işletme açıklaması, hedef pazar veya lokasyon, yaklaşık bütçe,
+satış noktası/operasyon modeli ve kullanıcı kısıtları toplanmış olmalı. Eksikler varsa pipeline
+önce bu bilgileri tamamlar.
+
+---
+
+## Ana İlke
+
+Bu pipeline'da agent sadece tavsiye vermez. Kullanıcının fiziksel pazarlama sürecini baştan sona
+taşır:
+
+- Ne yapılacağını söyler.
+- Neden yapılacağını kanıtlar.
+- Hangi materyalin gerektiğini üretir.
+- Hangi gün, nerede, kimle, hangi bütçeyle uygulanacağını planlar.
+- Hangi metrikle ölçüleceğini yazar.
+- Sonuca göre yeni fikir ve revizyon önerir.
+
+Fikir üretimi zorunludur. Agent, kullanıcının bütçesi ve kapasitesi içinde yaratıcı ama
+uygulanabilir kampanya, iş birliği, etkinlik, sampling, deneyim ve tekrar satın alma fikirleri
+önermelidir. Her fikir maliyet, operasyon zorluğu, izin/etik risk, ölçüm kolaylığı ve beklenen
+etki açısından elenir.
 
 ---
 
 ## Pipeline Akışı
 
-```
-Kullanıcı: "İşletmem için dijital pazarlama istiyorum"
-        │
-        ▼
-[9.1] Orchestrator → İşletme detaylarını al
-        │  (isim, adres, telefon, sektör, hedef kitle, mevcut dijital varlık)
-        ▼
-[9.2] Market Scout → Google Maps rakip analizi
-        │  Bölgedeki rakipleri tara, GBP profillerini karşılaştır
-        │  Çıktı: yerel-pazar-analizi.md
-        ▼
-[9.3] Market Scout → Yerel müşteri yorumu analizi
-        │  Forum/şikayet sitelerinde rakiplerin müşteri yorumlarını analiz et
-        │  Çıktı: yerel-musteri-analizi.md
-        ▼
-[9.4] Strategy Analyst → SWOT + rekabet avantajı + fırsat alanları
-        │  Çıktı: rekabet-stratejisi.md
-        ▼
-[9.5] Content Creator → Google Business Profile optimizasyonu
-        │  Açıklama, hizmet listesi, fotoğraf stratejisi
-        │  Çıktı: gbp-optimizasyon.md
-        ▼
-[9.6] Content Creator → Sosyal medya stratejisi
-        │  Instagram/TikTok öncelikli, sektöre özel içerik takvimi
-        │  Çıktı: icerik-takvimi.md, sosyal-medya-plan.md
-        ▼
-[9.7] Brand Guardian → Marka kimliği
-        │  Ses, logo/renk önerileri, kurumsal kimlik brief'i
-        │  Çıktı: marka-kimligi.md
-        ▼
-[9.8] Campaign Manager → Lokal reklam stratejisi
-        │  Google Local Ads, Instagram/TikTok konum hedefli reklam
-        │  Çıktı: lokal-reklam-plani.md
-        ▼
-[9.9] Orchestrator → Tüm planı kullanıcıya sun, onay al
-        │
-        ▼
-[9.10] Outreach Specialist → Yerel iş birlikleri
-        │  Çapraz tanıtım, diğer esnaflarla partnerlik
-        │  Çıktı: yerel-isbirlikleri.md
-        ▼
-[9.11] Analytics Master → Başarı metrikleri
-           Google Maps görüntülenme, arama, web trafiği, randevu dönüşümleri
-           Çıktı: basari-metrikleri.md
+```text
+Kullanıcı: "B2C ürünümü/işletmemi fiziksel olarak pazarlamam gerekiyor"
+        |
+        v
+[9.1] Orchestrator -> İş, ürün, lokasyon, bütçe, kapasite ve kısıtları topla
+        |  Çıktı: 01-baglam/fiziksel-pazarlama-baglami.md
+        v
+[9.2] Market Scout -> Yerel pazar, rakip, müşteri ve fiziksel kanal araştırması
+        |  Çıktı: 02-arastirma/pazar-arastirmasi/fiziksel-b2c-pazar-analizi.md
+        v
+[9.3] Strategy Analyst -> Fiziksel müşteri yolculuğu ve kanal stratejisi
+        |  Çıktı: 03-strateji/pazara-giris/fiziksel-kanal-stratejisi.md
+        v
+[9.4] Brand Guardian -> Teklif, konumlandırma ve fiziksel temas marka sistemi
+        |  Çıktı: 03-strateji/konumlandirma/fiziksel-teklif-ve-marka.md
+        v
+[9.5] Orchestrator -> Kampanya fikir havuzu üret ve kullanıcıyla seç
+        |  Çıktı: 03-strateji/pazara-giris/kampanya-fikir-havuzu.md
+        v
+[9.6] Content Creator -> Fiziksel ve dijital destek materyallerini üret
+        |  Çıktı: 06-pazarlama-uygulamalari/saha/satis-materyalleri/
+        v
+[9.7] Outreach Specialist -> Yerel iş birlikleri, retail, etkinlik ve topluluk planı
+        |  Çıktı: 06-pazarlama-uygulamalari/saha/potansiyel-musteriler/ ve etkinlikler/
+        v
+[9.8] Campaign Manager -> Lokal reklam, saha kampanyası ve bütçe planı
+        |  Çıktı: 06-pazarlama-uygulamalari/hibrit/kampanyalar/fiziksel-b2c-kampanya-plani.md
+        v
+[9.9] Launch Commander -> Uygulama takvimi, checklist ve saha operasyon planı
+        |  Çıktı: 07-lansman/fiziksel-aktivasyon-plani.md
+        v
+[9.10] Analytics Master -> Metrik dashboard'u ve takip ritmi
+        |  Çıktı: 08-raporlar/analitik/fiziksel-b2c-dashboard.md
+        v
+[9.11] Orchestrator -> Haftalık plana görevleri ekle, kullanıcı onayı al
+        |  Çıktı: 05-haftalik-planlar/YYYY-WNN.md
+        v
+[9.12] Orchestrator -> Sonuçları yorumla, yeni fikir/iyileştirme döngüsünü başlat
 ```
 
 ---
 
 ## Adım Detayları
 
-### 9.1 — İşletme Detaylarını Toplama
+### 9.1 — Fiziksel Pazarlama Bağlamı
 **Agent:** Orchestrator
 
-```
-İşletmeni dijital dünyaya taşıyalım! Bana şu bilgileri ver:
+Kullanıcıdan şu bilgileri topla:
 
-ZORUNLU:
-• İşletme adı
-• Adres (tam)
-• Telefon numarası
-• Sektör (spor salonu / diş hekimi / mobilyacı / psikolog / restoran / ...)
-• Çalışma saatleri
+1. Ürün/hizmet/işletme nedir?
+2. Hangi şehir, ilçe, semt, lokasyon veya satış noktalarında pazarlanacak?
+3. Hedef müşteri kim: yaş, gelir, yaşam tarzı, ihtiyaç, alışveriş alışkanlığı?
+4. Satış modeli nedir: mağaza, stant, bayi, online sipariş + fiziksel tanıtım, kapıda satış,
+   etkinlik, pazar, fuar, pop-up, WhatsApp, telefon, randevu?
+5. Fiyat, brüt marj, stok/kapasite ve günlük hizmet verme sınırı nedir?
+6. Aylık/test bütçesi ve kullanıcının haftalık zaman kapasitesi nedir?
+7. Mevcut varlıklar: logo, fotoğraf, ambalaj, sosyal medya, web sitesi, Google Business Profile,
+   müşteri listesi, WhatsApp hattı, fiziksel mekan, ekip, araç, stant, numune.
+8. Yasal/etik/izin kısıtları: sağlık beyanı, gıda, çocuk hedefleme, kamusal alan izni,
+   kişisel veri, çekiliş/kampanya şartları.
 
-ÖNEMLİ:
-• Hedef kitlen kim? (yaş aralığı, gelir seviyesi, bölge)
-• Mevcut dijital varlığın var mı? (web sitesi, Instagram, Google Maps kaydı)
-• Rakiplerin kimler? (isim verirsen daha iyi analiz yaparım)
+**Çıktı (`01-baglam/fiziksel-pazarlama-baglami.md`):**
 
-OPSİYONEL:
-• Logo / görsel materyalin var mı?
-• Bütçen nedir? (aylık pazarlama bütçesi)
-• Özel kampanyaların / fırsatların var mı?
-```
-
-### 9.2 — Google Maps Rakip Analizi
-**Agent:** Market Scout
-**Kaynaklar:**
-- Google Maps (işletmenin bulunduğu bölgede aynı sektördeki işletmeler)
-- Google Business Profile (rakip profillerinin puan, yorum sayısı, fotoğraf kalitesi)
-- Rakip web siteleri (varsa)
-
-**Çıktı (`yerel-pazar-analizi.md`):**
 ```markdown
-# Yerel Pazar Analizi: [İşletme]
-## Bölge: [il/ilçe/semt]
-- Taranan yarıçap: [x] km
-- Tespit edilen rakip: [sayı]
+# Fiziksel Pazarlama Bağlamı: [Proje]
+- Tarih: [tarih]
 
-## Rakip Karşılaştırması
-| İşletme | Puan | Yorum | Fotoğraf | Web | GBP Kalitesi |
-|---------|------|-------|----------|-----|-------------|
-| Biz | - | - | - | - | - |
-| Rakip 1 | 4.5 | 120 | 25 | Var | Yüksek |
-| Rakip 2 | 3.8 | 45 | 5 | Yok | Düşük |
+## İş ve Teklif
+- Ürün/hizmet:
+- Fiyat:
+- Brüt marj:
+- Kapasite/stok:
+- Satış modeli:
 
-## Google Maps Yoğunluk Analizi
-- Bölgede rakip yoğunluğu: [düşük/orta/yüksek]
-- En yakın rakip mesafesi: [km]
-- Bölgenin arama hacmi: [tahmini]
+## Hedef Müşteri
+- Primer segment:
+- Sekonder segment:
+- Lokasyon:
+- Satın alma tetikleyicisi:
+
+## Mevcut Varlıklar
+- Dijital varlıklar:
+- Fiziksel varlıklar:
+- Ekip ve operasyon:
+
+## Kısıtlar
+- Bütçe:
+- Zaman:
+- İzin/yasal/etik:
+- Operasyon riski:
 ```
 
-### 9.3 — Yerel Müşteri Yorumu Analizi
+### 9.2 — Yerel Pazar ve Fiziksel Kanal Araştırması
 **Agent:** Market Scout
-**Kaynaklar:**
-- Google Maps yorumları (rakip işletmelerin)
-- Şikayetvar, Ekşi Sözlük, sektörel forumlar
-- Yerel Facebook grupları
-- Instagram lokasyon etiketi yorumları
 
-**Çıktı (`yerel-musteri-analizi.md`):**
+Araştırılacak kaynaklar:
+
+- Google Maps, Google Business Profile, rakip yorumları
+- Instagram/TikTok lokasyon etiketleri, yerel hesaplar, mikro influencer'lar
+- AVM, cadde, okul/kampüs, spor salonu, pazar, festival, fuar, etkinlik alanı gibi temas
+  noktaları
+- Rakip mağaza/stand/ambalaj/fiyat/promosyon gözlemleri, kullanıcıdan gelen fotoğraf ve notlar
+- Yerel Facebook/WhatsApp/Telegram grupları, forumlar, Şikayetvar, Ekşi Sözlük, sektörel
+  topluluklar
+- Retail/bayi olasılıkları, tamamlayıcı işletmeler, çapraz tanıtım partnerleri
+
+**Çıktı (`02-arastirma/pazar-arastirmasi/fiziksel-b2c-pazar-analizi.md`):**
+
 ```markdown
-# Yerel Müşteri Analizi: [Sektör]
-## Rakiplerin Güçlü Yanları (müşteri yorumlarından)
-1. [pattern] — [kaç işletmede görüldü]
+# Fiziksel B2C Pazar Analizi: [Proje]
+- Tarih: [tarih]
 
-## Rakiplerin Zayıf Yanları (şikayetlerden)
-1. [pattern] — [kaç işletmede görüldü]
+## Kaynak ve Kanıt Defteri
+| ID | Araç | Kaynak | Erişim tarihi | Kullanılan veri | Güven |
+|----|------|--------|---------------|-----------------|-------|
 
-## Müşterilerin Aradığı Ama Bulamadığı
-1. [ihtiyaç]
+## Yerel Talep ve Müşteri Sinyalleri
+- Hedef müşteri nerede bulunuyor:
+- Satın alma tetikleyicileri:
+- Sezon/gün/saat etkisi:
+- Fiyat hassasiyeti:
 
-## Fırsat Alanları
-- ...
+## Rakip ve Alternatifler
+| Rakip/Alternatif | Lokasyon/Kanal | Teklif | Fiyat | Güçlü Yan | Zayıf Yan | Kanıt |
+|------------------|----------------|--------|-------|-----------|-----------|-------|
+
+## Fiziksel Kanal Fırsatları
+| Kanal | Uygunluk | Maliyet | Operasyon zorluğu | Ölçüm kolaylığı | Not |
+|-------|----------|---------|-------------------|-----------------|-----|
+
+## Eksik Veri
+- Kullanıcıdan gereken saha gözlemi:
+- Erişilemeyen kaynaklar:
 ```
 
-### 9.4 — Rekabet Stratejisi
+### 9.3 — Fiziksel Müşteri Yolculuğu ve Kanal Stratejisi
 **Agent:** Strategy Analyst
-**Çıktı (`rekabet-stratejisi.md`):**
-- SWOT analizi (işletme özelinde)
-- Yerel rekabet avantajı (konum, fiyat, hizmet kalitesi, uzmanlık)
-- Fırsat alanları (hangi hizmet eksik, hangi müşteri segmenti boş)
-- Fiyat konumlandırma önerisi
 
-### 9.5 — Google Business Profile Optimizasyonu
-**Agent:** Content Creator
-**Çıktı (`gbp-optimizasyon.md`):**
+Müşteri yolculuğunu fiziksel gerçekliğe göre kur:
+
+1. Farkındalık: müşteri ürünü/işletmeyi nerede fark eder?
+2. İlgi: hangi mesaj, görsel veya teklif durdurur?
+3. Deneme: numune, demo, tadım, mini hizmet, ücretsiz danışma, ilk ders, kupon?
+4. Satın alma: ödeme, randevu, WhatsApp, mağaza ziyareti, web formu?
+5. Tekrar: sadakat kartı, referans, paket, abonelik, takip mesajı?
+6. Sosyal kanıt: yorum, UGC, before/after, müşteri hikayesi?
+
+**Çıktı (`03-strateji/pazara-giris/fiziksel-kanal-stratejisi.md`):**
+
 ```markdown
-# Google Business Profile Optimizasyonu: [İşletme]
+# Fiziksel Kanal Stratejisi: [Proje]
 
-## İşletme Açıklaması (750 karakter)
-[SEO optimize, anahtar kelime içeren, müşteriye hitap eden açıklama]
+## Müşteri Yolculuğu
+| Aşama | Fiziksel temas | Mesaj | CTA | Ölçüm |
+|-------|----------------|-------|-----|-------|
 
-## Hizmet Listesi
-| Hizmet | Açıklama | Fiyat (opsiyonel) |
-|--------|----------|------------------|
-| ... | ... | ... |
+## Kanal Önceliği
+| Kanal | Öncelik | Neden | İlk test | Başarı eşiği |
+|-------|---------|-------|----------|-------------|
 
-## Fotoğraf Stratejisi
-- Kapak fotoğrafı: [açıklama]
-- İç mekan: en az 5 fotoğraf
-- Dış mekan: en az 2 fotoğraf
-- Ürün/hizmet: en az 5 fotoğraf
-- Ekip: en az 2 fotoğraf
-
-## Haftalık Gönderi Planı
-| Gün | İçerik Tipi | Başlık |
-|-----|------------|--------|
-| Pzt | Teklif/Kampanya | ... |
-
-## Soru-Cevap (Q&A) Stratejisi
-[En sık sorulacak 10 soru ve yanıtı]
-
-## Yorum Yönetimi
-- Olumlu yoruma yanıt şablonu
-- Olumsuz yoruma yanıt şablonu
+## Teklif ve Kampanya Mantığı
+- Ana teklif:
+- İlk deneme teklifi:
+- Tekrar satın alma teklifi:
+- Referans teklifi:
 ```
 
-### 9.6 — Sosyal Medya Stratejisi
-**Agent:** Content Creator
-**Çıktılar:**
-- `icerik-takvimi.md` — 30 günlük içerik takvimi (sektöre özel)
-- `sosyal-medya-plan.md`:
-  ```markdown
-  # Sosyal Medya Planı: [İşletme]
-  ## Platform Seçimi
-  | Platform | Öncelik | Hedef Kitle | İçerik Tipi |
-  |----------|---------|------------|------------|
-  | Instagram | Yüksek | 25-45 yaş | Reels, hikaye, before/after |
-  | TikTok | Orta | 18-35 yaş | Kısa video, trend |
-  | Facebook | Düşük | 35+ yaş | Etkinlik, topluluk |
-
-  ## İçerik Sütunları
-  - Eğitim/Bilgi: %35
-  - Hizmet Tanıtımı: %25
-  - Müşteri Deneyimi/Sosyal Kanıt: %25
-  - Perde Arkası/Ekip: %15
-  ```
-
-### 9.7 — Marka Kimliği
+### 9.4 — Teklif, Konumlandırma ve Fiziksel Marka Sistemi
 **Agent:** Brand Guardian
-**Çıktı (`marka-kimligi.md`):**
-- Marka sesi (Türkçe, sektöre uygun ton)
-- Logo brief'i (konsept, renk, tipografi)
-- Renk paleti önerisi
-- Kurumsal kimlik uygulama alanları
 
-### 9.8 — Lokal Reklam Stratejisi
-**Agent:** Campaign Manager
-**Çıktı (`lokal-reklam-plani.md`):**
-```markdown
-# Lokal Reklam Planı: [İşletme]
+Fiziksel dünyada görülecek ve duyulacak marka sistemini kur:
 
-## Google Local Ads
-- Hedef bölge: [il/ilçe]
-- Yarıçap: [x] km
-- Anahtar kelimeler: [liste]
-- Günlük bütçe önerisi: ₺[x]
-- Aylık tahmini bütçe: ₺[x]
+- tek cümlelik teklif
+- müşteri dilinde ana mesaj
+- afiş/broşür/stand/ambalaj başlıkları
+- personel satış dili
+- itirazlara yanıtlar
+- fiyat/paket yapısı
+- güven sinyalleri
 
-## Instagram/TikTok Reklam
-- Hedef lokasyon: [bölge]
-- Hedef kitle: [yaş, ilgi]
-- Reklam formatı: [story/reels/feed]
-- Günlük bütçe önerisi: ₺[x]
+**Çıktı (`03-strateji/konumlandirma/fiziksel-teklif-ve-marka.md`)**
 
-## Toplam Aylık Bütçe: ₺[x]
-```
-
-### 9.9 — Onay
+### 9.5 — Kampanya Fikir Havuzu
 **Agent:** Orchestrator
-Tüm planı kullanıcıya özetler, onay alır.
 
-### 9.10 — Yerel İş Birlikleri
+En az 12 uygulanabilir fikir üret. Fikirler şu kategorilere yayılmalı:
+
+- mağaza içi deneyim veya vitrin/stand fikri
+- numune, demo, tadım, ilk deneme veya ücretsiz mini hizmet
+- kupon, referans, sadakat, paket veya abonelik
+- yerel influencer veya mikro creator
+- komşu işletme/partner çapraz tanıtımı
+- etkinlik, workshop, pop-up, festival, pazar, okul/kampüs, spor salonu gibi saha aktivasyonu
+- WhatsApp/QR/landing page ile fizikselden dijitale takip
+- Google Maps yorum ve sosyal kanıt toplama
+
+**Çıktı (`03-strateji/pazara-giris/kampanya-fikir-havuzu.md`):**
+
+```markdown
+# Kampanya Fikir Havuzu: [Proje]
+| Fikir | Kategori | Maliyet | Zorluk | Beklenen etki | Ölçüm | Risk | Karar |
+|-------|----------|---------|--------|---------------|-------|------|-------|
+```
+
+Agent her fikri elemelidir. Zayıf fikirleri "reddedildi" diye işaretle ve nedenini yaz.
+
+### 9.6 — Materyal Üretimi
+**Agent:** Content Creator
+
+Seçilen kampanyalar için gerekli fiziksel ve dijital materyalleri üret:
+
+- afiş metni
+- broşür/flyer metni
+- kupon veya kart metni
+- QR/landing page CTA metni
+- WhatsApp karşılama ve takip mesajları
+- personel satış konuşması
+- müşteri itirazlarına yanıt kartı
+- Instagram/TikTok/Reels içerikleri
+- görsel üretim promptları
+- fotoğraf/video shot list
+
+**Birincil çıktı klasörü:** `06-pazarlama-uygulamalari/saha/satis-materyalleri/`
+
+### 9.7 — Yerel İş Birlikleri ve Topluluk Planı
 **Agent:** Outreach Specialist
-**Çıktı (`yerel-isbirlikleri.md`):**
-```markdown
-# Yerel İş Birlikleri: [İşletme]
 
-## Potansiyel Partnerler
-| İşletme | Sektör | Ortak Hedef Kitle | İş Birliği Türü |
-|---------|--------|------------------|----------------|
-| ... | ... | ... | Çapraz tanıtım / ortak kampanya / referans |
+Planlanacak alanlar:
 
-## İş Birliği Stratejisi
-1. [strateji]
-```
+- komşu işletmeler ve tamamlayıcı markalar
+- mikro influencer'lar ve yerel içerik üreticileri
+- etkinlik/fuar/festival/pazar/AVM/kampüs fırsatları
+- retail/bayi/raf veya konsinye görüşmeleri
+- kulüp, dernek, okul, spor salonu, kurs, topluluk ve semt grupları
 
-### 9.11 — Başarı Metrikleri
+**Çıktılar:**
+
+- `06-pazarlama-uygulamalari/saha/potansiyel-musteriler/yerel-partner-listesi.md`
+- `06-pazarlama-uygulamalari/saha/etkinlikler/etkinlik-ve-pop-up-plani.md`
+- `06-pazarlama-uygulamalari/saha/takip/partner-mesajlari.md`
+
+### 9.8 — Lokal Reklam ve Saha Kampanyası
+**Agent:** Campaign Manager
+
+Kampanya planı dijital ve fiziksel kanalları birlikte ele alır:
+
+- Google Local/Search/Maps reklamı
+- Meta/TikTok lokasyon hedefli reklam
+- lokal influencer boost
+- afiş/broşür baskı bütçesi
+- numune/hediye/kupon maliyeti
+- stant/pop-up/etkinlik maliyeti
+- minimum test bütçesi ve maksimum kayıp limiti
+
+**Çıktı:** `06-pazarlama-uygulamalari/hibrit/kampanyalar/fiziksel-b2c-kampanya-plani.md`
+
+### 9.9 — Uygulama Takvimi ve Checklist
+**Agent:** Launch Commander
+
+Saha uygulamasını gün gün planla:
+
+- hazırlık listesi
+- materyal üretim ve baskı takvimi
+- ekip/personel görevleri
+- lokasyon/izin kontrolü
+- uygulama günü akışı
+- kötü hava, düşük trafik, stok bitmesi, personel yokluğu gibi risk planı
+- kampanya sonrası takip
+
+**Çıktı:** `07-lansman/fiziksel-aktivasyon-plani.md`
+
+### 9.10 — Metrik Dashboard'u
 **Agent:** Analytics Master
-**Çıktı (`basari-metrikleri.md`):**
-```markdown
-# Başarı Metrikleri: [İşletme]
 
-## Google Maps Metrikleri
-| Metrik | Başlangıç | 30 Gün Hedef | 90 Gün Hedef |
-|--------|----------|-------------|-------------|
-| Görüntülenme | - | [x] | [x] |
-| Arama | - | [x] | [x] |
-| Web tıklaması | - | [x] | [x] |
-| Arama tıklaması | - | [x] | [x] |
-| Yol tarifi | - | [x] | [x] |
+Fiziksel pazarlama için dijital ürün metrikleri yetmez. Aşağıdaki metrikleri kur:
 
-## Dönüşüm Metrikleri
-| Metrik | Başlangıç | Hedef |
-|--------|----------|-------|
-| Telefon araması | - | [x]/ay |
-| Randevu/rezervasyon | - | [x]/ay |
-| Web sitesi ziyareti | - | [x]/ay |
+- yaya trafiği veya temas sayısı
+- broşür/kupon/QR tarama sayısı
+- tadım/demo/deneme sayısı
+- satış/randevu/WhatsApp dönüşümü
+- lokasyon bazlı dönüşüm
+- kanal bazlı CAC
+- sepet, marj, stok ve kapasite etkisi
+- Google Maps görüntülenme, yol tarifi, arama, yorum
+- sosyal medya takip/DM/UGC
+- tekrar satın alma ve referans
 
-## Sosyal Medya Metrikleri
-| Metrik | Başlangıç | Hedef |
-|--------|----------|-------|
-| Takipçi | 0 | [x] |
-| Etkileşim oranı | - | >%3 |
-```
+**Çıktı:** `08-raporlar/analitik/fiziksel-b2c-dashboard.md`
+
+### 9.11 — Haftalık Plan
+**Agent:** Orchestrator
+
+Seçilen aksiyonları aktif haftalık plana işler. Her görevde kanal, öncelik, beklenen çıktı,
+çıktı konumu ve `Tamamlanma onayi: Kullanici` bulunur.
+
+### 9.12 — İyileştirme Döngüsü
+**Agent:** Orchestrator + Analytics Master + ilgili uzmanlar
+
+Kampanya sonrası şu soruları cevapla:
+
+1. Hangi kanal gerçekten müşteri getirdi?
+2. Hangi fiziksel materyal veya mesaj çalışmadı?
+3. Teklif mi, lokasyon mu, hedef kitle mi, uygulama mı zayıf?
+4. Bir sonraki hafta hangi fikir tekrar edilmeli, hangisi kesilmeli?
+5. Yeni test fikri ne?
+
+Sonuçları `08-raporlar/pazarlama/fiziksel-b2c-iyilestirme-raporu.md` dosyasına yaz.
 
 ---
 
@@ -284,7 +360,12 @@ Tüm planı kullanıcıya özetler, onay alır.
 
 | Adım | Karar |
 |------|-------|
-| 9.9 | Tüm planı onayla / revize et |
+| 9.1 | Operasyon ve bütçe kısıtları doğru mu? |
+| 9.5 | Hangi kampanya fikirleri test edilecek? |
+| 9.6 | Hangi materyaller baskı/uygulama için onaylı? |
+| 9.8 | Test bütçesi ve maksimum kayıp limiti onaylı mı? |
+| 9.9 | Aktivasyon planı uygulanacak mı? |
+| 9.12 | Devam / revize / durdur kararı |
 
 ---
 
@@ -292,38 +373,45 @@ Tüm planı kullanıcıya özetler, onay alır.
 
 | Dosya | Üreten |
 |-------|--------|
-| `yerel-pazar-analizi.md` | Market Scout |
-| `yerel-musteri-analizi.md` | Market Scout |
-| `rekabet-stratejisi.md` | Strategy Analyst |
-| `gbp-optimizasyon.md` | Content Creator |
-| `icerik-takvimi.md` | Content Creator |
-| `sosyal-medya-plan.md` | Content Creator |
-| `marka-kimligi.md` | Brand Guardian |
-| `lokal-reklam-plani.md` | Campaign Manager |
-| `yerel-isbirlikleri.md` | Outreach Specialist |
-| `basari-metrikleri.md` | Analytics Master |
+| `01-baglam/fiziksel-pazarlama-baglami.md` | Orchestrator |
+| `02-arastirma/pazar-arastirmasi/fiziksel-b2c-pazar-analizi.md` | Market Scout |
+| `03-strateji/pazara-giris/fiziksel-kanal-stratejisi.md` | Strategy Analyst |
+| `03-strateji/konumlandirma/fiziksel-teklif-ve-marka.md` | Brand Guardian |
+| `03-strateji/pazara-giris/kampanya-fikir-havuzu.md` | Orchestrator |
+| `06-pazarlama-uygulamalari/saha/satis-materyalleri/` | Content Creator |
+| `06-pazarlama-uygulamalari/saha/potansiyel-musteriler/yerel-partner-listesi.md` | Outreach Specialist |
+| `06-pazarlama-uygulamalari/saha/etkinlikler/etkinlik-ve-pop-up-plani.md` | Outreach Specialist |
+| `06-pazarlama-uygulamalari/hibrit/kampanyalar/fiziksel-b2c-kampanya-plani.md` | Campaign Manager |
+| `07-lansman/fiziksel-aktivasyon-plani.md` | Launch Commander |
+| `08-raporlar/analitik/fiziksel-b2c-dashboard.md` | Analytics Master |
+| `08-raporlar/pazarlama/fiziksel-b2c-iyilestirme-raporu.md` | Orchestrator + Analytics Master |
 
 ---
 
-## Fiziksel İşletme vs Dijital Ürün Karşılaştırması
+## Fiziksel B2C ve Dijital Ürün Farkı
 
-| Özellik | Dijital Ürün (P1-P8) | Fiziksel İşletme (P9) |
-|---------|---------------------|----------------------|
-| Keşif kaynağı | App Store, G2, Reddit | Google Maps, yerel forumlar |
-| SEO odağı | ASO, web SEO | Google Maps SEO, lokal SEO |
-| Sosyal medya | Tüm platformlar | Instagram/TikTok öncelikli |
-| Reklam | Google Ads, Meta, LinkedIn | Google Local Ads, konum hedefli |
-| Başarı metriği | İndirme, DAU, gelir | Görüntülenme, arama, randevu |
-| "Coder brief" | PRD → yazılımcı | Web sitesi/randevu sistemi brief'i |
-| Müşteri kazanımı | Dijital onboarding | Fiziksel ziyaret/telefon |
+| Alan | Dijital Ürün | Fiziksel B2C |
+|------|--------------|--------------|
+| İlk temas | reklam, arama, sosyal | lokasyon, stant, vitrin, etkinlik, insan teması |
+| Kanıt | deneme, yorum, metrik | tadım/demo, gözlem, konuşma, kupon/QR, satış |
+| Kısıt | ürün bug'ı, onboarding | stok, ekip, izin, hava, trafik, baskı, mekan |
+| İçerik | landing, ASO, post | afiş, broşür, satış script'i, QR, mağaza içi mesaj |
+| Başarı metriği | kayıt, DAU, retention | temas, deneme, satış, randevu, yol tarifi, yorum |
+| İyileştirme | funnel optimizasyonu | lokasyon, teklif, materyal, personel, zamanlama |
 
 ---
 
-## Sonraki Pipeline
+## PersonalAutonomy Yurutme Kurallari
 
-Pipeline 9 tamamlandıktan sonra orchestrator şu zinciri önerir:
-
-- **Pipeline 7 (İçerik Makinesi)** → sürekli içerik üretimi
-- **Pipeline 3 (Feedback ve İyileştirme)** → Google Maps yorumları, müşteri memnuniyeti takibi → P9'u güncelle
-
-Bu döngü sürekli çalışır: P9 → P7 → P3 → P9 (güncelle) → P7 → ...
+- Ana cikti alanlari: `01-baglam/`, `02-arastirma/`, `03-strateji/`,
+  `06-pazarlama-uygulamalari/saha/`, `06-pazarlama-uygulamalari/hibrit/`, `07-lansman/`,
+  `08-raporlar/` ve onayli ciktilar icin `10-final/`
+- Pipeline kendi proje veya durum klasorunu olusturmaz. Aktif adimi DURUM.md ve ilgili
+  .pa/*/active-task.md dosyasinda tutar.
+- Degerlendirme workspace'inde proje-only adimlari uygulamaz; olumlu sonucu proje olusturma
+  yetkisi olarak yorumlamaz.
+- Projede PROJE.md, ilgili 01-baglam/ dosyalari ve KARARLAR.md on kosuldur.
+- Guncel veri gerektiren iddialari kaynak ve erisim tarihiyle kaydeder; veri yoksa varsayimi
+  acikca etiketler.
+- Karar kapilarinda kullanicidan acik onay alir. Dosya uretmek haftalik gorevi tamamlamaz.
+- Onayli final kopyalari 10-final/ altina alir ve calisma kaynagini yerinde korur.

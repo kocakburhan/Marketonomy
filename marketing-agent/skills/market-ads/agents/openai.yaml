@@ -1,0 +1,4 @@
+interface:
+  display_name: "Market Ads"
+  short_description: "Platforma ozel reklam metni paketi"
+  default_prompt: "Codex'te bu workspace icinde $market-ads skill'ini kullan ve ciktiyi PersonalAutonomy MVP klasor sozlesmesine gore kaydet."

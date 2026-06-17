@@ -1,9 +1,6 @@
 ---
 name: ads
-description: Google Ads, Meta, LinkedIn, Twitter/X reklam stratejisi, hedefleme ve bütçe planlaması.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Google Ads, Meta, LinkedIn ve diger ucretli kanal kampanyalarini planla. Hedefleme, butce, kampanya yapisi veya optimizasyon istendiginde kullan.
 ---
 
 # Reklam Stratejisi

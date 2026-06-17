@@ -1,9 +1,6 @@
 ---
 name: ad-creative
-description: Büyük ölçekte reklam kreatifi üretimi. A/B test varyasyonları, kitle odaklı mesajlar.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Reklam kreatifi ve A/B test varyasyonlari uret. Kullanici reklam basligi, metni, gorsel briefi veya kitle bazli kreatif istediginde kullan.
 ---
 
 # Reklam Kreatifi (Bulk Üretim)

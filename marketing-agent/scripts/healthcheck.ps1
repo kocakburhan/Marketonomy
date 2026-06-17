@@ -1,123 +1,91 @@
-# Marketing Agent MCP Saglik Kontrolu
-# Kullanim: .\scripts\healthcheck.ps1
-# Cikti: Her MCP sunucusu icin OK/FAIL + versiyon
+param(
+    [string]$AgentRoot = (Split-Path -Parent $PSScriptRoot)
+)
 
 $ErrorActionPreference = "Continue"
-$Root = Split-Path -Parent $PSScriptRoot
+$requiredFailures = [System.Collections.Generic.List[string]]::new()
+$warnings = [System.Collections.Generic.List[string]]::new()
 
-Write-Output "========================================"
-Write-Output " Marketing Agent MCP Health Check"
-Write-Output " $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
-Write-Output "========================================"
-Write-Output ""
-
-$all_ok = $true
-
-# --- mcp-appstore ---
-Write-Output "--- mcp-appstore ---"
-$appstore_server = Join-Path $Root "vendor\mcp-appstore\server.js"
-if (Test-Path $appstore_server) {
-    Write-Output "  Dosya: OK ($appstore_server)"
-    try {
-        $ver = node -e "console.log(require('$($Root.Replace('\','/'))/vendor/mcp-appstore/package.json').version)" 2>&1
-        if ($LASTEXITCODE -eq 0) {
-            Write-Output "  Version: $ver"
-            Write-Output "  Node.js: $(node --version)"
-            Write-Output "  Durum: OK"
-        } else {
-            Write-Output "  Durum: FAIL — node calismadi. Node.js 18+ gerekli."
-            $all_ok = $false
-        }
-    } catch {
-        Write-Output "  Durum: FAIL — $_"
-        $all_ok = $false
-    }
-} else {
-    Write-Output "  Durum: FAIL — $appstore_server bulunamadi."
-    Write-Output "  Fix: git clone https://github.com/appreply-co/mcp-appstore vendor/mcp-appstore"
-    Write-Output "       npm install --prefix vendor/mcp-appstore"
-    $all_ok = $false
-}
-
-Write-Output ""
-
-# --- Webwright ---
-Write-Output "--- webwright ---"
-$webwright_dir = Join-Path $Root "vendor\webwright"
-if (Test-Path $webwright_dir) {
-    Write-Output "  Dosya: OK ($webwright_dir)"
-    try {
-        $py_ver = python --version 2>&1
-        Write-Output "  Python: $py_ver"
-        Write-Output "  Durum: OK (manuel install gerektirir: pip install -e vendor/webwright; playwright install chromium)"
-    } catch {
-        Write-Output "  Durum: WARN — Python bulunamadi. pip install yapilamaz."
-    }
-} else {
-    Write-Output "  Durum: WARN — vendor/webwright bulunamadi (opsiyonel)."
-    Write-Output "  Fix: git clone https://github.com/microsoft/Webwright vendor/webwright"
-    Write-Output "       pip install -e vendor/webwright"
-    Write-Output "       playwright install chromium"
-}
-
-Write-Output ""
-
-# --- Python Scripts ---
-Write-Output "--- Python Scripts ---"
-$scripts = @("google_trends.py", "reddit_scraper.py", "estimate_revenue.py", "analyze_page.py", "competitor_scanner.py", "generate_pdf_report.py", "social_calendar.py", "roi_calculator.py")
-foreach ($s in $scripts) {
-    $path = Join-Path $Root "scripts\$s"
-    if (Test-Path $path) {
-        Write-Output "  $s : OK"
+function Test-RequiredPath([string]$RelativePath) {
+    $path = Join-Path $AgentRoot $RelativePath
+    if (Test-Path -LiteralPath $path) {
+        Write-Output "OK       $RelativePath"
     } else {
-        Write-Output "  $s : MISSING"
-        $all_ok = $false
+        Write-Output "FAIL     $RelativePath"
+        $requiredFailures.Add($RelativePath)
     }
 }
 
+Write-Output "Marketing Agent Codex healthcheck"
+Write-Output "Agent root: $AgentRoot"
 Write-Output ""
 
-# --- Dependencies ---
-Write-Output "--- Python Bagimliliklari ---"
-$deps = @("pytrends", "reportlab")
-foreach ($d in $deps) {
+Write-Output "[Required release structure]"
+@(
+    "AGENTS.md", "ARCHITECTURE.md", "SKILLS.md", "agents", "pipelines", "skills",
+    "scripts", "templates", "mcps.json", "agent-version.json", "release-manifest.json"
+) | ForEach-Object { Test-RequiredPath $_ }
+
+Write-Output ""
+Write-Output "[JSON]"
+foreach ($jsonName in @("mcps.json", "agent-version.json", "release-manifest.json")) {
+    $path = Join-Path $AgentRoot $jsonName
     try {
-        $result = python -c "import $d; print($d.__version__)" 2>&1
-        if ($LASTEXITCODE -eq 0) {
-            Write-Output "  $d : $result"
-        } else {
-            Write-Output "  $d : MISSING — pip install $d"
-        }
+        [System.IO.File]::ReadAllText($path) | ConvertFrom-Json | Out-Null
+        Write-Output "OK       $jsonName"
     } catch {
-        Write-Output "  $d : MISSING — pip install $d"
+        Write-Output "FAIL     $jsonName : $($_.Exception.Message)"
+        $requiredFailures.Add($jsonName)
     }
 }
 
 Write-Output ""
-
-# --- Skills ---
-Write-Output "--- Skills ---"
-$skills_dir = Join-Path $Root "skills"
-$skill_count = (Get-ChildItem $skills_dir -Directory).Count
-Write-Output "  Toplam skill: $skill_count"
-if ($skill_count -lt 30) {
-    Write-Output "  WARN: 36 skill bekleniyor, $skill_count bulundu."
-    $all_ok = $false
+Write-Output "[Skills]"
+$skillDirs = Get-ChildItem -LiteralPath (Join-Path $AgentRoot "skills") -Directory
+$invalidSkills = 0
+foreach ($skillDir in $skillDirs) {
+    if (-not (Test-Path -LiteralPath (Join-Path $skillDir.FullName "SKILL.md")) -or
+        -not (Test-Path -LiteralPath (Join-Path $skillDir.FullName "agents\openai.yaml"))) {
+        Write-Output "FAIL     $($skillDir.Name)"
+        $invalidSkills++
+    }
 }
-
-Write-Output ""
-
-# --- Templates ---
-Write-Output "--- Templates ---"
-$templates_dir = Join-Path $Root "templates"
-$template_count = (Get-ChildItem $templates_dir -File).Count
-Write-Output "  Toplam template: $template_count"
-
-Write-Output ""
-Write-Output "========================================"
-if ($all_ok) {
-    Write-Output " SONUC: TUM SISTEM HAZIR"
+if ($invalidSkills -eq 0) {
+    Write-Output "OK       $($skillDirs.Count) skill, SKILL.md ve agents/openai.yaml mevcut"
 } else {
-    Write-Output " SONUC: EKSIKLER VAR — yukaridaki FAIL/WARN satirlarina bak"
+    $requiredFailures.Add("$invalidSkills gecersiz skill")
 }
-Write-Output "========================================"
+
+Write-Output ""
+Write-Output "[Optional local capabilities]"
+if (Get-Command node -ErrorAction SilentlyContinue) {
+    Write-Output "AVAILABLE node $(node --version)"
+} else {
+    Write-Output "OPTIONAL  Node.js bulunamadi; app-store MCP yerel calistirilamaz."
+    $warnings.Add("Node.js")
+}
+
+$python = Get-Command python -ErrorAction SilentlyContinue
+if ($python) {
+    Write-Output "AVAILABLE $(& python --version 2>&1)"
+} else {
+    Write-Output "OPTIONAL  Python PATH uzerinde bulunamadi; Python yardimci scriptleri calistirilamaz."
+    $warnings.Add("Python")
+}
+
+$appStoreServer = Join-Path $AgentRoot "vendor\mcp-appstore\server.js"
+if (Test-Path -LiteralPath $appStoreServer) {
+    Write-Output "AVAILABLE optional app-store MCP payload"
+} else {
+    Write-Output "OPTIONAL  app-store MCP vendor payload'i yok; web veya manuel fallback kullanilir."
+    $warnings.Add("app-store MCP")
+}
+
+Write-Output ""
+if ($requiredFailures.Count -gt 0) {
+    Write-Output "SONUC: BASARISIZ - $($requiredFailures.Count) zorunlu sorun."
+    exit 1
+}
+
+Write-Output "SONUC: HAZIR - zorunlu release yapisi gecerli; $($warnings.Count) opsiyonel capability uyarisi."
+exit 0

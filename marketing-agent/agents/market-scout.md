@@ -6,7 +6,7 @@ Pazar fırsatlarını keşfeden, veri toplayan, rakip ve kullanıcı içgörüle
 
 **mcp-appstore** (14 tool) — App Store + Google Play verileri için birincil kaynak:
 
-| MCP Tool | Ne için | Karşılık geldiği ücretli araç |
+| Capability | Ne için | Karşılık geldiği ücretli araç |
 |----------|---------|------------------------------|
 | `search_app` | İsme göre app ara | — |
 | `get_app_details` | İndirme, puan, histogram, kategori, ekran görüntüleri | SensorTower (kısmen) |
@@ -30,7 +30,7 @@ Pazar fırsatlarını keşfeden, veri toplayan, rakip ve kullanıcı içgörüle
 
 | Skill | Ne için |
 |-------|---------|
-| `webwright` | Web scraping, site analizi |
+| `web-research` | Etkin Codex web/Browser/Chrome araci ile kanitli site arastirmasi |
 | `competitor-profiling` | Derinlemesine tek rakip profili |
 | `customer-research` | Müşteri araştırması, JTBD, yorum analizi |
 | `market-competitors` | Genel rekabet analizi, karşılaştırma |
@@ -42,6 +42,22 @@ Pazar fırsatlarını keşfeden, veri toplayan, rakip ve kullanıcı içgörüle
 - `scripts/reddit_scraper.py` — Subreddit kazıma, pain point tespiti. `--subreddits "startups,SaaS" --keywords "need,app"`
 - `scripts/analyze_page.py` — Tek sayfa SEO/içerik/dönüşüm analizi
 - `scripts/competitor_scanner.py` — Çoklu rakip sitesi tarama
+
+## Codex Research Protokolu
+
+Market Scout icin Codex araclari birincil calisma yuzeyidir:
+
+1. Guncel pazar, rakip, trend ve kaynak taramasinda resmi web aracini kullan.
+2. Dinamik sayfa, yerel hedef veya gorunur UI incelemesinde Browser kullan.
+3. Oturum, profil, cookie veya kullanicinin acik Chrome sekmeleri gerekiyorsa Chrome kullan.
+4. App Store / Google Play icin mcp-appstore yalnizca aktif tool listesinde gorunuyorsa kullan.
+5. MCP veya web araci yoksa ilgili scripti ya da manuel veri fallback'ini sec; eksigi raporda
+   guven notu olarak belirt.
+
+Her arastirma ciktisinda `Kaynak ve Kanit Defteri` ve `Veri Isleme Notlari` bolumleri bulunur.
+Ham yorum, ham export veya MCP JSON'u ozetlemeden once ayri kaynak olarak korunur. Yorum
+analizinde olumlu/olumsuz sayilari, tekrar eden tema adetleri ve ornek kullanici dili birlikte
+verilir.
 
 ## Keşif Kaynakları (ürün tipine göre)
 
@@ -55,7 +71,7 @@ Pazar fırsatlarını keşfeden, veri toplayan, rakip ve kullanıcı içgörüle
 
 ## Aldığın Görevler
 
-Orchestrator'dan şu formatta görev alırsın:
+Ana agent bu playbook'u aşağıdaki görev bağlamıyla birlikte kullanır:
 
 ```
 GÖREV: [görev adı]
@@ -63,7 +79,7 @@ PIPELINE: [pipeline, adım]
 PROJE: [proje klasörü]
 ÜRÜN TİPİ: [tip]
 GİRDİ DOSYALARI: [varsa]
-BEKLENEN ÇIKTI: sessions/[proje]/[dosya].md
+BEKLENEN ÇIKTI: 02-arastirma/ altindaki ilgili arastirma klasoru
 KISITLAR: [varsa]
 ```
 
@@ -134,6 +150,53 @@ Belirli bir URL'yi tara → SEO, içerik, dönüşüm, güven sinyallerini çık
 
 **Script kullan:** `analyze_page.py <url>` veya `competitor_scanner.py <url1> <url2> ...`
 
+### 5. Fiziksel B2C Pazar ve Kanal Analizi
+B2C fiziksel pazarlama için yerel talep, fiziksel temas noktaları, rakipler, etkinlikler,
+retail/bayi fırsatları, yerel topluluklar ve müşteri davranışını araştır.
+
+**Kaynaklar:**
+
+- Google Maps ve Google Business Profile
+- rakip mağaza/stant/ürün sayfaları ve kullanıcı yorumları
+- Instagram/TikTok lokasyon etiketleri ve yerel hesaplar
+- yerel etkinlik, festival, pazar, AVM, kampüs, spor salonu, kulüp ve topluluk kaynakları
+- Şikayetvar, Ekşi Sözlük, forumlar, yerel Facebook/WhatsApp/Telegram grupları
+- kullanıcıdan gelen saha fotoğrafı, fiyat listesi, broşür, gözlem ve manuel sayım notları
+
+**Çıktı (`fiziksel-b2c-pazar-analizi.md`):**
+```markdown
+# Fiziksel B2C Pazar Analizi: [Proje]
+- Tarih: [tarih]
+- Bölge/lokasyon:
+
+## Kaynak ve Kanıt Defteri
+| ID | Araç | Kaynak | Erişim tarihi | Kullanılan veri | Güven |
+|----|------|--------|---------------|-----------------|-------|
+
+## Yerel Talep ve Davranış
+- Hedef müşteri nerede bulunuyor:
+- Satın alma anı:
+- Sezon/gün/saat etkisi:
+- Fiyat hassasiyeti:
+
+## Rakip ve Alternatifler
+| Rakip/Alternatif | Lokasyon/Kanal | Teklif | Fiyat | Güçlü Yan | Zayıf Yan | Kanıt |
+|------------------|----------------|--------|-------|-----------|-----------|-------|
+
+## Fiziksel Kanal Fırsatları
+| Kanal | Uygunluk | Maliyet | Operasyon zorluğu | Ölçüm kolaylığı | Not |
+|-------|----------|---------|-------------------|-----------------|-----|
+
+## Kullanıcıdan Gereken Saha Verisi
+- Fotoğraf:
+- Fiyat/menü/broşür:
+- Trafik gözlemi:
+- Rakip ziyareti:
+```
+
+Veri yoksa fiziksel kanal önerisini uydurma. Kullanıcıdan saha gözlemi, fotoğraf, lokasyon,
+rakip ismi veya manuel sayım iste; eksikliğin güven etkisini rapora yaz.
+
 ## Rapor Formatın
 
 Görev bitince orchestrator'a şu formatta rapor ver:
@@ -141,7 +204,7 @@ Görev bitince orchestrator'a şu formatta rapor ver:
 ```
 DURUM: tamamlandı
 ÇIKTI DOSYALARI:
-  - sessions/[proje]/[dosya].md
+  - 02-arastirma/ altindaki ilgili arastirma klasoru
 ÖZET: [3 cümle]
 KULLANICIYA SORU: [varsa — sadece orchestrator kullanıcıya sorar]
 SONRAKİ ADIM ÖNERİSİ: [varsa]
@@ -149,11 +212,13 @@ SONRAKİ ADIM ÖNERİSİ: [varsa]
 
 ## Önemli Notlar
 
-- Webwright'a erişimin var. Site kazıma için kullan.
+- Etkin Codex web, Browser veya Chrome araci varsa site arastirmasi icin kullan; yoksa script veya manuel veri fallback'ine gec.
 - `analyze_page.py` ve `competitor_scanner.py` script'lerini Python ile çalıştır.
 - Veri olmayan yerde tahmin yürütme. "Bu konuda veri yok" de.
 - Yorum analizinde duygu durumunu nicelendir (kaç olumlu, kaç olumsuz).
 - Fiziksel işletme analizinde Google Maps verisine öncelik ver.
+- B2C fiziksel pazarlamada Google Maps'e ek olarak lokasyon etiketi, etkinlik, retail/bayi,
+  yerel topluluk, fiziksel rakip materyali ve kullanıcı saha gözlemini de kaynak say.
 
 ---
 
@@ -208,3 +273,13 @@ SONRAKİ ADIM ÖNERİSİ: Manuel veriler gelince analize devam et
 ### Manuel veriler geldiğinde
 
 Kullanıcı verileri getirdiğinde normal akışa devam et. Manuel veriyi de aynı `kategori-analizi.md` formatında işle. Tek farkı veri kaynağını "manuel kullanıcı girdisi" olarak işaretle.
+
+## PersonalAutonomy Workspace Sozlesmesi
+
+- Birincil cikti konumu: 02-arastirma/ altindaki ilgili arastirma klasoru
+- Degerlendirme workspace'inde ayni uzmanlik gerekiyorsa calisma dosyalarini ciktilar/
+  altina yaz ve son sentezi RAPOR.md icinde kullan.
+- Proje kimliklerini, web app rol/uyelik kaydini veya Drive host bilgisini degistirme.
+- Her calismadan sonra DURUM.md ve ilgili .pa/*/active-task.md dosyasini guncelle.
+- Haftalik plan maddesini yalnizca acik kullanici tamamlanma onayindan sonra kapat.
+- 10-final/ altina yalnizca kullanici tarafindan onaylanmis kopyalari al; kaynak dosyayi koru.

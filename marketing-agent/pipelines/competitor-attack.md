@@ -6,7 +6,7 @@
 
 **Amaç:** Rakibi derinlemesine analiz edip, zayıf noktalarına yönelik aksiyon planı çıkarmak.
 
-**Ön koşul:** Hedef rakip belirlenmiş olmalı. `product-context.md` mevcut olmalı.
+**Ön koşul:** Hedef rakip belirlenmiş olmalı. `PROJE.md ve 01-baglam/ altindaki ilgili dosyalar` mevcut olmalı.
 
 ---
 
@@ -99,3 +99,16 @@ Kullanıcı: "X rakibine karşı strateji istiyorum"
 ## Sonraki Adım
 
 Pipeline 6 bağımsız çalışır. Sonuçları **Pipeline 2 (MVP Lansman)** veya **Pipeline 4 (Büyüme Motoru)** içinde kullanılabilir.
+
+## PersonalAutonomy Yurutme Kurallari
+
+- Ana cikti alanlari: 02-arastirma/rakip-arastirmasi/ ve 03-strateji/konumlandirma/
+- Pipeline kendi proje veya durum klasorunu olusturmaz. Aktif adimi DURUM.md ve ilgili
+  .pa/*/active-task.md dosyasinda tutar.
+- Degerlendirme workspace'inde proje-only adimlari uygulamaz; olumlu sonucu proje olusturma
+  yetkisi olarak yorumlamaz.
+- Projede PROJE.md, ilgili 01-baglam/ dosyalari ve KARARLAR.md on kosuldur.
+- Guncel veri gerektiren iddialari kaynak ve erisim tarihiyle kaydeder; veri yoksa varsayimi
+  acikca etiketler.
+- Karar kapilarinda kullanicidan acik onay alir. Dosya uretmek haftalik gorevi tamamlamaz.
+- Onayli final kopyalari 10-final/ altina alir ve calisma kaynagini yerinde korur.

@@ -1,0 +1,593 @@
+{
+    "schema_version":  "1.0",
+    "version":  "v5.0.0",
+    "hash_algorithm":  "SHA-256",
+    "generated_at":  "deterministic",
+    "files":  [
+                  {
+                      "path":  ".gitignore",
+                      "sha256":  "aac49148a530b797b2213f2bcea8bdddcb7c0374b761d88e600001c8fa92c417",
+                      "size":  28
+                  },
+                  {
+                      "path":  "AGENTS.md",
+                      "sha256":  "49514335b49b86bc18e7d761e3b3e3e0a7c435030e4f5a901967f5bd03512f77",
+                      "size":  19860
+                  },
+                  {
+                      "path":  "agents/analytics-master.md",
+                      "sha256":  "d4dd0689b2741955121229845c1f92ed304887a0d13634052648f5c4c1d9e88f",
+                      "size":  7025
+                  },
+                  {
+                      "path":  "agents/brand-guardian.md",
+                      "sha256":  "7a3963e7fca12a16de5bcfd9ec7d784ce48cc6720fce82e48e8d173e67daadac",
+                      "size":  4503
+                  },
+                  {
+                      "path":  "agents/campaign-manager.md",
+                      "sha256":  "a44f33d0387c04c658b4a79635f4e6e9a9cfbdffc0d76f41ec94898c32aa62a0",
+                      "size":  7172
+                  },
+                  {
+                      "path":  "agents/content-creator.md",
+                      "sha256":  "5745408c0ed6b7204ae9e740ef9d86180a9803cd405c9a850c90cf68c63aca0e",
+                      "size":  7062
+                  },
+                  {
+                      "path":  "agents/growth-hacker.md",
+                      "sha256":  "3b200e7e27822a5bdc60877af833b038da9aaef9ba5953fbabd8c280c33fb0f5",
+                      "size":  4552
+                  },
+                  {
+                      "path":  "agents/launch-commander.md",
+                      "sha256":  "ec3b2cb304e5d8b97c2ec2a0bfc62eafa58843ce1f80285f63a50a3914b89d2d",
+                      "size":  4404
+                  },
+                  {
+                      "path":  "agents/market-scout.md",
+                      "sha256":  "9959a1d30a930e13a874e08ab37f3f3e4a7fb2d3d2590293d42a8899065e0598",
+                      "size":  11103
+                  },
+                  {
+                      "path":  "agents/onboarding-guide.md",
+                      "sha256":  "357f7bcf8a7bb62f957dab1dfb9f863d115154ccf94f8e0f50492fe334c3c819",
+                      "size":  1716
+                  },
+                  {
+                      "path":  "agents/orchestrator.md",
+                      "sha256":  "63db563776af0c351f695f3f9db15ef44a49a92d858141e471bc560af2a995f4",
+                      "size":  10001
+                  },
+                  {
+                      "path":  "agents/outreach-specialist.md",
+                      "sha256":  "3d62e8f452a14aa02afcb9e9e9afe4f540fea298e2c4393981f9c4d9cee02df1",
+                      "size":  7158
+                  },
+                  {
+                      "path":  "agents/product-architect.md",
+                      "sha256":  "f642bf6867e0946509cc93fb933a7bebe4883991d078f30e3e41bc8917d6113f",
+                      "size":  7164
+                  },
+                  {
+                      "path":  "agents/strategy-analyst.md",
+                      "sha256":  "a437f01a1bce453af442530b523cc4a9445b7067460d91a90f345601d30df26a",
+                      "size":  6821
+                  },
+                  {
+                      "path":  "agent-version.json",
+                      "sha256":  "226a01b24159ae9912a43de67fade3b5fd29d24625bb742c7f0a04411af1e375",
+                      "size":  131
+                  },
+                  {
+                      "path":  "ARCHITECTURE.md",
+                      "sha256":  "a69834e7eb4e299162699cf0c49604d2fde41fb8e922471a2414ef66fcf401aa",
+                      "size":  6839
+                  },
+                  {
+                      "path":  "mcps.json",
+                      "sha256":  "0bdf08e9afa4d23e9202d44aee4fa995b553c01b214f35e7ddb4d719fb1e1d2d",
+                      "size":  1806
+                  },
+                  {
+                      "path":  "pipelines/competitor-attack.md",
+                      "sha256":  "315d758a130a9b191a8d1a9ef41b36ab72cde2c915c67e68c3c94a794d3ea935",
+                      "size":  3802
+                  },
+                  {
+                      "path":  "pipelines/content-machine.md",
+                      "sha256":  "7d5c0b12e30cb19a6ac0270f832e4c955e8229b4d484e006cb353f70257b58fe",
+                      "size":  5167
+                  },
+                  {
+                      "path":  "pipelines/feedback-improvement.md",
+                      "sha256":  "116ad8e769ce80132380509a17a95eb4a1c9242adf9877675e2df116774c1e56",
+                      "size":  8007
+                  },
+                  {
+                      "path":  "pipelines/growth-engine.md",
+                      "sha256":  "079acdc391f5595df3e8181f40ea44e28051accae3d0675da4329b3ac28ea5f9",
+                      "size":  5143
+                  },
+                  {
+                      "path":  "pipelines/idea-discovery.md",
+                      "sha256":  "7093a8c0cdd74aa3f139949e7058032d4a539eec176549ba6f05113acd02d038",
+                      "size":  7866
+                  },
+                  {
+                      "path":  "pipelines/idea-to-prd.md",
+                      "sha256":  "3d8a3b7226cf5bd6a487a940e4e22e6c25661527d758c3e4381c140523674c36",
+                      "size":  13294
+                  },
+                  {
+                      "path":  "pipelines/local-business-launch.md",
+                      "sha256":  "79193f0cab55428db619fe95716786eca3809206f7ecaedc3e18024f335e7f51",
+                      "size":  15920
+                  },
+                  {
+                      "path":  "pipelines/mvp-launch.md",
+                      "sha256":  "5fe474b7d8f654837b04de9c4feafd09decc2d8c4f7c9dc9482c9c2d29488333",
+                      "size":  6552
+                  },
+                  {
+                      "path":  "pipelines/outbound-sales.md",
+                      "sha256":  "667746be1d528b36fda6b5167d7ab6b6a6133f5b3e2e6d112fef1505a6ce6662",
+                      "size":  11166
+                  },
+                  {
+                      "path":  "QUICKSTART.md",
+                      "sha256":  "b792cc813854cb6b9c9e7ffeeb1a295915d398c5aa5971407d7aa5ae885f8737",
+                      "size":  1823
+                  },
+                  {
+                      "path":  "scripts/analyze_page.py",
+                      "sha256":  "38cacff00a5ba3e19824ec794722d326b5acdf2f413db4c2b199a2a5682d5988",
+                      "size":  7159
+                  },
+                  {
+                      "path":  "scripts/build_release_manifest.ps1",
+                      "sha256":  "1c01e915bb55883689ca34d1d4567307c1d7bc275f7e937c4d948c603bd8811e",
+                      "size":  1569
+                  },
+                  {
+                      "path":  "scripts/competitor_scanner.py",
+                      "sha256":  "f78f52cc386145397672000daee9d79253008e436e268a7ae2f5417240e869f1",
+                      "size":  3682
+                  },
+                  {
+                      "path":  "scripts/estimate_revenue.py",
+                      "sha256":  "71be94103ad280528e068e5b79761e4180921415b18c8f778612dbc91b3292d7",
+                      "size":  4827
+                  },
+                  {
+                      "path":  "scripts/generate_pdf_report.py",
+                      "sha256":  "eb058a09c273ed7da989493807f3af2eb5d469ff5cd51db3e797cd5a78e3e335",
+                      "size":  6830
+                  },
+                  {
+                      "path":  "scripts/google_trends.py",
+                      "sha256":  "a7ee87397aec2f8c28744281971623d3601df2182e13170d459f3b9a4b08531b",
+                      "size":  3820
+                  },
+                  {
+                      "path":  "scripts/healthcheck.ps1",
+                      "sha256":  "5d0cfaa83bc259c21279595abdda0964423ce1e1bf2b9c13d22700a29c823099",
+                      "size":  3116
+                  },
+                  {
+                      "path":  "scripts/reddit_scraper.py",
+                      "sha256":  "515db0ae47bff6c6baaf2d70ae345da0f216c6954a3dc8563bae0b95607a055b",
+                      "size":  6913
+                  },
+                  {
+                      "path":  "scripts/roi_calculator.py",
+                      "sha256":  "ae7a88cd7ae2a9527b20ff623c30c2a69b05e26cda70e335d783e03d992181af",
+                      "size":  5138
+                  },
+                  {
+                      "path":  "scripts/social_calendar.py",
+                      "sha256":  "2aa7447aa44854fe031ba2d07435f36d20b462094ef93b2619270c83ebf03250",
+                      "size":  4865
+                  },
+                  {
+                      "path":  "scripts/test_mvp_compatibility.ps1",
+                      "sha256":  "91e252baa38019f0db211e6893444ec160b3b343608deecc1b9cf86de5ae97e2",
+                      "size":  9820
+                  },
+                  {
+                      "path":  "SKILLS.md",
+                      "sha256":  "c7e83aaa7dac3d90e744d2508d2794dd6719b999fb2958b3e87878e08b91c42e",
+                      "size":  6551
+                  },
+                  {
+                      "path":  "skills/ad-creative/agents/openai.yaml",
+                      "sha256":  "213897d139d78c16082e703d252a5c8a784f496df73f396f424ca8646f6c5ee0",
+                      "size":  253
+                  },
+                  {
+                      "path":  "skills/ad-creative/SKILL.md",
+                      "sha256":  "f64086565869f98e555b2aadd2338737265e70704a79281fd3645ed575469b76",
+                      "size":  2196
+                  },
+                  {
+                      "path":  "skills/ads/agents/openai.yaml",
+                      "sha256":  "8ec16e8891c4777376ac601e27b3c6d695371aeeb5022d6c5e28f401ad25600e",
+                      "size":  230
+                  },
+                  {
+                      "path":  "skills/ads/SKILL.md",
+                      "sha256":  "9499fbf15a4b20e22675796878343e120f9305ff0c7722a1c59da1a1d05c060e",
+                      "size":  2652
+                  },
+                  {
+                      "path":  "skills/ai-seo/agents/openai.yaml",
+                      "sha256":  "62a71e6464bbf088f5b97be203720c454116a1e58ca16f22bd4e8a35cc89f9d4",
+                      "size":  237
+                  },
+                  {
+                      "path":  "skills/ai-seo/SKILL.md",
+                      "sha256":  "3260bced0c970791e7f9174e88f2d0283b3525ebc293288a146d183aee54d38e",
+                      "size":  3310
+                  },
+                  {
+                      "path":  "skills/analytics/agents/openai.yaml",
+                      "sha256":  "c48d50df46f8a6ad018277e09c331d1cce261a72988ff32d5bf60f79ee19322e",
+                      "size":  241
+                  },
+                  {
+                      "path":  "skills/analytics/SKILL.md",
+                      "sha256":  "f2d21c24db9d8435fccf5a7b8287518a7d96788d9b20e4fffd460b49e17d1897",
+                      "size":  2484
+                  },
+                  {
+                      "path":  "skills/aso/agents/openai.yaml",
+                      "sha256":  "b8e6d5cdc1ddd958d71187a3030b3c5b20287d8c08c189c214feb6de9f7078d2",
+                      "size":  235
+                  },
+                  {
+                      "path":  "skills/aso/SKILL.md",
+                      "sha256":  "4194a91006da62baf56290ade18db119571dd17fe6ea96c215024bfb955aebaa",
+                      "size":  2828
+                  },
+                  {
+                      "path":  "skills/churn-prevention/agents/openai.yaml",
+                      "sha256":  "252cccc26eb5a1bc0d0a1c43caebe6d5ced157d766b7e864e72327ea50dad328",
+                      "size":  261
+                  },
+                  {
+                      "path":  "skills/churn-prevention/SKILL.md",
+                      "sha256":  "fc8e529ed6012fb9e5deef866673c79a1f73b99a2bdd212c24e01ba62b2dda42",
+                      "size":  2423
+                  },
+                  {
+                      "path":  "skills/cold-email/agents/openai.yaml",
+                      "sha256":  "641f0724e81e33e32c01fab6d35dd677477dc23f77ad4afabedf280e036ba139",
+                      "size":  243
+                  },
+                  {
+                      "path":  "skills/cold-email/SKILL.md",
+                      "sha256":  "a42e04aef0a13ba1dd948781112ead4a23f5184c22b15853a56d03afef8c1e65",
+                      "size":  2550
+                  },
+                  {
+                      "path":  "skills/community-marketing/agents/openai.yaml",
+                      "sha256":  "7b0233d7a751ca9d24546595caddc88f1d15a837a65ec67402a14973373d0a35",
+                      "size":  267
+                  },
+                  {
+                      "path":  "skills/community-marketing/SKILL.md",
+                      "sha256":  "03dde7683d9866a3bf6d097058ba83ab7840c5e6bed0ac9f155814a77e3e6f09",
+                      "size":  2281
+                  },
+                  {
+                      "path":  "skills/competitor-profiling/agents/openai.yaml",
+                      "sha256":  "0c280aa153fee1bb11950bbf75ca9512c3214dded3d5de843a0c21f719291162",
+                      "size":  265
+                  },
+                  {
+                      "path":  "skills/competitor-profiling/SKILL.md",
+                      "sha256":  "d8b5154cdf1859a2c45fbbc3a9562c5ec5a618d258daf283349c486343f5950f",
+                      "size":  2693
+                  },
+                  {
+                      "path":  "skills/content-strategy/agents/openai.yaml",
+                      "sha256":  "b94cab21c86b42d8ba25e3f7f07e4286878f16f0f2c125b1fdac881733ee8ff7",
+                      "size":  262
+                  },
+                  {
+                      "path":  "skills/content-strategy/SKILL.md",
+                      "sha256":  "4bbde6b33ad596fe4e5c16b7098adeed209d23c385eda3a9d55721f440cc4169",
+                      "size":  2510
+                  },
+                  {
+                      "path":  "skills/copy-editing/agents/openai.yaml",
+                      "sha256":  "1f2689c522de3d9fe866fa28cb54bd8038bf3b5061fe42227ddb52f996e3f525",
+                      "size":  255
+                  },
+                  {
+                      "path":  "skills/copy-editing/SKILL.md",
+                      "sha256":  "2b7d79a99527ad988792c0bcb51a1ef1578acae426321178d0401725fe267b7f",
+                      "size":  2088
+                  },
+                  {
+                      "path":  "skills/copywriting/agents/openai.yaml",
+                      "sha256":  "e9b25f30120c9a54c341b63ff4e444321c7925eddf771038a9b4ab2eb47838f7",
+                      "size":  247
+                  },
+                  {
+                      "path":  "skills/copywriting/SKILL.md",
+                      "sha256":  "1ad3d7e5d84103d7ac86571de9d13246f76f39da4d525606e88d22caa674705e",
+                      "size":  2419
+                  },
+                  {
+                      "path":  "skills/customer-research/agents/openai.yaml",
+                      "sha256":  "6d5962e05d6f7d74eb46169be83700600411284bfedc20cfbef81ca2796e8110",
+                      "size":  260
+                  },
+                  {
+                      "path":  "skills/customer-research/SKILL.md",
+                      "sha256":  "d09a1d42f2d944cdc7613ff2488d3c4214b42bfa3bec6ea40c8dd483acef4bf1",
+                      "size":  2767
+                  },
+                  {
+                      "path":  "skills/directory-submissions/agents/openai.yaml",
+                      "sha256":  "6e06a52c117e5b5274bfd43550a286a1cdf479b16eb4f2890902cf5e6aea9ad9",
+                      "size":  267
+                  },
+                  {
+                      "path":  "skills/directory-submissions/SKILL.md",
+                      "sha256":  "5bf9ab88bd6ad46281f73d27c638412e66173838036bedc6c0a67c69a6e6e573",
+                      "size":  2512
+                  },
+                  {
+                      "path":  "skills/emails/agents/openai.yaml",
+                      "sha256":  "f5c828a25aed4d7cf35f8ea38d1ada0b88d592404b65475212968d588d721709",
+                      "size":  239
+                  },
+                  {
+                      "path":  "skills/emails/SKILL.md",
+                      "sha256":  "55b72c479d658e80878933cec862f850fda2d39719d2c50bd5fa9b4fd9c318ce",
+                      "size":  1885
+                  },
+                  {
+                      "path":  "skills/image/agents/openai.yaml",
+                      "sha256":  "8ec8461d1631220fb00202c404896b5dfc0b384728b0d3f31f9ce3b63528880b",
+                      "size":  297
+                  },
+                  {
+                      "path":  "skills/image/SKILL.md",
+                      "sha256":  "63620e3c5fec3bea80f373d62bbb2aff445da011a88f4d794a2465c4cfdc8d95",
+                      "size":  3206
+                  },
+                  {
+                      "path":  "skills/launch/agents/openai.yaml",
+                      "sha256":  "17fdc8d6c3424a5944b9034a42a4f8c13b4146288705d99267b482f60bfc4b48",
+                      "size":  233
+                  },
+                  {
+                      "path":  "skills/launch/SKILL.md",
+                      "sha256":  "b09693abd8d9d29c104041514639a6233289cf25b83330e6ec38a3d2c5eed93d",
+                      "size":  2174
+                  },
+                  {
+                      "path":  "skills/market-ads/agents/openai.yaml",
+                      "sha256":  "7d0991c7fce18bb50674e2c818852e0f71bfa7600197b2a09dcf2758e96a48d8",
+                      "size":  245
+                  },
+                  {
+                      "path":  "skills/market-ads/SKILL.md",
+                      "sha256":  "e80176f4f13f027455df54a60eeb44a3e465d822eb46331bb6016187973e91cf",
+                      "size":  3724
+                  },
+                  {
+                      "path":  "skills/market-brand/agents/openai.yaml",
+                      "sha256":  "aff541692015e45e82ff25327297127641702a31f448031f350d16cc906a764c",
+                      "size":  240
+                  },
+                  {
+                      "path":  "skills/market-brand/SKILL.md",
+                      "sha256":  "7db5521db16fe2108ab1c637b6c63f0f7f16c0394a506eb8780e0cd70188aec5",
+                      "size":  3772
+                  },
+                  {
+                      "path":  "skills/market-competitors/agents/openai.yaml",
+                      "sha256":  "ecaf507ee7757535b272bdffb3f800e2742c46b3a0758d9d1db3abac6a2c4589",
+                      "size":  259
+                  },
+                  {
+                      "path":  "skills/market-competitors/SKILL.md",
+                      "sha256":  "27c606562b297bbf522a373f3c7e26eb95f957e8458dd6e3a4bbf04b68c66a4f",
+                      "size":  4230
+                  },
+                  {
+                      "path":  "skills/market-funnel/agents/openai.yaml",
+                      "sha256":  "2b76db7e6d3433a893c9f4f6afd76979ea56b09175ffadf3abd155caa7c4d84d",
+                      "size":  248
+                  },
+                  {
+                      "path":  "skills/market-funnel/SKILL.md",
+                      "sha256":  "318b2ed60d3a87ef407f68335c18f3445ce07ac6d3bb266e46c31378689e5b80",
+                      "size":  2875
+                  },
+                  {
+                      "path":  "skills/marketing-ideas/agents/openai.yaml",
+                      "sha256":  "7a3acde72d97d911b6a773334b88a81550a5b43cb566fc61968de230909c3138",
+                      "size":  255
+                  },
+                  {
+                      "path":  "skills/marketing-ideas/SKILL.md",
+                      "sha256":  "a33b0624323e58b12d33ff3624ef67d63fa02a4fe5505893b9a44ffd3a83a42f",
+                      "size":  2317
+                  },
+                  {
+                      "path":  "skills/marketing-plan/agents/openai.yaml",
+                      "sha256":  "42ba43a07d2c327dc8f8a143e81631d9b33e80663a8bf19b2550b2d8f51719c1",
+                      "size":  252
+                  },
+                  {
+                      "path":  "skills/marketing-plan/SKILL.md",
+                      "sha256":  "c835929b5e42b44b674d6ebd0842610029318e6e26cda056c0a68ab23484cfde",
+                      "size":  3300
+                  },
+                  {
+                      "path":  "skills/marketing-psychology/agents/openai.yaml",
+                      "sha256":  "7e2c48b59f5cacdcbf976ae69ca72f12a6a5c71931326dc16635ffed60678ef0",
+                      "size":  266
+                  },
+                  {
+                      "path":  "skills/marketing-psychology/SKILL.md",
+                      "sha256":  "af5810032e28e71bc4c2740464bff96dc545e6874e4b06a52eb3ed20bcd11cdf",
+                      "size":  2847
+                  },
+                  {
+                      "path":  "skills/market-proposal/agents/openai.yaml",
+                      "sha256":  "da72fa57ac673ffe4cb924381e9884437aa7a8a7e4ffd299869dd05bbff971b3",
+                      "size":  256
+                  },
+                  {
+                      "path":  "skills/market-proposal/SKILL.md",
+                      "sha256":  "1d2b0f580c63e724b95535bd11d65684d2e92942a7e25b19cd572984ba155476",
+                      "size":  3073
+                  },
+                  {
+                      "path":  "skills/market-report/agents/openai.yaml",
+                      "sha256":  "67ad9b88627df812e55b85772eed9c79ebe8aa0c25fbc3760d43bc400b992fa4",
+                      "size":  250
+                  },
+                  {
+                      "path":  "skills/market-report/SKILL.md",
+                      "sha256":  "9ec6168ad06cbff11b9dfcd8a81a966088337322225894bb0f7e156f03dde8b5",
+                      "size":  4296
+                  },
+                  {
+                      "path":  "skills/market-report-pdf/agents/openai.yaml",
+                      "sha256":  "45114f246b48f6746abe2688ae6a9baf6d1a4fc4ec93796fcc48936218578714",
+                      "size":  264
+                  },
+                  {
+                      "path":  "skills/market-report-pdf/SKILL.md",
+                      "sha256":  "17db34eff7fc1d38dd1b65b5c392455c19edb175aefe08c954cc62f1ddc3a4f9",
+                      "size":  3134
+                  },
+                  {
+                      "path":  "skills/paywalls/agents/openai.yaml",
+                      "sha256":  "efdea531f630954815b458c126c2663e87cbc6c5f9928f7820c2489f13ffa9c6",
+                      "size":  245
+                  },
+                  {
+                      "path":  "skills/paywalls/SKILL.md",
+                      "sha256":  "d02be8c8da3769273bdabf08473ccd3cbd6658eb098393951d47d0b936cea968",
+                      "size":  1664
+                  },
+                  {
+                      "path":  "skills/pricing/agents/openai.yaml",
+                      "sha256":  "48e2e78225b0f74e6230d4a988114f44078f896e67812af91ada934f72875b5c",
+                      "size":  242
+                  },
+                  {
+                      "path":  "skills/pricing/SKILL.md",
+                      "sha256":  "ced3295b56edd5364f5dde53051b2a47ca1709ed06b1b918442b5fe46f680730",
+                      "size":  2685
+                  },
+                  {
+                      "path":  "skills/product-marketing/agents/openai.yaml",
+                      "sha256":  "5e00c4be0de095c6e9a6b1142deea3523fbfae8b75b7ab46df5c709a16fd62d3",
+                      "size":  254
+                  },
+                  {
+                      "path":  "skills/product-marketing/SKILL.md",
+                      "sha256":  "9df3acb39ad9869fc60133e7388cde8dfc44407e47d6a8451a87ec3612c30ce6",
+                      "size":  2117
+                  },
+                  {
+                      "path":  "skills/prospecting/agents/openai.yaml",
+                      "sha256":  "be7557b019a01e11cd7b25adb9faae9af7ca52ee3411c088e26af1e53833288d",
+                      "size":  248
+                  },
+                  {
+                      "path":  "skills/prospecting/SKILL.md",
+                      "sha256":  "4c770f9bb7060bcaab1754112398772480fe7a9be7ca56f44d9b5dc5ce3bd534",
+                      "size":  2504
+                  },
+                  {
+                      "path":  "skills/referrals/agents/openai.yaml",
+                      "sha256":  "72f42761f05e88b973f868212a6277a8c3c2f4275f514e41164c2e45844771fd",
+                      "size":  244
+                  },
+                  {
+                      "path":  "skills/referrals/SKILL.md",
+                      "sha256":  "28209132d33a06d0883cf01061b4dddd435b091a2a0249945f728406aef5e451",
+                      "size":  1958
+                  },
+                  {
+                      "path":  "skills/seo-audit/agents/openai.yaml",
+                      "sha256":  "d9932354a616edc03a05a397dc45d5cb3cd66086809d14f5cfe28884c6375b8f",
+                      "size":  239
+                  },
+                  {
+                      "path":  "skills/seo-audit/SKILL.md",
+                      "sha256":  "9f4c2ca8bff985c0ce03033ab37fc763cfdcc4e507f97e09aeb192a1719866fe",
+                      "size":  2656
+                  },
+                  {
+                      "path":  "skills/social/agents/openai.yaml",
+                      "sha256":  "ca22b7904834fb41a0ea417ae7ffb16af2d2d4b10a5ce3120b805872263a83bb",
+                      "size":  284
+                  },
+                  {
+                      "path":  "skills/social/SKILL.md",
+                      "sha256":  "2f9dfc184272599670eedb17928caa419507e5a2b59f3f76effec907088ca265",
+                      "size":  4543
+                  },
+                  {
+                      "path":  "skills/video/agents/openai.yaml",
+                      "sha256":  "2f12213c9dbd7c198ffa209bc8908f696cfdad85fe241417182b7c4e792e2ece",
+                      "size":  231
+                  },
+                  {
+                      "path":  "skills/video/SKILL.md",
+                      "sha256":  "4fa2223e6cbb03a57fb24059773ea527de7341e86912d4a6a049ffe95aab27df",
+                      "size":  1772
+                  },
+                  {
+                      "path":  "skills/web-research/agents/openai.yaml",
+                      "sha256":  "61bf2fdc690bb4f60e02f997c65a41e7a3ef8adbb5b6a8fc76e5bc0de352d87b",
+                      "size":  245
+                  },
+                  {
+                      "path":  "skills/web-research/SKILL.md",
+                      "sha256":  "c0ee2050914da58289622ace285cfac4f408970471f5d01309fd3b96c55f2906",
+                      "size":  3193
+                  },
+                  {
+                      "path":  "templates/content-calendar.md",
+                      "sha256":  "a91bc7d1c52be37910a96cfe925c4b2f77c0455ff81db45ca33b021f7cf62bca",
+                      "size":  1753
+                  },
+                  {
+                      "path":  "templates/email-launch.md",
+                      "sha256":  "a1c0b0aee0989f5d62cd52e7f24b5eb527280cb93c113c1966c36857a33ef31d",
+                      "size":  2105
+                  },
+                  {
+                      "path":  "templates/email-nurture.md",
+                      "sha256":  "88cc1da6e1fb8d088b3d39db29375ec2330bd0261f87cbfa82f1af1766651437",
+                      "size":  2229
+                  },
+                  {
+                      "path":  "templates/email-welcome.md",
+                      "sha256":  "c63f65feb0944ab6382b4666e7a31c51b867d7ea87ae0b0119a18573942dec7d",
+                      "size":  2529
+                  },
+                  {
+                      "path":  "templates/launch-checklist.md",
+                      "sha256":  "1722b4e9aab9d23054ab9f2b256a2037c96015e611e9e69d43a75606d9af2ace",
+                      "size":  3139
+                  },
+                  {
+                      "path":  "templates/proposal-template.md",
+                      "sha256":  "bec9fea972706f09966a14430169db61640d9dae42aec6ec8405e59b2d34ba8e",
+                      "size":  2546
+                  }
+              ]
+}

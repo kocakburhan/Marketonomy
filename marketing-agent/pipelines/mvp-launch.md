@@ -2,11 +2,15 @@
 
 **Zincirdeki yeri:** Zincir A ve B (P1/P5'ten sonra, coder MVP'yi teslim edince).
 
-**Ne zaman çalışır:** Coder MVP'yi teslim ettiğinde, kullanıcı "MVP hazır" dediğinde.
+**Ne zaman çalışır:** Coder MVP'yi teslim ettiğinde, kullanıcı "MVP hazır" dediğinde veya
+B2B/B2C dijital, fiziksel ya da hibrit bir teklif ilk kez pazara çıkarılacak hale geldiğinde.
 
-**Amaç:** MVP'yi pazarlamak için strateji, içerik, reklam ve lansman planı oluşturmak.
+**Amaç:** MVP'yi, fiziksel ürünü, hizmet teklifini veya B2B satış paketini pazarlamak için
+strateji, içerik, reklam, saha/kanal ve lansman planı oluşturmak.
 
-**Ön koşul:** MVP hazır olmalı (app store'da yayında veya TestFlight'ta, ya da web app URL'si var). `product-context.md` ve `prd-v1.md` mevcut olmalı.
+**Ön koşul:** Pazara çıkarılacak şey hazır olmalı: app/web MVP, fiziksel ürün, pilot hizmet,
+B2B demo/teklif paketi veya etkinlik/aktivasyon planı. `PROJE.md`, ilgili `01-baglam/` dosyaları
+ve varsa `04-urun/prd/` veya teklif/MVP dokümanları mevcut olmalı.
 
 ---
 
@@ -50,9 +54,10 @@ MVP detaylarını alabilir miyim? İhtiyacım olanlar:
 
 ZORUNLU:
 • App/ürün adı
-• App Store / Google Play linki (veya TestFlight / web URL'si)
-• MVP'de hangi özellikler var? (kısaca liste)
-• Hangi özellikler eksik? (ileride eklenecek)
+• Pazara çıkış formatı: app/web, fiziksel ürün, hizmet, B2B demo/teklif, etkinlik veya hibrit
+• Link, satış noktası, lokasyon, demo yolu veya teklif dosyası
+• MVP/teklif kapsamında neler var? (kısaca liste)
+• Hangi özellikler/hizmetler/kapsamlar eksik? (ileride eklenecek)
 
 OPSİYONEL (varsa):
 • Bilinen bug'lar neler?
@@ -62,7 +67,7 @@ OPSİYONEL (varsa):
 
 ### 2.2 — Pazarlama Stratejisi
 **Agent:** Strategy Analyst
-**Girdi:** `prd-v1.md`, `pazara-giris-stratejisi.md` (varsa), MVP detayları
+**Girdi:** `04-urun/prd/ altindaki guncel PRD`, `pazara-giris-stratejisi.md` (varsa), MVP detayları
 
 **Çıktı (`marketing-strategy.md`):**
 ```markdown
@@ -77,6 +82,12 @@ OPSİYONEL (varsa):
 ## Lansman Kanalları (öncelikli)
 1. [kanal] — [neden, hedef]
 2. ...
+
+## Model Uyarlaması
+- Müşteri modeli: [B2B/B2C/Hibrit]
+- Kanal modeli: [Dijital/Fiziksel/Hibrit]
+- Satış hareketi:
+- Gerekli saha/dijital destek:
 
 ## Lansman Zamanlaması
 - D-14: ...
@@ -108,6 +119,8 @@ OPSİYONEL (varsa):
 - Landing page kopyası (varsa web sitesi)
 - Sosyal medya lansman post'ları
 - Tanıtım videosu senaryosu (video skill)
+- Fiziksel ürün/hizmet ise afiş, broşür, QR/kupon ve saha script'i
+- B2B ise demo daveti, toplantı mesajı, teklif özeti ve LinkedIn/email içerikleri
 
 **Çıktılar:**
 - `content-calendar.md`
@@ -120,6 +133,8 @@ OPSİYONEL (varsa):
 **Çıktılar:**
 - `ad-campaigns.md` — platform seçimi, bütçe, kampanya yapısı
 - `ad-creatives.md` — 3+ varyant (her platform için)
+- B2B ise `b2b-talep-yaratma-plani.md`
+- Fiziksel/hibrid ise `fiziksel-b2c-kampanya-plani.md` veya saha destek kampanyası
 
 ### 2.5 — Lansman Planı ve Checklist
 **Agent:** Launch Commander
@@ -171,9 +186,23 @@ Lansman günü adım adım yapılacakları kullanıcıya iletir.
 | `ad-creatives.md` | Campaign Manager |
 | `launch-plan.md` | Launch Commander |
 | `launch-checklist.md` | Launch Commander |
+| Fiziksel/B2B destek materyalleri | İlgili uzmanlar |
 
 ---
 
 ## Sonraki Pipeline
 
 Lansmandan 2-4 hafta sonra → **Pipeline 3 (Feedback ve İyileştirme)** başlar. Veya kullanıcı "feedback toplamaya başlayalım" dediğinde.
+
+## PersonalAutonomy Yurutme Kurallari
+
+- Ana cikti alanlari: 07-lansman/ ve ilgili 06-pazarlama-uygulamalari/ klasorleri
+- Pipeline kendi proje veya durum klasorunu olusturmaz. Aktif adimi DURUM.md ve ilgili
+  .pa/*/active-task.md dosyasinda tutar.
+- Degerlendirme workspace'inde proje-only adimlari uygulamaz; olumlu sonucu proje olusturma
+  yetkisi olarak yorumlamaz.
+- Projede PROJE.md, ilgili 01-baglam/ dosyalari ve KARARLAR.md on kosuldur.
+- Guncel veri gerektiren iddialari kaynak ve erisim tarihiyle kaydeder; veri yoksa varsayimi
+  acikca etiketler.
+- Karar kapilarinda kullanicidan acik onay alir. Dosya uretmek haftalik gorevi tamamlamaz.
+- Onayli final kopyalari 10-final/ altina alir ve calisma kaynagini yerinde korur.

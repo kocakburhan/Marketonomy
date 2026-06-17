@@ -1,0 +1,254 @@
+param(
+    [string]$AgentRoot = (Split-Path -Parent $PSScriptRoot),
+    [switch]$SkipManifest
+)
+
+$ErrorActionPreference = "Stop"
+$failures = [System.Collections.Generic.List[string]]::new()
+
+function Add-Failure([string]$Message) {
+    $failures.Add($Message)
+    Write-Output "FAIL: $Message"
+}
+
+function Assert-Path([string]$RelativePath) {
+    if (-not (Test-Path -LiteralPath (Join-Path $AgentRoot $RelativePath))) {
+        Add-Failure "Zorunlu release ogesi eksik: $RelativePath"
+    }
+}
+
+function Read-Utf8([string]$Path) {
+    return [System.IO.File]::ReadAllText($Path, [System.Text.UTF8Encoding]::new($false))
+}
+
+$required = @(
+    "AGENTS.md", "ARCHITECTURE.md", "SKILLS.md", "agents", "pipelines", "skills",
+    "scripts", "templates", "mcps.json", "agent-version.json", "release-manifest.json"
+)
+$required | ForEach-Object { Assert-Path $_ }
+
+$scanFiles = Get-ChildItem -LiteralPath $AgentRoot -Recurse -File | Where-Object {
+    $_.FullName -notmatch "[\\/]vendor[\\/]" -and
+    $_.FullName -notmatch "[\\/]node_modules[\\/]" -and
+    $_.Extension -in @(".md", ".json", ".ps1", ".py", ".yaml") -and
+    $_.Name -ne "test_mvp_compatibility.ps1"
+}
+
+foreach ($file in $scanFiles) {
+    $content = Read-Utf8 $file.FullName
+    if ($content.IndexOf([char]0) -ge 0) {
+        Add-Failure "NUL kontrol karakteri bulundu: $($file.FullName.Substring($AgentRoot.Length + 1))"
+    }
+}
+
+$forbiddenPatterns = [ordered]@{
+    "OpenCode runtime referansi" = "(?i)opencode"
+    "Eski sessions hafiza modeli" = "(?i)(sessions/|sessions\\|sessions\[|sessions<|sessions/)"
+    "Eski state.md modeli" = "(?i)(?<!active-)state\.md"
+    "Webwright runtime bagimliligi" = "(?i)webwright"
+    "Puppeteer runtime bagimliligi" = "(?i)puppeteer"
+    "WebFetch runtime bagimliligi" = "(?i)webfetch"
+    "Sahte Codex browser tool adi" = "(?i)codex browser tools"
+    "Sahte slash tool komutu" = "(?i)/(codex|webwright|browser):"
+    "Eski product-marketing context dili" = "(?i)product-marketing context"
+    "Desteklenmeyen repo skill yolu" = "(?i)\.agents/skills"
+    "Mekanik placeholder cikti yolu" = "(?i)workspace icindeki uygun MVP"
+}
+
+foreach ($entry in $forbiddenPatterns.GetEnumerator()) {
+    $hits = foreach ($file in $scanFiles) {
+        $content = Read-Utf8 $file.FullName
+        if ($content -match $entry.Value) { $file.FullName.Substring($AgentRoot.Length + 1) }
+    }
+    if ($hits) {
+        Add-Failure "$($entry.Key): $($hits -join ', ')"
+    }
+}
+
+$agentsText = Read-Utf8 (Join-Path $AgentRoot "AGENTS.md")
+foreach ($requiredText in @(
+    "DEGERLENDIRME.md",
+    "PROJE.md",
+    ".pa/evaluation/state.json",
+    ".pa/project/state.json",
+    "Europe/Istanbul",
+    "05-haftalik-planlar",
+    "10-final",
+    "workspace kokunun disina",
+    "Codex Research ve Veri Isleme Standardi",
+    "Kaynak ve Kanit Defteri",
+    "Veri Isleme Notlari"
+)) {
+    if ($agentsText -notmatch [regex]::Escape($requiredText)) {
+        Add-Failure "AGENTS.md zorunlu MVP kurali icermiyor: $requiredText"
+    }
+}
+
+$skillFiles = Get-ChildItem -LiteralPath (Join-Path $AgentRoot "skills") -Directory |
+    ForEach-Object { Join-Path $_.FullName "SKILL.md" }
+
+if ($skillFiles.Count -ne 36) {
+    Add-Failure "Beklenen yerel skill sayisi 36, bulunan: $($skillFiles.Count)"
+}
+
+foreach ($skillFile in $skillFiles) {
+    $relative = $skillFile.Substring($AgentRoot.Length + 1)
+    if (-not (Test-Path -LiteralPath $skillFile)) {
+        Add-Failure "Skill giris dosyasi eksik: $relative"
+        continue
+    }
+
+    $content = Read-Utf8 $skillFile
+    if ($content -notmatch "(?s)\A---\r?\nname:\s*[^\r\n]+\r?\ndescription:\s*[^\r\n]+\r?\n---\r?\n") {
+        Add-Failure "Codex frontmatter gecersiz veya yalnizca name/description icermiyor: $relative"
+    }
+
+    $metadataPath = Join-Path (Split-Path -Parent $skillFile) "agents\openai.yaml"
+    if (-not (Test-Path -LiteralPath $metadataPath)) {
+        Add-Failure "Skill UI metadata eksik: $($metadataPath.Substring($AgentRoot.Length + 1))"
+    } else {
+        $metadata = Read-Utf8 $metadataPath
+        $skillName = (Split-Path -Leaf (Split-Path -Parent $skillFile))
+        $shortMatch = [regex]::Match($metadata, 'short_description:\s*"([^"]+)"')
+        if (-not $shortMatch.Success) {
+            Add-Failure "Skill UI short_description eksik: $($metadataPath.Substring($AgentRoot.Length + 1))"
+        } elseif ($shortMatch.Groups[1].Value.Length -lt 25 -or $shortMatch.Groups[1].Value.Length -gt 64) {
+            Add-Failure "Skill UI short_description 25-64 karakter olmali: $skillName"
+        }
+
+        $promptMatch = [regex]::Match($metadata, 'default_prompt:\s*"([^"]+)"')
+        if (-not $promptMatch.Success) {
+            Add-Failure "Skill UI default_prompt eksik: $($metadataPath.Substring($AgentRoot.Length + 1))"
+        } elseif ($promptMatch.Groups[1].Value -notmatch "Codex'te") {
+            Add-Failure "Skill UI default_prompt Codex baglami icermiyor: $skillName"
+        } elseif ($promptMatch.Groups[1].Value -notmatch [regex]::Escape("`$$skillName")) {
+            Add-Failure "Skill UI default_prompt `$skillName referansi icermiyor: $skillName"
+        }
+    }
+}
+
+foreach ($agentName in @(
+    "analytics-master.md", "brand-guardian.md", "campaign-manager.md", "content-creator.md",
+    "growth-hacker.md", "launch-commander.md", "market-scout.md", "outreach-specialist.md",
+    "product-architect.md", "strategy-analyst.md"
+)) {
+    $path = Join-Path $AgentRoot "agents\$agentName"
+    if ((Read-Utf8 $path) -notmatch "PersonalAutonomy Workspace Sozlesmesi") {
+        Add-Failure "Uzman workspace sozlesmesi eksik: agents/$agentName"
+    }
+}
+
+$imageFlowRequirements = @(
+    @{
+        Path = "skills\social\SKILL.md"
+        Terms = @("Codex Image Generation Zorunlulugu", "Codex icindeki aktif image generation akisini kullanarak gorseli uret", "Gorsel Dosyasi")
+    },
+    @{
+        Path = "skills\image\SKILL.md"
+        Terms = @("Codex Image Generation Akisi", "briefte kalma", "Codex image generation akisini kullanarak gorseli uret")
+    },
+    @{
+        Path = "agents\content-creator.md"
+        Terms = @("Codex Image Generation Kurali", "kapsamli promptu otomatik yaz", "gorsel dosya yolunu ekle")
+    }
+)
+
+foreach ($requirement in $imageFlowRequirements) {
+    $path = Join-Path $AgentRoot $requirement.Path
+    $text = Read-Utf8 $path
+    foreach ($term in $requirement.Terms) {
+        if ($text -notmatch [regex]::Escape($term)) {
+            Add-Failure "Codex image generation akisi eksik: $($requirement.Path) -> $term"
+        }
+    }
+}
+
+foreach ($pipeline in Get-ChildItem -LiteralPath (Join-Path $AgentRoot "pipelines") -Filter *.md) {
+    if ((Read-Utf8 $pipeline.FullName) -notmatch "PersonalAutonomy Yurutme Kurallari") {
+        Add-Failure "Pipeline MVP yurutme kurali eksik: pipelines/$($pipeline.Name)"
+    }
+}
+
+$researchContracts = @(
+    @{
+        Path = "agents\orchestrator.md"
+        Terms = @("Codex Research Kapisi", "Kaynak ve Kanit Defteri", "Veri Isleme Notlari")
+    },
+    @{
+        Path = "agents\market-scout.md"
+        Terms = @("Codex Research Protokolu", "Ham yorum", "Veri Isleme Notlari")
+    },
+    @{
+        Path = "agents\analytics-master.md"
+        Terms = @("Codex Veri Isleme Protokolu", "Ham veriyi koru", "formulu")
+    },
+    @{
+        Path = "skills\web-research\SKILL.md"
+        Terms = @("research omurgasidir", "Kaynak ve Kanit Defteri", "Veri Isleme Notlari")
+    },
+    @{
+        Path = "skills\competitor-profiling\SKILL.md"
+        Terms = @("Codex Kanit ve Veri Kurali", "Tahmin", "Kaynak ve Kanit Defteri")
+    },
+    @{
+        Path = "skills\market-competitors\SKILL.md"
+        Terms = @("Codex Kanit Matrisi", "Veri yok", "Kaynak ve Kanit Defteri")
+    },
+    @{
+        Path = "skills\market-report\SKILL.md"
+        Terms = @("Kanit Defteri ve Veri Ayrimi", "Revenue impact", "Veri Isleme Notlari")
+    },
+    @{
+        Path = "skills\seo-audit\SKILL.md"
+        Terms = @("Codex Kanit Kurali", "Kontrol gerekli", "Kaynak ve Kanit Defteri")
+    },
+    @{
+        Path = "skills\aso\SKILL.md"
+        Terms = @("Codex ve MCP Kullanimi", "ulke/market parametresini", "Ham yorum")
+    },
+    @{
+        Path = "skills\ai-seo\SKILL.md"
+        Terms = @("Codex Arastirma Kurali", "runtime talimati degildir", "Olcum yok")
+    }
+)
+
+foreach ($contract in $researchContracts) {
+    $path = Join-Path $AgentRoot $contract.Path
+    $text = Read-Utf8 $path
+    foreach ($term in $contract.Terms) {
+        if ($text -notmatch [regex]::Escape($term)) {
+            Add-Failure "Codex research/veri sozlesmesi eksik: $($contract.Path) -> $term"
+        }
+    }
+}
+
+foreach ($jsonName in @("mcps.json", "agent-version.json", "release-manifest.json")) {
+    $jsonPath = Join-Path $AgentRoot $jsonName
+    if (Test-Path -LiteralPath $jsonPath) {
+        try { Read-Utf8 $jsonPath | ConvertFrom-Json | Out-Null }
+        catch { Add-Failure "Gecersiz JSON: $jsonName - $($_.Exception.Message)" }
+    }
+}
+
+if (-not $SkipManifest -and (Test-Path -LiteralPath (Join-Path $AgentRoot "release-manifest.json"))) {
+    $manifest = Read-Utf8 (Join-Path $AgentRoot "release-manifest.json") | ConvertFrom-Json
+    foreach ($item in $manifest.files) {
+        $path = Join-Path $AgentRoot $item.path
+        if (-not (Test-Path -LiteralPath $path)) {
+            Add-Failure "Manifest dosyasi bulunamadi: $($item.path)"
+            continue
+        }
+        $actual = (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant()
+        if ($actual -ne $item.sha256) {
+            Add-Failure "Manifest hash uyusmazligi: $($item.path)"
+        }
+    }
+}
+
+if ($failures.Count -gt 0) {
+    Write-Output "SONUC: $($failures.Count) uyumluluk hatasi bulundu."
+    exit 1
+}
+
+Write-Output "SONUC: Marketing Agent Codex ve PersonalAutonomy MVP uyumluluk denetiminden gecti."
+exit 0

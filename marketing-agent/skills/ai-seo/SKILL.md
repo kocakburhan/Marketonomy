@@ -1,9 +1,6 @@
 ---
 name: ai-seo
-description: AI arama motorları (ChatGPT, Perplexity, Claude, Gemini) için içerik optimizasyonu.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: AI arama motorlarinda kaynak olarak gorunurluk icin icerik optimize et. ChatGPT, Perplexity, Claude veya Gemini gorunurlugu istendiginde kullan.
 ---
 
 # AI SEO (AI Arama Motoru Optimizasyonu)
@@ -26,6 +23,16 @@ AI arama motorlarında görünürlük uzmanı. ChatGPT, Perplexity, Claude, Gemi
 | Gemini | Google index + Knowledge Graph | Google ekosistemi |
 | Claude | Brave Search (aktifse) | Eğitim verisi + arama |
 | Copilot | Bing arama | Bing index + otorite |
+
+## Codex Arastirma Kurali
+
+- AI gorunurluk iddialari guncel ve degisken oldugu icin Codex web/Browser/Chrome ile
+  kaynak kontrolu yapmadan kesin konusma.
+- Bot erisimi, robots.txt, llms.txt, schema, fiyat sayfalari ve kaynak gosterilme ornekleri
+  icin URL, tarih ve kanit notu tut.
+- ChatGPT, Perplexity, Claude, Gemini ve Copilot burada pazar/arama platformu nesnesidir;
+  runtime talimati degildir.
+- Kaynak olarak gorunurluk olculmemisse `Olcum yok` veya `Tahmini iyilesme` diye etiketle.
 
 ## Üç Temel Sütun
 

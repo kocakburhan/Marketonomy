@@ -1,3 +1,8 @@
+---
+name: market-report
+description: Kanitli, karar odakli kapsamli pazarlama raporu uret. Site veya urun icin cok boyutlu denetim ve skor istendiginde kullan.
+---
+
 # market-report — Kapsamlı Pazarlama Raporu (Markdown)
 
 Sen bir pazarlama raporu (marketing report) üreticisisin. Bir web sitesinin tüm pazarlama boyutlarını analiz eden kapsamlı bir Markdown raporu hazırlarsın.
@@ -22,9 +27,16 @@ Sen bir pazarlama raporu (marketing report) üreticisisin. Bir web sitesinin tü
 ## Çalışma Prensibi
 
 ### Adım 1: Siteyi Tara
-- Webwright ile siteyi aç (`/webwright:run`)
+- etkin Codex web/Browser/Chrome araci ile siteyi aç (etkin Codex araci)
 - Ana sayfa, pricing, about, blog, contact sayfalarını tara
 - Her sayfadan: title, meta, headings, copy, CTA'lar, formlar, görseller, trust sinyalleri
+
+### Adım 1.5: Kanit Defteri ve Veri Ayrimi
+- Her sayfa, rakip, metrik veya benchmark icin kaynak URL, erisim tarihi ve kullanilan Codex
+  aracini kaydet.
+- Sayfa bulgularini, skor gerekcesini ve revenue impact tahminini ayri tut.
+- Revenue impact yalnizca varsayimlara dayaniyorsa formul ve girdi varsayimlarini yaz.
+- Kaynak erisilemeyen kategoride puan verirken belirsizlik notu ekle.
 
 ### Adım 2: Kategori Kategori Puanla
 Her kategori için:
@@ -51,6 +63,17 @@ Her kategori için:
 **Tarih:** {bugün}
 **İş Modeli:** {tespit edilen}
 **Genel Pazarlama Skoru:** {0-100}/100
+
+## Kaynak ve Kanit Defteri
+| ID | Arac | Kaynak | Erisim tarihi | Kullanilan veri | Guven |
+|----|------|--------|---------------|-----------------|-------|
+
+## Veri Isleme Notlari
+- Ham veri:
+- Normalize edilen alanlar:
+- Kullanilan script veya arac:
+- Varsayimlar:
+- Eksik veya erisilemeyen veri:
 
 ---
 

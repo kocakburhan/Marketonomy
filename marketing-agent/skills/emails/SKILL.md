@@ -1,9 +1,6 @@
 ---
 name: emails
-description: Email dizileri (welcome, nurture, onboarding, re-engagement) tasarımı ve optimizasyonu.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Welcome, nurture, onboarding ve re-engagement email dizileri tasarla. Lifecycle email veya kampanya email'i istendiginde kullan.
 ---
 
 # Email Sequence Tasarımı

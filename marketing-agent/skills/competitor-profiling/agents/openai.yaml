@@ -1,0 +1,4 @@
+interface:
+  display_name: "Competitor Profiling"
+  short_description: "Tek rakip profili ve konum analizi"
+  default_prompt: "Codex'te bu workspace icinde $competitor-profiling skill'ini kullan ve ciktiyi PersonalAutonomy MVP klasor sozlesmesine gore kaydet."

@@ -1,9 +1,6 @@
 ---
 name: product-marketing
-description: Ürün pazarlama bağlamı oluşturma. Tüm diğer marketing skill'leri burayı okur.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Proje urun baglamini, hedef kitleyi, deger onerisini ve konumlandirmayi netlestir. Diger marketing calismalarindan once baglam eksikse kullan.
 ---
 
 # Ürün Pazarlama Bağlamı
@@ -12,7 +9,7 @@ Diğer tüm marketing skill'lerinin temelidir. Kullanıcının ürününü, hede
 
 ## Bağlam Dosyası
 
-Pazarlama bağlamı `marketing-agent/product-context.md` dosyasında saklanır.
+Pazarlama bağlamı `PROJE.md` ve ilgili `01-baglam/` dosyalarinda saklanir.
 
 ## Çalışma Şekli
 
@@ -78,4 +75,4 @@ Pazarlama bağlamı `marketing-agent/product-context.md` dosyasında saklanır.
 
 ## Çıktı
 
-`marketing-agent/product-context.md` dosyasına yukarıdaki formatta kaydet.
+Yukaridaki bilgileri `PROJE.md` ve ilgili `01-baglam/` dosyalarina kaydet.

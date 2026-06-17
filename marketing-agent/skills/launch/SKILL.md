@@ -1,9 +1,6 @@
 ---
 name: launch
-description: Ürün lansman stratejisi — pre-launch, launch day, post-launch momentum.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Pre-launch, launch day ve post-launch plani olustur. Urun, kampanya veya fiziksel isletme lansmani istendiginde kullan.
 ---
 
 # Ürün Lansmanı

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image"
+  short_description: "Codex ile pazarlama gorseli uret"
+  default_prompt: "Codex'te bu workspace icinde $image skill'ini kullan, kapsamli prompt yaz, Codex image generation akisiyle gorsel uret ve ciktiyi PersonalAutonomy MVP klasor sozlesmesine gore kaydet."

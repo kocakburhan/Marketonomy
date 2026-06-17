@@ -1,9 +1,6 @@
 ---
 name: churn-prevention
-description: Müşteri terk önleme — iptal akışı, save offer, ödeme kurtarma, reaktivasyon.
-metadata:
-  version: 2.0.0
-  source: coreyhaines31/marketingskills
+description: Musteri terkini azaltan iptal, save offer, odeme kurtarma ve reaktivasyon akislari tasarla. Churn veya retention sorunu istendiginde kullan.
 ---
 
 # Churn Önleme
