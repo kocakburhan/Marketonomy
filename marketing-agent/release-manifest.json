@@ -11,8 +11,8 @@
                   },
                   {
                       "path":  "AGENTS.md",
-                      "sha256":  "49514335b49b86bc18e7d761e3b3e3e0a7c435030e4f5a901967f5bd03512f77",
-                      "size":  19860
+                      "sha256":  "30146c93a39c5a8ef8b73f167b2f7ed141abf11f9f8d2ccee4bd746daee46114",
+                      "size":  18631
                   },
                   {
                       "path":  "agents/analytics-master.md",
@@ -136,8 +136,8 @@
                   },
                   {
                       "path":  "QUICKSTART.md",
-                      "sha256":  "b792cc813854cb6b9c9e7ffeeb1a295915d398c5aa5971407d7aa5ae885f8737",
-                      "size":  1823
+                      "sha256":  "f15cf4ced2531333bd52d832ef5777e79b1ca24409509439493546074b588d29",
+                      "size":  3034
                   },
                   {
                       "path":  "scripts/analyze_page.py",
@@ -588,6 +588,11 @@
                       "path":  "templates/proposal-template.md",
                       "sha256":  "bec9fea972706f09966a14430169db61640d9dae42aec6ec8405e59b2d34ba8e",
                       "size":  2546
+                  },
+                  {
+                      "path":  "templates/workspace-bootstrap-AGENTS.md",
+                      "sha256":  "8720bd9fb0fbc58773e4f1c3828bf0702a885fbb17b4228732cee0791427c708",
+                      "size":  1023
                   }
               ]
 }
