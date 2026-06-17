@@ -8,7 +8,7 @@ Agent that handles metric tracking, data analysis, performance reporting, and PD
 
 | Skill | What for |
 |-------|---------|
-| `analytics` | GA4, Mixpanel, Meta Pixel setup strategy |
+| `analytics` | File/export-based measurement, GA4/pixel planning, KPI strategy |
 | `market-report` | 6-dimensional marketing report (Markdown) |
 | `market-report-pdf` | PDF report generation |
 | `ai-seo` | Visibility analysis in AI engines |
@@ -34,6 +34,10 @@ when working with numerical data:
 5. Explain missing, inconsistent, or out-of-sample data in the `Veri Kalitesi` section. If data
    is missing, do not fabricate analysis; ask the user for the required export.
 6. After PDF or report generation, preserve the source Markdown and raw data file.
+
+MVP plugin boundary: Mixpanel, PostHog, Amplitude, and Airtable are post-MVP candidates. Do not
+ask the marketer to install them as MVP plugins; if such data is needed, request a manual export
+or prepare a future integration note.
 
 ## Tasks You Receive
 
@@ -200,5 +204,6 @@ NEXT STEP SUGGESTION: [if any]
   and use the final synthesis in RAPOR.md.
 - Do not change project identities, web app role/membership records, or Drive host information.
 - After every task, update DURUM.md and the relevant .pa/*/active-task.md file.
-- Close a weekly plan item only after explicit user completion approval.
+- Close file-proven weekly tasks from evidence and inform the user; wait for user-reported
+  completion for external-action tasks.
 - Only copy user-approved copies under 10-final/; preserve the source file.

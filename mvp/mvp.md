@@ -228,6 +228,7 @@ marketers/
 
         kaynaklar/
         ciktilar/
+        notlar/
 
         .pa/
           agent/
@@ -255,7 +256,8 @@ script tarafindan yazilir; kullanici veya agent tarafindan degistirilemez.
 `DURUM.md`, degerlendirmenin aktif adimini, bekleyen karari ve sonraki islemi insan tarafindan
 okunabilir bicimde ozetler. `RAPOR.md`, marketer isterse web app'teki sonuca ekleyecegi raporun
 calisma dosyasidir. Ham kaynaklar `kaynaklar/`, uretilen analiz ve rapor dosyalari `ciktilar/`
-altinda tutulur.
+altinda tutulur. Degerlendirme sirasinda tutulan serbest calisma notlari, gorusme notlari ve
+kullanicinin agent'a aldirdigi notlar `notlar/` altinda saklanir.
 
 `.pa/agent/`, merkezi release'ten kopyalanan bagimsiz Marketing Agent paketidir.
 `.pa/evaluation/`, degerlendirme workspace'inin makine-okunabilir durumunu ve teknik ayarlarini
@@ -326,6 +328,15 @@ marketers/
 
         05-haftalik-planlar/
           2026-W25.md
+          2026-W25/
+            schedule.md
+            pazartesi.md
+            sali.md
+            carsamba.md
+            persembe.md
+            cuma.md
+            cumartesi.md
+            pazar.md
 
         06-pazarlama-uygulamalari/
           dijital/
@@ -375,6 +386,15 @@ marketers/
           saha/
           hibrit/
           linkler.md
+
+        11-notlar/
+          ham-notlar/
+          gunluk-notlar/
+          toplanti-notlari/
+          musteri-gorusmeleri/
+          saha-notlari/
+          takip-notlari/
+          ozetler/
 
         99-arsiv/
           eski-versiyonlar/
@@ -515,7 +535,9 @@ ve urun kapsami kararlarini icerir.
 
 Marketing agent ile kullanicinin birlikte hazirladigi haftalik operasyon planlarini tutar.
 Her hafta ISO yil ve hafta numarasiyla ayri dosya olarak saklanir; ornegin
-`2026-W25.md`. Plan Pazartesi-Pazar gunlerini kapsar ve gorevler gunlere dagitilir.
+`2026-W25.md`. Plan Pazartesi-Pazar gunlerini kapsar ve gorevler gunlere dagitilir. Ayni hafta
+icin `YYYY-WNN/` alt klasoru da olusturulabilir; bu klasor `schedule.md` haftalik gorunumunu ve
+`pazartesi.md` ... `pazar.md` gunluk yapilacaklar listelerini tutar.
 
 Her gorev en az su bilgileri tasir:
 
@@ -526,13 +548,27 @@ Her gorev en az su bilgileri tasir:
   - Beklenen cikti: Demo sunumu
   - Cikti konumu: 06-pazarlama-uygulamalari/saha/sunumlar/
   - Durum: Bekliyor
-  - Tamamlanma onayi: Kullanici
+  - Tamamlanma kaniti: Dosya / Kullanici bildirimi / Harici aksiyon
+  - Google Calendar: Eklenecek / Eklendi / Guncellendi / Silindi / Kullanilmadi
 ```
 
-Agent gorev ilerlemesini ve uretilen ciktilari izler; ancak bir dosyanin uretilmesi gorevi
-otomatik olarak tamamlamaz. Gorev yalnizca kullanicinin acik onayindan sonra `[x]` ve
-`Tamamlandi` olarak guncellenir. Ertelenen veya iptal edilen gorevler gerekcesiyle kaydedilir.
-Tamamlanmayan gorevlerin yeni haftaya tasinmasina agent ve kullanici birlikte karar verir.
+Gorev durumlari `Bekliyor`, `Devam Ediyor`, `Kanıt ile Tamamlandı.`, `Kullanici Bildirimi
+Bekliyor`, `Ertelendi`, `Iptal` veya `Tamamlandi` olabilir. Bir gorevin tamamlandigi uretilen
+dosya, guncellenen dokuman, hazirlanan cikti veya benzeri acik kanitla anlasiliyorsa agent
+gorevi kullaniciya sormadan tamamlandi olarak isaretler ve bunu kullaniciya bildirir. Bir
+gorevin tamamlanmasi yatirim toplantisi, ofis ziyareti, telefon gorusmesi veya fiziksel dagitim
+gibi agent'in dosyadan anlayamayacagi harici bir aksiyona bagliysa gorev `Kullanici Bildirimi
+Bekliyor` olarak kalir; kullanici tamamladigini soylediginde guncellenir. Agent kullaniciyi surekli
+"bunu yaptin mi?" diye darlamaz.
+
+Schedule, Marketing Agent'in operasyon hafizasidir. Agent buradan kullanicinin dun ne yaptigini,
+gecen hafta nelerin tamamlandigini, bugunku islerini, yarinki planini ve ertelenen gorevleri
+anlar. Haftalik plan hazirlanirken agent kullaniciya `Aggressive`, `Balanced` veya `Relaxed`
+tempo seceneklerini sorar; plan hazirlandiktan sonra yogunlugu artirmayi veya azaltmayi onerir.
+Google Calendar plugini aktifse, dosya sistemindeki schedule ana kaynak kalmak kosuluyla
+etkinlikler kullanici onayiyla Google Calendar'a eklenebilir veya guncellenebilir.
+Ertelenen, iptal edilen veya sonraki haftaya aday gorevler gerekcesiyle kaydedilir. Tamamlanmayan
+gorevlerin yeni haftaya tasinmasina agent ve kullanici birlikte karar verir.
 
 `06-pazarlama-uygulamalari/`
 
@@ -578,6 +614,14 @@ materyalleri; `marka/` ise logo, renk, font ve ortak marka kaynaklari icindir.
 Onaylanmis ve teslim edilebilir son ciktilarin yeridir. Yetkili marketer, coder veya sistem
 sahibi proje klasorunu actiginda once buraya bakarak final PRD, coder brief, rapor, lansman ve
 dijital, saha veya hibrit pazarlama ciktilarina ulasir.
+
+`11-notlar/`
+
+Proje boyunca tutulan calisma notlari, toplantilar, musteri gorusmeleri, saha notlari, takip
+notlari ve ozetler icindir. Kullanici buraya manuel not alabilir veya Marketing Agent'tan bu
+alanda not tutmasini isteyebilir. Notlar Drive ile senkronize olur; ancak ham kaynak dosyalari
+yerine gecmez ve ilgili arastirma, strateji, satis ya da rapor ciktilari kendi canonical
+klasorlerine ayrica yazilir.
 
 `99-arsiv/`
 
@@ -805,17 +849,19 @@ klasorlerini veya dosyalarini elle olusturmaz. Script su islemleri sirasiyla ger
     eksiksiz korunmasini saglar.
 14. Europe/Istanbul saat dilimindeki guncel tarihe gore ISO yil ve hafta numarasini hesaplar ve
     05-haftalik-planlar/YYYY-WNN.md dosyasini bos haftalik plan sablonundan olusturur.
-15. Haftalik plan sablonunu Pazartesi-Pazar basliklari, gorev, kanal, oncelik, beklenen cikti,
-    cikti konumu, durum ve kullanici tamamlanma onayi alanlariyla olusturur; kullanici adina
-    baslangic gorevi yazmaz.
-16. Guncel marketing-agent paketini tum alt klasorleri ve dosyalariyla .pa/agent altina
+15. Ayni hafta icin 05-haftalik-planlar/YYYY-WNN/ altinda schedule.md ve gunluk dosyalari
+    olusturur; gunluk dosyalar baslangicta bos tutulur.
+16. Haftalik plan sablonunu Pazartesi-Pazar basliklari, gorev, kanal, oncelik, beklenen cikti,
+    cikti konumu, durum, tamamlanma kaniti ve Google Calendar alanlariyla olusturur; kullanici
+    adina baslangic gorevi yazmaz.
+17. Guncel marketing-agent paketini tum alt klasorleri ve dosyalariyla .pa/agent altina
     kopyalar ve dogrulanmis agent-version.json dosyasini yazar.
-17. .pa/project altinda overrides.md, overrides-approved.md, state.json, active-task.md ve
+18. .pa/project altinda overrides.md, overrides-approved.md, state.json, active-task.md ve
     settings.json dosyalarini gecerli sablonlarla olusturur. Iki override dosyasi baslangicta
     aynidir; state.json onayli icerigin SHA-256 degerini tasir.
-18. DURUM.md ve state.json icine aktif haftalik plan yolunu kaydeder. Baslangic durumunu
+19. DURUM.md ve state.json icine aktif haftalik plan yolunu kaydeder. Baslangic durumunu
     "Proje baglami tamamlaniyor" yapar ve hicbir gorevi tamamlanmis saymaz.
-19. DURUM.md ve README.md icinde kullaniciyi once PROJE.md ve 01-baglam dosyalarini
+20. DURUM.md ve README.md icinde kullaniciyi once PROJE.md ve 01-baglam dosyalarini
     tamamlamaya, Drive aktivasyon checklist'inden sonra guncel haftanin kalan gunleri icin
     plani agent ile doldurmaya yonlendirir.
 20. Gecici projeyi zorunlu klasor/dosya listesi, kimlik alanlari, agent manifesti ve JSON
@@ -1652,12 +1698,14 @@ yapmaz. Bu kural SSRF ve kimlik avi riskini azaltir. Link yeni sekmede `noopener
 ### Proje aktivasyon checklist'i
 
 Proje klasor linkinin eklenmesi tek basina projeyi `Aktif` yapmaz. Kayitli Drive host marketer
-proje `Drive Kurulumu Bekliyor` durumundayken su uc kosulu tamamlar:
+proje `Drive Kurulumu Bekliyor` durumundayken su kosullari tamamlar:
 
 ```text
 - [ ] create-project.ps1 dogru project_id ve idea_id ile basariyla tamamlandi.
 - [ ] Yerel proje klasorunun Google Drive senkronizasyonu tamamlandi.
 - [ ] Gecerli canonical Google Drive proje klasoru linki Project Pool kaydina eklendi.
+- [ ] Kullanici GitHub hesabinda private proje yedek reposu olusturuldu veya bu adim bilincli
+      olarak ertelendi.
 ```
 
 Kurallar:
@@ -1665,8 +1713,10 @@ Kurallar:
 - Script basarisi ve Drive senkronizasyonu Drive host marketer'in acik onayiyla isaretlenir.
 - Scriptteki `project_id` web app Project Pool kaydiyla ayni olmalidir.
 - Klasor linki guvenli URL ve klasor turu kontrolunden gecmelidir.
+- GitHub reposu Drive'in yerine gecmez. Repo private olmali, buyuk medya/dokuman arsivleri,
+  ham video, agir PDF ve gizli bilgiler GitHub'a pushlanmamalidir.
 - Checklist maddeleri kullanici, zaman ve onceki degerle gecmise yazilir.
-- Uc kosul tamamlaninca proje atomik olarak `Aktif` olur ve tum aktif kullanicilara, islemi
+- Aktivasyon kosullari tamamlaninca proje atomik olarak `Aktif` olur ve tum aktif kullanicilara, islemi
   yapan dahil, bildirim gider.
 - Bir kosul daha sonra gecersiz olursa web app sessizce durum degistirmez; proje ekibine uyari
   gosterir ve acik duzeltme ister.
@@ -1857,7 +1907,7 @@ karari Project Pool kaydi veya proje workspace'i olusturmaz.
 8. Yerel proje klasoru Google Drive for desktop ile senkronize edilir.
 9. Host marketer senkronizasyonun tamamlandigini onaylar.
 10. Host marketer canonical Drive proje klasoru linkini Project Pool kaydina ekler.
-11. Uc kosullu aktivasyon checklist'i tamamlanir.
+11. Aktivasyon checklist'i tamamlanir.
 12. Proje atomik olarak Aktif durumuna gecer ve islemi yapan dahil tum aktif kullanicilara
     bildirim gider.
 13. Host marketer proje klasorunu ayri Codex root olarak acar ve yeni proje thread'i baslatir.
@@ -1922,15 +1972,22 @@ manuel kaldirir ve web app'te onaylar. Coder'in gecmisi ve ciktilari korunur.
 
 ```text
 1. Proje ilk kez Aktif oldugunda agent ve marketer guncel ISO hafta sablonunu acar.
-2. Proje hafta ortasinda aktif olduysa yalnizca kalan gunler icin gercekci gorevler birlikte
+2. Agent kullaniciya haftanin temposunu Aggressive, Balanced veya Relaxed olarak nasil
+   ayarlamasini istedigini sorar.
+3. Proje hafta ortasinda aktif olduysa yalnizca kalan gunler icin gercekci gorevler birlikte
    belirlenir.
-3. Sonraki haftalarda yeni plan her Pazartesi agent ve kullanici tarafindan birlikte hazirlanir.
-4. Plan 05-haftalik-planlar/YYYY-WNN.md olarak kaydedilir.
-5. DURUM.md ve .pa/project/state.json aktif haftayi gosterecek sekilde guncellenir.
-6. Agent hafta boyunca gorev ciktilarini ve ilerlemeyi izler.
-7. Agent tamamlandigini dusundugu gorev icin kullanicidan acik onay ister.
-8. Yalnizca kullanici onaylarsa gorev [x] ve Tamamlandi olarak isaretlenir.
-9. Ertelenen, iptal edilen veya sonraki haftaya aday gorevler gerekceleriyle kaydedilir.
+4. Sonraki haftalarda yeni plan her Pazartesi agent ve kullanici tarafindan birlikte hazirlanir.
+5. Plan 05-haftalik-planlar/YYYY-WNN.md olarak, gunluk schedule ise
+   05-haftalik-planlar/YYYY-WNN/ altinda kaydedilir.
+6. Agent hazirladigi takvimi kullaniciya sunar; yogunlugu daha aggressive veya daha relaxed
+   yapmayi onerir.
+7. DURUM.md ve .pa/project/state.json aktif haftayi gosterecek sekilde guncellenir.
+8. Agent hafta boyunca dosya, cikti ve schedule durumundan gorev ilerlemesini izler.
+9. Dosya veya cikti kanitiyla tamamlandigi anlasilan gorevler kullaniciya sorulmadan
+   Tamamlandi olarak isaretlenir ve kullaniciya bilgi verilir.
+10. Harici aksiyon gerektiren ve agent'in dosyadan anlayamayacagi gorevler Kullanici Bildirimi
+    Bekliyor durumunda kalir; kullanici tamamladigini soylediginde guncellenir.
+11. Ertelenen, iptal edilen veya sonraki haftaya aday gorevler gerekceleriyle kaydedilir.
 ```
 
 ### PRD, analiz veya rapor uretme
@@ -2073,10 +2130,12 @@ pazar/musteri arastirmasi, konumlandirma, fiyat/teklif, PRD, landing page, kampa
 image generation, potansiyel musteri, toplanti, demo, etkinlik ve takip sureclerinde
 marketer'a destek verir.
 
-`create-project.ps1` guncel ISO haftasi icin bos sablon olusturur. Proje aktif oldugunda ilk
-plan kalan gunler icin hemen, sonraki planlar her Pazartesi agent ve kullanici tarafindan
-birlikte hazirlanir. Web app planin kopyasini tutmaz. Dosya veya cikti olusmasi gorevi
-tamamlamaz; gorev yalnizca kullanicinin acik onayiyla `Tamamlandi` olur.
+`create-project.ps1` guncel ISO haftasi icin bos sablon ve gunluk schedule klasoru olusturur.
+Proje aktif oldugunda ilk plan kalan gunler icin hemen, sonraki planlar her Pazartesi agent ve
+kullanici tarafindan birlikte hazirlanir. Web app planin kopyasini tutmaz. Dosya veya cikti bir
+gorevin tamamlandigina acik kanit oluyorsa agent gorevi tamamlandi olarak isaretler ve
+kullaniciya bildirir. Harici aksiyon gerektiren gorevler kullanici tamamladigini soyleyene kadar
+`Kullanici Bildirimi Bekliyor` durumunda kalir.
 
 ### Otomasyon ve hata karari
 
@@ -2104,6 +2163,8 @@ MVP asamasinda:
 - background watcher service calistirilmaz,
 - proje ve aktivite e-posta bildirimi gonderilmez; zorunlu hesap dogrulama mesaji bu sinirin
   disindadir,
+- Mixpanel, PostHog, Amplitude ve Airtable entegrasyonlari kurulmaz; bunlar MVP sonrasi
+  analitik, veri ve pano entegrasyonu adaylari olarak not edilir,
 - gercek zamanli ortak metin editoru sunulmaz,
 - calisan performans puani veya siralama sistemi kurulmaz,
 - tam kapsamli admin paneli, object storage ve gelismis audit export/raporlama yapilmaz;

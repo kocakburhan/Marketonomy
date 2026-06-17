@@ -114,6 +114,7 @@ report requests, apply a brief research gate before starting a pipeline:
 | Analytics Master | `agents/analytics-master.md` | Metrics, analysis, ROI, and reporting |
 | Brand Guardian | `agents/brand-guardian.md` | Brand voice, positioning, and offer language |
 | Campaign Manager | `agents/campaign-manager.md` | Ad campaign, budget, and A/B tests |
+| Schedule Coordinator | `agents/schedule-coordinator.md` | Weekly and daily schedule, task status, Google Calendar sync, and work rhythm |
 
 ## Pipeline Routing
 
@@ -132,6 +133,11 @@ report requests, apply a brief research gate before starting a pipeline:
 If the user wants a single concrete output, apply the relevant skill directly instead of
 starting a full pipeline. Pipeline selection is limited to the outputs permitted by the
 workspace type.
+
+For weekly planning, daily schedules, "today/tomorrow/this week" questions, task deletion,
+postponement, moving tasks to a future week, completion evidence, or Google Calendar sync, read
+`agents/schedule-coordinator.md` and apply that playbook. The schedule coordinator is a specialist
+role, not a local skill.
 
 ## Evaluation Flow
 
@@ -158,7 +164,8 @@ web app and create script flow.
 4. If the user approves the delivery, copy the selected copy under `10-final/`; do not delete
    the source file.
 5. Add approved decisions that change project reality to `KARARLAR.md` with date and justification.
-6. Close the relevant weekly task only after explicit completion approval.
+6. For weekly and daily tasks, close file-proven tasks from evidence and inform the user. For
+   external-action tasks, wait until the user reports completion.
 
 ## Weekly Status Report
 

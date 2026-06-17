@@ -368,5 +368,6 @@ synthesis is kept in `RAPOR.md`.
 - In a project, PROJE.md, relevant 01-baglam/ files, and KARARLAR.md are prerequisites.
 - Record claims requiring current data with source and access date; if data is missing, explicitly
   label the assumption.
-- Obtain explicit user approval at decision gates. Producing a file does not complete a weekly task.
+- Obtain explicit user approval at decision gates. Weekly tasks close from evidence when
+  file-proven; external-action tasks wait for user-reported completion.
 - Copy approved final copies under 10-final/ and preserve the working source in place.

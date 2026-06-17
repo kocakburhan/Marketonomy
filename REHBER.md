@@ -43,6 +43,18 @@ Marketing Agent:
   Pazarlama, araştırma, planlama, raporlama ve doküman üretimini yapar.
 ```
 
+## Codex App Plugin Kurulumu
+
+Marketer'lar Codex App'i açtıklarında karar verilen pluginleri Codex App üzerinden elle
+kurmalıdır. Kurulacak pluginler:
+
+1. Google Drive
+2. Google Calendar
+3. Gmail
+4. Canva
+5. Figma
+6. GitHub
+
 Her fikir değerlendirmesi ve her proje ayrı bir klasördür. Her klasör ayrı bir Codex workspace
 ve ayrı bir Codex thread olarak düşünülmelidir. Bir projenin dosyaları başka bir projenin
 dosyalarıyla karıştırılmaz.
@@ -204,6 +216,9 @@ En önemli klasörler:
 10-final/
   Sizin açıkça onayladığınız teslim edilebilir son çıktılar
 
+11-notlar/
+  Toplantı, müşteri görüşmesi, saha, günlük çalışma ve takip notları
+
 99-arsiv/
   Eski, reddedilen veya geçersiz kalan dosyalar
 ```
@@ -314,7 +329,8 @@ iyi olur.
 ## Haftalık Planı Nasıl Kullanmalısınız?
 
 Haftalık plan, Marketing Agent ile çalışmanın ana ritmidir. Her proje için hafta dosyaları
-`05-haftalik-planlar/YYYY-WNN.md` altında tutulur.
+`05-haftalik-planlar/YYYY-WNN.md` altında tutulur. Ayrıca aynı haftanın günlük yapılacaklar
+listesi `05-haftalik-planlar/YYYY-WNN/` klasöründe dosya dosya tutulabilir.
 
 Örnek görev:
 
@@ -325,14 +341,31 @@ Haftalık plan, Marketing Agent ile çalışmanın ana ritmidir. Her proje için
   - Beklenen çıktı: Demo sunumu
   - Çıktı konumu: 06-pazarlama-uygulamalari/saha/sunumlar/
   - Durum: Bekliyor
-  - Tamamlanma onayı: Kullanıcı
+  - Tamamlanma kanıtı: Dosya / Kullanıcı bildirimi / Harici aksiyon
+  - Google Calendar: Eklenecek / Eklendi / Güncellendi / Silindi / Kullanılmadı
 ```
 
 Önemli kural:
 
-Bir dosyanın üretilmesi görevin tamamlandığı anlamına gelmez. Agent görevin tamamlandığını
-düşünürse size sorar. Siz onaylarsanız görev tamamlanır. Onaylamazsanız görev devam eder,
-revize edilir, ertelenir veya iptal edilir.
+Bir görevin tamamlandığı üretilen dosya, güncellenen doküman, hazırlanan çıktı veya benzeri açık
+kanıtla anlaşılabiliyorsa agent görevi kendisi tamamlandı olarak işaretleyebilir ve sonra size
+bilgi verir. Örneğin landing page taslağı dosyası üretildiyse ilgili görev tamamlanmış sayılabilir.
+
+Ama bazı görevler dosyadan anlaşılamaz. Örneğin yatırımcı görüşmesini yaptınız, ürünü bir ofiste
+tanıttınız, broşür dağıttınız veya telefon görüşmesini tamamladınız. Böyle durumlarda agent sizi
+sürekli "bunu yaptınız mı?" diye darlamaz. Görevi yaptığınızda bunu açıkça söylemeniz gerekir:
+
+```text
+Bugünkü yatırımcı görüşmesini yaptım.
+X ofisine ürün tanıtımını yaptım.
+Broşürleri dağıttım.
+Müşteriyle telefon görüşmesini tamamladım.
+```
+
+Haftalık plan hazırlanırken agent size takvimi hangi yoğunlukta hazırlamasını istediğinizi sorar:
+`Aggressive`, `Balanced` veya `Relaxed`. Planı sunduktan sonra da yoğunluğu artırmayı veya
+azaltmayı önerebilir. Dosya sistemindeki schedule ana kaynaktır; Google Calendar plugin'i aktifse
+görevler sizin onayınızla Google Calendar'a da eklenebilir.
 
 Hafta başında kullanabileceğiniz prompt:
 
@@ -519,9 +552,11 @@ oluşur. Final kopya, siz onayladıktan sonra alınır.
 
 "Bir şeyler hazırla" yerine hedef, kanal, çıktı türü ve başarı ölçütü belirtin.
 
-### Hata: Onay vermeden görevi kapattığını sanmak
+### Hata: Harici görevi agent'a bildirmemek
 
-Agent dosya üretmiş olabilir. Ama haftalık görev siz onaylamadan tamamlanmış sayılmaz.
+Agent dosyadan veya üretilen çıktıdan anlayabildiği görevleri kendisi tamamlandı işaretleyebilir.
+Ama dış dünyada yaptığınız işleri agent kendiliğinden bilemez. Görüşme, ziyaret, tanıtım,
+dağıtım veya telefon gibi işleri tamamladığınızda bunu agent'a açıkça söyleyin.
 
 ### Hata: Kaynak istemeden araştırma sonucu kabul etmek
 
@@ -550,6 +585,8 @@ durumun güncellenmesi ayrıca yetkili kullanıcı onayı gerektirebilir.
 - Dış sisteme mesaj, form, kayıt veya satın alma işlemi yapılacaksa önce açık onay verin.
 - Google Drive izinleri otomatik yönetilmez; paylaşım ve erişim kararları yetkili kullanıcı
   tarafından manuel yapılır.
+- GitHub yedekleri private repo olarak tutulmalıdır. Büyük medya dosyaları, ağır PDF'ler, ham
+  videolar, gizli bilgiler ve arşivler GitHub'a konmamalı; Google Drive'da kalmalıdır.
 
 ## Sorun Yaşarsanız
 

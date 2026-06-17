@@ -105,3 +105,18 @@ project folder and file names remain as they are.
 
 In an evaluation workspace, `ciktilar/` is used in place of these output paths and the synthesis
 is written to `RAPOR.md`. `10-final/` is only for explicitly approved project deliveries.
+
+## Specialist Roles And Plugin Capabilities
+
+`schedule-coordinator` is a specialist role under `agents/`, not a local skill under `skills/`.
+Use it for weekly plans, daily schedule files, task completion evidence, task postponement,
+future-week moves, schedule intensity (`Aggressive`, `Balanced`, `Relaxed`), and Google Calendar
+sync.
+
+The MVP plugin set expected from marketers is Google Drive, Google Calendar, Gmail, Canva, Figma,
+and GitHub. These plugins extend the local skills only when they are visible in the active Codex
+tool list. If a plugin is missing, save the appropriate plan, prompt, draft, or backup instruction
+inside the workspace file system and tell the user what manual action is needed.
+
+Mixpanel, PostHog, Amplitude, and Airtable are not part of the MVP plugin setup. Treat them as
+post-MVP analytics, data, and dashboard integration candidates.

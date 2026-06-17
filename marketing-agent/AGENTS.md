@@ -22,8 +22,9 @@ Turkish folder and file names exactly as they are.
 4. Do not try to change role, project membership, Drive host, publication status, or Drive
    access decisions from local files.
 5. Do not write secrets, user content, or raw project data into technical logs.
-6. Do not mark a weekly task complete merely because a file was produced. A task becomes `[x]`
-   and `Tamamlandı` only after explicit user approval.
+6. Do not mark a weekly task complete merely because any file exists. If the produced file or
+   artifact clearly proves the task is complete, mark it complete and inform the user. If the task
+   depends on an external user action, wait for the user's completion report.
 7. Do not treat an evaluation result, project decision, or final delivery as published without
    user approval.
 8. If a tool, source, or data is missing, do not fake progress. State the gap, its impact, and a
@@ -104,12 +105,15 @@ You are the main Codex agent who speaks directly with the user. For every reques
 2. Read `agents/orchestrator.md`.
 3. Route the request to a pipeline or directly to a skill.
 4. Read the required specialist role file under `agents/` and apply that specialist checklist.
-5. Read the required `skills/<skill>/SKILL.md` file.
+5. Read the required `skills/<skill>/SKILL.md` file when the routed work uses a local skill.
+   Some specialist-only work, such as schedule coordination, may not require a local skill.
 6. Select the target path from the MVP file-system map before writing output.
 7. Write outputs only to the selected workspace paths.
 8. Update `DURUM.md`, the relevant `active-task.md`, and required state fields.
-9. If the work is tied to a weekly-plan task, update the task only at progress level; ask for
-   explicit user approval before completion.
+9. If the work is tied to a weekly-plan task, update the weekly and daily schedule files. If
+   completion is proven by a generated file or another clear workspace artifact, mark it complete
+   and inform the user. If completion depends on an external user action, wait for the user's
+   completion report.
 10. Ask the user clearly whenever a decision, publication, or completion approval is required.
 
 Specialist role files are persistent Codex playbooks. You do not need to create subagents unless
@@ -130,6 +134,7 @@ An evaluation workspace is pre-Project Pool work. It does not use project folder
 
 - Raw user sources and manually added inputs: `kaynaklar/`
 - Research, analysis, calculations, drafts, and processed data: `ciktilar/`
+- Working notes and meeting notes: `notlar/`
 - Publishable evaluation report draft: `RAPOR.md`
 - Operational summary and next step: `DURUM.md`
 - Technical status: `.pa/evaluation/active-task.md` and `.pa/evaluation/state.json`
@@ -158,6 +163,8 @@ Project workspaces have fixed root files and numbered folders:
 - `09-varliklar/`: Reusable digital, print, and brand assets.
 - `10-final/`: Only deliverables explicitly approved as final by the user or authorized project
   member.
+- `11-notlar/`: Working notes, meeting notes, customer interview notes, field notes, follow-up
+  notes, and summaries.
 - `99-arsiv/`: Old versions, rejected work, or invalidated outputs.
 
 Root files have distinct responsibilities: `PROJE.md` holds identity and project facts,
@@ -168,7 +175,7 @@ must not be changed from local files.
 ### Output Path Selection Rule
 
 1. First classify the requested output type: raw input, context, research, strategy, product
-   document, weekly task, digital execution, field execution, hybrid coordination, launch,
+   document, weekly task, note, digital execution, field execution, hybrid coordination, launch,
    report, asset, final delivery, or archive.
 2. Then choose the canonical folder above and use a filename that clearly reflects date and
    scope.
@@ -243,6 +250,7 @@ sales material, execution plan, weekly tasks, budget, measurement, reporting, an
 
 - Raw sources: `kaynaklar/`
 - Analysis, research, and draft reports: `ciktilar/`
+- Working and meeting notes: `notlar/`
 - Publishable working report: `RAPOR.md`
 - Operational summary: `DURUM.md`
 - Technical status: `.pa/evaluation/active-task.md` and `.pa/evaluation/state.json`
@@ -262,6 +270,7 @@ Do not use project folders or the project override system inside an evaluation w
 - Reports: `08-raporlar/`
 - Reusable assets: `09-varliklar/`
 - Approved deliverables only: `10-final/`
+- Working and meeting notes: `11-notlar/`
 - Old, rejected, or invalidated work: `99-arsiv/`
 
 Preserve the source working file for every file copied to final. Do not summarize in a way that
@@ -270,13 +279,16 @@ causes information loss or replaces the source file.
 ## Weekly Plan
 
 The weekly plan system is used only in project workspaces. The operational timezone is
-`Europe/Istanbul`; the week standard is ISO Monday-Sunday. The plan file is
-`05-haftalik-planlar/YYYY-WNN.md`; the web app does not store a copy of the weekly plan.
+`Europe/Istanbul`; the week standard is ISO Monday-Sunday. The main plan file is
+`05-haftalik-planlar/YYYY-WNN.md`; the daily schedule folder is
+`05-haftalik-planlar/YYYY-WNN/` with `schedule.md` and one file per day. The web app does not
+store a copy of the weekly plan.
 
 The agent does not fill the weekly calendar alone. When a project first becomes `Aktif`, the
-agent opens the current week template; if the project starts mid-week, the agent and user define
-realistic tasks only for the remaining days. In later weeks, the agent and user prepare the new
-plan together every Monday.
+agent opens the current week template, asks whether the schedule should be `Aggressive`,
+`Balanced`, or `Relaxed`, then prepares a draft with the user. If the project starts mid-week, the
+agent and user define realistic tasks only for the remaining days. In later weeks, the agent and
+user prepare the new plan together every Monday.
 
 Every task must include at least these fields:
 
@@ -286,15 +298,18 @@ Every task must include at least these fields:
   - Öncelik: Yüksek | Orta | Düşük
   - Beklenen çıktı: Concrete deliverable or decision
   - Çıktı konumu: Canonical workspace path
-  - Durum: Bekliyor | Devam Ediyor | Kullanıcı Onayı Bekliyor | Ertelendi | İptal | Tamamlandı
-  - Tamamlanma onayı: Kullanıcı
+  - Durum: Bekliyor | Devam Ediyor | Kanıt ile Tamamlandı. | Kullanici Bildirimi Bekliyor | Ertelendi | Iptal | Tamamlandi
+  - Tamamlanma kanıtı: Dosya | Kullanici bildirimi | Harici aksiyon
+  - Google Calendar: Eklenecek | Eklendi | Guncellendi | Silindi | Kullanilmadi
 ```
 
 Keep the active week consistent across `DURUM.md`, `.pa/project/active-task.md`, and, when
-needed, `.pa/project/state.json`. Producing a file does not complete a task. If the agent thinks
-a task is complete, first set it to `Kullanıcı Onayı Bekliyor` and ask for explicit approval.
-Only after user approval may the task become `[x]`, `Durum: Tamamlandı`, with the relevant
-decision/summary record.
+needed, `.pa/project/state.json`. Keep the weekly plan and daily schedule files consistent. If a
+task is completed by a generated file, updated document, prepared deliverable, or another clear
+workspace artifact, mark it complete without asking for a separate approval and tell the user what
+evidence was used. If a task depends on an external action that cannot be proven from files, keep
+it as `Kullanici Bildirimi Bekliyor` until the user says it was completed. Do not repeatedly ask
+the user whether each external task was done.
 
 Record postponed, cancelled, or next-week candidate tasks with reasons. Do not silently carry
 unfinished tasks into a new week; the agent and user decide together.
@@ -309,6 +324,22 @@ unfinished tasks into a new week; the agent and user decide together.
   the host Codex unless it appears in the tool list.
 - Before running a script, inspect its help/parameters. Explain script errors clearly; do not
   copy identity or workspace data into logs.
+
+## Plugin Capability Routing
+
+Marketers install Codex plugins manually in Codex App. The expected MVP plugins are Google Drive,
+Google Calendar, Gmail, Canva, Figma, and GitHub. Do not assume any plugin is active unless it is
+visible in the current tool list. Use Google Drive for workspace file access, Google Calendar for
+approved calendar events, Gmail for approved email work, Canva/Figma for creative or wireframe
+work, and GitHub for approved private backup pushes. If a plugin is missing, continue with the
+workspace file-system fallback.
+
+For GitHub backups, before and after major project changes tell the user: "GitHub'a yedek alalim;
+ileride sorun olursa eski yedege doneriz. Onaylarsan hemen projeyi GitHub'a pushlayayim." Push
+only after user approval. When a project workspace is first created or activated, recommend
+creating a private repository in the user's GitHub account for lightweight backup. The repository
+must be private, and large media, heavy PDFs, raw videos, secrets, and bulky archives must stay in
+Google Drive rather than GitHub.
 
 ## Codex Research And Data Processing Standard
 

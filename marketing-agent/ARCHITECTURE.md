@@ -55,17 +55,18 @@ final go to the numbered MVP folders.
 The project file system is the central part of agent behavior. The main agent determines first the
 workspace type, then the output type, then the canonical target folder for every output. Raw user
 inputs are preserved in `00-gelen-kutusu/`; processed research goes to `02-arastirma/`, strategy
-to `03-strateji/`, product docs to `04-urun/`, weekly plans to `05-haftalik-planlar/`, execution
-outputs to `06-pazarlama-uygulamalari/`, launch to `07-lansman/`, reports to `08-raporlar/`,
-reusable assets to `09-varliklar/`, approved deliverables to `10-final/`, and archived versions to
-`99-arsiv/`. User data or project outputs are not written inside `.pa/agent/`.
+to `03-strateji/`, product docs to `04-urun/`, weekly plans and daily schedules to
+`05-haftalik-planlar/`, execution outputs to `06-pazarlama-uygulamalari/`, launch to
+`07-lansman/`, reports to `08-raporlar/`, reusable assets to `09-varliklar/`, approved
+deliverables to `10-final/`, working notes to `11-notlar/`, and archived versions to `99-arsiv/`.
+User data or project outputs are not written inside `.pa/agent/`.
 
 ## Specialist Model
 
-11 specialist roles are maintained: onboarding, market research, strategy, product architecture,
-launch, content, growth, outreach, analytics, brand, and campaign. These are not independent data
-repositories or mandatory separate processes/runtimes; they are focused instruction files that
-Codex reads according to the task.
+12 specialist roles are maintained: onboarding, market research, strategy, product architecture,
+launch, content, growth, outreach, analytics, brand, campaign, and schedule coordination. These
+are not independent data repositories or mandatory separate processes/runtimes; they are focused
+instruction files that Codex reads according to the task.
 
 Codex subagent work is applied only when the user explicitly requests it or when the main request
 explicitly specifies parallel agent usage. In all cases, the main agent verifies and consolidates
@@ -116,11 +117,12 @@ Pipeline files are ready-to-use workflows; they do not create their own state re
 active pipeline and step are kept in human-readable form in `DURUM.md`, and the machine-readable
 required fields in the relevant state JSON and `active-task.md`.
 
-The task-oriented weekly calendar is the main rhythm of project operations. Each ISO week is kept
-in `05-haftalik-planlar/YYYY-WNN.md`; the plan tracks Monday-Sunday boundaries according to the
-`Europe/Istanbul` timezone. Pipelines and skills can advance tasks in this file, but file
-production does not count as task closure. A task becomes `[x]` and `Tamamlandı` only after
-explicit user completion approval; postponed or cancelled tasks are recorded with reasons.
+The task-oriented weekly calendar is the main rhythm and operational memory of project work. Each
+ISO week has a main plan at `05-haftalik-planlar/YYYY-WNN.md` and an optional daily schedule
+folder at `05-haftalik-planlar/YYYY-WNN/` with `schedule.md` plus day files. Pipelines and skills
+can advance tasks in these files. If file/output evidence proves completion, the task can be
+closed and the user is informed. External-action tasks remain `Kullanici Bildirimi Bekliyor`
+until the user reports completion; postponed or cancelled tasks are recorded with reasons.
 
 ## Tools And MCP
 
@@ -131,6 +133,12 @@ only capabilities it sees in the active tool list.
 For web research, the available official web, Browser, or Chrome tool is used. Sources, access
 dates, and evidence are preserved in the output. If a tool is absent, a script or manual data flow
 is selected.
+
+The MVP plugin set for marketers is Google Drive, Google Calendar, Gmail, Canva, Figma, and
+GitHub. These plugins are installed manually in Codex App by the marketer. Google Calendar is a
+secondary external view of the file-system schedule, not the source of truth. GitHub is used only
+for approved private backups of lightweight project files; Google Drive remains the primary file
+store.
 
 ## Research And Data Processing Backbone
 
@@ -152,8 +160,9 @@ Codex-compliant.
 
 ## State And Approval Principles
 
-- File production is not task completion.
-- Final delivery and weekly task closure require explicit user approval.
+- File production is task completion only when the artifact clearly proves the task is done.
+- Final delivery requires explicit user approval. Weekly tasks close from evidence when
+  file-proven; external-action tasks wait for user-reported completion.
 - A project behavior preference change updates `overrides.md`, `overrides-approved.md`, SHA-256
   state, and `KARARLAR.md` together.
 - Project facts are not copied into the override file.

@@ -87,6 +87,7 @@ foreach ($requiredText in @(
     "Europe/Istanbul",
     "05-haftalik-planlar",
     "10-final",
+    "11-notlar",
     "Do not leave the workspace root",
     "Codex Research and Data Processing Standard",
     "Default user-facing language is Turkish",
@@ -142,7 +143,7 @@ foreach ($skillFile in $skillFiles) {
 foreach ($agentName in @(
     "analytics-master.md", "brand-guardian.md", "campaign-manager.md", "content-creator.md",
     "growth-hacker.md", "launch-commander.md", "market-scout.md", "outreach-specialist.md",
-    "product-architect.md", "strategy-analyst.md"
+    "product-architect.md", "schedule-coordinator.md", "strategy-analyst.md"
 )) {
     $path = Join-Path $AgentRoot "agents\$agentName"
     Assert-Text $path "PersonalAutonomy Workspace Contract" "Uzman workspace sozlesmesi eksik: agents/$agentName"

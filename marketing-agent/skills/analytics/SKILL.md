@@ -1,11 +1,12 @@
 ---
 name: analytics
-description: Pazarlama analitigi, event tracking ve olcum plani tasarla. GA4, Mixpanel, Amplitude, pixel, KPI veya dashboard gerektiginde kullan.
+description: Pazarlama analitigi, event tracking ve olcum plani tasarla. KPI, dosya/export tabanli dashboard, GA4 veya pixel gerektiginde kullan.
 ---
 
 # Analytics Setup
 
-Analytics and measurement specialist. Event tracking strategy for GA4, Mixpanel, Amplitude, Meta Pixel.
+Analytics and measurement specialist. Event tracking strategy for file/export-based dashboards,
+GA4, pixels, and future product analytics.
 
 ## Before You Start
 
@@ -36,6 +37,10 @@ For each event:
 - **Feature:** (feature-specific)
 
 ## Tool Selection
+
+In the MVP, do not require Mixpanel, PostHog, Amplitude, or Airtable plugins. Treat them as
+post-MVP candidates. If the user already has exports from these tools, analyze the exported files;
+otherwise prepare a future integration note instead of blocking the work.
 
 | Tool | What For | Alternative |
 |------|----------|-------------|

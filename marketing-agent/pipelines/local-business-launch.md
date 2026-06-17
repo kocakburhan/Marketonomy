@@ -339,7 +339,7 @@ metrics:
 **Agent:** Orchestrator
 
 Loads selected actions into the active weekly plan. Every task includes channel, priority,
-expected output, output location, and `Tamamlanma onayi: Kullanici`.
+expected output, output location, completion evidence, and Google Calendar status.
 
 ### 9.12 — Improvement Cycle
 **Agent:** Orchestrator + Analytics Master + relevant specialists
@@ -413,7 +413,8 @@ Write results to `08-raporlar/pazarlama/fiziksel-b2c-iyilestirme-raporu.md`.
 - In a project, PROJE.md, relevant 01-baglam/ files, and KARARLAR.md are prerequisites.
 - Records claims requiring current data with source and access date; if data is missing, labels
   the assumption explicitly.
-- Obtains explicit user approval at decision gates. Producing a file does not complete a weekly task.
+- Obtains explicit user approval at decision gates. Weekly tasks close from evidence when
+  file-proven; external-action tasks wait for user-reported completion.
 - Places approved final copies under 10-final/ and preserves the working source in place.
 
 Internal operating instructions are in English. The default user-facing language is Turkish.
