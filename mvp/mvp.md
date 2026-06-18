@@ -77,13 +77,9 @@ MVP'nin zorunlu Drive yapisi:
 ```text
 PersonalAutonomy/
   shared/
-    agent-releases/
-      v1.0.0/
-      v1.1.0/
     tools/
       create-evaluation.ps1
       create-project.ps1
-      update-all-agents.ps1
     templates/
     logs/
 
@@ -106,10 +102,6 @@ Paylasim kurali:
 ```text
 PersonalAutonomy/
   Yalnizca sistem sahibi
-
-PersonalAutonomy/shared/agent-releases/
-  Sistem sahibi: Editor
-  Marketer'lar: Viewer
 
 PersonalAutonomy/shared/tools/
   Sistem sahibi: Editor
@@ -931,38 +923,9 @@ Pazartesi hazirlanir.
 
 ## 7. Marketing Agent Dagitim Modeli
 
-Marketing Agent merkezi olarak `shared/agent-releases/` altinda surumlenir:
-
-```text
-shared/
-  agent-releases/
-    v1.0.0/
-      AGENTS.md
-      ARCHITECTURE.md
-      SKILLS.md
-      skills/
-      agents/
-      pipelines/
-      scripts/
-      templates/
-      mcps.json
-      release-manifest.json
-
-    v1.1.0/
-      AGENTS.md
-      ARCHITECTURE.md
-      SKILLS.md
-      skills/
-      agents/
-      pipelines/
-      scripts/
-      templates/
-      mcps.json
-      release-manifest.json
-```
-
-Yeni degerlendirme veya proje workspace'i olusturulurken guncel ve dogrulanmis release'in
-bagimsiz bir kopyasi ilgili `.pa/agent/` klasorune yazilir:
+Marketing Agent'in resmi kaynagi GitHub reposudur. Drive bu asamada agent release kaynagi veya
+toplu guncelleme mekanizmasi olarak kullanilmaz. Her degerlendirme veya proje workspace'i,
+GitHub'daki dogrulanmis release'ten kendi bagimsiz `.pa/agent/` kopyasini alir:
 
 ```text
 idea-workspace/fikir-001-ornek-fikir/.pa/agent/
@@ -985,6 +948,8 @@ Her iki kopya da su ortak yapiyi tasir:
     mcps.json
     release-manifest.json
     agent-version.json
+
+  agent-install.json
 ```
 
 Bu modelin sonucu:
@@ -995,124 +960,95 @@ Bu modelin sonucu:
 - Proje davranis tercihleri surumlenen agent paketinden ayri `.pa/project/` alaninda kalir.
 - Degerlendirme durumu surumlenen agent paketinden ayri `.pa/evaluation/` alaninda kalir.
 - Hangi agent surumunun hangi workspace'te kullanildigi izlenebilir.
-- Merkezi agent degisikligi kontrollu `update-all-agents.ps1` ile iki workspace turune de
-  dagitilir.
+- `.pa/agent-install.json`, bu workspace'in agent'i hangi GitHub repo ve surum politikasindan
+  kurdugunu kaydeder.
+- Agent guncellemesi proje-localdir; bu etapta Drive kokunden toplu tarama veya toplu update
+  yapilmaz.
 
 ---
 
 ## 8. Agent Guncelleme Akisi
 
-Sistem sahibi Marketing Agent uzerinde degisiklik yaptiginda yeni bir release olusturur:
+Sistem sahibi Marketing Agent uzerinde degisiklik yaptiginda GitHub uzerinde yeni bir release
+veya semver tag'i olusturur:
 
 ```text
-shared/agent-releases/v1.2.0
+v5.1.0
 ```
 
-Release klasoru `release-manifest.json` dosyasini tasir. Manifest release surumunu, zorunlu
-payload dosya listesini ve her payload dosyasinin SHA-256 hash degerini icerir.
-`release-manifest.json` kendi hash degerini kendi icinde tasimaz; script manifest dosyasinin
-SHA-256 degerini ayrica hesaplar ve workspace'te uretilen `agent-version.json` icindeki
-`manifest_sha256` alanina yazar. Sistem sahibi guncellemeyi su komutla baslatir:
+Release paketi `marketing-agent/release-manifest.json` dosyasini tasir. Manifest release
+surumunu, zorunlu payload dosya listesini ve her payload dosyasinin SHA-256 hash degerini icerir.
+Manifest guncel degilse kurulum veya guncelleme basarili sayilmaz.
+
+Ilk kurulum resmi installer ile yapilir:
 
 ```powershell
-.\shared\tools\update-all-agents.ps1 -Version "v1.2.0"
+.\scripts\install-marketing-agent.ps1 -TargetRoot "<workspace>" -RepoUrl "<GITHUB_REPO_URL>" -Version latest
 ```
 
-Kontrollu surum dusurme yalnizca acik parametreyle yapilir:
-
-```powershell
-.\shared\tools\update-all-agents.ps1 -Version "v1.1.0" -AllowDowngrade
-```
-
-`update-all-agents.ps1` dosya sistemi degisikliklerine baslamadan once hedef release'i bir kez
-dogrular:
+Kurulum sonunda workspace kokunde su metadata dosyasi olusur:
 
 ```text
-1. Version parametresinin vMAJOR.MINOR.PATCH biciminde oldugunu kontrol eder. Surum
-   karsilastirmasini MAJOR, MINOR ve PATCH tamsayilariyla yapar.
-2. Hedef release klasorunun tek ve okunabilir oldugunu kontrol eder.
-3. AGENTS.md, ARCHITECTURE.md, SKILLS.md, agents/, pipelines/, skills/, scripts/,
-   templates/, mcps.json ve release-manifest.json ogelerinin mevcut oldugunu kontrol eder.
-4. Manifest JSON yapisini, manifest surumunu ve zorunlu dosya listesini dogrular.
-5. Manifest disindaki release payload dosyalarinin SHA-256 degerlerini manifest ile
-   karsilastirir; manifest dosyasinin kendi SHA-256 degerini ayrica hesaplar.
-6. mcps.json ve release icindeki diger JSON dosyalarinin gecerli oldugunu kontrol eder.
+.pa/agent-install.json
 ```
 
-Release on dogrulamadan gecmezse hicbir workspace taranmaz veya degistirilmez. Script nedeni
-teknik olmayan bir dille aciklar, teknik ayrintiyi `shared/logs/` altina yazar ve Yonetici
-Burhan Kocak ile iletisime gecilmesini ister.
+Ornek:
 
-### Gecerli workspace'lerin bulunmasi
+```json
+{
+  "schema_version": "1.0",
+  "repo_url": "https://github.com/.../PersonalAutonomy-MVP",
+  "channel": "stable",
+  "requested_version": "latest",
+  "installed_version": "v5.1.0",
+  "update_policy": "ask",
+  "installed_at": "2026-06-18T12:00:00+03:00",
+  "installer": "scripts/install-marketing-agent.ps1"
+}
+```
 
-Script iki hedef desenini tarar:
+### Oturum basinda update kontrolu
+
+Kok `AGENTS.md` sabit bootstrap olarak kalir ve aktif `.pa/agent/AGENTS.md` dosyasina
+yonlendirir. Her yeni oturumda veya proje calismasina baslamadan once Codex su akisi uygular:
 
 ```text
-marketers/*/idea-workspace/*
-marketers/*/projects/*
+1. .pa/agent-install.json dosyasini oku.
+2. .pa/agent/scripts/check-update.ps1 ile guncelleme kontrolu yap.
+3. Yeni surum yoksa mevcut .pa/agent/AGENTS.md ile devam et.
+4. Yeni surum varsa kullaniciya acikca bildir.
+5. Kullanici onay vermeden guncelleme yapma.
+6. Onay verilirse .pa/agent/scripts/update-agent.ps1 -Yes calistir.
+7. Guncelleme basariliysa .pa/agent/AGENTS.md dosyasini yeniden oku.
 ```
 
-Bir klasor yalnizca kendi turunun tum isaretlerini tasiyorsa PersonalAutonomy workspace'i
-sayilir.
-
-Degerlendirme workspace'i isaretleri:
-
-```text
-AGENTS.md
-DEGERLENDIRME.md
-.pa/agent/agent-version.json
-.pa/evaluation/state.json
-```
-
-Proje workspace'i isaretleri:
-
-```text
-AGENTS.md
-PROJE.md
-.pa/agent/agent-version.json
-.pa/project/state.json
-```
-
-Kok `AGENTS.md` icinde `PA_BOOTSTRAP_VERSION: 1` bulunmalidir. Degerlendirme state dosyasi
-gecerli `idea_id`; proje state dosyasi gecerli `project_id` ve `idea_id` tasimalidir. JSON,
-bootstrap veya zorunlu alan kontrolunden gecmeyen klasor degistirilmeden atlanir ve kendi
-workspace turu belirtilerek raporlanir. Gecici olusturma klasorleri ve `.pa-update-work/`
-tarama disindadir.
+`check-update.ps1` salt okunur calisir; proje dosyalarini, `.pa/project/` veya
+`.pa/evaluation/` alanlarini degistirmez.
 
 ### Surum karari
 
-Her gecerli workspace icin mevcut `agent-version.json` okunur:
+Her workspace kendi `.pa/agent/agent-version.json` dosyasindaki mevcut surumu okur:
 
-- Surumler MAJOR, MINOR ve PATCH tamsayilari uzerinden karsilastirilir.
-- Mevcut surum hedefle ayniysa workspace `ayni surum` olarak atlanir.
+- Surumler `vMAJOR.MINOR.PATCH` biciminde karsilastirilir.
+- Mevcut surum hedefle ayniysa guncelleme yapilmaz.
 - Mevcut surum hedeften yeniyse `-AllowDowngrade` olmadan degistirilmez.
-- Mevcut surum hedeften yeniyse ve `-AllowDowngrade` varsa kontrollu surum dusurulur.
-- Mevcut surum hedeften eskiyse normal guncelleme yapilir.
-- Surum bilgisi okunamiyorsa workspace degistirilmez ve hata raporuna eklenir.
+- Mevcut surum hedeften eskiyse kullanici onayi ile normal guncelleme yapilir.
+- Surum bilgisi okunamiyorsa workspace degistirilmez ve sorun aciklanir.
 
 ### Workspace bazli atomik guncelleme
 
-Her workspace birbirinden bagimsiz guncellenir; normal bir workspace hatasi digerlerini
-engellemez:
+`update-agent.ps1` yalnizca aktif workspace'i gunceller:
 
 ```text
-1. Workspace'in .pa/agent klasorundeki zorunlu dosyalari, agent-version.json ve
-   release-manifest.json dosyalarini okunabilirlik/kilit acisindan kontrol eder.
-2. .pa/ altinda test dosyasi olusturma, yeniden adlandirma ve silme islemlerini dener.
-   Kilit veya Drive senkronizasyon sorunu varsa iki saniye arayla toplam uc kez tekrarlar.
-3. Uc denemeden sonra okuma/yazma testi basarisizsa workspace'e dokunmaz ve
-   "kilitli veya senkronizasyon bekliyor" olarak atlar.
-4. Hedef kullanicinin .pa-update-work/ klasorunde workspace turu ve kimligiyle benzersiz
-   backup ve hazirlama klasorleri olusturur. Bu alan workspace root'larinin disindadir.
-5. Mevcut .pa/agent paketini backup alanina kopyalar ve gecici hash envanteriyle dogrular.
-6. Yeni release'i hazirlama alanina kopyalar, agent-version.json dosyasini olusturur ve
-   manifest/hash kontrollerini tekrar yapar.
-7. Mevcut .pa/agent klasorunu eski-surum konumuna, hazirlanan paketi .pa/agent konumuna ayni
-   dosya sistemi icinde yeniden adlandirir.
-8. Yeni paketi son kez dogrular.
-9. Basarida eski-surum, backup ve hazirlama alanlarini temizler.
-10. Hatada yeni/yarim paketi kaldirir, backup'i geri yukler ve eski surumu dogrular.
-11. Rollback basariliysa sonraki workspace ile devam eder.
+1. Kullanici onayi olmadan calismaz; script -Yes ister.
+2. GitHub veya verilen SourceAgentRoot kaynagindan hedef agent paketini hazirlar.
+3. Kaynak release-manifest.json dosyasini ve hash degerlerini dogrular.
+4. Yeni paketi .pa/ altinda staging klasorune kopyalar ve tekrar dogrular.
+5. Mevcut .pa/agent klasorunu backup konumuna tasir.
+6. Staging paketini .pa/agent konumuna tasir.
+7. Yeni .pa/agent paketini son kez manifest ile dogrular.
+8. Basarida backup ve staging alanlarini temizler.
+9. Hatada staging'i kaldirir, backup'i .pa/agent olarak geri yukler ve eski agent'i dogrular.
 ```
 
 Guncelleme yalnizca `.pa/agent/` klasorunu degistirir. Degerlendirme workspace'inde
@@ -1139,43 +1075,14 @@ README.md
 .pa/project/
 ```
 
-Kok `AGENTS.md` sabit bootstrap olarak kalir ve aktif `.pa/agent/AGENTS.md` dosyasina
-yonlendirir.
-
-### Sonuc raporu ve log
-
-Script teknik olmayan kullaniciya workspace turlerini ayiran bir ozet gosterir:
-
-```text
-Hedef surum: v1.2.0
-Guncellenen degerlendirmeler: 5
-Guncellenen projeler: 12
-Ayni surum oldugu icin atlanan workspace'ler: 3
-Surum dusurme izni olmadigi icin atlananlar: 1
-Kilit veya Drive senkronizasyonu nedeniyle atlananlar: 2
-Gecersiz degerlendirme yapisi nedeniyle atlananlar: 1
-Gecersiz proje yapisi nedeniyle atlananlar: 1
-Hata sonrasi eski surume dondurulenler: 1
-```
-
-Ozet, sorunlu workspace adlarini ve kullanicinin ne yapmasi gerektigini belirtir. Teknik
-ayrintilar `shared/logs/agent-update-YYYYMMDD-HHMMSS.log` dosyasina yazilir. Log; hedef
-surumu, parametreleri, workspace turunu, kimligini, eski/yeni surumu, zamanlari, atlama
-nedenlerini, hash ve rollback sonucunu icerir. Agent icerigi, degerlendirme/proje verisi veya
-gizli bilgi loglanmaz.
-
-Yalnizca rollback de basarisiz olursa script kritik hata ile durur ve sonraki workspace'lere
-devam etmez. Etkilenen workspace yolu kullaniciya gosterilir ve Yonetici Burhan Kocak ile
-iletisime gecilmesi istenir.
-
 Ornek `agent-version.json`:
 
 ```json
 {
-  "version": "v1.2.0",
-  "updated_at": "2026-06-15T21:00:00+03:00",
-  "source": "shared/agent-releases/v1.2.0",
-  "manifest_sha256": "release-manifest-sha256"
+  "version": "v5.1.0",
+  "runtime": "codex",
+  "mvp_contract": "PersonalAutonomy MVP 2026-06-15",
+  "release_status": "source"
 }
 ```
 
@@ -2021,14 +1928,14 @@ manuel kaldirir ve web app'te onaylar. Coder'in gecmisi ve ciktilari korunur.
 ### Agent guncelleme
 
 ```text
-1. Sistem sahibi yeni agent release'ini shared/agent-releases/vX.Y.Z altinda hazirlar.
+1. Sistem sahibi GitHub'da yeni agent release/tag yayinlar.
 2. release-manifest.json ve SHA-256 degerlerini dogrular.
-3. update-all-agents.ps1 script'ini calistirir.
-4. Script release'i bir kez dogrular.
-5. Gecerli idea-workspace ve projects workspace'lerini ayri ayri tarar.
-6. Her workspace'in .pa/agent paketi atomik olarak guncellenir.
-7. Hata alan workspace eski surume dondurulur; rollback basariliysa digerleriyle devam edilir.
-8. Kullaniciya tur bazli sonuc ozeti, yoneticiye shared/logs altinda tarihli teknik log sunulur.
+3. Kurulu workspace yeni oturumda check-update.ps1 ile yeni surumu kontrol eder.
+4. Yeni surum varsa Codex kullaniciya sorar; onay yoksa guncelleme yapilmaz.
+5. Onay verilirse update-agent.ps1 -Yes yalnizca aktif workspace'in .pa/agent paketini gunceller.
+6. Hata olursa eski .pa/agent paketi backup'tan geri yuklenir.
+7. PROJE.md, DURUM.md, KARARLAR.md, ciktilar, .pa/project ve .pa/evaluation korunur.
+8. Guncelleme basariliysa Codex yeni .pa/agent/AGENTS.md dosyasini yeniden okur.
 ```
 
 ---
@@ -2081,8 +1988,9 @@ Codex izolasyonu:
 
 Agent dagitimi:
   Her workspace'te bagimsiz .pa/agent paketi
-  Merkezi, manifest ve SHA-256 ile dogrulanmis release
-  Iki workspace turunu da guncelleyen update-all-agents.ps1
+  GitHub kaynakli, manifest ve SHA-256 ile dogrulanmis release
+  Her workspace'in .pa/agent-install.json ile kendi update kaynagini bilmesi
+  Kullanici onayli proje-local check-update.ps1 ve update-agent.ps1
 ```
 
 ### Baglayici fikir ve proje karari
@@ -2143,8 +2051,9 @@ kullaniciya bildirir. Harici aksiyon gerektiren gorevler kullanici tamamladigini
 - `create-project.ps1` proje workspace'inin tek olusturucusudur.
 - Scriptler gecici klasorde kurar, zorunlu yapilari dogrular ve atomik olarak yayinlar.
 - Ayni `idea_id`/`project_id` icin ikinci workspace veya proje kopyasi olusturulmaz.
-- `update-all-agents.ps1` iki workspace turundeki yalnizca `.pa/agent/` paketini gunceller;
-  kullanici verisini korur ve hata halinde rollback yapar.
+- Agent guncellemesi proje-localdir; `check-update.ps1` salt okunur kontrol yapar,
+  `update-agent.ps1 -Yes` yalnizca `.pa/agent/` paketini gunceller, kullanici verisini korur
+  ve hata halinde rollback yapar.
 - Hata mesajlari teknik olmayan kullaniciya ne oldugunu ve sonraki adimi aciklar. Sistem,
   release veya erisim hatasinda Yonetici Burhan Kocak ile iletisim yonlendirmesi yapilir.
 - Kritik veritabani islemleri transaction, benzersizlik kurali, idempotency ve sunucu tarafli

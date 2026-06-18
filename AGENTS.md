@@ -45,8 +45,10 @@ Beklenen güvenli kurulum:
 3. Hedef proje kökü açık Codex workspace'idir.
 4. `marketing-agent/` paketi hedefte `.pa/agent/` altına atomik olarak kopyalanır.
 5. Hedef kökte bootstrap `AGENTS.md` oluşturulur veya güvenli şekilde güncellenir.
-6. `release-manifest.json` kaynakta ve hedefte doğrulanır.
-7. Kullanıcı dosyaları, proje çıktıları ve mevcut notlar silinmez.
+6. Hedef kökte `.pa/agent-install.json` oluşturulur; repo URL'si, istenen sürüm ve update
+   politikası burada saklanır.
+7. `release-manifest.json` kaynakta ve hedefte doğrulanır.
+8. Kullanıcı dosyaları, proje çıktıları ve mevcut notlar silinmez.
 
 Örnek marketer promptu:
 
@@ -57,6 +59,7 @@ Bu klasör PersonalAutonomy proje workspace'i.
 <GITHUB_REPO_URL>
 
 Kurulumu serbest elle yapma. Repodaki scripts/install-marketing-agent.ps1 installer'ını kullan.
+Installer'ı -RepoUrl <GITHUB_REPO_URL> -Version latest parametreleriyle çalıştır.
 Hedef proje kökü şu anda Codex'te açık olan klasördür.
 
 Kurulumdan sonra .pa/agent/ paketini, kök AGENTS.md bootstrap dosyasını ve
@@ -70,6 +73,9 @@ release-manifest.json doğrulamasını kontrol et. Var olan proje dosyalarımı 
   pipeline, agent veya skill dosyalarının birbirini tamamladığını kontrol et.
 - Kurulum davranışını değiştirirken `scripts/install-marketing-agent.ps1` ve
   `marketing-agent/templates/workspace-bootstrap-AGENTS.md` dosyalarını birlikte düşün.
+- Agent update davranışını değiştirirken `marketing-agent/scripts/check-update.ps1`,
+  `marketing-agent/scripts/update-agent.ps1` ve `scripts/test_marketing_agent_install_update.ps1`
+  dosyalarını birlikte düşün.
 - Kullanıcı verisini temsil eden örnek proje klasörleri oluşturma; gerçek workspace kurulumu
   installer ile hedef klasörde yapılır.
 - Eski OpenCode, `sessions/`, `state.md`, Webwright veya Puppeteer tabanlı talimatları geri
@@ -89,6 +95,7 @@ Sonra zorunlu kontrolleri çalıştır:
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\marketing-agent\scripts\test_mvp_compatibility.ps1 -AgentRoot .\marketing-agent
 powershell -ExecutionPolicy Bypass -File .\marketing-agent\scripts\healthcheck.ps1 -AgentRoot .\marketing-agent
+powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_install_update.ps1
 ```
 
 Installer değiştiğinde en azından geçici bir klasöre kurulum testi yap:
@@ -106,6 +113,8 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-marketing-agent.ps1 -
 - Release manifest güncel değilse kurulum başarılı sayılmaz.
 - Installer hedefteki proje dosyalarını silmemeli, sadece `.pa/agent/` paketini ve bootstrap
   `AGENTS.md` dosyasını yönetmelidir.
+- Update scripti kullanıcı onayı olmadan çalışmamalı ve yalnızca `.pa/agent/` paketini
+  değiştirmelidir; `.pa/project/`, `.pa/evaluation/` ve proje çıktıları korunmalıdır.
 - Workspace kökü `AGENTS.md` sabit bootstrap'tır; agent update sırasında asıl davranış
   `.pa/agent/` altında güncellenir.
 - Haftalık görevler dosya üretildi diye tamamlanmış sayılmaz; yalnızca kullanıcı açıkça

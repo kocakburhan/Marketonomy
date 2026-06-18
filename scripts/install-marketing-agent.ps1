@@ -1,6 +1,9 @@
 param(
     [string]$TargetRoot = (Get-Location).Path,
     [string]$SourceAgentRoot,
+    [string]$RepoUrl,
+    [string]$Version = "latest",
+    [string]$UpdatePolicy = "ask",
     [switch]$ForceBootstrap
 )
 
@@ -21,7 +24,89 @@ function Read-Utf8([string]$Path) {
 }
 
 function Write-Utf8([string]$Path, [string]$Content) {
+    $parent = Split-Path -Parent $Path
+    if ($parent) {
+        New-Item -ItemType Directory -Force -Path $parent | Out-Null
+    }
     [System.IO.File]::WriteAllText($Path, $Content, $Utf8)
+}
+
+function Test-VersionString([string]$Value, [string]$Name) {
+    if ($Value -ne "latest" -and $Value -notmatch '^v\d+\.\d+\.\d+$') {
+        throw "$Name latest veya vMAJOR.MINOR.PATCH biciminde olmali."
+    }
+}
+
+function Convert-VersionParts([string]$Value) {
+    if ($Value -notmatch '^v(\d+)\.(\d+)\.(\d+)$') {
+        throw "Gecersiz surum: $Value"
+    }
+    return [int[]]@([int]$Matches[1], [int]$Matches[2], [int]$Matches[3])
+}
+
+function Compare-Semver([string]$Left, [string]$Right) {
+    $leftParts = Convert-VersionParts $Left
+    $rightParts = Convert-VersionParts $Right
+    for ($i = 0; $i -lt 3; $i++) {
+        if ($leftParts[$i] -lt $rightParts[$i]) { return -1 }
+        if ($leftParts[$i] -gt $rightParts[$i]) { return 1 }
+    }
+    return 0
+}
+
+function Get-LatestGitTag([string]$RemoteUrl) {
+    if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
+        throw "Git bulunamadi. RepoUrl ile kurulum icin git PATH uzerinde olmali veya -SourceAgentRoot kullanilmali."
+    }
+
+    $refs = & git ls-remote --tags --refs $RemoteUrl "v*" 2>&1
+    if ($LASTEXITCODE -ne 0) {
+        throw "GitHub tag bilgisi okunamadi: $refs"
+    }
+
+    $versions = foreach ($line in $refs) {
+        if ($line -match 'refs/tags/(v\d+\.\d+\.\d+)$') {
+            $Matches[1]
+        }
+    }
+
+    if (-not $versions) {
+        return $null
+    }
+
+    return ($versions | Sort-Object -Descending -Property @{ Expression = { (Convert-VersionParts $_)[0] } }, @{ Expression = { (Convert-VersionParts $_)[1] } }, @{ Expression = { (Convert-VersionParts $_)[2] } } | Select-Object -First 1)
+}
+
+function Resolve-RemoteAgentRoot([string]$RemoteUrl, [string]$RequestedVersion, [ref]$TempRoot) {
+    if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
+        throw "Git bulunamadi. RepoUrl ile kurulum icin git PATH uzerinde olmali veya -SourceAgentRoot kullanilmali."
+    }
+
+    $versionToClone = $RequestedVersion
+    if ($versionToClone -eq "latest") {
+        $latest = Get-LatestGitTag $RemoteUrl
+        if ($latest) {
+            $versionToClone = $latest
+        }
+    }
+
+    $temp = Join-Path $env:TEMP ("pa-agent-source-" + [guid]::NewGuid().ToString("N"))
+    $TempRoot.Value = $temp
+
+    if ($versionToClone -eq "latest") {
+        & git clone --depth 1 $RemoteUrl $temp 2>&1 | Out-String | Write-Verbose
+    } else {
+        & git clone --depth 1 --branch $versionToClone $RemoteUrl $temp 2>&1 | Out-String | Write-Verbose
+    }
+    if ($LASTEXITCODE -ne 0) {
+        throw "Repo indirilemedi: $RemoteUrl"
+    }
+
+    $agentRoot = Join-Path $temp "marketing-agent"
+    if (-not (Test-Path -LiteralPath $agentRoot)) {
+        throw "Repo icinde marketing-agent klasoru bulunamadi: $RemoteUrl"
+    }
+    return $agentRoot
 }
 
 function Test-Manifest([string]$AgentRoot) {
@@ -124,14 +209,47 @@ function Install-Bootstrap([string]$TargetRoot, [string]$TemplatePath, [switch]$
     return "replaced-with-backup:$backup"
 }
 
-$targetRootFull = Resolve-ExistingDirectory $TargetRoot "TargetRoot"
-
-if (-not $SourceAgentRoot) {
-    $repoRoot = Split-Path -Parent $PSScriptRoot
-    $SourceAgentRoot = Join-Path $repoRoot "marketing-agent"
+function Write-InstallMetadata(
+    [string]$TargetRoot,
+    [string]$RepoUrl,
+    [string]$SourceAgentRoot,
+    [string]$InstalledVersion,
+    [string]$UpdatePolicy,
+    [string]$RequestedVersion
+) {
+    $metadata = [ordered]@{
+        schema_version = "1.0"
+        repo_url = $RepoUrl
+        source_agent_root = $SourceAgentRoot
+        channel = "stable"
+        requested_version = $RequestedVersion
+        installed_version = $InstalledVersion
+        update_policy = $UpdatePolicy
+        installed_at = (Get-Date).ToString("o")
+        installer = "scripts/install-marketing-agent.ps1"
+    }
+    $metadataPath = Join-Path $TargetRoot ".pa\agent-install.json"
+    Write-Utf8 $metadataPath (($metadata | ConvertTo-Json -Depth 6) + "`n")
 }
 
-$sourceAgentFull = Resolve-ExistingDirectory $SourceAgentRoot "SourceAgentRoot"
+$targetRootFull = Resolve-ExistingDirectory $TargetRoot "TargetRoot"
+$remoteTempRoot = $null
+
+Test-VersionString $Version "Version"
+if ($UpdatePolicy -notin @("ask", "manual")) {
+    throw "UpdatePolicy ask veya manual olmali."
+}
+
+if ($SourceAgentRoot) {
+    $sourceAgentFull = Resolve-ExistingDirectory $SourceAgentRoot "SourceAgentRoot"
+} elseif ($RepoUrl) {
+    $sourceAgentFull = Resolve-RemoteAgentRoot -RemoteUrl $RepoUrl -RequestedVersion $Version -TempRoot ([ref]$remoteTempRoot)
+} else {
+    $repoRoot = Split-Path -Parent $PSScriptRoot
+    $SourceAgentRoot = Join-Path $repoRoot "marketing-agent"
+    $sourceAgentFull = Resolve-ExistingDirectory $SourceAgentRoot "SourceAgentRoot"
+}
+
 $required = @(
     "AGENTS.md", "ARCHITECTURE.md", "SKILLS.md", "agents", "pipelines", "skills",
     "scripts", "templates", "mcps.json", "agent-version.json", "release-manifest.json"
@@ -150,16 +268,29 @@ if (-not (Test-Path -LiteralPath $templatePath)) {
 }
 
 $destinationAgent = Join-Path $targetRootFull ".pa\agent"
-Copy-AgentPackage -Source $sourceAgentFull -Destination $destinationAgent
-$bootstrapStatus = Install-Bootstrap -TargetRoot $targetRootFull -TemplatePath $templatePath -ForceBootstrap:$ForceBootstrap
+try {
+    Copy-AgentPackage -Source $sourceAgentFull -Destination $destinationAgent
+    $bootstrapStatus = Install-Bootstrap -TargetRoot $targetRootFull -TemplatePath $templatePath -ForceBootstrap:$ForceBootstrap
 
-$versionPath = Join-Path $destinationAgent "agent-version.json"
-$version = Read-Utf8 $versionPath | ConvertFrom-Json
+    $versionPath = Join-Path $destinationAgent "agent-version.json"
+    $agentVersion = Read-Utf8 $versionPath | ConvertFrom-Json
+    Write-InstallMetadata `
+        -TargetRoot $targetRootFull `
+        -RepoUrl $RepoUrl `
+        -SourceAgentRoot $SourceAgentRoot `
+        -InstalledVersion $agentVersion.version `
+        -UpdatePolicy $UpdatePolicy `
+        -RequestedVersion $Version
 
-Write-Output "SONUC: PersonalAutonomy Marketing Agent kurulumu tamamlandi."
-Write-Output "Hedef workspace: $targetRootFull"
-Write-Output "Agent hedefi: $destinationAgent"
-Write-Output "Surum: $($version.version)"
-Write-Output "Manifest dosya sayisi: $($manifest.files.Count)"
-Write-Output "Bootstrap AGENTS.md: $bootstrapStatus"
-Write-Output "Sonraki adim: Hedef klasoru Codex root olarak ac ve kok AGENTS.md talimatlarini izle."
+    Write-Output "SONUC: PersonalAutonomy Marketing Agent kurulumu tamamlandi."
+    Write-Output "Hedef workspace: $targetRootFull"
+    Write-Output "Agent hedefi: $destinationAgent"
+    Write-Output "Surum: $($agentVersion.version)"
+    Write-Output "Manifest dosya sayisi: $($manifest.files.Count)"
+    Write-Output "Bootstrap AGENTS.md: $bootstrapStatus"
+    Write-Output "Sonraki adim: Hedef klasoru Codex root olarak ac ve kok AGENTS.md talimatlarini izle."
+} finally {
+    if ($remoteTempRoot -and (Test-Path -LiteralPath $remoteTempRoot)) {
+        Remove-Item -LiteralPath $remoteTempRoot -Recurse -Force
+    }
+}

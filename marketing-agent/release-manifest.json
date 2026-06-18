@@ -1,6 +1,6 @@
 {
     "schema_version":  "1.0",
-    "version":  "v5.0.0",
+    "version":  "v5.1.0",
     "hash_algorithm":  "SHA-256",
     "generated_at":  "deterministic",
     "files":  [
@@ -81,7 +81,7 @@
                   },
                   {
                       "path":  "agent-version.json",
-                      "sha256":  "226a01b24159ae9912a43de67fade3b5fd29d24625bb742c7f0a04411af1e375",
+                      "sha256":  "39dffa19399980eb9ba90e8817eb5ab9d5f5004a7ef5512d81cda6752add8383",
                       "size":  131
                   },
                   {
@@ -141,8 +141,8 @@
                   },
                   {
                       "path":  "QUICKSTART.md",
-                      "sha256":  "f15cf4ced2531333bd52d832ef5777e79b1ca24409509439493546074b588d29",
-                      "size":  3034
+                      "sha256":  "4bdeb9922399a4733b3e1f49ef816417356133b590d2121c96b9a9fa21f73678",
+                      "size":  3834
                   },
                   {
                       "path":  "scripts/analyze_page.py",
@@ -153,6 +153,11 @@
                       "path":  "scripts/build_release_manifest.ps1",
                       "sha256":  "1c01e915bb55883689ca34d1d4567307c1d7bc275f7e937c4d948c603bd8811e",
                       "size":  1569
+                  },
+                  {
+                      "path":  "scripts/check-update.ps1",
+                      "sha256":  "925baec55902d3eb559586e30fab8df8af497c0cba48e1a44875627a53fa609d",
+                      "size":  4386
                   },
                   {
                       "path":  "scripts/competitor_scanner.py",
@@ -198,6 +203,11 @@
                       "path":  "scripts/test_mvp_compatibility.ps1",
                       "sha256":  "b95065ef0a3a7c5c8f89f13ef08b8f29609f1184b0ce4f16cfd60a8f06d03f2d",
                       "size":  10330
+                  },
+                  {
+                      "path":  "scripts/update-agent.ps1",
+                      "sha256":  "c0949f39d081ec6c075d7f4e37cd10b4a14e81ab1c6700b5f31ce92a3c8aeec6",
+                      "size":  9717
                   },
                   {
                       "path":  "SKILLS.md",
@@ -596,8 +606,8 @@
                   },
                   {
                       "path":  "templates/workspace-bootstrap-AGENTS.md",
-                      "sha256":  "8720bd9fb0fbc58773e4f1c3828bf0702a885fbb17b4228732cee0791427c708",
-                      "size":  1023
+                      "sha256":  "408eeecee764ad759f9177f98e88bfc8a09a7d3ef022903a6e15d3f00f6acbf0",
+                      "size":  1605
                   }
               ]
 }

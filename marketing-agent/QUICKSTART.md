@@ -9,7 +9,24 @@ Kurulumdan sonra hedef workspace'te:
 
 - kök `AGENTS.md` bootstrap dosyası bulunur,
 - asıl agent paketi `.pa/agent/` altında bulunur,
-- asıl davranış talimatı `.pa/agent/AGENTS.md` dosyasından okunur.
+- asıl davranış talimatı `.pa/agent/AGENTS.md` dosyasından okunur,
+- `.pa/agent-install.json` dosyası kurulum kaynağını ve güncelleme politikasını saklar.
+
+## Güncelleme Mantığı
+
+Drive bu etapta agent güncelleme kaynağı değildir. Kurulu workspace kendi içindeki
+`.pa/agent-install.json` dosyasından GitHub repo bilgisini okur. Her yeni oturumda Codex önce
+`.pa/agent/scripts/check-update.ps1` ile kontrol yapar. Yeni sürüm varsa kullanıcıya sorar.
+Kullanıcı onayı olmadan güncelleme yapılmaz.
+
+Onaydan sonra:
+
+```powershell
+.\.pa\agent\scripts\update-agent.ps1 -TargetRoot . -Yes
+```
+
+Güncelleme yalnızca `.pa/agent/` paketini değiştirir. `PROJE.md`, `DURUM.md`, `KARARLAR.md`,
+çalışma çıktıları, `.pa/project/` ve `.pa/evaluation/` korunur.
 
 ## Marketer Promptu
 
@@ -20,6 +37,7 @@ Bu klasör PersonalAutonomy proje workspace'i.
 <GITHUB_REPO_URL>
 
 Kurulumu serbest elle yapma. Repodaki scripts/install-marketing-agent.ps1 installer'ını kullan.
+Installer'ı -RepoUrl <GITHUB_REPO_URL> -Version latest parametreleriyle çalıştır.
 Hedef proje kökü şu anda Codex'te açık olan klasördür.
 
 Kurulumdan sonra .pa/agent/ paketini, kök AGENTS.md bootstrap dosyasını ve
