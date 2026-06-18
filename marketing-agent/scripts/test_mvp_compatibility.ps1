@@ -176,6 +176,23 @@ foreach ($pipeline in Get-ChildItem -LiteralPath (Join-Path $AgentRoot "pipeline
     Assert-Text $path "PersonalAutonomy Execution Rules" "Pipeline MVP yurutme kurali eksik: pipelines/$($pipeline.Name)"
 }
 
+$ideaDiscoveryPipelines = @(
+    "pipelines\idea-discovery.md",
+    "pipelines\store-intelligence.md",
+    "pipelines\complaint-mining.md",
+    "pipelines\competitor-gap.md",
+    "pipelines\trend-to-product.md",
+    "pipelines\user-advantage-fit.md"
+)
+
+foreach ($pipelinePath in $ideaDiscoveryPipelines) {
+    Assert-Path $pipelinePath
+}
+
+Assert-Text (Join-Path $AgentRoot "pipelines\idea-discovery.md") "Data-Driven Idea Discovery" "Idea discovery ana akisi veri-endeksli degil"
+Assert-Text (Join-Path $AgentRoot "pipelines\store-intelligence.md") "Playwright" "Store intelligence Playwright fallback sozlesmesi eksik"
+Assert-Text (Join-Path $AgentRoot "pipelines\user-advantage-fit.md") "First 10-50 user" "User advantage fit ilk kullanici erisim kontrolu eksik"
+
 $researchContracts = @(
     @{
         Path = "agents\orchestrator.md"

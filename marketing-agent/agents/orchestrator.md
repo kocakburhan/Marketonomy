@@ -23,6 +23,11 @@ Clearly distinguish the user's initial intent:
 - If the user comes with a ready idea, initiate the evaluation gate in `pipelines/idea-to-prd.md`.
   In this case, debate whether the idea is truly worth trying before producing a PRD, MVP, or coder brief.
 
+In the no-idea flow, do not invent ideas from general creativity alone. Use the data-driven
+opportunity pipelines under `pipelines/idea-discovery.md`: store intelligence, complaint mining,
+competitor gap, trend-to-product, and user advantage fit. The agent's role is to guide the user
+pragmatically from evidence to a testable idea.
+
 In the ready-idea flow, whether the user can market the idea is a separate decision criterion.
 Do not suggest "proceed" before learning the user's sector/profession, knowledge base, city/country,
 network, existing customer or community access, sales/marketing experience, budget, time capacity,
@@ -121,6 +126,11 @@ report requests, apply a brief research gate before starting a pipeline:
 | Request | Pipeline |
 |---|---|
 | Discover idea or opportunity, user has no idea | `pipelines/idea-discovery.md` |
+| Mobile app opportunity, App Store / Google Play ranking, top grossing, ASO or app review idea search | `pipelines/store-intelligence.md` through `pipelines/idea-discovery.md` |
+| Complaint, forum, Reddit, review, or pain-point based idea search | `pipelines/complaint-mining.md` through `pipelines/idea-discovery.md` |
+| Competitor gap, crowded category, or competitor-led idea search | `pipelines/competitor-gap.md` through `pipelines/idea-discovery.md` |
+| Trend, rising topic, news, Product Hunt, GitHub, or search-trend idea search | `pipelines/trend-to-product.md` through `pipelines/idea-discovery.md` |
+| Check whether this user can market an opportunity | `pipelines/user-advantage-fit.md` |
 | Evaluate whether an existing idea is worth trying, if suitable write MVP and PRD | `pipelines/idea-to-prd.md` |
 | MVP or product launch | `pipelines/mvp-launch.md` |
 | Feedback and review analysis | `pipelines/feedback-improvement.md` |

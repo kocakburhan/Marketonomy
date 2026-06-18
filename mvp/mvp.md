@@ -259,6 +259,54 @@ Degerlendirme sonucu, istege bagli aciklama ve istege bagli rapor linki web app'
 workspace dosyalari marketer'in kisisel alaninda kalir ve diger kullanicilara otomatik olarak
 acilmaz.
 
+#### Data-endeksli fikir kesfi
+
+Marketer veya kullanici henuz net bir fikirle gelmediginde Marketing Agent, serbest beyin
+firtinasi yapmak yerine data-endeksli fikir kesfi yapar. Bu calisma yine marketer'in kendi
+`idea-workspace/` alaninda ve tekil Codex root/thread icinde tutulur.
+
+Fikir kesfi icin agent su kaynakli akislari kullanir:
+
+- App Store / Google Play siralama, kategori, yorum ve monetizasyon sinyalleri icin
+  `store-intelligence`.
+- Forum, Reddit, sikayet, yorum ve topluluk agrisi icin `complaint-mining`.
+- Rakip ozellik, fiyatlandirma, konumlandirma ve yorum bosluklari icin `competitor-gap`.
+- Google Trends, haber, Product Hunt, GitHub ve sosyal sinyal gibi yukselen konular icin
+  `trend-to-product`.
+- Bu kullanicinin fikri gercekten pazarlayip pazarlayamayacagini olcmek icin
+  `user-advantage-fit`.
+
+Bu akislarda Codex'in mevcut official web search, Browser, Chrome ve gerekirse public sayfalarda
+Playwright/browser automation yetenekleri kullanilir. MCP veya ucretli veri saglayicilar zorunlu
+degildir; aktif arac listesinde gorunuyorsa adapter olarak kullanilabilir. Agent gorunmeyen bir
+MCP/API'yi kurulmus sayamaz.
+
+App Store ve Google Play icin MVP karari:
+
+- Apple public RSS/Search/Lookup kaynaklari ve gorunur store sayfalari oncelikli kullanilir.
+- Google Play rakip verisi icin resmi Play Developer API zorunlu kaynak degildir; rakip
+  arastirmasinda public sayfa, scraper, Browser/Chrome, Playwright fallback veya manuel export
+  kullanilir.
+- Tek gunluk chart verisi bir kategorinin `su an guclu` oldugunu gosterebilir; `yukseliste`
+  demek icin workspace'te saklanan 7/14/30 gunluk snapshot veya guvenilir tarihsel kaynak
+  gerekir.
+- Kesin revenue, download, keyword volume veya rank gecmisi kaynak saglamiyorsa uydurulmaz;
+  gerekiyorsa `Tahmin` veya `Veri yok` olarak etiketlenir.
+
+Fikir kesfi ciktisi en az su izleri tasir:
+
+- `Kaynak ve Kanit Defteri`
+- `Veri Isleme Notlari`
+- firsat skoru
+- guven etiketi
+- kullanici pazarlama avantaji
+- ilk 10-50 kullaniciya ulasma plani
+- ilk dogrulama testi ve durdurma kosulu
+
+Bu akistan uretilen fikir otomatik olarak onaylanmis sayilmaz. Kullanici fikri ilerletmek isterse
+fikir, Marketing Agent'in `idea-to-prd` degerlendirme kapisina girer ve yine `Denenmeye Deger`,
+`Revizyonla Denenmeye Deger` veya `Denenmeye Degmez` sonucuyla tartilir.
+
 ### Proje workspace'i
 
 Her proje bagimsiz bir Codex workspace olarak dusunulur. Codex thread'i dogrudan bu klasorde
@@ -304,6 +352,9 @@ marketers/
           rakip-arastirmasi/
           musteri-arastirmasi/
           trend-arastirmasi/
+          store-intelligence/
+            raw/
+            snapshots/
 
         03-strateji/
           dogrulama/
@@ -510,8 +561,11 @@ hedef kitle, marka tonu, kisitlar ve bilinen rakipler burada netlesir.
 
 `02-arastirma/`
 
-Pazar, rakip, musteri ve trend arastirmalarinin calisma alanidir. Market Scout veya benzeri
-arastirma adimlari ciktilarini burada uretir.
+Pazar, rakip, musteri, trend ve store intelligence arastirmalarinin calisma alanidir. Market
+Scout veya benzeri arastirma adimlari ciktilarini burada uretir. App Store / Google Play
+arastirmalarinda normalize edilmis raporlar `store-intelligence/`, ham chart/review verileri
+`store-intelligence/raw/`, gunluk chart snapshot'lari ise `store-intelligence/snapshots/`
+altinda tutulur.
 
 `03-strateji/`
 

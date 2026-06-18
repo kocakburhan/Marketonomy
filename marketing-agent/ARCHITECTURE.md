@@ -96,6 +96,32 @@ with `outbound-sales` but is supplemented with `local-business-launch`, `content
 activation is needed. For B2C physical marketing, P9 is the main flow; digital support, growth,
 and feedback loops are added as needed.
 
+## Data-Driven Opportunity Discovery Model
+
+When a marketer asks to find an idea from scratch, the release uses `pipelines/idea-discovery.md`
+as an orchestrator over source-specific opportunity pipelines:
+
+```text
+store-intelligence
+complaint-mining
+competitor-gap
+trend-to-product
+user-advantage-fit
+  -> opportunity score
+  -> idea brief
+  -> idea-to-prd valuation gate
+```
+
+This model keeps idea generation evidence-based. App Store / Google Play MCPs are useful adapters
+but not required for the core architecture. The agent first uses visible Codex capabilities:
+official web search, Browser, Chrome, Playwright/browser automation for public rendered pages,
+local scripts, public endpoints, and manual exports. MCP and paid providers can later replace a
+data adapter without changing the pipeline contract.
+
+Trend language is controlled. A current chart snapshot can prove that a category is currently
+strong; it cannot prove a 14-day rise unless the workspace has snapshots or a source provides
+historical rank data. Snapshots are therefore part of the store-intelligence data model.
+
 Therefore, compatibility does not mean the same file set is produced in every scenario. Correct
 compatibility means the research, strategy, offer, channel, material, execution, measurement, and
 improvement layers are transformed into outputs appropriate for the project type.

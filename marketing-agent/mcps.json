@@ -4,6 +4,19 @@
   "purpose": "Marketing Agent capability envanteri. Bu dosya bir MCP'yi otomatik olarak kurmaz veya etkinlestirmez.",
   "capabilities": [
     {
+      "id": "public-store-intelligence",
+      "required": false,
+      "preferred_provider": "Codex web, Browser, Chrome, Playwright fallback, Apple public RSS/Search/Lookup, Google Play public pages or local scraper",
+      "use_for": [
+        "App Store top chart ve metadata arastirmasi",
+        "Google Play rakip sayfasi ve yorum arastirmasi",
+        "store-intelligence pipeline'i icin MCP'siz fallback"
+      ],
+      "host_setup": "Ek MCP zorunlu degildir; aktif Codex araclari ve yerel scriptler yeterliyse kullanilir.",
+      "availability_rule": "Agent yalnizca aktif Codex araclarini ve kullanilabilir yerel scriptleri kullanir; gorunmeyen MCP veya API kurulmus sayilmaz.",
+      "fallback": "Manuel store linkleri, ekran goruntuleri, CSV/JSON export veya kullanici tarafindan toplanan yorum listesi istenir."
+    },
+    {
       "id": "app-store-research",
       "required": false,
       "preferred_provider": "mcp-appstore",

@@ -148,7 +148,7 @@ Project workspaces have fixed root files and numbered folders:
   outputs.
 - `01-baglam/`: Long-lived project facts such as product context, target audience, brand,
   constraints, and known competitors.
-- `02-arastirma/`: Market, competitor, customer, and trend research.
+- `02-arastirma/`: Market, competitor, customer, trend, and store intelligence research.
 - `03-strateji/`: Validation, positioning, pricing, go-to-market, and growth strategy.
 - `04-urun/`: Idea summaries, PRDs, coder briefs, and product decisions.
 - `05-haftalik-planlar/`: ISO week files; the task-oriented weekly operating calendar.
@@ -215,6 +215,31 @@ In an evaluation workspace, this standard becomes a decision report; do not crea
 folder, final PRD, or weekly plan before a project workspace exists. In a project workspace, after
 the approved value decision, write MVP, PRD, and coder brief to canonical `04-urun/` paths.
 
+## Data-Driven Idea Discovery Standard
+
+When the user does not have a concrete idea and asks to find one, the agent must use
+`pipelines/idea-discovery.md` as the main flow. Idea discovery is not free brainstorming. It is a
+data-backed opportunity process that combines:
+
+1. `pipelines/store-intelligence.md` for App Store / Google Play ranking, category, monetization,
+   and review signals.
+2. `pipelines/complaint-mining.md` for forum, Reddit, review, complaint, and community pain.
+3. `pipelines/competitor-gap.md` for competitor feature, pricing, positioning, and review gaps.
+4. `pipelines/trend-to-product.md` for trend signals that can be translated into user jobs.
+5. `pipelines/user-advantage-fit.md` for whether this user can reach and test the first users.
+
+The agent must guide the marketer pragmatically. A generated idea is not valid until the evidence,
+competitor gap, user pain, willingness-to-pay signal, user's marketing advantage, and first test
+path are visible. Every recommended opportunity must carry an opportunity score and a confidence
+label. If the data is weak, say so and either deepen the research, revise the opportunity, or stop.
+
+For mobile app discovery, App Store and Google Play MCPs are optional adapters, not hard
+requirements. Use public Apple RSS/Search/Lookup endpoints, official web search, Browser/Chrome,
+Playwright fallback for public rendered pages, local scripts, or manual user exports according to
+visible Codex capabilities. Do not claim exact revenue, downloads, or historical rank movement
+unless the source provides it. If only today's ranking exists, say the category is `su an guclu`;
+say `yukseliste` only when snapshot history or a reliable historical source proves movement.
+
 ## Universal Marketing Standard
 
 Marketing Agent is not only for digital B2C marketing. It supports B2B, B2C, physical/field, and
@@ -259,7 +284,7 @@ Do not use project folders or the project override system inside an evaluation w
 
 ### Project Workspace
 
-- Market, competitor, customer, and trend research: `02-arastirma/`
+- Market, competitor, customer, trend, and store intelligence research: `02-arastirma/`
 - Validation, positioning, pricing, go-to-market, and growth: `03-strateji/`
 - Idea summary, PRD, coder brief, and product decisions: `04-urun/`
 - ISO weekly plans: `05-haftalik-planlar/YYYY-WNN.md`

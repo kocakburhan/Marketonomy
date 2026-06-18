@@ -1,188 +1,285 @@
-# Pipeline 1: Idea Discovery and Validation
+# Pipeline 1: Data-Driven Idea Discovery
 
-**Position in chain:** Chain A (first step) — then transitions to P5.
+**Position in chain:** Chain A first step. When a concrete idea is produced and approved for
+evaluation, transition to `pipelines/idea-to-prd.md`.
 
-**When it runs:** When the user says "I want to find an idea from scratch" or when they haven't
-brought a concrete idea yet. If the user comes with a ready idea, do not start this pipeline;
-direct them to the "is it worth trying?" flow in `pipelines/idea-to-prd.md`.
+**When it runs:** When the user says "fikir bulalim", "bana fikir bul", "hangi isi yapalim",
+"app fikri bulalim", or when the user has no concrete idea yet.
 
-**Purpose:** Scan the market for gaps and opportunities to reach a testable product idea together
-with the user. When the idea becomes clear, the agent validates the idea rigorously based on
-evidence and the user's marketing advantage rather than being optimistic.
+**Purpose:** Help a non-marketing expert find realistic, data-backed opportunities with the
+marketer. The agent must not brainstorm from taste alone. It must collect evidence, identify
+pain, compare competitors, score user advantage, and turn only the strongest opportunities into
+testable ideas.
 
-**Prerequisite:** `PROJE.md and relevant files under 01-baglam/` must be created.
+**Prerequisite:** In an evaluation workspace, `DEGERLENDIRME.md` and workspace state must exist.
+In a project workspace, `PROJE.md` and relevant `01-baglam/` files must exist. If the user is
+only exploring before a workspace is ready, write a draft plan and list required setup steps.
+
+Internal operating instructions are in English. The default user-facing language is Turkish.
+
+---
+
+## Core Rule
+
+Idea discovery is a research and decision process:
+
+```text
+source data
+  -> evidence ledger
+  -> pain / demand / trend / competitor gap
+  -> user segment
+  -> willingness-to-pay signal
+  -> user's marketing advantage
+  -> opportunity score
+  -> testable idea
+  -> first validation test
+```
+
+Do not present an idea as promising unless the evidence, user advantage, and first test path are
+visible. If data is weak, label the idea as `Dusuk guven`, `Varsayim`, or `Tahmin`.
 
 ---
 
 ## Pipeline Flow
 
-```
-User enters
-        │
-        ▼
-[1.1] Orchestrator → Ask interest area/sector/product type
-        │
-        ▼
-[1.2] Market Scout → Scan sources, produce opportunity map
-        │  Output: firsat-haritasi.md
-        ▼
-[1.3] Orchestrator → Present opportunities to user, have them select a category
-        │  User: "Analyze category X" (or "cancel")
-        ▼
-[1.4] Market Scout → Deep analysis in selected category
-        │  Output: kategori-analizi.md
-        ▼
-[1.5] Strategy Analyst → Competitive analysis, gap detection
-        │  Output: strateji-analizi.md
-        ▼
-[1.6] Orchestrator → Present gaps to user, have them select an opportunity
-        │  User: selects a gap/opportunity (or "return to other category")
-        ▼
-[1.7] Product Architect → Generate idea from selected opportunity
-        │  Output: idea-brief.md
-        ▼
-[1.8] Orchestrator → Discuss and shape the idea with the user
-        │  User: approves / requests revision / cancels
-        ▼
-[1.9] Orchestrator → Pass approved idea to P5 valuation gate
-           P5: user marketing advantage + research + rigorous validation
-           If value decision is made: MVP → PRD → coder brief
+```text
+User enters with no idea
+        |
+        v
+[1.1] Orchestrator -> Collect discovery frame and user constraints
+        | Output: fikir-kesif-cercevesi.md
+        v
+[1.2] Orchestrator -> Select one or more opportunity pipelines
+        | Store / Complaint / Competitor Gap / Trend / User Advantage
+        v
+[1.3] Market Scout -> Run source-specific data collection
+        | Outputs: raw source notes + normalized research files
+        v
+[1.4] Strategy Analyst -> Score opportunities
+        | Output: firsat-skorlari.md
+        v
+[1.5] Orchestrator -> Discuss 3-5 opportunity candidates with user
+        | User selects / asks for more research / rejects
+        v
+[1.6] Product Architect -> Convert selected opportunity into idea brief
+        | Output: idea-brief.md
+        v
+[1.7] Orchestrator -> Pragmatic idea discussion and revision
+        | User approves final idea for valuation / revises / cancels
+        v
+[1.8] Orchestrator -> Start P5 valuation gate
+        | `pipelines/idea-to-prd.md`
 ```
 
 ---
 
-## Step Details
+## 1.1 Discovery Frame
 
-### 1.1 — Interest Area and Product Type Determination
-**Agent:** Orchestrator
-**Questions to user:**
-1. Which sector are you interested in? (open-ended or suggested list)
-2. What type of product? (Mobile app / SaaS / E-commerce / ...)
-3. Do you have a specific interest area? (sports, health, education, finance...)
+Ask only what is needed to start. If the user says "bilmiyorum", continue with a broad scan.
 
-**Note:** If the user says "I don't know," scan all popular categories.
+Minimum inputs:
 
-### 1.2 — Opportunity Map
-**Agent:** Market Scout
-**Optional capabilities:**
-- Mobile App: use `search_app` to find top apps in categories, use `analyze_top_keywords` to measure keyword traffic
-- SaaS: scan G2/Capterra/Reddit with active Codex web/Browser/Chrome tool
-- Physical Business: scan Google Maps/GBP with active Codex web/Browser/Chrome tool
+1. Desired product type: mobile app, SaaS, local business, e-commerce, service, content, or "open".
+2. Market geography: TR, US, global English, local city, or "open".
+3. User constraints: budget, weekly time, coding access, language, and preferred channels.
+4. User advantage hints: sector, city, network, audience, communities, sales access.
+5. Exclusions: sectors, regulated areas, or business types the user does not want.
 
-**Action:** Scan all sources appropriate for the product type.
-- App Store / Google Play → **mcp-appstore `search_app` + `analyze_top_keywords`**
-- G2 / Capterra / Reddit → **active Codex web/Browser/Chrome tool**
-- Google Maps / GBP → **active Codex web/Browser/Chrome tool**
+Output file:
 
-**Note:** If the user specified a sector, scan only that sector. If not, scan all categories and rank the fastest-growing ones.
-
-### 1.3 — Category Selection
-**Agent:** Orchestrator
-**Presented to user:** At least 3 rising categories, for each:
-- How many apps/competitors exist
-- Growth rate
-- Average revenue (if available)
-- One standout example
-
-**User decision:** "Deeply analyze category X" or "cancel, scan another source"
-
-### 1.4 — Deep Category Analysis
-**Agent:** Market Scout
-**Optional capabilities (for each competitor app):**
-1. `get_app_details(appId, platform)` → downloads, rating histogram, category, screenshots
-2. `analyze_reviews(appId, platform, sort="rating", num=200)` → sentiment, top negative keywords, common themes
-3. `get_pricing_details(appId, platform)` → IAP prices, monetization model
-4. `get_similar_apps(appId, platform)` → competitor discovery
-5. **Revenue estimate:** `rating_count × avg_subscription_price × 0.02`
-
-**Duration:** Depends on number of competitors in the category. At least 3, at most 10 competitors analyzed.
-
-### 1.5 — Strategic Analysis
-**Agent:** Strategy Analyst
-**Input:** `kategori-analizi.md`
-**Output:** SWOT, positioning map, gap list
-
-### 1.6 — Opportunity Selection
-**Agent:** Orchestrator
-**Presented to user:** At least 3 concrete opportunity areas (gaps). For each:
-- Which competitors' deficiency
-- What users complain about
-- Estimated market size
-
-### 1.7 — Idea Generation
-**Agent:** Product Architect
-**Input:** Selected opportunity area
-**Output:** `idea-brief.md` — problem, solution, target audience, MVP scope, revenue model
-
-### 1.8 — Idea Discussion
-**Agent:** Orchestrator
-**Done with user:** Pros/cons of the idea, risks, alternative angles, target audience clarification. The user shapes the idea.
-
-### 1.9 — Transition to P5 Valuation Gate
-**Agent:** Orchestrator
-**Input:** Approved `idea-brief.md` + discussion notes
-**Action:** Treat the idea as a ready idea and start the `pipelines/idea-to-prd.md` flow.
-
-In this transition, do not be optimistic toward the user again. Within P5, the user's network,
-knowledge, field/sector of work, city/country of residence, sales/marketing experience, and first
-user access channels are queried. If the idea is found valuable, first
-`04-urun/fikir-ozetleri/mvp.md`, then `04-urun/prd/prd.md`, then
-`04-urun/coder-briefleri/coder-brief.md` are produced.
+- Evaluation workspace: `ciktilar/fikir-kesif-cercevesi.md`
+- Project workspace: `03-strateji/dogrulama/fikir-kesif-cercevesi.md`
 
 ---
 
-## Decision Points
+## 1.2 Opportunity Pipeline Selection
 
-| Step | Decision | Options |
-|------|----------|---------|
-| 1.3 | Category selection | "Analyze X" / "Suggest another" / "Cancel" |
-| 1.6 | Opportunity selection | "Generate idea from X opportunity" / "Return to other category" / "Cancel" |
-| 1.8 | Idea approval | "Pass to P5 valuation gate" / "Change this part" / "Cancel" |
-| 1.9 | Valuation transition | "Start P5" / "Revise idea first" / "Cancel" |
+Select pipelines based on the discovery frame:
+
+| Situation | Pipeline |
+|---|---|
+| Mobile app ideas, app-store monetization, review gaps | `pipelines/store-intelligence.md` |
+| User pain, complaints, forums, Reddit, review mining | `pipelines/complaint-mining.md` |
+| Known competitors or crowded category | `pipelines/competitor-gap.md` |
+| Trend, news, rising topic, product category exploration | `pipelines/trend-to-product.md` |
+| Any idea must be checked against the user's actual access | `pipelines/user-advantage-fit.md` |
+
+For broad discovery, run at least three perspectives:
+
+1. `store-intelligence` if mobile apps are allowed.
+2. `complaint-mining` for pain discovery.
+3. `trend-to-product` or `competitor-gap` depending on whether the user starts from a trend or a
+   known category.
+4. Always run `user-advantage-fit` before recommending a final idea.
+
+---
+
+## 1.3 Source Collection Rules
+
+Use Codex's active research tools:
+
+- Official web search for current source discovery and public pages.
+- Browser or Chrome for dynamic pages, visible UI inspection, session-dependent pages, and local
+  verification.
+- Playwright/browser automation only when structured/public endpoints or simpler page fetches are
+  insufficient and the page can be accessed without bypassing controls.
+- MCP only when visible in the active tool list.
+- Scripts and manual user exports when web tools are unavailable or rate-limited.
+
+All research files must include:
+
+```markdown
+## Kaynak ve Kanit Defteri
+| ID | Arac | Kaynak | Erisim tarihi | Kullanilan veri | Guven |
+|----|------|--------|---------------|-----------------|-------|
+
+## Veri Isleme Notlari
+- Ham veri:
+- Normalize edilen alanlar:
+- Kullanilan script veya arac:
+- Varsayimlar:
+- Eksik veya erisilemeyen veri:
+```
+
+---
+
+## 1.4 Opportunity Scoring
+
+Each candidate receives a score. Do not hide weak scores.
+
+```markdown
+## Opportunity Score
+| Criterion | Score (1-5) | Evidence | Note |
+|---|---:|---|---|
+| Problem severity | | | |
+| Willingness-to-pay signal | | | |
+| Competitor gap | | | |
+| Trend / timing signal | | | |
+| MVP feasibility | | | |
+| User marketing advantage | | | |
+| First 10-50 user access | | | |
+| Data confidence | | | |
+| **Total** | **/40** | | |
+```
+
+Decision guidance:
+
+- `30-40`: strong candidate, can move to idea brief if no fatal risk exists.
+- `22-29`: revise or narrow before idea brief.
+- `<22`: do not recommend unless the user explicitly wants a speculative experiment.
+
+---
+
+## 1.5 User Discussion
+
+Present 3-5 candidates in plain Turkish:
+
+```text
+Data ile one cikan firsatlar:
+1. [Opportunity] - neden: [evidence], risk: [risk], skor: [x/40]
+2. ...
+
+Benim pragmatik onerim:
+- Once [X] firsatini derinlestirelim, cunku [reason].
+
+Karar:
+1. X firsatindan fikir uret
+2. Y firsatini derinlestir
+3. Daha fazla kaynak tara
+4. Bu yonu kapat
+```
+
+Do not move to MVP or PRD here. First convert the opportunity to an idea brief, then pass it to
+the hard valuation gate.
+
+---
+
+## 1.6 Idea Brief
+
+Output:
+
+- Evaluation workspace: `ciktilar/idea-brief.md`
+- Project workspace: `04-urun/fikir-ozetleri/idea-brief.md`
+
+Required sections:
+
+```markdown
+# Idea Brief: [Name]
+- Date:
+- Source opportunity:
+- Data confidence: High / Medium / Low
+
+## Evidence Summary
+- Strongest data:
+- Weakest assumption:
+- User pain:
+- Willingness-to-pay signal:
+- Competitor gap:
+
+## Target User
+- Segment:
+- Situation:
+- Existing alternative:
+- Why now:
+
+## Proposed Product
+- Core promise:
+- MVP scope:
+- Out of scope:
+- Revenue hypothesis:
+
+## First Validation Test
+- How to reach first 10-50 users:
+- What to test:
+- Success metric:
+- Stop condition:
+
+## Risks
+- Market risk:
+- Acquisition risk:
+- Product risk:
+- Data gap:
+```
+
+---
+
+## 1.7 Transition to P5
+
+After the user approves the idea brief, treat the idea as a ready idea and start
+`pipelines/idea-to-prd.md`. The P5 gate may still decide:
+
+- `Denenmeye Deger`
+- `Revizyonla Denenmeye Deger`
+- `Denenmeye Degmez`
+
+The agent must not consider a generated idea validated merely because it was produced by this
+pipeline.
 
 ---
 
 ## Output Files
 
-| File | Produced by | Description |
-|------|-------------|-------------|
-| `firsat-haritasi.md` | Market Scout | All categories, growth rates |
-| `kategori-analizi.md` | Market Scout | Competitor profiles in selected category |
-| `strateji-analizi.md` | Strategy Analyst | SWOT, gaps, opportunity areas |
-| `idea-brief.md` | Product Architect | Detailed idea |
-| P5 outputs | Orchestrator + specialists | If value decision is made: MVP, PRD, and coder brief |
+| File | Produced by | Evaluation path | Project path |
+|---|---|---|---|
+| `fikir-kesif-cercevesi.md` | Orchestrator | `ciktilar/` | `03-strateji/dogrulama/` |
+| Source research files | Market Scout | `ciktilar/` | `02-arastirma/` |
+| `firsat-skorlari.md` | Strategy Analyst | `ciktilar/` | `03-strateji/dogrulama/` |
+| `idea-brief.md` | Product Architect | `ciktilar/` | `04-urun/fikir-ozetleri/` |
 
 ---
 
-## Next Pipeline
-
-When Pipeline 1 completes, the orchestrator automatically gives this message:
-
-```
-If the P5 valuation gate is complete, the MVP, PRD, and coder brief are ready. Pass these to the coder.
-
-While the coder develops the MVP, I can help you with:
-• Opening social media accounts now
-• Preparing a "Coming soon" page
-• Email list building strategy
-
-Let me know when the MVP is ready, and let's continue with Pipeline 2 (MVP Launch).
-```
-
-When the coder delivers the MVP → **Pipeline 2 (MVP Launch)** starts.
-
 ## PersonalAutonomy Execution Rules
 
-- Main output areas: in evaluation ciktilar/ and RAPOR.md; in project 02-arastirma/ and 03-strateji/dogrulama/
+- Main output areas: in evaluation `ciktilar/` and `RAPOR.md`; in project `02-arastirma/`,
+  `03-strateji/dogrulama/`, and `04-urun/fikir-ozetleri/`.
+- Preserve raw source notes separately from normalized summaries.
 - The pipeline does not create its own project or status folder. It keeps the active step in
-  DURUM.md and the relevant .pa/*/active-task.md file.
-- In an evaluation workspace, it does not apply project-only steps; it does not interpret a
-  positive result as authority to create a project.
-- In a project, PROJE.md, relevant 01-baglam/ files, and KARARLAR.md are prerequisites.
-- Records claims requiring current data with source and access date; if data is missing, labels
-  the assumption explicitly.
-- Obtains explicit user approval at decision gates. Weekly tasks close from evidence when
+  `DURUM.md` and the relevant `.pa/*/active-task.md` file.
+- In an evaluation workspace, do not produce final PRD, coder brief, weekly project plan, or
+  project-only folders.
+- In a project, `PROJE.md`, relevant `01-baglam/` files, and `KARARLAR.md` are prerequisites.
+- Record claims requiring current data with source and access date; if data is missing, label the
+  assumption explicitly.
+- Obtain explicit user approval at decision gates. Weekly tasks close from evidence when
   file-proven; external-action tasks wait for user-reported completion.
-- Places approved final copies under 10-final/ and preserves the working source in place.
-
-Internal operating instructions are in English. The default user-facing language is Turkish.
+- Copy approved final copies under `10-final/` and preserve the working source in place.

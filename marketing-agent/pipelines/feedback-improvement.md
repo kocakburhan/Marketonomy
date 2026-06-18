@@ -101,7 +101,7 @@ From B2B sales:
 - Physical business: Google Maps/GBP reviews + Şikayetvar/forums with active Codex web/Browser/Chrome tool
 
 **Action:**
-- App Store/Google Play reviews → **mcp-appstore**
+- App Store/Google Play reviews -> `pipelines/store-intelligence.md`; use mcp-appstore only if it is visible in the active Codex tool list
 - Google Maps/GBP reviews → **active Codex web/Browser/Chrome tool**
 - Social media mentions → **active Codex web/Browser/Chrome tool**
 - Forum/complaint site reviews → **active Codex web/Browser/Chrome tool**

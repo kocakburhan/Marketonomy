@@ -92,6 +92,9 @@ project folder and file names remain as they are.
 
 | Scenario | Local chain |
 |---|---|
+| Idea discovery | `web-research` -> `customer-research` -> `market-competitors` -> `marketing-ideas` -> `pricing` |
+| Mobile app opportunity discovery | `web-research` -> `aso` -> `customer-research` -> `market-competitors` -> `pricing` |
+| Complaint-based opportunity discovery | `web-research` -> `customer-research` -> `marketing-psychology` -> `marketing-ideas` |
 | Idea validation | `web-research` -> `customer-research` -> `competitor-profiling` -> `pricing` |
 | Product launch | `product-marketing` -> `launch` -> `emails` -> `social` -> `directory-submissions` |
 | Content system | `content-strategy` -> `copywriting` -> `copy-editing` -> `seo-audit` |

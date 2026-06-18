@@ -11,8 +11,8 @@
                   },
                   {
                       "path":  "AGENTS.md",
-                      "sha256":  "232a08f00ef9150999f7bcd7ade1750bb3aa3d82bf9af3479168daccc61a29e1",
-                      "size":  20564
+                      "sha256":  "5a718bc086207b32390a165bbaac4cf61c202127372fc41a80d6d3982a80e9ad",
+                      "size":  22338
                   },
                   {
                       "path":  "agents/analytics-master.md",
@@ -46,8 +46,8 @@
                   },
                   {
                       "path":  "agents/market-scout.md",
-                      "sha256":  "140875c5bf27f1ec387c4ca45865254b9b51063497bb27e79cb6d620fbda98ff",
-                      "size":  10977
+                      "sha256":  "0c8c517f2aa2b5e26e82dcb2e8b97a5630b090c109d0404a57c06370c4638c8f",
+                      "size":  12896
                   },
                   {
                       "path":  "agents/onboarding-guide.md",
@@ -56,8 +56,8 @@
                   },
                   {
                       "path":  "agents/orchestrator.md",
-                      "sha256":  "562eb70220ca81a6fc638ba08e7f7d9f9fdd77402138109ae1bd574c02cc506d",
-                      "size":  10967
+                      "sha256":  "9baa933cfe67aa48618b02074176eed124b856ed96a8257ce08448dba05bc6e9",
+                      "size":  12003
                   },
                   {
                       "path":  "agents/outreach-specialist.md",
@@ -86,18 +86,28 @@
                   },
                   {
                       "path":  "ARCHITECTURE.md",
-                      "sha256":  "e108d1e6298aabb1807640653d00fede914b6225fe2034ef31f8cca897537871",
-                      "size":  7883
+                      "sha256":  "439381904d6d334b120d6305f662ab486816d1f547bf934dc5f49993c63b8809",
+                      "size":  8974
                   },
                   {
                       "path":  "mcps.json",
-                      "sha256":  "0bdf08e9afa4d23e9202d44aee4fa995b553c01b214f35e7ddb4d719fb1e1d2d",
-                      "size":  1806
+                      "sha256":  "1aa9c5c81e5f5c8c4c11ff5123ec256b89ea594dcb8d169f99bd984f2c3928ca",
+                      "size":  2645
                   },
                   {
                       "path":  "pipelines/competitor-attack.md",
                       "sha256":  "9150ff0364b6c44f3baff344a19425f50f962a0665ec276e8fcfc432c1df6dec",
                       "size":  3898
+                  },
+                  {
+                      "path":  "pipelines/competitor-gap.md",
+                      "sha256":  "e645f6a4d286ef09d720a855d88b557fffb903b2f03e8b23628ae7cb9d33a710",
+                      "size":  3660
+                  },
+                  {
+                      "path":  "pipelines/complaint-mining.md",
+                      "sha256":  "5d7e2343ea86c27f9674025b467ce145c5860ef93643a9fdec55814a2180d416",
+                      "size":  4662
                   },
                   {
                       "path":  "pipelines/content-machine.md",
@@ -106,8 +116,8 @@
                   },
                   {
                       "path":  "pipelines/feedback-improvement.md",
-                      "sha256":  "17abace9eb44e793b99c7002881274f119152a2debd94c682648220edaf968ba",
-                      "size":  7947
+                      "sha256":  "ce2d09807861a47ab4148c6b4c0af3729dbb322a40928e53a5f946014fc5b9df",
+                      "size":  8033
                   },
                   {
                       "path":  "pipelines/growth-engine.md",
@@ -116,8 +126,8 @@
                   },
                   {
                       "path":  "pipelines/idea-discovery.md",
-                      "sha256":  "74dca5c66d184a992345e1db2859b962ba668753261a765f65a608073962559b",
-                      "size":  7901
+                      "sha256":  "70d95033d58fcc887284fc5adeb94238e387cb19d0a5ab72c9e5b24bdd96ba15",
+                      "size":  8786
                   },
                   {
                       "path":  "pipelines/idea-to-prd.md",
@@ -138,6 +148,21 @@
                       "path":  "pipelines/outbound-sales.md",
                       "sha256":  "48e3b8b70eda02d5c8401d182109cd78fe9d7a25e92c3cbca0e9771005960ea6",
                       "size":  11289
+                  },
+                  {
+                      "path":  "pipelines/store-intelligence.md",
+                      "sha256":  "961254e6a85673e0a89b396b501d569a0b0a76432200e7ac54cbefe85bf989e9",
+                      "size":  8064
+                  },
+                  {
+                      "path":  "pipelines/trend-to-product.md",
+                      "sha256":  "16885d63b45defd7404e1493774bded75026153809fda9cda107c3c77002e6f9",
+                      "size":  3549
+                  },
+                  {
+                      "path":  "pipelines/user-advantage-fit.md",
+                      "sha256":  "6d841ade031e97703bcc23b1dbf4ce83d2efa6fc068c99637ff1c3a478e641c5",
+                      "size":  3451
                   },
                   {
                       "path":  "QUICKSTART.md",
@@ -201,8 +226,8 @@
                   },
                   {
                       "path":  "scripts/test_mvp_compatibility.ps1",
-                      "sha256":  "b95065ef0a3a7c5c8f89f13ef08b8f29609f1184b0ce4f16cfd60a8f06d03f2d",
-                      "size":  10330
+                      "sha256":  "33e8dc2808358696121bede1808db4c4614c0e5d0ecba06ac26c45d9f76c9923",
+                      "size":  11096
                   },
                   {
                       "path":  "scripts/update-agent.ps1",
@@ -211,8 +236,8 @@
                   },
                   {
                       "path":  "SKILLS.md",
-                      "sha256":  "51f131251fe8ddda21b487c3c719350b7ce327d36792673bd523aea0f858a4ad",
-                      "size":  7768
+                      "sha256":  "a1542f2bfb4bf1245497cd8390e3c8242ea1b9df32256560f775939d70d4f6ac",
+                      "size":  8137
                   },
                   {
                       "path":  "skills/ad-creative/agents/openai.yaml",
