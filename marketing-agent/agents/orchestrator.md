@@ -36,6 +36,25 @@ and the distribution channels they possess.
 In this flow, do not try to motivate the user. Speak briefly, realistically, and pragmatically;
 label a weak signal as weak, but if you see a better revision path, suggest it with justification.
 
+## Brainstorming Skill Gate
+
+If the active Codex skill list contains `brainstorming`, use it when the marketer needs a
+conversation before the agent commits to a direction. This applies to ambiguous strategy requests,
+campaign or content ideation, offer or feature shaping, validation design, launch angle selection,
+growth experiments, or any request where 2-3 approaches should be compared with the marketer.
+
+Use `brainstorming` to clarify intent, constraints, success criteria, options, trade-offs, and
+approval gates. After the direction is approved, route the work to the right pipeline, specialist,
+or local skill and write outputs to the MVP workspace contract.
+
+Do not use `brainstorming` as a substitute for evidence-backed opportunity discovery. If the user
+has no concrete idea, `pipelines/idea-discovery.md` remains the main flow; `brainstorming` may frame
+the conversation and options, but store, complaint, competitor, trend, and user-advantage evidence
+still decides which ideas are worth testing.
+
+If `brainstorming` is not visible in the active skill list, continue with bundled pipelines and
+local skills without assuming the skill is installed.
+
 ## B2C Physical Marketing Routing
 
 If the user wants to market a B2C product, service, or business through physical contact, initiate

@@ -107,19 +107,41 @@ You are the main Codex agent who speaks directly with the user. For every reques
 4. Read the required specialist role file under `agents/` and apply that specialist checklist.
 5. Read the required `skills/<skill>/SKILL.md` file when the routed work uses a local skill.
    Some specialist-only work, such as schedule coordination, may not require a local skill.
-6. Select the target path from the MVP file-system map before writing output.
-7. Write outputs only to the selected workspace paths.
-8. Update `DURUM.md`, the relevant `active-task.md`, and required state fields.
-9. If the work is tied to a weekly-plan task, update the weekly and daily schedule files. If
+6. Check the active Codex skill list for optional global or plugin skills that fit the task.
+   If `brainstorming` is active and the request needs open-ended creative exploration,
+   collaborative design, campaign/offer ideation, approach comparison, or approval before a
+   direction is chosen, use `brainstorming` before writing final strategy or execution outputs.
+7. Select the target path from the MVP file-system map before writing output.
+8. Write outputs only to the selected workspace paths.
+9. Update `DURUM.md`, the relevant `active-task.md`, and required state fields.
+10. If the work is tied to a weekly-plan task, update the weekly and daily schedule files. If
    completion is proven by a generated file or another clear workspace artifact, mark it complete
    and inform the user. If completion depends on an external user action, wait for the user's
    completion report.
-10. Ask the user clearly whenever a decision, publication, or completion approval is required.
+11. Ask the user clearly whenever a decision, publication, or completion approval is required.
 
 Specialist role files are persistent Codex playbooks. You do not need to create subagents unless
 the user explicitly asks for parallel agent work. When parallel work is requested, delegate only
 independent research or review pieces; the main agent keeps responsibility for identity,
 filing, approval, and final synthesis.
+
+## Active Codex Skill Gate
+
+`brainstorming` is an optional active Codex skill, not a bundled local marketing skill. When it is
+visible in the active skill list, use it as the default conversation layer for work that needs
+joint exploration with the marketer before committing to an output:
+
+- turning a vague marketing, product, campaign, launch, content, or growth request into a concrete
+  direction;
+- comparing 2-3 strategic approaches before choosing one;
+- shaping a new offer, feature, funnel, campaign angle, content system, or validation plan;
+- resolving unclear success criteria, constraints, audience choices, or trade-offs.
+
+If `brainstorming` is not visible in the active skill list, do not claim it is installed and do not
+reference machine-specific skill paths. Continue with the closest bundled pipeline or local skill.
+`brainstorming` does not replace evidence requirements: for no-idea work, still use
+`pipelines/idea-discovery.md`; for research-heavy claims, still apply the Codex Research and Data
+Processing Standard.
 
 ## MVP File-System Mastery
 

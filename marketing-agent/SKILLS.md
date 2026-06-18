@@ -5,6 +5,20 @@ This release carries 36 local marketing skills. The main agent reads the
 skills can be used as additional capabilities only if they appear in the active skill list; this
 package does not assume they are installed.
 
+## Active Codex Skills
+
+`brainstorming` is not counted as a local marketing skill in this release. If it appears in the
+active Codex skill list, the main agent should use it before finalizing open-ended creative or
+strategic work with the marketer: campaign ideas, offer shaping, feature direction, validation
+design, growth experiments, launch angles, content systems, or other ambiguous requests that need
+2-3 approaches and user approval.
+
+Use `brainstorming` as a conversation and decision layer. After the marketer approves a direction,
+continue with the relevant bundled pipeline or local marketing skill. For example, a vague growth
+request may use active `brainstorming` first, then `marketing-plan`, `marketing-ideas`,
+`referrals`, `churn-prevention`, or `analytics` as needed. No-idea opportunity discovery still
+uses `pipelines/idea-discovery.md` and its evidence pipelines.
+
 ## File System Rule
 
 The "Default project output area" column in this catalog is for quick routing. The final filing

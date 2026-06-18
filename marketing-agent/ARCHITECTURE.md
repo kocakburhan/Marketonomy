@@ -132,6 +132,13 @@ Each `skills/<name>/SKILL.md` carries `name` and `description` frontmatter in th
 Skills standard. Skill metadata is for Codex task matching; detailed instructions are loaded only
 when the skill is selected.
 
+Global or plugin Codex skills are optional active capabilities. The package may route to them only
+when they are visible in the active skill list, and must not depend on local machine skill paths.
+`brainstorming` is the expected active Codex skill for collaborative exploration before a creative
+or strategic direction is finalized. It works above the bundled local marketing skills: first shape
+the marketer's intent and options, then run the relevant pipeline or local skill and save outputs to
+the MVP workspace contract.
+
 The canonical release copy is under `.pa/agent/skills/`. The workspace creation or release
 distribution script may additionally publish the same skills to the area Codex supports for
 repo-scope skill discovery. The package also works by explicitly reading canonical skill files

@@ -55,6 +55,9 @@ kurmalıdır. Kurulacak pluginler:
 5. Figma
 6. GitHub
 
+- Daha iyi fikir geliştirme, kampanya yönü seçme, teklif veya özellik şekillendirme ve belirsiz
+  strateji konuşmaları için Codex'te `brainstorming` skill'inin kurulu ve aktif olması önerilir.
+
 Her fikir değerlendirmesi ve her proje ayrı bir klasördür. Her klasör ayrı bir Codex workspace
 ve ayrı bir Codex thread olarak düşünülmelidir. Bir projenin dosyaları başka bir projenin
 dosyalarıyla karıştırılmaz.

@@ -90,12 +90,17 @@ foreach ($requiredText in @(
     "11-notlar",
     "Do not leave the workspace root",
     "Codex Research and Data Processing Standard",
+    "Active Codex Skill Gate",
     "Default user-facing language is Turkish",
     "Kaynak ve Kanit Defteri",
     "Veri Isleme Notlari"
 )) {
     Assert-Text $agentsPath $requiredText "AGENTS.md zorunlu MVP kurali icermiyor"
 }
+
+Assert-Text (Join-Path $AgentRoot "agents\orchestrator.md") "Brainstorming Skill Gate" "Aktif brainstorming skill yonlendirmesi eksik"
+Assert-Text (Join-Path $AgentRoot "SKILLS.md") "is not counted as a local marketing skill" "Brainstorming aktif Codex skill notu eksik"
+Assert-Text (Join-Path $AgentRoot "ARCHITECTURE.md") "Global or plugin Codex skills are optional active capabilities" "Aktif global skill mimari notu eksik"
 
 $skillFiles = Get-ChildItem -LiteralPath (Join-Path $AgentRoot "skills") -Directory |
     ForEach-Object { Join-Path $_.FullName "SKILL.md" }
