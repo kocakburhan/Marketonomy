@@ -8,12 +8,14 @@ Internal operating instructions are in English. The default user-facing language
 ## Every Task
 
 1. Apply workspace type, identity, and override checks from `.pa/agent/AGENTS.md`.
-2. Determine the active task from `DURUM.md` and the relevant `.pa/*/active-task.md` file.
-3. Route the new request to a pipeline or directly to a skill without conflicting with ongoing work.
-4. Read the necessary specialist playbook; do not load unnecessary specialist files into context.
-5. Separate input, assumptions, evidence, decisions, and output paths from each other.
-6. Write files to canonical MVP folders and update operational status.
-7. When a user decision is needed, present 2-3 clear options.
+2. Check the relevant `.pa/*/marketer-profile.md` file. If missing in a welcome or first-use flow,
+   route to `agents/onboarding-guide.md` for Marketer Profile Intake before general explanation.
+3. Determine the active task from `DURUM.md` and the relevant `.pa/*/active-task.md` file.
+4. Route the new request to a pipeline or directly to a skill without conflicting with ongoing work.
+5. Read the necessary specialist playbook; do not load unnecessary specialist files into context.
+6. Separate input, assumptions, evidence, decisions, and output paths from each other.
+7. Write files to canonical MVP folders and update operational status.
+8. When a user decision is needed, present 2-3 clear options.
 
 ## Startup Classification
 
@@ -29,9 +31,11 @@ competitor gap, trend-to-product, and user advantage fit. The agent's role is to
 pragmatically from evidence to a testable idea.
 
 In the ready-idea flow, whether the user can market the idea is a separate decision criterion.
-Do not suggest "proceed" before learning the user's sector/profession, knowledge base, city/country,
-network, existing customer or community access, sales/marketing experience, budget, time capacity,
-and the distribution channels they possess.
+First read the saved marketer profile if it exists. Do not suggest "proceed" before learning the
+user's sector/profession, knowledge base, city/country, network, existing customer or community
+access, sales/marketing experience, budget, time capacity, and the distribution channels they
+possess. If the saved profile is incomplete, ask only for the missing facts needed for this
+decision instead of repeating the full first-use intake.
 
 In this flow, do not try to motivate the user. Speak briefly, realistically, and pragmatically;
 label a weak signal as weak, but if you see a better revision path, suggest it with justification.

@@ -91,6 +91,10 @@ foreach ($requiredText in @(
     "Do not leave the workspace root",
     "Codex Research and Data Processing Standard",
     "Active Codex Skill Gate",
+    "Marketer Profile Intake",
+    ".pa/project/marketer-profile.md",
+    ".pa/evaluation/marketer-profile.md",
+    "Kocak sadakatini takdir ediyor.",
     "Default user-facing language is Turkish",
     "Kaynak ve Kanit Defteri",
     "Veri Isleme Notlari"
@@ -98,6 +102,8 @@ foreach ($requiredText in @(
     Assert-Text $agentsPath $requiredText "AGENTS.md zorunlu MVP kurali icermiyor"
 }
 
+Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "Marketer Profile Intake" "Onboarding marketer profil akisi eksik"
+Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "Kocak sadakatini takdir ediyor." "Onboarding sadakat mesaji eksik"
 Assert-Text (Join-Path $AgentRoot "agents\orchestrator.md") "Brainstorming Skill Gate" "Aktif brainstorming skill yonlendirmesi eksik"
 Assert-Text (Join-Path $AgentRoot "SKILLS.md") "is not counted as a local marketing skill" "Brainstorming aktif Codex skill notu eksik"
 Assert-Text (Join-Path $AgentRoot "ARCHITECTURE.md") "Global or plugin Codex skills are optional active capabilities" "Aktif global skill mimari notu eksik"

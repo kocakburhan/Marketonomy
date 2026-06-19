@@ -11,8 +11,8 @@
                   },
                   {
                       "path":  "AGENTS.md",
-                      "sha256":  "0a3ac1c1c83626c91f391f2b6d0c98b810f958f246abaac8470220345370977a",
-                      "size":  23748
+                      "sha256":  "50202800e42eea6b10edd262871cba0825c7e9a9836d07bcc4e7254d7622b74c",
+                      "size":  26155
                   },
                   {
                       "path":  "agents/analytics-master.md",
@@ -51,13 +51,13 @@
                   },
                   {
                       "path":  "agents/onboarding-guide.md",
-                      "sha256":  "758f7b90b625508ef75969ea54da53d2454518f05d13b3a378ddc4f191beb14d",
-                      "size":  1903
+                      "sha256":  "84fbe795fdf8bd61f70a37c22c2f7a4290df48c74e299a1cf044ce07f4c960a9",
+                      "size":  3884
                   },
                   {
                       "path":  "agents/orchestrator.md",
-                      "sha256":  "a79aa9073749d6c9cd5da110212fd87ce20d9f7ed61d5d05cc3c56fb47a7786b",
-                      "size":  13169
+                      "sha256":  "2bec94b9652f82b9b89e070cbd9db312d5ba13adef540ecead83ff2395b4a13c",
+                      "size":  13557
                   },
                   {
                       "path":  "agents/outreach-specialist.md",
@@ -86,8 +86,8 @@
                   },
                   {
                       "path":  "ARCHITECTURE.md",
-                      "sha256":  "7ac20c7a87268836e321817c0ca920edc8ed651da2c3dc2fac6117d074d74eba",
-                      "size":  9500
+                      "sha256":  "088280b86058b3f8900c5b03439b6c94323ae52581c475d2821c1bf2c6d6dcc9",
+                      "size":  10143
                   },
                   {
                       "path":  "mcps.json",
@@ -226,8 +226,8 @@
                   },
                   {
                       "path":  "scripts/test_mvp_compatibility.ps1",
-                      "sha256":  "10ca28135889ed77fc29e04a016d28392528f48a2518a63a1bf4567bc02c6876",
-                      "size":  11556
+                      "sha256":  "6ee983d66cc0211d0cc89ce3f7dce35a6e0eb92a8afc009534018b2887f5223e",
+                      "size":  11970
                   },
                   {
                       "path":  "scripts/update-agent.ps1",

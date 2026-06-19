@@ -42,15 +42,17 @@ user outputs.
 
 ### Idea Evaluation
 
-Identity and criteria live in `DEGERLENDIRME.md`, technical state in `.pa/evaluation/`, raw inputs
-in `kaynaklar/`, analyses in `ciktilar/`, and the working report in `RAPOR.md`. This workspace is
+Identity and criteria live in `DEGERLENDIRME.md`, technical state in `.pa/evaluation/`, the
+workspace-local marketer profile in `.pa/evaluation/marketer-profile.md`, raw inputs in
+`kaynaklar/`, analyses in `ciktilar/`, and the working report in `RAPOR.md`. This workspace is
 pre-Project Pool and does not use project operations folders.
 
 ### Project
 
 Identity and product facts live in `PROJE.md`, long-lived context in `01-baglam/`, decisions in
-`KARARLAR.md`, and operations in `DURUM.md` and `.pa/project/`. All outputs from research to
-final go to the numbered MVP folders.
+`KARARLAR.md`, the workspace-local marketer profile in `.pa/project/marketer-profile.md`, and
+operations in `DURUM.md` and `.pa/project/`. All outputs from research to final go to the
+numbered MVP folders.
 
 The project file system is the central part of agent behavior. The main agent determines first the
 workspace type, then the output type, then the canonical target folder for every output. Raw user
@@ -67,6 +69,13 @@ User data or project outputs are not written inside `.pa/agent/`.
 launch, content, growth, outreach, analytics, brand, campaign, and schedule coordination. These
 are not independent data repositories or mandatory separate processes/runtimes; they are focused
 instruction files that Codex reads according to the task.
+
+The onboarding role owns first-use Marketer Profile Intake. It asks once for the marketer's city,
+age or age range, education, profession, expertise, marketing/sales experience, accessible
+channels, budget range, and weekly time capacity, then saves the answer under `.pa/evaluation/` or
+`.pa/project/`. A saved or postponed profile prevents the full intake from being repeated in every
+thread, while still letting downstream pipelines ask for missing facts when a decision requires
+them.
 
 Codex subagent work is applied only when the user explicitly requests it or when the main request
 explicitly specifies parallel agent usage. In all cases, the main agent verifies and consolidates

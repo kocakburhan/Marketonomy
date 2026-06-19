@@ -238,6 +238,7 @@ marketers/
           evaluation/
             state.json
             active-task.md
+            marketer-profile.md
             settings.json
 ```
 
@@ -253,7 +254,9 @@ kullanicinin agent'a aldirdigi notlar `notlar/` altinda saklanir.
 
 `.pa/agent/`, merkezi release'ten kopyalanan bagimsiz Marketing Agent paketidir.
 `.pa/evaluation/`, degerlendirme workspace'inin makine-okunabilir durumunu ve teknik ayarlarini
-tutar. Bu dosyalar web app workflow'unu veya fikir kimligini degistiremez.
+tutar. `marketer-profile.md`, marketer'in kendi beyanina dayanan sehir, yas, ogrenim, meslek,
+uzmanlik, gecmis marketing/satis tecrubesi, kanal erisimi, zaman ve butce gibi ilk tanima
+bilgilerini tutar. Bu dosyalar web app workflow'unu veya fikir kimligini degistiremez.
 
 Degerlendirme sonucu, istege bagli aciklama ve istege bagli rapor linki web app'e yazilir. Ham
 workspace dosyalari marketer'in kisisel alaninda kalir ve diger kullanicilara otomatik olarak
@@ -462,6 +465,7 @@ marketers/
             overrides-approved.md
             state.json
             active-task.md
+            marketer-profile.md
             settings.json
 ```
 
@@ -717,6 +721,15 @@ sonra agent, override veya normal kullanici islemiyle degistirilemez.
 O anda yurutulen isin kisa tanimidir. Codex thread'i yarida kalirsa veya yeni thread
 acilirsa agent'in hizli toparlanmasina yardim eder. Agent tarafindan yonetilir; kullanici bu
 dosyayi dogrudan duzenlemek yerine gorev degisikligini Codex'e soyler.
+
+`.pa/project/marketer-profile.md`
+
+Workspace'te calisan marketer'i ilk kurulum veya ilk karsilama sirasinda tanimak icin kullanilan
+insan tarafindan okunabilir profil dosyasidir. Sehir/ulke, yas veya yas araligi, ogrenim durumu,
+meslek, uzmanlik alanlari, gecmis marketing/satis/is gelistirme tecrubesi, mevcut network veya
+kanallar, haftalik zaman ve yaklasik butce bilgileri kullanici beyanina gore yazilir. Kullanici
+bir alani paylasmazsa `Belirtilmedi` olarak kalir. Bu dosya proje kimligi, rol, uyelik, Drive
+host veya yayin durumunu degistiremez; agent guncellemeleri dosyayi korur.
 
 `.pa/project/settings.json`
 

@@ -61,9 +61,10 @@ silently repair files, and do not continue normal work.
 3. `DEGERLENDIRME.md`
 4. `DURUM.md`
 5. `.pa/evaluation/settings.json`
-6. `.pa/evaluation/active-task.md`
-7. `.pa/evaluation/state.json`
-8. Task-relevant files under `kaynaklar/`
+6. `.pa/evaluation/marketer-profile.md` if it exists
+7. `.pa/evaluation/active-task.md`
+8. `.pa/evaluation/state.json`
+9. Task-relevant files under `kaynaklar/`
 
 ### Project
 
@@ -74,9 +75,10 @@ silently repair files, and do not continue normal work.
 5. `KARARLAR.md`
 6. `.pa/project/overrides.md`
 7. `.pa/project/settings.json`
-8. `DURUM.md`
-9. `.pa/project/active-task.md`
-10. `.pa/project/state.json`
+8. `.pa/project/marketer-profile.md` if it exists
+9. `DURUM.md`
+10. `.pa/project/active-task.md`
+11. `.pa/project/state.json`
 
 For every project, compare the SHA-256 of `overrides.md` with `overrides_sha256` in
 `state.json`. If it changed, summarize the difference and ask for user approval before treating
@@ -97,28 +99,69 @@ the new preference as active. After approval, update `overrides-approved.md`, `s
 Do not resolve conflicts silently. Explain the sources, impact, and recommended safe path to the
 user.
 
+## Marketer Profile Intake
+
+The agent should learn the marketer once per workspace, not ask "ilk kez mi kullaniyorsunuz?" in
+every thread. After workspace type and identity checks, select the profile path:
+
+- Evaluation workspace: `.pa/evaluation/marketer-profile.md`
+- Project workspace: `.pa/project/marketer-profile.md`
+
+If the selected file exists and contains a usable `Profil durumu`, read it and do not repeat the
+full intake. Use the saved facts as context for user-advantage, channel, schedule, and execution
+recommendations. If the user explicitly says this is their first time, asks to be introduced to the
+system, asks the agent to learn them, or the selected profile file is missing during onboarding,
+run the intake once before the general workspace explanation.
+
+Ask in Turkish with one compact form. Collect only useful marketing context:
+
+- preferred name or form of address, if they want to share it
+- city/country where they live or mainly operate
+- age or age range
+- education level
+- current profession or main work
+- expertise areas and sector knowledge
+- past marketing, sales, business development, content, community, or field experience
+- existing network, audience, customer access, channels, budget range, and weekly time capacity
+
+Do not invent missing personal facts. If the user skips a field, write `Belirtilmedi`. If they want
+to postpone the intake, create the profile file with `Profil durumu: Ertelendi`, list missing
+fields, and do not keep asking on every thread; ask only when a future decision truly needs the
+missing fact.
+
+When the intake is answered, write the profile file with the date, workspace type, source note
+`Kullanici beyanidir`, the collected fields, missing fields, and a short "marketing avantaji"
+summary. Keep this file outside `.pa/agent/` so release updates preserve it. Do not write personal
+profile details into technical logs, release manifests, or agent package files.
+
+After saving or updating the profile, say exactly: "Koçak sadakatini takdir ediyor." Then continue
+with the normal onboarding, evaluation, project, or task flow.
+
 ## Orchestration
 
 You are the main Codex agent who speaks directly with the user. For every request:
 
 1. Verify the workspace type and identities.
-2. Read `agents/orchestrator.md`.
-3. Route the request to a pipeline or directly to a skill.
-4. Read the required specialist role file under `agents/` and apply that specialist checklist.
-5. Read the required `skills/<skill>/SKILL.md` file when the routed work uses a local skill.
+2. Apply `Marketer Profile Intake` when the profile is missing during onboarding or explicitly
+   requested. If the profile was postponed, ask only for missing facts required by the current
+   decision.
+3. Read `agents/orchestrator.md`.
+4. Route the request to a pipeline or directly to a skill.
+5. Read the required specialist role file under `agents/` and apply that specialist checklist.
+6. Read the required `skills/<skill>/SKILL.md` file when the routed work uses a local skill.
    Some specialist-only work, such as schedule coordination, may not require a local skill.
-6. Check the active Codex skill list for optional global or plugin skills that fit the task.
+7. Check the active Codex skill list for optional global or plugin skills that fit the task.
    If `brainstorming` is active and the request needs open-ended creative exploration,
    collaborative design, campaign/offer ideation, approach comparison, or approval before a
    direction is chosen, use `brainstorming` before writing final strategy or execution outputs.
-7. Select the target path from the MVP file-system map before writing output.
-8. Write outputs only to the selected workspace paths.
-9. Update `DURUM.md`, the relevant `active-task.md`, and required state fields.
-10. If the work is tied to a weekly-plan task, update the weekly and daily schedule files. If
+8. Select the target path from the MVP file-system map before writing output.
+9. Write outputs only to the selected workspace paths.
+10. Update `DURUM.md`, the relevant `active-task.md`, and required state fields.
+11. If the work is tied to a weekly-plan task, update the weekly and daily schedule files. If
    completion is proven by a generated file or another clear workspace artifact, mark it complete
    and inform the user. If completion depends on an external user action, wait for the user's
    completion report.
-11. Ask the user clearly whenever a decision, publication, or completion approval is required.
+12. Ask the user clearly whenever a decision, publication, or completion approval is required.
 
 Specialist role files are persistent Codex playbooks. You do not need to create subagents unless
 the user explicitly asks for parallel agent work. When parallel work is requested, delegate only
