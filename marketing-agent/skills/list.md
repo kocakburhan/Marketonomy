@@ -1,9 +1,9 @@
-# Marketing Agent — Agent ve Skill Listesi
+# Marketing Agent — Agent ve Skill Listesi (v5.2.0)
 
 Bu dosya `marketing-agent/agents/` altindaki tum agent'lari ve her agent'in
 `## Skills You Use` tablosunda bagli olan skill'leri ozetler.
 
-- **U** = Upstream (`coreyhaines31/marketingskills` reposundan)
+- **U** = Upstream (`coreyhaines31/marketingskills` reposundan, guncel v2.5.x)
 - **L** = Local (`marketing-agent/skills/` altinda ozgun olarak yazilmis)
 
 ## Agent — Skill Baglantilari
@@ -27,7 +27,7 @@ Bu dosya `marketing-agent/agents/` altindaki tum agent'lari ve her agent'in
 ## Upstream Skill Kullanim Sikligi
 
 Upstream repodan toplam 33 farkli skill en az bir agent'a bagli. Tekrar
-edenler dahil 50 skill referansi var.
+edenler dahil 56 skill referansi var.
 
 | Upstream Skill | Kullanan Agent Sayisi | Kullanan Agent'lar |
 |---|---:|---|
@@ -83,10 +83,13 @@ uzman rolu veya yonlendirici olarak calisir:
 - `onboarding-guide` — Karsilama ve pazarlamaci profil alimi.
 - `schedule-coordinator` — Haftalik ve gunluk plan, Google Calendar senkronu.
 
-## Ozet
+## Ozet (v5.2.0)
 
 - 13 agent, 10'u skill baglantisina sahip.
-- 33 farkli upstream skill, 8 farkli local skill kullaniliyor.
+- 33 farkli upstream skill, 8 farkli local skill kullaniliyor (toplam 41 skill).
 - En genis agent: `content-creator` (8 skill).
-- En dar skill baglantilisi: `analytics-master`, `brand-guardian`,
-  `campaign-manager`, `product-architect` (3-4 skill).
+- En dar skill baglantilisi: `campaign-manager` (3 skill).
+- v5.1.0 → v5.2.0: 28 upstream skill body guncellendi, 5 yeni upstream skill
+  (co-marketing, competitors, lead-magnets, offers, revops) eklendi.
+- 4 Codex-ozgu skill (seo-audit, competitor-profiling, ai-seo, aso) bu tur
+  guncellenmedi; proje-ozgu Codex Evidence Rule bolumleri korundu.

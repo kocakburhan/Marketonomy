@@ -1,0 +1,4 @@
+interface:
+  display_name: "RevOps"
+  short_description: "Gelir operasyonlari, lead lifecycle ve satis el degisimi"
+  default_prompt: "In Codex'te, use the $revops skill in this workspace and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."

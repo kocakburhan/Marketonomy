@@ -63,7 +63,7 @@ $forbiddenPatterns = [ordered]@{
     "WebFetch runtime bagimliligi" = "(?i)webfetch"
     "Sahte Codex browser tool adi" = "(?i)codex browser tools"
     "Sahte slash tool komutu" = "(?i)/(codex|webwright|browser):"
-    "Eski product-marketing context dili" = "(?i)product-marketing context"
+    "Eski product-marketing context dili" = "(?i)[\./]product-marketing-context\.md"
     "Desteklenmeyen repo skill yolu" = "(?i)\.agents/skills"
     "Mekanik placeholder cikti yolu" = "(?i)workspace icindeki uygun MVP"
 }
@@ -111,8 +111,8 @@ Assert-Text (Join-Path $AgentRoot "ARCHITECTURE.md") "Global or plugin Codex ski
 $skillFiles = Get-ChildItem -LiteralPath (Join-Path $AgentRoot "skills") -Directory |
     ForEach-Object { Join-Path $_.FullName "SKILL.md" }
 
-if ($skillFiles.Count -ne 36) {
-    Add-Failure "Beklenen yerel skill sayisi 36, bulunan: $($skillFiles.Count)"
+if ($skillFiles.Count -ne 41) {
+    Add-Failure "Beklenen yerel skill sayisi 41, bulunan: $($skillFiles.Count)"
 }
 
 foreach ($skillFile in $skillFiles) {
@@ -123,7 +123,7 @@ foreach ($skillFile in $skillFiles) {
     }
 
     $content = Read-Utf8 $skillFile
-    if ($content -notmatch "(?s)\A---\r?\nname:\s*[^\r\n]+\r?\ndescription:\s*[^\r\n]+\r?\n---\r?\n") {
+    if ($content -notmatch "(?s)\A---\r?\nname:\s*[^\r\n]+\r?\ndescription:\s*[^\r\n]+(\r?\nmetadata:[^\r\n]*(\r?\n[^\r\n]+)*)?\r?\n---\r?\n") {
         Add-Failure "Codex frontmatter gecersiz veya yalnizca name/description icermiyor: $relative"
     }
 

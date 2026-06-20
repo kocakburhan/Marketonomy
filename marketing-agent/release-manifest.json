@@ -1,6 +1,6 @@
 {
     "schema_version":  "1.0",
-    "version":  "v5.1.0",
+    "version":  "v5.2.0",
     "hash_algorithm":  "SHA-256",
     "generated_at":  "deterministic",
     "files":  [
@@ -21,8 +21,8 @@
                   },
                   {
                       "path":  "agents/brand-guardian.md",
-                      "sha256":  "e660412316898dffea70563eeda075a229508647336fffe0fe731c4636ede7ab",
-                      "size":  4595
+                      "sha256":  "e637d6ed519a883befebe4619c5707af2d1f1e57d0f043e3b498bcef72b2021c",
+                      "size":  4672
                   },
                   {
                       "path":  "agents/campaign-manager.md",
@@ -31,8 +31,8 @@
                   },
                   {
                       "path":  "agents/content-creator.md",
-                      "sha256":  "87f94a9e33285998aef260db75457b5fb8fed1d55ae52acedf4019cf707f6c02",
-                      "size":  7367
+                      "sha256":  "a6915ee3169e43c6b1b8d2a55d4af3205d0897a95864b36bd3f7a4d6a884386a",
+                      "size":  7548
                   },
                   {
                       "path":  "agents/growth-hacker.md",
@@ -61,8 +61,8 @@
                   },
                   {
                       "path":  "agents/outreach-specialist.md",
-                      "sha256":  "121e5ea377f2ae36bdf8bd2e5c00ec6efa814d8942eddd153dc8ca016d7594f5",
-                      "size":  7187
+                      "sha256":  "aec24a28157bb8fad5b6ed39f19028ba64330cb7403f793917e91d4065f3616c",
+                      "size":  7348
                   },
                   {
                       "path":  "agents/product-architect.md",
@@ -81,7 +81,7 @@
                   },
                   {
                       "path":  "agent-version.json",
-                      "sha256":  "39dffa19399980eb9ba90e8817eb5ab9d5f5004a7ef5512d81cda6752add8383",
+                      "sha256":  "af5627804948b26f4584bbebcd8d15be140e915527649a6e3bb027fe83a7c314",
                       "size":  131
                   },
                   {
@@ -226,8 +226,8 @@
                   },
                   {
                       "path":  "scripts/test_mvp_compatibility.ps1",
-                      "sha256":  "6ee983d66cc0211d0cc89ce3f7dce35a6e0eb92a8afc009534018b2887f5223e",
-                      "size":  11970
+                      "sha256":  "7fddc277d0bb3c02814563dbd9db733b95a0f0b1e0fc79005a518e35da106b0c",
+                      "size":  12020
                   },
                   {
                       "path":  "scripts/update-agent.ps1",
@@ -246,8 +246,8 @@
                   },
                   {
                       "path":  "skills/ad-creative/SKILL.md",
-                      "sha256":  "cea040e06e04459525c991f807f6b47f75b5feb129f9f05cc0a716f033a1513e",
-                      "size":  2177
+                      "sha256":  "6aaa3bfe5efcc37b29d2bcc5d6f15dfab3f66fc5daf1470b7debcfc643221202",
+                      "size":  13068
                   },
                   {
                       "path":  "skills/ads/agents/openai.yaml",
@@ -256,8 +256,8 @@
                   },
                   {
                       "path":  "skills/ads/SKILL.md",
-                      "sha256":  "c56d3a7c6d4a2969c8170396029062331f0a6bb9ed390632631eebb3d4fe918e",
-                      "size":  2526
+                      "sha256":  "c96748890a7ccf661ebe0c592d1bfd0b58555fbb2a7af9a00801a8e71165ec71",
+                      "size":  13732
                   },
                   {
                       "path":  "skills/ai-seo/agents/openai.yaml",
@@ -276,8 +276,8 @@
                   },
                   {
                       "path":  "skills/analytics/SKILL.md",
-                      "sha256":  "7e645bc8185147d9a3e3b561168e0d15f6289a536f19f796fa6fe355880f230d",
-                      "size":  2706
+                      "sha256":  "497df8c0acfc0ca301514b03d60f14cbbec0cd32ad6cc18ab42046a3e25ec743",
+                      "size":  7892
                   },
                   {
                       "path":  "skills/aso/agents/openai.yaml",
@@ -296,8 +296,8 @@
                   },
                   {
                       "path":  "skills/churn-prevention/SKILL.md",
-                      "sha256":  "9fcd59fd8450bdfd82f180dd450624d6596cf84c692cc2f4abc34e0d5c028e19",
-                      "size":  2350
+                      "sha256":  "d3af556bff0bd2bb5ef368d65303ee86b724a91899aa7660f55b38dd6080b5eb",
+                      "size":  17895
                   },
                   {
                       "path":  "skills/cold-email/agents/openai.yaml",
@@ -306,8 +306,18 @@
                   },
                   {
                       "path":  "skills/cold-email/SKILL.md",
-                      "sha256":  "a64cfe39d9c0ade1f81ba31ace3fd9232e626baf05f6ef102e167e9242ca6c90",
-                      "size":  2451
+                      "sha256":  "8cf795ee614fb2b0d7dae69ced6ae2cf239ae4a2128d3c9027985e00fe47464b",
+                      "size":  6781
+                  },
+                  {
+                      "path":  "skills/co-marketing/agents/openai.yaml",
+                      "sha256":  "6df198f4b6956fd373161a561ce4f7aee5501cf5462aea6ea0be7fdf0faa6511",
+                      "size":  309
+                  },
+                  {
+                      "path":  "skills/co-marketing/SKILL.md",
+                      "sha256":  "893a3115b2e07abd5fa99568de6eb168a086db044cf44f4ba29e96ec324cbd74",
+                      "size":  10153
                   },
                   {
                       "path":  "skills/community-marketing/agents/openai.yaml",
@@ -316,8 +326,8 @@
                   },
                   {
                       "path":  "skills/community-marketing/SKILL.md",
-                      "sha256":  "8ec448aec5339f91d43c70102415ebbd463f6067c806d6c294c197cb1b224884",
-                      "size":  2174
+                      "sha256":  "d0fda62fed94787883f6c6fe66a166f486f8acce64f919c789227e45ef992c5c",
+                      "size":  8427
                   },
                   {
                       "path":  "skills/competitor-profiling/agents/openai.yaml",
@@ -330,14 +340,24 @@
                       "size":  2678
                   },
                   {
+                      "path":  "skills/competitors/agents/openai.yaml",
+                      "sha256":  "341b13575e05185f5b8a274f2d02c11c9a7d8780e17835578d28827a8fe20262",
+                      "size":  302
+                  },
+                  {
+                      "path":  "skills/competitors/SKILL.md",
+                      "sha256":  "ed3f85962b99c3b7b9b97de25a3f908bcb0c944e294d865bae36d0211da3faba",
+                      "size":  8330
+                  },
+                  {
                       "path":  "skills/content-strategy/agents/openai.yaml",
                       "sha256":  "23e2b826653aed385fad884b9740f0e738e80986511e3a849e838c31a0264acb",
                       "size":  312
                   },
                   {
                       "path":  "skills/content-strategy/SKILL.md",
-                      "sha256":  "6a1e7f82ac0f672a6b346d19dd8a55ec12ae671f55bdbadd5f850b869c6a4153",
-                      "size":  2475
+                      "sha256":  "70bec4164b3d540da1833ef42dc98e8a24f2146bdfe72c96863514f4d8f2363e",
+                      "size":  11710
                   },
                   {
                       "path":  "skills/copy-editing/agents/openai.yaml",
@@ -346,8 +366,8 @@
                   },
                   {
                       "path":  "skills/copy-editing/SKILL.md",
-                      "sha256":  "e4f17c9b21cc194838d93f7b6fb94b0ed3eaf963b850406efaeb4298d71662a9",
-                      "size":  1848
+                      "sha256":  "290643427674c52e1dc136c253bea4989653333976e53e7660842d918d47bedd",
+                      "size":  14491
                   },
                   {
                       "path":  "skills/copywriting/agents/openai.yaml",
@@ -356,8 +376,8 @@
                   },
                   {
                       "path":  "skills/copywriting/SKILL.md",
-                      "sha256":  "f9e3e12d869f9b37c2866c04b2a919d2894389de40317f1369cf4ee8e71b8e64",
-                      "size":  2340
+                      "sha256":  "e3ea75a0c37d7d39eaeab60dc05b91fb2c663a295f7d2e0ea5dfe08b33a4ae01",
+                      "size":  6969
                   },
                   {
                       "path":  "skills/customer-research/agents/openai.yaml",
@@ -366,8 +386,8 @@
                   },
                   {
                       "path":  "skills/customer-research/SKILL.md",
-                      "sha256":  "466cb2e1ce4dc30e30d93ae1a2d1d3da4014339a2b57750db7b1292653e3a306",
-                      "size":  2754
+                      "sha256":  "1abb80f387df234c4749c1e02277e11bb9c1d71e3664d7275cbc422b386f8768",
+                      "size":  11177
                   },
                   {
                       "path":  "skills/directory-submissions/agents/openai.yaml",
@@ -376,8 +396,8 @@
                   },
                   {
                       "path":  "skills/directory-submissions/SKILL.md",
-                      "sha256":  "46de85582cae29ae68ee174ab3f06d232920daa86726402ff2104b3fc2e5bc37",
-                      "size":  2429
+                      "sha256":  "5494838e6060c9bb665a2721b15521b3075f8fbeaf15d7175a6c1356b3a8de5f",
+                      "size":  22654
                   },
                   {
                       "path":  "skills/emails/agents/openai.yaml",
@@ -386,8 +406,8 @@
                   },
                   {
                       "path":  "skills/emails/SKILL.md",
-                      "sha256":  "67c6b19b51df4b8dc7f1f24462b6087c06643b5e82069d9205561abb3c53d5d7",
-                      "size":  1843
+                      "sha256":  "63efc55da52527d15be8a547e27cb9ef703380d6eb9cfd5d158c90bb2924448b",
+                      "size":  8095
                   },
                   {
                       "path":  "skills/image/agents/openai.yaml",
@@ -396,8 +416,8 @@
                   },
                   {
                       "path":  "skills/image/SKILL.md",
-                      "sha256":  "6b32e019a637ff5c4787766144914450c7e909b32edb4ac5d5b1c77b6310c930",
-                      "size":  3342
+                      "sha256":  "a772355a71100d9427d09e1e61abf49f421902d247768e84da6e30324e8ff44a",
+                      "size":  15754
                   },
                   {
                       "path":  "skills/launch/agents/openai.yaml",
@@ -406,8 +426,23 @@
                   },
                   {
                       "path":  "skills/launch/SKILL.md",
-                      "sha256":  "0ff96caff356d9bcdf34a420b79e86596e421545605ba3291441489a753e47f9",
-                      "size":  2059
+                      "sha256":  "119b345f5d82262177a29bd53baa2bf8b8d657492158aaa53a05776f3584685f",
+                      "size":  12504
+                  },
+                  {
+                      "path":  "skills/lead-magnets/agents/openai.yaml",
+                      "sha256":  "7acb402118c4473cb412072317f87ea9744911bc085df1b35cd1cd6bf7119add",
+                      "size":  306
+                  },
+                  {
+                      "path":  "skills/lead-magnets/SKILL.md",
+                      "sha256":  "780317144bf7979d7bb298703699abbd237bf0bbc5a18c8ee16244b4fd801481",
+                      "size":  10922
+                  },
+                  {
+                      "path":  "skills/list.md",
+                      "sha256":  "b1cae7727a4156bb4e94080f19abf50dd40c84f0b6ac0edab817fd454ac14752",
+                      "size":  4299
                   },
                   {
                       "path":  "skills/market-ads/agents/openai.yaml",
@@ -456,8 +491,8 @@
                   },
                   {
                       "path":  "skills/marketing-ideas/SKILL.md",
-                      "sha256":  "77b40e9cdf36b5501a5f000da361bc40ede2ad0640b70b4b8de55892e74cf92c",
-                      "size":  2187
+                      "sha256":  "fcfa4d6ad1ca99dfa3bd32b991d4e17c4c71c72448c1399ec6b3edb42c27acb3",
+                      "size":  4837
                   },
                   {
                       "path":  "skills/marketing-plan/agents/openai.yaml",
@@ -466,8 +501,8 @@
                   },
                   {
                       "path":  "skills/marketing-plan/SKILL.md",
-                      "sha256":  "3af5a50427833600bcefabe6b3fc0b20a600d9565fa205095df88e8f68666950",
-                      "size":  3131
+                      "sha256":  "f08b844f9479cb94355b547599c7a9edb818987dc96a35a4695005d575257944",
+                      "size":  20467
                   },
                   {
                       "path":  "skills/marketing-psychology/agents/openai.yaml",
@@ -476,8 +511,8 @@
                   },
                   {
                       "path":  "skills/marketing-psychology/SKILL.md",
-                      "sha256":  "788f8ae552e178396795569fbdc8c56edc3ded82158be5e70f090406f22f1d1b",
-                      "size":  2557
+                      "sha256":  "375c8f8f92f86f41b566fb9513fb278af2b040853be00b5a879a71ac34a9ee89",
+                      "size":  21393
                   },
                   {
                       "path":  "skills/market-proposal/agents/openai.yaml",
@@ -510,14 +545,24 @@
                       "size":  3030
                   },
                   {
+                      "path":  "skills/offers/agents/openai.yaml",
+                      "sha256":  "75016b024c719cca6008341c9a812ad60446c03c87c3acdc7c32bea37c43051c",
+                      "size":  296
+                  },
+                  {
+                      "path":  "skills/offers/SKILL.md",
+                      "sha256":  "cdc291bdf93b9ce135c39f034283acaee136b453239b7fe712823fae4f2d5a12",
+                      "size":  9462
+                  },
+                  {
                       "path":  "skills/paywalls/agents/openai.yaml",
                       "sha256":  "0d84ffcad7c5017c72cb54383f649562f114fdf9ac315d76a02f0df3e8fb0842",
                       "size":  295
                   },
                   {
                       "path":  "skills/paywalls/SKILL.md",
-                      "sha256":  "029e895f015e31538f855de2953d207786ec996826f5628efac408de2e33c892",
-                      "size":  1454
+                      "sha256":  "50c8f498d295645997a9722b11032405af787306d9fe2efb2631bcca39d3bf5b",
+                      "size":  5208
                   },
                   {
                       "path":  "skills/pricing/agents/openai.yaml",
@@ -526,8 +571,8 @@
                   },
                   {
                       "path":  "skills/pricing/SKILL.md",
-                      "sha256":  "5078d6f91742af27ea789e0038d28201db38ead25ae7ff4e2ae3731be6223bba",
-                      "size":  2599
+                      "sha256":  "b6de44ab31158420397eabf84ddd3598e3258fd1d3863f619396fd8fc6263a4d",
+                      "size":  6615
                   },
                   {
                       "path":  "skills/product-marketing/agents/openai.yaml",
@@ -536,8 +581,8 @@
                   },
                   {
                       "path":  "skills/product-marketing/SKILL.md",
-                      "sha256":  "ec704ebafb049d9c7931be1152c107cf385df42009f7db366b474f01321646bc",
-                      "size":  2150
+                      "sha256":  "c61cf7c856a88c1cf8915954a77c02ed7ddd961b410a700f6e840696363fdff0",
+                      "size":  7204
                   },
                   {
                       "path":  "skills/prospecting/agents/openai.yaml",
@@ -546,8 +591,8 @@
                   },
                   {
                       "path":  "skills/prospecting/SKILL.md",
-                      "sha256":  "9c6790ba73b1a9103a4d34077e8d2d20fef983afaa6e2ab1694e95a10d1377d1",
-                      "size":  2326
+                      "sha256":  "bd6fc9ea94b60a7d0b43b6ed512fc905ec75d7e592e8277fcdc2b343cac9b4ee",
+                      "size":  14515
                   },
                   {
                       "path":  "skills/referrals/agents/openai.yaml",
@@ -556,8 +601,18 @@
                   },
                   {
                       "path":  "skills/referrals/SKILL.md",
-                      "sha256":  "f4e46ad770976d037c963988aa9f077bc809bf540a6a886cbcb3aa64a6f7aa69",
-                      "size":  1800
+                      "sha256":  "713a2e5e3b01b20ab69d845c6fb0907f83a1e4770b326914f4f0a65a401305f1",
+                      "size":  7095
+                  },
+                  {
+                      "path":  "skills/revops/agents/openai.yaml",
+                      "sha256":  "418984bb90e46e3ab4b9dbee1811c006404f228d97c711d720286c37232fb77e",
+                      "size":  305
+                  },
+                  {
+                      "path":  "skills/revops/SKILL.md",
+                      "sha256":  "bb27b16ad41c5c2d4fea14c12359c6a01fc755f2bb91140f0c2c43b05b3adb10",
+                      "size":  15341
                   },
                   {
                       "path":  "skills/seo-audit/agents/openai.yaml",
@@ -576,8 +631,8 @@
                   },
                   {
                       "path":  "skills/social/SKILL.md",
-                      "sha256":  "3be8696507d16533333465d1fbd3fce94e16977b53b7e2e0939e0331d25ff6bc",
-                      "size":  4805
+                      "sha256":  "f2839ff1b05c2e2dec6312226d6be51461fcc5d7587b660a21f690109f123652",
+                      "size":  14492
                   },
                   {
                       "path":  "skills/video/agents/openai.yaml",
@@ -586,8 +641,8 @@
                   },
                   {
                       "path":  "skills/video/SKILL.md",
-                      "sha256":  "faf1238db90fd5edc4c343187146108a14a09ac3b3f04efa71e7f808153ea771",
-                      "size":  1848
+                      "sha256":  "6f7d4388ea0463d2f8c767631cdc2f045ff97f761324796a50b70341eb970919",
+                      "size":  12977
                   },
                   {
                       "path":  "skills/web-research/agents/openai.yaml",

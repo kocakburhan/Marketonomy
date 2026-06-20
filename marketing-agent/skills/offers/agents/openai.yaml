@@ -1,0 +1,4 @@
+interface:
+  display_name: "Offers"
+  short_description: "Teklif tasarimi, deger cerceveleme ve paketleme"
+  default_prompt: "In Codex'te, use the $offers skill in this workspace and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."

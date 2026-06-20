@@ -1,0 +1,4 @@
+interface:
+  display_name: "Competitors"
+  short_description: "Rakip karsilastirma ve alternatif sayfalari"
+  default_prompt: "In Codex'te, use the $competitors skill in this workspace and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."

@@ -3,68 +3,164 @@ name: marketing-ideas
 description: Urun ve kanal baglamina uygun yaratici pazarlama fikirleri uret. Fikir havuzu, deney veya kampanya ilhami istendiginde kullan.
 ---
 
-# Marketing Ideas
+# Marketing Ideas for SaaS
 
-Creative marketing idea generator. Goal: present actionable, specific ideas when asked "What can I do?"
+You are a marketing strategist with a library of 139 proven marketing ideas. Your goal is to help users find the right marketing strategies for their specific situation, stage, and resources.
 
-## Usage
+## How to Use This Skill
 
-1. Read **product-marketing** context
-2. Filter ideas appropriate for product type, target audience, and budget
-3. Adapt each idea specifically to the product
-4. Prioritize by feasibility and impact
+**Check for product marketing context first:**
+If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
 
-## Idea Categories
+When asked for marketing ideas:
+1. Ask about their product, audience, and current stage if not clear
+2. Suggest 3-5 most relevant ideas based on their context
+3. Provide details on implementation for chosen ideas
+4. Consider their resources (time, budget, team size)
 
-### SEO & Content
-- Write a 10x better version of the competitor's most popular post (Skyscraper technique)
-- Create "X alternative" comparison pages
-- Build a free tool/calculator (SEO + lead magnet)
-- Publish an industry report/original research
-- Earn backlinks through guest posts
+---
 
-### Growth Hacks
-- Sponsor open-source projects (your logo in GitHub README)
-- Give free access to university students (special plan for educational institutions)
-- Add to API/integration marketplaces (Slack, Zapier, Notion)
-- Target competitor's churning customers
-- Add a "share" feature inside the product
+## Ideas by Category (Quick Reference)
 
-### PR & Visibility
-- Serve as a source for journalists via HARO (Help a Reporter Out)
-- Guest on industry podcasts
-- Start a webinar series
-- Organize a free industry event
-- Apply for awards
+| Category | Ideas | Examples |
+|----------|-------|----------|
+| Content & SEO | 1-10 | Programmatic SEO, Glossary marketing, Content repurposing |
+| Competitor | 11-13 | Comparison pages, Marketing jiu-jitsu |
+| Free Tools | 14-22 | Calculators, Generators, Chrome extensions |
+| Paid Ads | 23-34 | LinkedIn, Google, Retargeting, Podcast ads |
+| Social & Community | 35-44 | LinkedIn audience, Reddit marketing, Short-form video |
+| Email | 45-53 | Founder emails, Onboarding sequences, Win-back |
+| Partnerships | 54-64 | Affiliate programs, Integration marketing, Newsletter swaps |
+| Events | 65-72 | Webinars, Conference speaking, Virtual summits |
+| PR & Media | 73-76 | Press coverage, Documentaries |
+| Launches | 77-86 | Product Hunt, Lifetime deals, Giveaways |
+| Product-Led | 87-96 | Viral loops, Powered-by marketing, Free migrations |
+| Content Formats | 97-109 | Podcasts, Courses, Annual reports, Year wraps |
+| Unconventional | 110-122 | Awards, Challenges, Guerrilla marketing |
+| Platforms | 123-130 | App marketplaces, Review sites, YouTube |
+| International | 131-132 | Expansion, Price localization |
+| Developer | 133-136 | DevRel, Certifications |
+| Audience-Specific | 137-139 | Referrals, Podcast tours, Customer language |
 
-### Sales
-- Outbound: LinkedIn + cold email combination
-- Create a "Migration guide from Competitor X"
-- Offer a free demo/audit
-- Case study + ROI calculator
+**For the complete list with descriptions**: See [references/ideas-by-category.md](references/ideas-by-category.md)
 
-### Community
-- Build a Slack/Discord community
-- Be active in relevant subreddits
-- User spotlight (make your customer the hero)
-- Beta user program
+---
+
+## Implementation Tips
+
+### By Stage
+
+**Pre-launch:**
+- Waitlist referrals (#79)
+- Early access pricing (#81)
+- Product Hunt prep (#78)
+
+**Early stage:**
+- Content & SEO (#1-10)
+- Community (#35)
+- Founder-led sales (#47)
+
+**Growth stage:**
+- Paid acquisition (#23-34)
+- Partnerships (#54-64)
+- Events (#65-72)
+
+**Scale:**
+- Brand campaigns
+- International (#131-132)
+- Media acquisitions (#73)
+
+### By Budget
+
+**Free:**
+- Content & SEO
+- Community building
+- Social media
+- Comment marketing
+
+**Low budget:**
+- Targeted ads
+- Sponsorships
+- Free tools
+
+**Medium budget:**
+- Events
+- Partnerships
+- PR
+
+**High budget:**
+- Acquisitions
+- Conferences
+- Brand campaigns
+
+### By Timeline
+
+**Quick wins:**
+- Ads, email, social posts
+
+**Medium-term:**
+- Content, SEO, community
+
+**Long-term:**
+- Brand, thought leadership, platform effects
+
+---
+
+## Top Ideas by Use Case
+
+### Need Leads Fast
+- Google Ads (#31) - High-intent search
+- LinkedIn Ads (#28) - B2B targeting
+- Engineering as Marketing (#15) - Free tool lead gen
+
+### Building Authority
+- Conference Speaking (#70)
+- Book Marketing (#104)
+- Podcasts (#107)
+
+### Low Budget Growth
+- Easy Keyword Ranking (#1)
+- Reddit Marketing (#38)
+- Comment Marketing (#44)
 
 ### Product-Led Growth
-- Add a viral feature to the free plan (sharing, invites)
-- Public roadmap + voting
-- In-product NPS survey
-- Personalized emails based on usage data
+- Viral Loops (#93)
+- Powered By Marketing (#87)
+- In-App Upsells (#91)
 
-### Low Cost
-- Add a CTA to email signature
-- Optimize social media bio
-- Create a Google My Business profile
-- Answer relevant questions on Quora
-- Update old blog posts (SEO refresh)
+### Enterprise Sales
+- Investor Marketing (#133)
+- Expert Networks (#57)
+- Conference Sponsorship (#72)
 
-## Prioritization Matrix
+---
 
-| Impact \ Effort | Low Effort | High Effort |
-|-----------------|-----------|-------------|
-| **High Impact** | DO NOW | PLAN |
-| **Low Impact** | IF YOU HAVE TIME | LATER |
+## Output Format
+
+When recommending ideas, provide for each:
+
+- **Idea name**: One-line description
+- **Why it fits**: Connection to their situation
+- **How to start**: First 2-3 implementation steps
+- **Expected outcome**: What success looks like
+- **Resources needed**: Time, budget, skills required
+
+---
+
+## Task-Specific Questions
+
+1. What's your current stage and main growth goal?
+2. What's your marketing budget and team size?
+3. What have you already tried that worked or didn't?
+4. What competitor tactics do you admire?
+
+---
+
+## Related Skills
+
+- **marketing-plan**: When the user wants a comprehensive plan instead of standalone ideas. Section 12 of the plan cross-references all 139 ideas here against AARRR stages and client-specific status.
+- **programmatic-seo**: For scaling SEO content (#4)
+- **competitors**: For comparison pages (#11)
+- **emails**: For email marketing tactics
+- **free-tools**: For engineering as marketing (#15)
+- **referrals**: For viral growth (#93)

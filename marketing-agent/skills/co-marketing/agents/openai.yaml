@@ -1,0 +1,4 @@
+interface:
+  display_name: "Co-Marketing"
+  short_description: "Ortak pazarlama partnerligi ve kampanya planlama"
+  default_prompt: "In Codex'te, use the $co-marketing skill in this workspace and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."

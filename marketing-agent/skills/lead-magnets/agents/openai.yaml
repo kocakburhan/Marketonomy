@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lead Magnets"
+  short_description: "Lead magnet planlama ve email capture icerigi"
+  default_prompt: "In Codex'te, use the $lead-magnets skill in this workspace and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."
