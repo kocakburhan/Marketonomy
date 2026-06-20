@@ -104,6 +104,9 @@ foreach ($requiredText in @(
 
 Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "Marketer Profile Intake" "Onboarding marketer profil akisi eksik"
 Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "Kocak sadakatini takdir ediyor." "Onboarding sadakat mesaji eksik"
+Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "Marketing Agent Capability Orientation" "Onboarding agent kabiliyet oryantasyonu eksik"
+Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "Agent ve skill haritasi" "Onboarding agent-skill haritasi eksik"
+Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "Marketing Agent'i zorlamak icin ornek istekler" "Onboarding guclu kullanim ornekleri eksik"
 Assert-Text (Join-Path $AgentRoot "agents\orchestrator.md") "Brainstorming Skill Gate" "Aktif brainstorming skill yonlendirmesi eksik"
 Assert-Text (Join-Path $AgentRoot "SKILLS.md") "is not counted as a local marketing skill" "Brainstorming aktif Codex skill notu eksik"
 Assert-Text (Join-Path $AgentRoot "ARCHITECTURE.md") "Global or plugin Codex skills are optional active capabilities" "Aktif global skill mimari notu eksik"

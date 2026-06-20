@@ -51,8 +51,8 @@
                   },
                   {
                       "path":  "agents/onboarding-guide.md",
-                      "sha256":  "84fbe795fdf8bd61f70a37c22c2f7a4290df48c74e299a1cf044ce07f4c960a9",
-                      "size":  3884
+                      "sha256":  "532a5eb64399a1c1269272af893152360c50262280b4dcccd69e8be13f64c00a",
+                      "size":  11068
                   },
                   {
                       "path":  "agents/orchestrator.md",
@@ -226,8 +226,8 @@
                   },
                   {
                       "path":  "scripts/test_mvp_compatibility.ps1",
-                      "sha256":  "7fddc277d0bb3c02814563dbd9db733b95a0f0b1e0fc79005a518e35da106b0c",
-                      "size":  12020
+                      "sha256":  "e0d44162a863cae0d41ef1318ae70dad8301304d5f531921f2cbacc7433e83ce",
+                      "size":  12460
                   },
                   {
                       "path":  "scripts/update-agent.ps1",
@@ -441,8 +441,8 @@
                   },
                   {
                       "path":  "skills/list.md",
-                      "sha256":  "b1cae7727a4156bb4e94080f19abf50dd40c84f0b6ac0edab817fd454ac14752",
-                      "size":  4299
+                      "sha256":  "5e08a538ce47830e1937d90705144b4a3db69fdc27e92f0bb87999a47e4b276b",
+                      "size":  4577
                   },
                   {
                       "path":  "skills/market-ads/agents/openai.yaml",
