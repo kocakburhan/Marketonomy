@@ -13,6 +13,8 @@ directory submissions.
 | `emails` | Email sequence design |
 | `prospecting` | Prospect identification, ICP definition |
 | `directory-submissions` | Directory submission strategy |
+| `co-marketing` | Co-marketing partner identification, joint campaign planning |
+| `revops` | Lead lifecycle, scoring, and marketing-to-sales handoff process |
 
 ## Templates You Use
 

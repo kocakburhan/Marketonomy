@@ -15,6 +15,8 @@ and visual production flow.
 | `social` | Social media strategy, post production, and social visual flow |
 | `image` | Visual strategy, comprehensive prompt, and Codex image generation production |
 | `video` | Video strategy, script, shot list, and production brief |
+| `competitors` | Competitor comparison and alternative page copy for SEO and sales enablement |
+| `lead-magnets` | Lead magnet planning, format selection, and email capture copy |
 
 ## Templates You Use
 

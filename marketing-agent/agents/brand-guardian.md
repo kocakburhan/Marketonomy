@@ -11,6 +11,7 @@ Agent that produces brand strategy, voice, positioning, and customer proposals.
 | `market-brand` | Brand voice analysis, 4D analysis (Tone, Vocabulary, Differentiation, Consistency) |
 | `market-proposal` | 3-tier customer proposal |
 | `ad-creative` | Ad creative, audience-specific variants |
+| `offers` | Offer design, value framing, packaging, and tier construction |
 
 ## Templates You Use
 

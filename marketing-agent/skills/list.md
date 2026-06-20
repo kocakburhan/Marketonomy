@@ -1,0 +1,92 @@
+# Marketing Agent — Agent ve Skill Listesi
+
+Bu dosya `marketing-agent/agents/` altindaki tum agent'lari ve her agent'in
+`## Skills You Use` tablosunda bagli olan skill'leri ozetler.
+
+- **U** = Upstream (`coreyhaines31/marketingskills` reposundan)
+- **L** = Local (`marketing-agent/skills/` altinda ozgun olarak yazilmis)
+
+## Agent — Skill Baglantilari
+
+| Agent | Upstream (U) | Local (L) | Toplam |
+|---|---|---|---:|
+| `analytics-master` | `analytics`, `ai-seo` | `market-report`, `market-report-pdf` | 4 |
+| `brand-guardian` | `ad-creative`, `offers` | `market-brand`, `market-proposal` | 4 |
+| `campaign-manager` | `ads`, `ad-creative` | `market-ads` | 3 |
+| `content-creator` | `content-strategy`, `copywriting`, `copy-editing`, `social`, `image`, `video`, `competitors`, `lead-magnets` | — | 8 |
+| `growth-hacker` | `referrals`, `churn-prevention`, `community-marketing`, `paywalls`, `marketing-ideas` | — | 5 |
+| `launch-commander` | `launch`, `aso`, `seo-audit`, `directory-submissions`, `community-marketing` | — | 5 |
+| `market-scout` | `competitor-profiling`, `customer-research`, `ai-seo` | `web-research`, `market-competitors` | 5 |
+| `onboarding-guide` | — | — | 0 |
+| `orchestrator` | — | — | 0 |
+| `outreach-specialist` | `cold-email`, `emails`, `prospecting`, `directory-submissions`, `co-marketing`, `revops` | — | 6 |
+| `product-architect` | `product-marketing`, `pricing`, `paywalls`, `aso` | — | 4 |
+| `schedule-coordinator` | — | — | 0 |
+| `strategy-analyst` | `marketing-psychology`, `pricing`, `marketing-ideas`, `marketing-plan` | `market-competitors`, `market-funnel` | 6 |
+
+## Upstream Skill Kullanim Sikligi
+
+Upstream repodan toplam 33 farkli skill en az bir agent'a bagli. Tekrar
+edenler dahil 50 skill referansi var.
+
+| Upstream Skill | Kullanan Agent Sayisi | Kullanan Agent'lar |
+|---|---:|---|
+| `ad-creative` | 2 | brand-guardian, campaign-manager |
+| `ai-seo` | 2 | analytics-master, market-scout |
+| `aso` | 2 | launch-commander, product-architect |
+| `community-marketing` | 2 | growth-hacker, launch-commander |
+| `directory-submissions` | 2 | launch-commander, outreach-specialist |
+| `marketing-ideas` | 2 | growth-hacker, strategy-analyst |
+| `paywalls` | 2 | growth-hacker, product-architect |
+| `pricing` | 2 | product-architect, strategy-analyst |
+| `analytics` | 1 | analytics-master |
+| `churn-prevention` | 1 | growth-hacker |
+| `co-marketing` | 1 | outreach-specialist |
+| `cold-email` | 1 | outreach-specialist |
+| `competitor-profiling` | 1 | market-scout |
+| `competitors` | 1 | content-creator |
+| `content-strategy` | 1 | content-creator |
+| `copy-editing` | 1 | content-creator |
+| `copywriting` | 1 | content-creator |
+| `customer-research` | 1 | market-scout |
+| `emails` | 1 | outreach-specialist |
+| `image` | 1 | content-creator |
+| `launch` | 1 | launch-commander |
+| `lead-magnets` | 1 | content-creator |
+| `marketing-plan` | 1 | strategy-analyst |
+| `marketing-psychology` | 1 | strategy-analyst |
+| `offers` | 1 | brand-guardian |
+| `product-marketing` | 1 | product-architect |
+| `prospecting` | 1 | outreach-specialist |
+| `referrals` | 1 | growth-hacker |
+| `revops` | 1 | outreach-specialist |
+| `seo-audit` | 1 | launch-commander |
+| `social` | 1 | content-creator |
+| `video` | 1 | content-creator |
+| `ads` | 1 | campaign-manager |
+
+## Upstream Repoda Olup Agent'a Baglanmamis Skill'ler
+
+Bu 12 skill upstream repoda mevcut ancak hicbir agent'in
+`## Skills You Use` tablosunda yer almaz:
+
+`ab-testing`, `cro`, `free-tools`, `onboarding`, `popups`,
+`programmatic-seo`, `public-relations`, `sales-enablement`, `schema`,
+`signup`, `site-architecture`, `sms`
+
+## Skill Baglamayan Agent'lar
+
+Asagidaki 3 agent `## Skills You Use` tablosu tasimaz; skill yerine
+uzman rolu veya yonlendirici olarak calisir:
+
+- `orchestrator` — Ana yonlendirici; pipeline ve skill'lere route eder.
+- `onboarding-guide` — Karsilama ve pazarlamaci profil alimi.
+- `schedule-coordinator` — Haftalik ve gunluk plan, Google Calendar senkronu.
+
+## Ozet
+
+- 13 agent, 10'u skill baglantisina sahip.
+- 33 farkli upstream skill, 8 farkli local skill kullaniliyor.
+- En genis agent: `content-creator` (8 skill).
+- En dar skill baglantilisi: `analytics-master`, `brand-guardian`,
+  `campaign-manager`, `product-architect` (3-4 skill).
