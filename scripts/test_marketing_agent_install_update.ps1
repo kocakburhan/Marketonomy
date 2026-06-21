@@ -142,6 +142,21 @@ try {
         -Json
     $check = ($checkOutput -join "`n") | ConvertFrom-Json
     Assert-Equal $check.status "up-to-date" "Ayni surum check-update sonucu guncel olmali."
+
+    Write-Utf8 (Join-Path $workspace "PROJE.md") "project_id: project-corrupt`nidea_id: idea-a`n"
+    $corruptUpdateRejected = $false
+    try {
+        powershell -NoProfile -ExecutionPolicy Bypass -File $updateScript `
+            -TargetRoot $workspace `
+            -SourceAgentRoot $newAgent `
+            -Version "v5.1.0" `
+            -Yes 2>&1 | Out-Null
+    } catch {
+        $corruptUpdateRejected = $true
+    }
+    Assert-True $corruptUpdateRejected "Update kimligi bozuk workspace'i reddetmeli."
+    $versionAfterRejectedUpdate = Read-Utf8 (Join-Path $workspace ".pa\agent\agent-version.json") | ConvertFrom-Json
+    Assert-Equal $versionAfterRejectedUpdate.version "v5.1.0" "Reddedilen update agent surumunu degistirmemeli."
 } catch {
     Add-Failure $_.Exception.Message
 } finally {

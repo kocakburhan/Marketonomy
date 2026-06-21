@@ -22,6 +22,73 @@ function Write-Utf8([string]$Path, [string]$Content) {
     [System.IO.File]::WriteAllText($Path, $Content, $Utf8)
 }
 
+function Assert-WorkspaceIdentity(
+    [string]$DocumentPath,
+    [object]$State,
+    [string[]]$IdentityFields,
+    [string]$WorkspaceType
+) {
+    $document = Read-Utf8 $DocumentPath
+    foreach ($field in $IdentityFields) {
+        $stateValue = [string]$State.$field
+        if ([string]::IsNullOrWhiteSpace($stateValue)) {
+            throw "$WorkspaceType state.json icinde $field bos olamaz."
+        }
+        $match = [regex]::Match($document, "(?m)^\s*$field\s*:\s*([^\r\n#]+)")
+        if (-not $match.Success) {
+            throw "$WorkspaceType kimlik dosyasinda $field bulunamadi: $DocumentPath"
+        }
+        $documentValue = $match.Groups[1].Value.Trim()
+        if ($documentValue -ne $stateValue) {
+            throw "$WorkspaceType $field uyusmazligi: kimlik dosyasi ile state.json ayni olmali."
+        }
+    }
+}
+
+function Assert-ValidTargetWorkspace([string]$Root) {
+    $projectDocument = Join-Path $Root "PROJE.md"
+    $projectStatePath = Join-Path $Root ".pa\project\state.json"
+    $evaluationDocument = Join-Path $Root "DEGERLENDIRME.md"
+    $evaluationStatePath = Join-Path $Root ".pa\evaluation\state.json"
+
+    $hasProjectDocument = Test-Path -LiteralPath $projectDocument
+    $hasProjectState = Test-Path -LiteralPath $projectStatePath
+    $hasEvaluationDocument = Test-Path -LiteralPath $evaluationDocument
+    $hasEvaluationState = Test-Path -LiteralPath $evaluationStatePath
+    $hasAnyProjectMarker = $hasProjectDocument -or $hasProjectState
+    $hasAnyEvaluationMarker = $hasEvaluationDocument -or $hasEvaluationState
+
+    if ($hasAnyProjectMarker -and $hasAnyEvaluationMarker) {
+        throw "Hedef project ve evaluation isaretlerini birlikte iceremez."
+    }
+    if ($hasProjectDocument -ne $hasProjectState) {
+        throw "Project workspace eksik: PROJE.md ve .pa/project/state.json birlikte bulunmali."
+    }
+    if ($hasEvaluationDocument -ne $hasEvaluationState) {
+        throw "Evaluation workspace eksik: DEGERLENDIRME.md ve .pa/evaluation/state.json birlikte bulunmali."
+    }
+
+    $hasProject = $hasProjectDocument -and $hasProjectState
+    $hasEvaluation = $hasEvaluationDocument -and $hasEvaluationState
+    if (-not $hasProject -and -not $hasEvaluation) {
+        throw "Hedef tam olarak bir gecerli PersonalAutonomy workspace turu olmali: PROJE.md + .pa/project/state.json veya DEGERLENDIRME.md + .pa/evaluation/state.json."
+    }
+
+    try {
+        if ($hasProject) {
+            $state = Read-Utf8 $projectStatePath | ConvertFrom-Json
+            Assert-WorkspaceIdentity -DocumentPath $projectDocument -State $state `
+                -IdentityFields @("project_id", "idea_id") -WorkspaceType "Project workspace"
+        } else {
+            $state = Read-Utf8 $evaluationStatePath | ConvertFrom-Json
+            Assert-WorkspaceIdentity -DocumentPath $evaluationDocument -State $state `
+                -IdentityFields @("idea_id") -WorkspaceType "Evaluation workspace"
+        }
+    } catch {
+        throw "Hedef workspace dogrulanamadi: $($_.Exception.Message)"
+    }
+}
+
 function Find-TargetRoot {
     if ($TargetRoot) {
         return (Resolve-Path -LiteralPath $TargetRoot -ErrorAction Stop).Path
@@ -179,6 +246,7 @@ function Write-InstallMetadata(
 }
 
 $root = Find-TargetRoot
+Assert-ValidTargetWorkspace $root
 $metadataPath = Join-Path $root ".pa\agent-install.json"
 $metadata = $null
 if (Test-Path -LiteralPath $metadataPath) {

@@ -71,6 +71,40 @@ try {
         New-Item -ItemType Directory -Force -Path $tmpRoot | Out-Null
         Write-Utf8 $baseProfile "Profil durumu: Hazir`nTercih edilen hitap: Test Marketer`n"
 
+        $missingAgentRoot = Join-Path $tmpRoot "missing-agent-source"
+        $failedEvaluationRoot = Join-Path $tmpRoot "failed-evaluation"
+        $previousErrorActionPreference = $ErrorActionPreference
+        $ErrorActionPreference = "Continue"
+        try {
+            powershell -NoProfile -ExecutionPolicy Bypass -File $createEvaluation `
+                -TargetRoot $failedEvaluationRoot `
+                -Title "Basarisiz Degerlendirme" `
+                -IdeaId "idea-fail-001" `
+                -SourceAgentRoot $missingAgentRoot *> $null
+            $failedEvaluationExitCode = $LASTEXITCODE
+        } finally {
+            $ErrorActionPreference = $previousErrorActionPreference
+        }
+        $failedEvaluationCleaned = ($failedEvaluationExitCode -ne 0) -and (-not (Test-Path -LiteralPath $failedEvaluationRoot))
+        Assert-True $failedEvaluationCleaned "Evaluation create install hatasinda yarim workspace birakmamali."
+
+        $failedProjectRoot = Join-Path $tmpRoot "failed-project"
+        $previousErrorActionPreference = $ErrorActionPreference
+        $ErrorActionPreference = "Continue"
+        try {
+            powershell -NoProfile -ExecutionPolicy Bypass -File $createProject `
+                -TargetRoot $failedProjectRoot `
+                -Title "Basarisiz Proje" `
+                -IdeaId "idea-fail-001" `
+                -ProjectId "project-fail-001" `
+                -SourceAgentRoot $missingAgentRoot *> $null
+            $failedProjectExitCode = $LASTEXITCODE
+        } finally {
+            $ErrorActionPreference = $previousErrorActionPreference
+        }
+        $failedProjectCleaned = ($failedProjectExitCode -ne 0) -and (-not (Test-Path -LiteralPath $failedProjectRoot))
+        Assert-True $failedProjectCleaned "Project create install hatasinda yarim workspace birakmamali."
+
         $marketerRoot = Join-Path $tmpRoot "marketer-root"
         $ideaParent = Join-Path $marketerRoot "idea-workspace"
         $projectParent = Join-Path $marketerRoot "projects"

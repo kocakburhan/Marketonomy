@@ -256,8 +256,8 @@
                   },
                   {
                       "path":  "scripts/update-agent.ps1",
-                      "sha256":  "c0949f39d081ec6c075d7f4e37cd10b4a14e81ab1c6700b5f31ce92a3c8aeec6",
-                      "size":  9717
+                      "sha256":  "2b593cbf5de364c9f51363ee3ad10a9d7beb9f0403c34a6ad20a722f2fa7b96a",
+                      "size":  12784
                   },
                   {
                       "path":  "SKILLS.md",

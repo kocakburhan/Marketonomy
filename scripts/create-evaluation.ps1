@@ -65,15 +65,16 @@ if ([string]::IsNullOrWhiteSpace($IdeaId)) {
 $target = Assert-SafeTarget $TargetRoot
 $now = Get-Date
 
-if (-not $MarketerProfilePath) {
-    $MarketerProfilePath = Get-MarketerRootProfilePath $target
-}
+try {
+    if (-not $MarketerProfilePath) {
+        $MarketerProfilePath = Get-MarketerRootProfilePath $target
+    }
 
-foreach ($folder in @("kaynaklar", "ciktilar", "notlar", ".pa\evaluation")) {
-    New-Item -ItemType Directory -Force -Path (Join-Path $target $folder) | Out-Null
-}
+    foreach ($folder in @("kaynaklar", "ciktilar", "notlar", ".pa\evaluation")) {
+        New-Item -ItemType Directory -Force -Path (Join-Path $target $folder) | Out-Null
+    }
 
-Write-Utf8 (Join-Path $target "DEGERLENDIRME.md") @"
+    Write-Utf8 (Join-Path $target "DEGERLENDIRME.md") @"
 # $Title
 
 idea_id: $IdeaId
@@ -85,7 +86,7 @@ idea_id: $IdeaId
 
 "@
 
-Write-Utf8 (Join-Path $target "DURUM.md") @"
+    Write-Utf8 (Join-Path $target "DURUM.md") @"
 # Durum
 
 - Workspace turu: Evaluation
@@ -94,32 +95,38 @@ Write-Utf8 (Join-Path $target "DURUM.md") @"
 
 "@
 
-Write-Utf8 (Join-Path $target "RAPOR.md") "# Degerlendirme Raporu`n`nTaslak rapor burada olusturulur.`n"
-Write-Utf8 (Join-Path $target ".pa\evaluation\active-task.md") "# Active Task`n`nDurum: Bos`n"
-Write-Utf8 (Join-Path $target ".pa\evaluation\settings.json") "{`"timezone`":`"Europe/Istanbul`"}`n"
+    Write-Utf8 (Join-Path $target "RAPOR.md") "# Degerlendirme Raporu`n`nTaslak rapor burada olusturulur.`n"
+    Write-Utf8 (Join-Path $target ".pa\evaluation\active-task.md") "# Active Task`n`nDurum: Bos`n"
+    Write-Utf8 (Join-Path $target ".pa\evaluation\settings.json") "{`"timezone`":`"Europe/Istanbul`"}`n"
 
-$state = [ordered]@{
-    schema_version = "1.0"
-    workspace_type = "evaluation"
-    idea_id = $IdeaId
-    title = $Title
-    created_at = $now.ToString("o")
-    created_by = "scripts/create-evaluation.ps1"
+    $state = [ordered]@{
+        schema_version = "1.0"
+        workspace_type = "evaluation"
+        idea_id = $IdeaId
+        title = $Title
+        created_at = $now.ToString("o")
+        created_by = "scripts/create-evaluation.ps1"
+    }
+    Write-Utf8 (Join-Path $target ".pa\evaluation\state.json") (($state | ConvertTo-Json -Depth 6) + "`n")
+
+    if ($MarketerProfilePath) {
+        $profileSource = Resolve-Path -LiteralPath $MarketerProfilePath -ErrorAction Stop
+        Copy-Item -LiteralPath $profileSource.Path -Destination (Join-Path $target ".pa\evaluation\marketer-profile.md") -Force
+    }
+
+    $installer = Join-Path (Split-Path -Parent $PSScriptRoot) "scripts\install-marketing-agent.ps1"
+    $installArgs = @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", $installer, "-TargetRoot", $target, "-Version", $Version)
+    if ($SourceAgentRoot) { $installArgs += @("-SourceAgentRoot", $SourceAgentRoot) }
+    if ($RepoUrl) { $installArgs += @("-RepoUrl", $RepoUrl) }
+    & powershell @installArgs | Out-String | Write-Verbose
+    if ($LASTEXITCODE -ne 0) { throw "Marketing Agent kurulumu basarisiz oldu." }
+
+    Write-Output "SONUC: Evaluation workspace olusturuldu."
+    Write-Output "Path: $target"
+    Write-Output "idea_id: $IdeaId"
+} catch {
+    if (Test-Path -LiteralPath $target) {
+        Remove-Item -LiteralPath $target -Recurse -Force
+    }
+    throw
 }
-Write-Utf8 (Join-Path $target ".pa\evaluation\state.json") (($state | ConvertTo-Json -Depth 6) + "`n")
-
-if ($MarketerProfilePath) {
-    $profileSource = Resolve-Path -LiteralPath $MarketerProfilePath -ErrorAction Stop
-    Copy-Item -LiteralPath $profileSource.Path -Destination (Join-Path $target ".pa\evaluation\marketer-profile.md") -Force
-}
-
-$installer = Join-Path (Split-Path -Parent $PSScriptRoot) "scripts\install-marketing-agent.ps1"
-$installArgs = @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", $installer, "-TargetRoot", $target, "-Version", $Version)
-if ($SourceAgentRoot) { $installArgs += @("-SourceAgentRoot", $SourceAgentRoot) }
-if ($RepoUrl) { $installArgs += @("-RepoUrl", $RepoUrl) }
-& powershell @installArgs | Out-String | Write-Verbose
-if ($LASTEXITCODE -ne 0) { throw "Marketing Agent kurulumu basarisiz oldu." }
-
-Write-Output "SONUC: Evaluation workspace olusturuldu."
-Write-Output "Path: $target"
-Write-Output "idea_id: $IdeaId"

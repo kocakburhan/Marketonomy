@@ -88,6 +88,7 @@ if ([string]::IsNullOrWhiteSpace($ProjectId)) {
 $target = Assert-SafeTarget $TargetRoot
 $now = Get-Date
 
+try {
 if (-not $MarketerProfilePath) {
     $MarketerProfilePath = Get-MarketerRootProfilePath $target
 }
@@ -257,3 +258,9 @@ Write-Output "SONUC: Project workspace olusturuldu."
 Write-Output "Path: $target"
 Write-Output "project_id: $ProjectId"
 Write-Output "idea_id: $IdeaId"
+} catch {
+    if (Test-Path -LiteralPath $target) {
+        Remove-Item -LiteralPath $target -Recurse -Force
+    }
+    throw
+}
