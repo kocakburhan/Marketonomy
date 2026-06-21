@@ -11,8 +11,8 @@
                   },
                   {
                       "path":  "AGENTS.md",
-                      "sha256":  "e02ec9f12f12aadd984e6caa72e747e63319d3c8e7a3e8133314cd6d46a09e2c",
-                      "size":  30113
+                      "sha256":  "2106706370892997d72e213946afd56859421d4d2e26a688339c28ce0c3efa5a",
+                      "size":  31437
                   },
                   {
                       "path":  "agents/analytics-master.md",
@@ -61,8 +61,8 @@
                   },
                   {
                       "path":  "agents/orchestrator.md",
-                      "sha256":  "7a7361a806fd256364fa51206d8506872d3ecd04a55e676ad9c08a4fd5477d52",
-                      "size":  15154
+                      "sha256":  "c55e3938f924e4d6a5b2259d00cc5fb519979047683e12d75dffcc3af4b2158c",
+                      "size":  16649
                   },
                   {
                       "path":  "agents/outreach-specialist.md",
@@ -71,8 +71,8 @@
                   },
                   {
                       "path":  "agents/product-architect.md",
-                      "sha256":  "801309aa0236249e007e3a0d722c3d31a9bccd49cfcf397b5c8542e8553903a0",
-                      "size":  7136
+                      "sha256":  "4a53bf2ad47e71fe11e25c34b5d46aa025456f2eab06669136011de8b49963bb",
+                      "size":  7985
                   },
                   {
                       "path":  "agents/schedule-coordinator.md",
@@ -131,13 +131,13 @@
                   },
                   {
                       "path":  "pipelines/idea-discovery.md",
-                      "sha256":  "70d95033d58fcc887284fc5adeb94238e387cb19d0a5ab72c9e5b24bdd96ba15",
-                      "size":  8786
+                      "sha256":  "f95148e523dde8b38301befd440c71071d5e9554ed0b2aa6ec9fcac41466061f",
+                      "size":  9295
                   },
                   {
                       "path":  "pipelines/idea-to-prd.md",
-                      "sha256":  "10af247cf9f52f0028151beb278e33122fcb01e3c35c0eb33e59a8a0ed2808d7",
-                      "size":  13383
+                      "sha256":  "dfe610232cd03c7da7a84aaf3465296fa6a8168b870d07558188bf690946b922",
+                      "size":  14537
                   },
                   {
                       "path":  "pipelines/international-market-expansion.md",
@@ -151,8 +151,8 @@
                   },
                   {
                       "path":  "pipelines/mvp-launch.md",
-                      "sha256":  "19c28926552dd18973f8d484af2e364f1cba4126100f553a458b53373fb64078",
-                      "size":  6566
+                      "sha256":  "ee5bff4081b50cd84dfd1b064c5e731131038fdf2d55240991f099b5c23344aa",
+                      "size":  7409
                   },
                   {
                       "path":  "pipelines/outbound-sales.md",

@@ -352,6 +352,20 @@ When the user brings an existing idea, the agent's first job is not to support i
 or immediately turn it into a PRD. First apply the "is it worth trying?" flow in
 `pipelines/idea-to-prd.md`.
 
+This rule applies to every project type. Whether the idea is a mobile app, SaaS, service,
+physical business, e-commerce project, B2B offer, content product, or hybrid operation, the agent
+must not try to "finish the project" before proving that a serious market probably exists. Before
+months of coder work, expensive production, large content systems, paid acquisition, field
+activation, or launch planning, prioritize market research, customer pain, competitor reality,
+willingness-to-pay evidence, user distribution advantage, and a first validation plan.
+
+Do not let a project workspace itself imply that the idea is already worth building. In project
+workspaces, still check whether the current request depends on an unresolved market, validation,
+or distribution decision. If it does, route back to `02-arastirma/` and `03-strateji/dogrulama/`
+before writing PRD, coder brief, launch package, or final delivery. The agent closes open doors
+first: missing segment, weak pain, unclear buyer, no first-user channel, unproven pricing, crowded
+competitor field, unrealistic MVP cost, legal/operational blocker, or insufficient user advantage.
+
 Tone and decision standard for this flow:
 
 1. Do not use encouraging sales language. If the idea is weak, say so clearly, respectfully, and
@@ -370,6 +384,8 @@ Tone and decision standard for this flow:
    explicitly decides.
 7. Write the MVP only after the value decision is made and the user approves the final idea. The
    PRD is based on that approved MVP. The coder brief comes after the PRD.
+8. If market evidence is weak or missing, do not proceed by optimism. Either deepen research,
+   revise/narrow the idea, define a low-cost validation test, or recommend stopping.
 
 In an evaluation workspace, this standard becomes a decision report; do not create a project
 folder, final PRD, or weekly plan before a project workspace exists. In a project workspace, after

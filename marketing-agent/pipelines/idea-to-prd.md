@@ -23,6 +23,10 @@ In this pipeline, the agent does not act like an encouraging coach. The agent's 
 the idea realistically, not hide weak signals, and bring it to a more testable form together with
 the user.
 
+The pipeline exists to stop premature building. It is better to reject, narrow, or test cheaply
+than to let the coder spend months on a product whose market, buyer, distribution channel, or
+willingness to pay is not proven.
+
 Rules:
 
 1. Do not use unsourced positive language like "nice idea", "it has potential", "it could be worth trying".
@@ -31,6 +35,8 @@ Rules:
 4. If the user cannot market the idea, this alone may result in a "not worth it" or "revision required" decision.
 5. If you see a better target audience, niche, channel, pricing model, or MVP scope, freely suggest a revision.
 6. Do not produce MVP, PRD, or coder brief before the user explicitly approves the final idea and decision direction.
+7. Do not treat `PROJE.md`, a user request for a PRD, or an available coder as validation. Market
+   evidence and user distribution advantage must still be present.
 
 ---
 
@@ -193,6 +199,8 @@ Collect data from the right sources based on the product type:
 **Agent:** Strategy Analyst
 
 Evaluate `pazar-arastirmasi.md`, `kullanici-pazarlama-avantaji.md`, and the user's idea together.
+If either research file is missing or too shallow, return to [5.2] or [5.3] instead of scoring
+from assumptions.
 
 **Output format (`03-strateji/dogrulama/fikir-dogrulama.md`):**
 
@@ -238,6 +246,16 @@ Decision threshold:
 - `Denenmeye Değmez`: if pain is weak, user cannot reach the target audience, there is no
   competitive differentiation, MVP cost is high, or the revenue path is unrealistic.
 
+Hard stop conditions before PRD/coder brief:
+
+- No credible path to reach the first 10-50 users.
+- No evidence of painful or costly demand.
+- No buyer or budget owner is identifiable.
+- Competitors already solve the problem well and no sharp differentiation exists.
+- MVP cost or implementation time is high relative to the validation signal.
+- The user has no realistic channel, credibility, location, network, audience, or sales path for
+  this market.
+
 ### 5.5 — Realist Decision Discussion
 **Agent:** Orchestrator
 
@@ -270,6 +288,9 @@ Even if the user says "proceed", if the agent sees a fatal risk, restate it and 
 
 Runs only after the approved value decision. The MVP is the minimum testable product definition of
 the idea; it is not a feature pile.
+
+If the decision was `Revizyonla Denenmeye Deger`, the MVP must be based on the revised idea, not
+the original unfiltered version. If the decision was `Denenmeye Degmez`, this step must not run.
 
 **Output:** `04-urun/fikir-ozetleri/mvp.md`
 

@@ -11,6 +11,10 @@ MVP, physical product, service offering, or B2B sales package.
 **Prerequisite:** The thing to be brought to market must be ready: app/web MVP, physical product,
 pilot service, B2B demo/proposal package, or event/activation plan. `PROJE.md`, relevant
 `01-baglam/` files, and if applicable, `04-urun/prd/` or offering/MVP documents must be present.
+The market-validation trail must also be present unless the user explicitly asks for a speculative
+test. Before planning a launch, check for `02-arastirma/` market evidence,
+`03-strateji/dogrulama/fikir-dogrulama.md`, a clear first-user access path, and an approved MVP or
+offer scope. If these are missing, run the validation work before launch planning.
 
 ---
 
@@ -64,6 +68,17 @@ OPTIONAL (if available):
 • Any notes the coder wants to add?
 • First impressions from test users?
 ```
+
+Validation check before moving to 2.2:
+
+- Is the target segment specific enough to reach?
+- Is there evidence of painful demand or willingness to pay?
+- Is the first 10-50 user path realistic for this marketer?
+- Are the main competitors and alternatives understood?
+- Has the MVP/offer scope been approved?
+
+If the answer is no, pause launch planning and write the missing research or validation output
+first. Do not create a polished launch package that hides unresolved market risk.
 
 ### 2.2 — Marketing Strategy
 **Agent:** Strategy Analyst

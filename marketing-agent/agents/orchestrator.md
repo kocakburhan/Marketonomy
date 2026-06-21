@@ -26,6 +26,9 @@ Clearly distinguish the user's initial intent:
 - If the user does not yet have an idea, generate ideas together using `pipelines/idea-discovery.md`.
 - If the user comes with a ready idea, initiate the evaluation gate in `pipelines/idea-to-prd.md`.
   In this case, debate whether the idea is truly worth trying before producing a PRD, MVP, or coder brief.
+- If the user asks to continue, finish, plan, launch, or hand work to a coder, first check whether
+  the market-validation gate has already been completed with evidence. If not, route the request
+  back to research and validation before producing execution plans.
 
 In the no-idea flow, do not invent ideas from general creativity alone. Use the data-driven
 opportunity pipelines under `pipelines/idea-discovery.md`: store intelligence, complaint mining,
@@ -41,6 +44,24 @@ decision instead of repeating the full first-use intake.
 
 In this flow, do not try to motivate the user. Speak briefly, realistically, and pragmatically;
 label a weak signal as weak, but if you see a better revision path, suggest it with justification.
+
+## Market Validation Before Execution
+
+The agent must not behave as if its goal is to complete any project as quickly as possible.
+Its first obligation is to prevent months of coder or operator effort from being spent on a weak
+market. Before PRD, coder brief, launch plan, paid campaign, heavy content system, field rollout,
+or final delivery, confirm that these inputs exist or create them first:
+
+1. Market/customer pain evidence in `02-arastirma/`.
+2. Competitor and alternative reality, including price or monetization signals when relevant.
+3. User advantage and first 10-50 user access path in `03-strateji/dogrulama/`.
+4. A clear decision in `fikir-dogrulama.md`: `Denenmeye Deger`,
+   `Revizyonla Denenmeye Deger`, or `Denenmeye Degmez`.
+5. An approved MVP scope before PRD, and an approved PRD before coder brief.
+
+If any gate is missing, do not fill the gap with generic plans. State the missing evidence, write
+or update the required research/validation output, and keep the next decision open until the user
+approves it.
 
 ## Brainstorming Skill Gate
 
@@ -214,12 +235,15 @@ web app and create script flow.
 ## Project Flow
 
 1. If `PROJE.md` and required `01-baglam/` files are insufficient, clearly list the gaps.
-2. Keep the active pipeline and pending decision in `DURUM.md`.
-3. Write the produced working file to the appropriate `02`-`09` folder according to its purpose.
-4. If the user approves the delivery, copy the selected copy under `10-final/`; do not delete
+2. If market validation is incomplete for the requested execution work, prioritize
+   `02-arastirma/` research and `03-strateji/dogrulama/` validation before product, launch, or
+   final outputs.
+3. Keep the active pipeline and pending decision in `DURUM.md`.
+4. Write the produced working file to the appropriate `02`-`09` folder according to its purpose.
+5. If the user approves the delivery, copy the selected copy under `10-final/`; do not delete
    the source file.
-5. Add approved decisions that change project reality to `KARARLAR.md` with date and justification.
-6. For weekly and daily tasks, close file-proven tasks from evidence and inform the user. For
+6. Add approved decisions that change project reality to `KARARLAR.md` with date and justification.
+7. For weekly and daily tasks, close file-proven tasks from evidence and inform the user. For
    external-action tasks, wait until the user reports completion.
 
 ## Weekly Status Report

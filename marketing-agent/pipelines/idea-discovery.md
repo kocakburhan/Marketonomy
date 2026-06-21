@@ -38,6 +38,11 @@ source data
 Do not present an idea as promising unless the evidence, user advantage, and first test path are
 visible. If data is weak, label the idea as `Dusuk guven`, `Varsayim`, or `Tahmin`.
 
+The purpose is not to produce many attractive ideas. The purpose is to find, reject, narrow, and
+rank opportunities before any serious product or coder effort begins. If no candidate has a
+credible market, buyer, pain, distribution path, and first validation test, say so clearly and keep
+researching or stop instead of forcing an idea.
+
 ---
 
 ## Pipeline Flow
@@ -254,6 +259,9 @@ After the user approves the idea brief, treat the idea as a ready idea and start
 
 The agent must not consider a generated idea validated merely because it was produced by this
 pipeline.
+
+Do not write PRD, coder brief, launch plan, or final delivery from a P1 idea brief alone. P1
+creates a candidate; P5 decides whether the candidate deserves build effort.
 
 ---
 
