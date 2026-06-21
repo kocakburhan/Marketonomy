@@ -1,6 +1,6 @@
 {
     "schema_version":  "1.0",
-    "version":  "v5.4.1",
+    "version":  "v5.4.2",
     "hash_algorithm":  "SHA-256",
     "generated_at":  "deterministic",
     "files":  [
@@ -11,8 +11,8 @@
                   },
                   {
                       "path":  "AGENTS.md",
-                      "sha256":  "bcdf382dd15ed5e2b24d44fc5270c703bd817c61461ad17357d7edf618fbd0dc",
-                      "size":  37059
+                      "sha256":  "fdff11f1b528b566d49b6b92c5d6e31d913d632eef495f6fb01264d571342140",
+                      "size":  39554
                   },
                   {
                       "path":  "agents/analytics-master.md",
@@ -61,13 +61,13 @@
                   },
                   {
                       "path":  "agents/onboarding-guide.md",
-                      "sha256":  "96bcc477fc9d376fee991e57482222381f0ec1f74093fe83d10a22590646ef19",
-                      "size":  14518
+                      "sha256":  "305e4a043edb3dc8c7264f18ccceacccb8d51179f2a77710ef7a7f250cf3c283",
+                      "size":  16216
                   },
                   {
                       "path":  "agents/orchestrator.md",
-                      "sha256":  "73cd2d2174d2e51efd62ad67bd89d932b16130ff9ead6cdfb877c5ad383c9c7a",
-                      "size":  18828
+                      "sha256":  "be1ae4498b13d4b5aeccf8f767c2d7dd30b32b81ba2e18c0693cc07e1c9be9cd",
+                      "size":  18993
                   },
                   {
                       "path":  "agents/outreach-specialist.md",
@@ -91,7 +91,7 @@
                   },
                   {
                       "path":  "agent-version.json",
-                      "sha256":  "d2e3266bf9d30adcc49e2d0a72591ed96cd9489196530ef63922d086fac8b742",
+                      "sha256":  "f8016818b925a4b7b560d9895fd976cb60c57a04b834d1ee65934ec554a2506a",
                       "size":  131
                   },
                   {
@@ -146,8 +146,8 @@
                   },
                   {
                       "path":  "pipelines/idea-to-prd.md",
-                      "sha256":  "86e40838c06fddb73e7305125a553729cefe2890b1b9f68a214dad2181625065",
-                      "size":  18310
+                      "sha256":  "0a670889196621cd93bf76f7343dc50ead21809d5bb72e118f4a11913d395d4f",
+                      "size":  20184
                   },
                   {
                       "path":  "pipelines/international-market-expansion.md",
@@ -186,8 +186,8 @@
                   },
                   {
                       "path":  "QUICKSTART.md",
-                      "sha256":  "cb7f5732dd80f9336685d8ced7bef83a9cec04d78afb213089646863bbe38090",
-                      "size":  5445
+                      "sha256":  "9f7868137ed3466eec302107de5cae050af315ac5593c4ce156db3c6a64f207f",
+                      "size":  5670
                   },
                   {
                       "path":  "scripts/analyze_page.py",
@@ -226,8 +226,8 @@
                   },
                   {
                       "path":  "scripts/healthcheck.ps1",
-                      "sha256":  "32fef0c410544a2603bbdf8d6df1edcbb77aeb39c849d5a7025471c9da4c47f8",
-                      "size":  6034
+                      "sha256":  "96582a422eddd21bef5fbd4ee23bf4172e19fa5acbc1ef0140f4a5d9f8d39004",
+                      "size":  8296
                   },
                   {
                       "path":  "scripts/reconcile-workspace-state.ps1",

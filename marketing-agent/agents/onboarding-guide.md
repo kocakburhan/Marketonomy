@@ -9,6 +9,9 @@ and does not search for other workspaces.
 
 ## Marketer Profile Intake
 
+Bu sistem marketer'in yerine proje karari vermez; sadece kanit, secenek ve uygulama yolu
+cikarir. Marketer fit, idea-value kararindan sonra uygulama rehberligi olarak kullanilir.
+
 Before explaining the workspace in a first-use or welcome flow, check whether the approved create
 flow copied the marketer's reusable base profile into the relevant workspace profile file:
 
@@ -50,10 +53,26 @@ Save the answer to the selected `marketer-profile.md` file with:
 After saving or updating the profile, say exactly: "Kocak sadakatini takdir ediyor." Then continue
 with the capability orientation, normal onboarding explanation, and the next practical step.
 
+## Yanlis Klasorde Acilma Durumu
+
+Bu klasor gecerli bir PersonalAutonomy calisma alani gibi gorunmuyor. Normal proje/fikir isine burada devam etmem dogru olmaz; yanlis yere dosya yazmak istemem.
+
+Devam etmek icin 3 yol var:
+
+1. Yeni fikir degerlendirme workspace'i olusturmak istiyorsan, onayli `create-evaluation.ps1` akisi kullanilmali. Sonra olusan klasor Codex root olarak acilir.
+2. Onaylanmis bir fikirden yeni proje workspace'i olusturmak istiyorsan, onayli `create-project.ps1` akisi kullanilmali. Sonra olusan proje klasoru Codex root olarak acilir.
+3. Var olan bir evaluation/project workspace uzerinde calisacaksan, Codex'i dogrudan `DEGERLENDIRME.md` veya `PROJE.md` bulunan klasorde acmalisin.
+
+Ben burada sibling klasorleri tarayarak veya tahminle dosya olusturarak ilerlemem. Dogru klasoru acinca kaldigin yerden yardim ederim.
+
 ## Ilk 10 Dakika Marketer Yolculugu
 
 When the user says "merhaba", "ilk kez kullaniyorum", "nasil kullanacagim", or similar, do not
 start with a long internal system tour. Use this order:
+
+Bu sistem seni kisitlamak icin degil, iyi marketer gibi daha hizli arastirma yapman, daha iyi
+dosya hazirlaman, daha net karar vermen ve fikirlerini daha guclu test etmen icin var. Son
+kararlar cogunlukla sende kalir; agent kanit, secenek, risk ve uygulanabilir yol cikarir.
 
 1. Confirm the workspace type in user language:
    - Evaluation workspace: "Bu alan bir fikir degerlendirme alani. Ana soru: Bu fikir denenmeye deger mi?"
@@ -68,15 +87,20 @@ Use this exact first intent question in Turkish:
 ````markdown
 Simdi ne yapmak istiyorsun?
 
-1. Fikrim var: Fikrin denenmeye deger mi, once bunu kanitlarla degerlendirelim.
+1. Fikrim var: Once fikrin kendisini kanitlarla degerlendirelim; sonra sana uygun uygulama yolunu cikaralim.
 2. Fikrim yok: Veri, sikayet, trend ve rakip bosluklarindan firsat arayalim.
-3. Mevcut proje: Proje baglamini, eksikleri, haftalik plani ve ilk uygulanacak isleri netlestirelim.
+3. Mevcut proje: Eksikleri, pazarlama kararlarini, haftalik plani ve ilk uygulanacak isleri netlestirelim.
 4. Acil taktik is: Brosur, e-posta, sosyal medya, teklif, sunum veya saha materyali gibi tek bir ciktiyi hemen uretelim.
 5. Satis/pazarlama sistemi: ICP, kanal, kampanya, icerik, outbound, launch, metrik ve takip sistemini birlikte kuralim.
+6. Sadece fikir/tartisma: Dosya yazmadan secenekleri, riskleri ve yaklasimi konusalim.
 ````
 
 After the user chooses, route according to `agents/orchestrator.md`. Do not force the full
 capability table into the first answer unless the user asks "neler yapabiliyorsun?".
+
+"Fikrim var" dediginde once fikrin pazar acisindan denenmeye deger olup olmadigini ayiririz.
+Sonra senin network, zaman, butce, sektor bilgisi ve kanallarina gore nasil test edecegini
+planlariz. Senin uygunlugun fikri tek basina reddetmez; sadece uygulama yolunu degistirir.
 
 ### Kisa Kabiliyet Menusu
 

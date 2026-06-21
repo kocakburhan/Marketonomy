@@ -153,8 +153,9 @@ Bu modelin sonucu:
 - Coder yalnizca katildigi proje klasorunu gorur; baska marketer alanlarini veya projelerini
   goremez.
 - Degerlendirme ham notlari marketer'in kisisel `idea-workspace/` alaninda kalir.
-- Tum kullanicilar degerlendirme sonucunu web app'te okur. Istege bagli Drive raporu ayrica
-  Viewer olarak paylasilir ve linki web app'e eklenir.
+- Ilk product fazinda degerlendirme sonucu workspace icindeki `RAPOR.md`, `DURUM.md` ve
+  gerekiyorsa `KARARLAR.md` uzerinden izlenir. Web app'te merkezi sonuc okuma ve link kaydi
+  Post-MVP tasarim notudur.
 - Teknik agent update loglari `shared/logs/` altinda tutulur ve yalnizca Burhan Kocak
   tarafindan erisilebilir.
 - Marketer tarafindan calistirilan create scriptlerinin sanitize edilmis teknik loglari ilgili
@@ -163,9 +164,10 @@ Bu modelin sonucu:
 
 Bir projede birden fazla marketer veya coder calisacaksa tum `marketers/` alani acilmaz;
 yalnizca ilgili proje klasoru yeni ekip uyeleriyle tek tek paylasilir. Proje klasoru ilk olumlu
-marketer'in alaninda olusturulur ve bu kisi web app'te `Drive host marketer` olarak izlenir.
-Host sorumlulugu degerlendirme sonucundan ayridir; acik devir tamamlanmadan kendiliginden baska
-bir kullaniciya gecmez.
+marketer'in alaninda olusturulur ve bu kisi ilk fazda yerel proje dosyalarinda/manual operasyon
+notlarinda `Drive host marketer` olarak izlenir. Web app'te host izleme Post-MVP tasarim
+notudur. Host sorumlulugu degerlendirme sonucundan ayridir; acik devir tamamlanmadan
+kendiliginden baska bir kullaniciya gecmez.
 
 ---
 
@@ -923,10 +925,11 @@ Kocak ile iletisime gecilmesini soyler. Sanitize edilmis teknik kaydi kullanicin
 
 ### Yeni proje olusturma
 
-Bir fikir ancak marketer tarafindan `Denenmeye Deger` olarak degerlendirildikten ve web app
-Project Pool kaydini olusturduktan sonra proje workspace'ine donusebilir. Web app degismez
-`project_id` ve bagli `idea_id` degerini olusturur; ilk olumlu marketer'i proje uyesi ve
-`Drive host marketer` olarak kaydeder.
+Bir fikir ancak marketer tarafindan `Denenmeye Deger` olarak degerlendirildikten sonra proje
+workspace'ine donusebilir. Ilk product fazinda `project_id` ve bagli `idea_id`, onayli
+`create-project.ps1` akisi tarafindan uretilir veya script'e parametre olarak verilir. Web app
+Project Pool kaydi, merkezi proje uyeligi ve web tabanli Drive host kaydi Post-MVP tasarim
+notudur.
 
 Proje klasorunu yalnizca kayitli Drive host marketer kendi `projects/` klasorunde olusturur:
 
@@ -969,7 +972,7 @@ klasorlerini veya dosyalarini elle olusturmaz. Script su islemleri sirasiyla ger
     dosyalarini onayli proje sablonlarindan uretir.
 11. PROJE.md ve .pa/project/state.json icine project_id, idea_id ve ilk
     drive_host_marketer degerini yazar. Yalnizca project_id ve idea_id alanlarini degismez
-    olarak isaretler; mevcut host bilgisi web app'teki ana kaydin yerel snapshot'idir.
+    olarak isaretler; mevcut host bilgisi ilk fazda yerel/manual operasyon kaydidir.
 12. 00-gelen-kutusu ve 01-baglam altinda Bolum 4'te adlandirilan tum baslangic dosyalarini
     onayli sablonlardan olusturur.
 13. Bos calisma/cikti klasorlerine sabit .gitkeep dosyasi koyarak Drive'da klasor yapisinin
@@ -996,9 +999,9 @@ klasorlerini veya dosyalarini elle olusturmaz. Script su islemleri sirasiyla ger
 21. Dogrulama basariliysa gecici klasoru tek yeniden adlandirma islemiyle kalici proje adina
     cevirir. Drive kilidi varsa iki saniye arayla toplam uc kez dener; basarisizlikta kalici
     klasor birakmaz.
-22. Basari mesajinda project_id, proje adi ve yolu gosterir; kullaniciyi web app'te script
-    basarisini onaylamaya, Drive senkronizasyonunu tamamlamaya ve canonical klasor linkini
-    eklemeye yonlendirir.
+22. Basari mesajinda project_id, proje adi ve yolu gosterir; kullaniciyi terminal ciktisi,
+    workspace dosyalari ve Drive senkronizasyon durumunu kontrol etmeye yonlendirir. Web app'te
+    script basarisi ve canonical klasor linki kaydi Post-MVP tasarim notudur.
 ```
 
 Ayni `project_id` icin veritabani benzersizlik kurali ana korumadir. Script'in erisilebilir
@@ -1376,7 +1379,18 @@ tercihleri korurken sistemin temel guvenlik ve tutarlilik kurallarinin bozulmasi
 
 ---
 
-## 10. Web App'in MVP'deki Rolu
+## Post-MVP Appendix: Web App / PWA Future Design Notes
+
+> Bu bolum ilk product fazi icin uygulanacak runtime sozlesmesi degildir. Codex App + Google
+> Drive + approved create/install/update scriptleriyle calisan ilk fazda agent, create
+> scriptleri ve marketer onboarding bu bolumu zorunlu gereksinim olarak kullanmaz. web app/PWA
+> bolumleri ilk product fazi icin runtime gereksinimi degildir. Bu bolum ileriki web
+> app/PWA/central workflow/role/member notification tasarimi icin saklanir.
+
+## 10. Web App'in MVP'deki Rolu (Post-MVP Future Design Note)
+
+> Post-MVP note: This subsection is future web app/PWA design. It is not a first-product-phase
+> runtime requirement.
 
 Web app MVP'nin merkezi koordinasyon ve workflow katmanidir. Google Drive'in yerine gecmez ve
 gercek degerlendirme/proje dosyalarini depolamaz. PRD, arastirma, rapor, landing page
@@ -2027,7 +2041,8 @@ manuel kaldirir ve web app'te onaylar. Coder'in gecmisi ve ciktilari korunur.
 7. DURUM.md ve .pa/project/state.json aktif haftayi gosterecek sekilde guncellenir.
 8. Agent hafta boyunca dosya, cikti ve schedule durumundan gorev ilerlemesini izler.
 9. Dosya veya cikti kanitiyla tamamlandigi anlasilan gorevler kullaniciya sorulmadan
-   Tamamlandi olarak isaretlenir ve kullaniciya bilgi verilir.
+   Tamamlandi olarak isaretlenir ve kullaniciya bilgi verilir. Workspace artifact'i gorevi
+   acikca kanitliyorsa agent gorevi otomatik kapatir ve kullaniciyi bilgilendirir.
 10. Harici aksiyon gerektiren ve agent'in dosyadan anlayamayacagi gorevler Kullanici Bildirimi
     Bekliyor durumunda kalir; kullanici tamamladigini soylediginde guncellenir.
 11. Ertelenen, iptal edilen veya sonraki haftaya aday gorevler gerekceleriyle kaydedilir.
@@ -2062,7 +2077,9 @@ manuel kaldirir ve web app'te onaylar. Coder'in gecmisi ve ciktilari korunur.
 4. Yuz yuze surec ve materyalleri 06-pazarlama-uygulamalari/saha/ altinda uretir.
 5. Kanallar birlikte calisiyorsa koordinasyon kayitlarini hibrit/ altinda tutar.
 6. Basili materyallerin onayli kaynaklarini 09-varliklar/basili/ altinda saklar.
-7. Gorevleri yalnizca kullanicinin acik tamamlanma onayiyla kapatir.
+7. Workspace artifact'i gorevi acikca kanitliyorsa agent gorevi kapatir ve kullaniciyi
+   bilgilendirir. Harici aksiyonlar kullanici tamamladigini bildirene kadar acik kalir. Final
+   yayin veya teslim her zaman acik kullanici onayi ister.
 ```
 
 ### Agent guncelleme

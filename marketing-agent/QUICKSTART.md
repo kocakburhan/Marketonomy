@@ -83,6 +83,10 @@ release-manifest.json dogrulamasini kontrol et. Var olan proje dosyalarimi silme
 Ust `idea-workspace/` veya `projects/` klasorunu analiz root'u olarak kullanma. Bu klasorler
 yalnizca mevcut workspace'leri listelemek ve onayli create scriptini calistirmak icindir.
 
+Yanlis klasorde acarsan: Agent normal ise devam etmez. Yeni fikir degerlendirme, yeni proje
+veya var olan workspace'i dogrudan acma seceneklerini gosterir. Dogru workspace kokunde
+`DEGERLENDIRME.md` veya `PROJE.md` bulunur.
+
 ## Calisma Esnekligi
 
 Marketing Agent her istegi pipeline'a zorlamaz:

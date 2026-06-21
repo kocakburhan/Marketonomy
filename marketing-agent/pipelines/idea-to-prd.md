@@ -17,6 +17,22 @@ Internal operating instructions are in English. The default user-facing language
 
 ---
 
+## Idea Value Comes First
+
+Aslolan fikirdir. Marketerlar yetenekli, akli basinda ve network sahibi insanlar olarak kabul
+edilir. Bu pipeline'in ilk gorevi marketer'i elemek degil, fikrin pazar acisindan yeterli
+olup olmadigini anlamaktir.
+
+Idea value is decided from market pain, buyer urgency, willingness to pay, alternative behavior,
+competitor reality, differentiation, timing, feasibility, and risk.
+
+Marketer fit is Marketer uygulama rehberligi. It can change the recommended validation route,
+confidence cautions, mentor/partner needs, first customer path, channel choice, and budget
+posture. It is verdict degildir and must not by itself turn a valuable idea into
+`Denenmeye Degmez`.
+
+---
+
 ## Core Attitude
 
 In this pipeline, the agent does not act like an encouraging coach. The agent's job is to challenge
@@ -51,22 +67,22 @@ User: "I have an idea"
 [5.1] Orchestrator -> Collect the idea and product type
         |
         v
-[5.2] Orchestrator -> Extract user profile and marketing advantage
-        |  Output: kullanici-pazarlama-avantaji.md
-        v
-[5.3] Market Scout -> Research market, competitors, trends, and customer signals
+[5.2] Market Scout -> Research market, competitors, alternatives, buyer pain, willingness to pay, timing, feasibility, and risk
         |  Output: pazar-arastirmasi.md
         v
-[5.4] Strategy Analyst -> Score the idea against "is it worth trying?" criteria
+[5.3] Strategy Analyst -> Decide idea value
         |  Output: fikir-dogrulama.md
         v
-[5.5] Orchestrator -> Realist decision discussion: WORTH / REVISION / NOT WORTH
+[5.4] Orchestrator -> Realist decision discussion: WORTH / REVISION / NOT WORTH
         |
-        +-- "Denenmeye Değmez" -> Close the report, write the reason, do not produce PRD
+        +-- "Denenmeye Degmez" -> Close the report, explain why, optionally suggest a narrower/revised idea, do not produce PRD
         |
-        +-- "Revizyonla Denenmeye Değer" -> Revise the idea with user -> Return to [5.2]
+        +-- "Revizyonla Denenmeye Deger" -> Revise the idea with the user -> Return to [5.2]
         |
-        +-- "Denenmeye Değer" ->
+        +-- "Denenmeye Deger" ->
+                 v
+            [5.5] Orchestrator -> Marketer execution guidance
+                 |  Output: marketer-uygulama-rehberligi.md
                  v
             [5.6] Product Architect -> Write MVP from the approved final idea
                  |  Output: 04-urun/fikir-ozetleri/mvp.md
@@ -78,8 +94,6 @@ User: "I have an idea"
                  v
             [5.9] Product Architect -> Prepare coder brief
                  |  Output: 04-urun/coder-briefleri/coder-brief.md
-                 v
-             [5.10] Orchestrator -> Direct user to forward MVP and PRD files to coder
 ```
 
 ## Workspace Output Path Rules
@@ -94,9 +108,9 @@ Use these paths:
 
 | Output | Path |
 |---|---|
-| User/marketer execution guidance | `ciktilar/kullanici-pazarlama-avantaji.md` |
 | Market and competitor research | `ciktilar/pazar-arastirmasi.md` |
 | Idea value decision | `ciktilar/fikir-dogrulama.md` |
+| Marketer execution guidance | `ciktilar/marketer-uygulama-rehberligi.md` |
 | Publishable working decision report | `RAPOR.md` |
 | Operational status | `DURUM.md` and `.pa/evaluation/active-task.md` |
 
@@ -109,19 +123,33 @@ In a project workspace, use these paths after the idea-value decision is approve
 
 | Output | Path |
 |---|---|
-| User/marketer execution guidance | `03-strateji/dogrulama/kullanici-pazarlama-avantaji.md` |
 | Market and competitor research | `02-arastirma/pazar-arastirmasi.md` |
 | Idea value decision | `03-strateji/dogrulama/fikir-dogrulama.md` |
+| Marketer execution guidance | `03-strateji/dogrulama/marketer-uygulama-rehberligi.md` |
 | MVP | `04-urun/fikir-ozetleri/mvp.md` |
 | PRD | `04-urun/prd/prd.md` |
 | Coder brief | `04-urun/coder-briefleri/coder-brief.md` |
 | Operational status | `DURUM.md` and `.pa/project/active-task.md` |
 
+### Marketer Execution Guidance
+
+This section is not the idea-value verdict. It guides how this marketer should approach
+execution after the idea-value decision is made or while a low-cost validation test is being
+designed.
+
+If the marketer has strong fit, encourage them to use that advantage directly: network, city,
+sector access, existing customer access, audience, sales skill, budget, speed, or channel
+leverage.
+
+If the marketer has weak fit, do not reject the idea for that reason alone. Recommend a cautious
+execution path: sector conversations, mentor or partner support, expert interviews, customer
+discovery, local validation, small budget test, or narrowing to a reachable segment.
+
 ### Marketer Fit Guidance is not the idea-value verdict
 
 Marketer fit can affect the recommended validation route, channel support, mentor/partner need,
 budget caution, and execution risk. It must never turn an otherwise valuable idea into
-`Denenmeye Değmez` by itself.
+`Denenmeye Degmez` by itself.
 
 ---
 
@@ -142,59 +170,7 @@ Collect the following information from the user:
 
 Do not try to complete the idea on vague answers; explicitly list missing assumptions.
 
-### 5.2 — User Marketing Advantage
-**Agent:** Orchestrator
-
-Measure the marketability of the idea specifically for the user. Collect the following from the user:
-
-1. City/country of residence and relationship with the target market
-2. Field of work, sector, and professional experience
-3. Knowledge base or personal expertise related to the topic
-4. Network: accessible customer, institution, community, influencer, channel, or decision-maker circles
-5. Existing audience: email list, social media, community, customer portfolio, store traffic
-6. Sales and marketing experience
-7. How they can reach the sales-motion-appropriate validation unit
-8. Weekly time capacity and trial budget
-9. City, language, culture, regulation, or operational advantage/disadvantage
-
-**Output format:** use the workspace-specific path from `Workspace Output Path Rules`.
-
-```markdown
-# User Marketing Advantage: [Idea]
-- Date: [date]
-
-## User Profile
-- City/country:
-- Field of work:
-- Sector knowledge:
-- Sales/marketing experience:
-- Time capacity:
-- Trial budget:
-
-## Distribution Assets
-| Asset | Strength | Evidence | Risk |
-|--------|-----|-------|------|
-| Network | [low/medium/high] | ... | ... |
-| Existing audience | ... | ... | ... |
-| First user access | ... | ... | ... |
-
-## Marketability Score
-| Criterion | Score (1-10) | Rationale |
-|--------|-------------|---------|
-| Target audience access | ... | ... |
-| Sector credibility | ... | ... |
-| First sales/acquisition channel | ... | ... |
-| Local/cultural advantage | ... | ... |
-| Execution capacity | ... | ... |
-| **Total** | **.../50** | |
-
-## Conclusion
-- User's marketing advantage for this idea:
-- Critical gap:
-- Revision suggestion if needed:
-```
-
-### 5.3 — Market Research
+### 5.2 — Market Research
 **Agent:** Market Scout
 
 Collect data from the right sources based on the product type:
@@ -238,12 +214,12 @@ Collect data from the right sources based on the product type:
 - Eksik veya erişilemeyen veri:
 ```
 
-### 5.4 — Idea Validation
+### 5.3 — Idea Validation
 **Agent:** Strategy Analyst
 
-Evaluate `pazar-arastirmasi.md`, `kullanici-pazarlama-avantaji.md`, and the user's idea together.
-If either research file is missing or too shallow, return to [5.2] or [5.3] instead of scoring
-from assumptions.
+Evaluate `pazar-arastirmasi.md` and the user's idea together. If research is missing or too
+shallow, return to [5.2] instead of scoring from assumptions. Marketer execution guidance
+is not an input to the idea-value score.
 
 **Output format:** use the workspace-specific path from `Workspace Output Path Rules`.
 
@@ -291,19 +267,6 @@ Decision threshold:
   differentiation, MVP cost is high, the revenue path is unrealistic, or a fatal legal/operational
   blocker exists. Marketer fit alone can never produce this verdict.
 
-### Marketer Fit Guidance
-
-Discuss marketer fit separately from the idea-value score and verdict. This is guidance between
-Marketing Agent and the marketer, not a rejection gate:
-
-- Strong fit: show how the marketer can use sector knowledge, network, credibility, location, or
-  channel access.
-- Partial fit: recommend the missing capability, channel, partner, mentor, or specialist support.
-- Weak fit: recommend caution and getting advice from experienced people before a high-cost move.
-
-Never change `Denenmeye Değer` to `Denenmeye Değmez` because the current marketer lacks experience,
-network, audience, or a direct distribution channel.
-
 ### Validation Unit By Sales Motion
 
 - B2C/self-service: typically 10-50 target users or equivalent behavioral tests.
@@ -324,7 +287,7 @@ Hard stop conditions before PRD/coder brief:
 - MVP cost or implementation time is high relative to the validation signal.
 - A fatal legal, operational, safety, or economic blocker makes even a bounded test unreasonable.
 
-### 5.5 — Realist Decision Discussion
+### 5.4 — Realist Decision Discussion
 **Agent:** Orchestrator
 
 Speak to the user briefly and clearly:
@@ -350,6 +313,77 @@ Your decision:
 
 Even if the user says "proceed", if the agent sees a fatal risk, restate it and write the risk to
 `KARARLAR.md` or the evaluation report before moving to PRD.
+
+### 5.5 — Marketer Execution Guidance
+**Agent:** Orchestrator
+
+Marketer execution guidance is produced after the idea-value decision. It is execution
+guidance, not the idea-value verdict. If the idea is `Denenmeye Deger` or
+`Revizyonla Denenmeye Deger`, the marketer profile is used to recommend the validation
+route, channel, and validation unit, not to reject the idea. If marketer fit is strong, show
+how to use it directly. If marketer fit is weak, recommend a cautious path: sector
+conversations, mentor or partner support, expert interviews, customer discovery, local
+validation, small budget test, or narrowing to a reachable segment.
+
+Discuss marketer fit separately from the idea-value score and verdict. This is guidance between
+Marketing Agent and the marketer, not a rejection gate:
+
+- Strong fit: show how the marketer can use sector knowledge, network, credibility, location, or
+  channel access.
+- Partial fit: recommend the missing capability, channel, partner, mentor, or specialist support.
+- Weak fit: recommend caution and getting advice from experienced people before a high-cost move.
+
+Never change `Denenmeye Değer` to `Denenmeye Değmez` because the current marketer lacks experience,
+network, audience, or a direct distribution channel.
+
+Collect the following from the user:
+
+1. City/country of residence and relationship with the target market
+2. Field of work, sector, and professional experience
+3. Knowledge base or personal expertise related to the topic
+4. Network: accessible customer, institution, community, influencer, channel, or decision-maker circles
+5. Existing audience: email list, social media, community, customer portfolio, store traffic
+6. Sales and marketing experience
+7. How they can reach the sales-motion-appropriate validation unit
+8. Weekly time capacity and trial budget
+9. City, language, culture, regulation, or operational advantage/disadvantage
+
+**Output format:** use the workspace-specific path from `Workspace Output Path Rules`.
+
+```markdown
+# Marketer Execution Guidance: [Idea]
+- Date: [date]
+
+## User Profile
+- City/country:
+- Field of work:
+- Sector knowledge:
+- Sales/marketing experience:
+- Time capacity:
+- Trial budget:
+
+## Distribution Assets
+| Asset | Strength | Evidence | Risk |
+|--------|-----|-------|------|
+| Network | [low/medium/high] | ... | ... |
+| Existing audience | ... | ... | ... |
+| First user access | ... | ... | ... |
+
+## Marketability Score
+| Criterion | Score (1-10) | Rationale |
+|--------|-------------|---------|
+| Target audience access | ... | ... |
+| Sector credibility | ... | ... |
+| First sales/acquisition channel | ... | ... |
+| Local/cultural advantage | ... | ... |
+| Execution capacity | ... | ... |
+| **Total** | **.../50** | |
+
+## Conclusion
+- User's marketing advantage for this idea:
+- Critical gap:
+- Revision suggestion if needed:
+```
 
 ### 5.6 — MVP Writing
 **Agent:** Product Architect
@@ -435,9 +469,9 @@ The coder can read these files and extract the technical plan and implementation
 
 | File | Produced By | Description |
 |-------|--------|----------|
-| `ciktilar/kullanici-pazarlama-avantaji.md` | Orchestrator | User's idea marketing power |
 | `ciktilar/pazar-arastirmasi.md` | Market Scout | Competitor, trend, customer signal |
 | `ciktilar/fikir-dogrulama.md` | Strategy Analyst | Hard score, risk, and decision |
+| `ciktilar/marketer-uygulama-rehberligi.md` | Orchestrator | Marketer execution guidance, not verdict |
 | `RAPOR.md` | Orchestrator | Publishable working decision report |
 | `DURUM.md` and `.pa/evaluation/active-task.md` | Orchestrator | Operational status |
 
@@ -445,9 +479,9 @@ The coder can read these files and extract the technical plan and implementation
 
 | File | Produced By | Description |
 |-------|--------|----------|
-| `03-strateji/dogrulama/kullanici-pazarlama-avantaji.md` | Orchestrator | User's idea marketing power |
 | `02-arastirma/pazar-arastirmasi.md` | Market Scout | Competitor, trend, customer signal |
 | `03-strateji/dogrulama/fikir-dogrulama.md` | Strategy Analyst | Hard score, risk, and decision |
+| `03-strateji/dogrulama/marketer-uygulama-rehberligi.md` | Orchestrator | Marketer execution guidance, not verdict |
 | `04-urun/fikir-ozetleri/mvp.md` | Product Architect | Approved MVP definition |
 | `04-urun/prd/prd.md` | Product Architect | PRD based on MVP |
 | `04-urun/coder-briefleri/coder-brief.md` | Product Architect | Implementable summary for coder |
