@@ -1,6 +1,6 @@
 # Marketing Agent Skill Catalog
 
-This release carries 36 local marketing skills. The main agent reads the
+This release carries 45 local marketing skills. The main agent reads the
 `skills/<skill>/SKILL.md` file of the skill appropriate for the task. Codex global or plugin
 skills can be used as additional capabilities only if they appear in the active skill list; this
 package does not assume they are installed.
@@ -102,6 +102,15 @@ project folder and file names remain as they are.
 | `market-report` | Comprehensive decision-focused marketing report | `08-raporlar/pazarlama/` |
 | `market-report-pdf` | PDF delivery from an approved Markdown report | `08-raporlar/pdf/` |
 
+## Fundraising And Investor Readiness
+
+| Skill | Task | Default project output area |
+|---|---|---|
+| `investor-documents` | Pitch deck, one-pager, executive summary, investor update, board deck, and business plan | `08-raporlar/yatirimci/` |
+| `fundraising-financials` | Financial model, cap table, unit economics, revenue report, burn/runway, and use of funds | `08-raporlar/finansal/` |
+| `investor-data-room` | Data room, due diligence pack, traction report, KPI dashboard, pipeline report, and cohort analysis | `08-raporlar/yatirimci/` |
+| `investment-legal-drafts` | Term sheet and SHA business drafts with lawyer handoff checklist | `08-raporlar/yatirimci/legal/` |
+
 ## Growth, Sales, And Launch
 
 | Skill | Task | Default project output area |
@@ -131,6 +140,7 @@ project folder and file names remain as they are.
 | B2B outbound and sales | `prospecting` -> `cold-email` -> `market-proposal` -> `ads` -> `analytics` |
 | B2B field/partner sales | `prospecting` -> `market-proposal` -> `copywriting` -> `community-marketing` -> `analytics` |
 | International market expansion | `web-research` -> `market-competitors` -> `customer-research` -> `pricing` -> `prospecting` -> `market-funnel` -> `analytics` |
+| Fundraising readiness | `investor-data-room` -> `fundraising-financials` -> `investor-documents` -> `investment-legal-drafts` |
 | Growth | `marketing-plan` -> `referrals` -> `churn-prevention` -> `analytics` |
 | Competitor strategy | `web-research` -> `competitor-profiling` -> `market-competitors` -> `marketing-psychology` |
 | Hybrid campaign | `marketing-plan` -> `social` -> `ads` -> `copywriting` -> `market-report` |
@@ -150,6 +160,10 @@ runtime or external MCP.
 Use it for weekly plans, daily schedule files, task completion evidence, task postponement,
 future-week moves, schedule intensity (`Aggressive`, `Balanced`, `Relaxed`), and Google Calendar
 sync.
+
+`investor-readiness-advisor` is a specialist role under `agents/`, not a local skill under
+`skills/`. Use it for fundraising strategy, investor document sequencing, data room readiness,
+diligence gaps, financial/document consistency review, and final investor-pack approval gates.
 
 The MVP plugin set expected from marketers is Google Drive, Google Calendar, Gmail, Canva, Figma,
 and GitHub. These plugins extend the local skills only when they are visible in the active Codex

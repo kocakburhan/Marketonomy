@@ -107,6 +107,8 @@ Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "Kocak sadakatin
 Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "Marketing Agent Capability Orientation" "Onboarding agent kabiliyet oryantasyonu eksik"
 Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "Agent ve skill haritasi" "Onboarding agent-skill haritasi eksik"
 Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "Marketing Agent'i zorlamak icin ornek istekler" "Onboarding guclu kullanim ornekleri eksik"
+Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "Investor Readiness Advisor" "Onboarding yatirimci hazirlik tanitimi eksik"
+Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "pitch deck, one-pager, executive summary, financial model" "Onboarding yatirimci dokuman ornegi eksik"
 Assert-Text (Join-Path $AgentRoot "agents\orchestrator.md") "Brainstorming Skill Gate" "Aktif brainstorming skill yonlendirmesi eksik"
 Assert-Text (Join-Path $AgentRoot "SKILLS.md") "is not counted as a local marketing skill" "Brainstorming aktif Codex skill notu eksik"
 Assert-Text (Join-Path $AgentRoot "ARCHITECTURE.md") "Global or plugin Codex skills are optional active capabilities" "Aktif global skill mimari notu eksik"
@@ -119,8 +121,8 @@ Assert-Text (Join-Path $AgentRoot "SKILLS.md") "Output Relationship Memory" "Ski
 $skillFiles = Get-ChildItem -LiteralPath (Join-Path $AgentRoot "skills") -Directory |
     ForEach-Object { Join-Path $_.FullName "SKILL.md" }
 
-if ($skillFiles.Count -ne 41) {
-    Add-Failure "Beklenen yerel skill sayisi 41, bulunan: $($skillFiles.Count)"
+if ($skillFiles.Count -ne 45) {
+    Add-Failure "Beklenen yerel skill sayisi 45, bulunan: $($skillFiles.Count)"
 }
 
 foreach ($skillFile in $skillFiles) {
@@ -162,7 +164,8 @@ foreach ($skillFile in $skillFiles) {
 foreach ($agentName in @(
     "analytics-master.md", "brand-guardian.md", "campaign-manager.md", "content-creator.md",
     "growth-hacker.md", "launch-commander.md", "market-expansion-advisor.md", "market-scout.md",
-    "outreach-specialist.md", "product-architect.md", "schedule-coordinator.md", "strategy-analyst.md"
+    "investor-readiness-advisor.md", "outreach-specialist.md", "product-architect.md",
+    "schedule-coordinator.md", "strategy-analyst.md"
 )) {
     $path = Join-Path $AgentRoot "agents\$agentName"
     Assert-Text $path "PersonalAutonomy Workspace Contract" "Uzman workspace sozlesmesi eksik: agents/$agentName"
@@ -218,6 +221,16 @@ Assert-Text (Join-Path $AgentRoot "agents\market-expansion-advisor.md") "Beachhe
 Assert-Text (Join-Path $AgentRoot "agents\market-expansion-advisor.md") "Technical Globalization Readiness" "Market expansion teknik hazirlik kontrolu eksik"
 Assert-Text (Join-Path $AgentRoot "pipelines\international-market-expansion.md") "Kaynak ve Kanit Defteri" "Market expansion kanit defteri eksik"
 Assert-Text (Join-Path $AgentRoot "pipelines\international-market-expansion.md") "90-Day Market Entry Test" "Market expansion 90 gun test plani eksik"
+
+Assert-Path "pipelines\fundraising-readiness.md"
+Assert-Text (Join-Path $AgentRoot "agents\orchestrator.md") "fundraising-readiness.md" "Fundraising routing'i eksik"
+Assert-Text (Join-Path $AgentRoot "agents\investor-readiness-advisor.md") "Investor Readiness Advisor" "Investor readiness uzman akisi eksik"
+Assert-Text (Join-Path $AgentRoot "pipelines\fundraising-readiness.md") "Kaynak ve Kanit Defteri" "Fundraising kanit defteri eksik"
+Assert-Text (Join-Path $AgentRoot "pipelines\fundraising-readiness.md") "10-final/yatirimci" "Fundraising final teslim kurali eksik"
+Assert-Text (Join-Path $AgentRoot "skills\investor-documents\SKILL.md") "Pitch Deck" "Investor documents skill pitch deck eksik"
+Assert-Text (Join-Path $AgentRoot "skills\fundraising-financials\SKILL.md") "Financial Model" "Fundraising financials skill financial model eksik"
+Assert-Text (Join-Path $AgentRoot "skills\investor-data-room\SKILL.md") "Due Diligence Pack" "Investor data room skill due diligence eksik"
+Assert-Text (Join-Path $AgentRoot "skills\investment-legal-drafts\SKILL.md") "hukuki tavsiye degildir" "Investment legal drafts hukuki sinir eksik"
 
 $researchContracts = @(
     @{

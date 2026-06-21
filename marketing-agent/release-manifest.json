@@ -11,8 +11,8 @@
                   },
                   {
                       "path":  "AGENTS.md",
-                      "sha256":  "2106706370892997d72e213946afd56859421d4d2e26a688339c28ce0c3efa5a",
-                      "size":  31437
+                      "sha256":  "61ff583e4557fafcbd494656bd64544d4908c50b21ef56d65b2516ad0dfb5708",
+                      "size":  31629
                   },
                   {
                       "path":  "agents/analytics-master.md",
@@ -40,6 +40,11 @@
                       "size":  4582
                   },
                   {
+                      "path":  "agents/investor-readiness-advisor.md",
+                      "sha256":  "3d1e6ee8dc98e8af341d3257f8eed7fcd4218f9d798b32151b1ddb46a612568f",
+                      "size":  7429
+                  },
+                  {
                       "path":  "agents/launch-commander.md",
                       "sha256":  "354d5c1160aa2ba7c216c3c05b00b2096fe86488e5e57efe349922e55edfa562",
                       "size":  4396
@@ -56,13 +61,13 @@
                   },
                   {
                       "path":  "agents/onboarding-guide.md",
-                      "sha256":  "532a5eb64399a1c1269272af893152360c50262280b4dcccd69e8be13f64c00a",
-                      "size":  11068
+                      "sha256":  "fe2076879a40f554d834a815d541f0e878e8537a1117f58236a0d4cc032a44e7",
+                      "size":  11834
                   },
                   {
                       "path":  "agents/orchestrator.md",
-                      "sha256":  "c55e3938f924e4d6a5b2259d00cc5fb519979047683e12d75dffcc3af4b2158c",
-                      "size":  16649
+                      "sha256":  "61d275877c5761e3d57fb65e806281db5409abe3e9b9fb5750d356e30509f0fe",
+                      "size":  17678
                   },
                   {
                       "path":  "agents/outreach-specialist.md",
@@ -91,8 +96,8 @@
                   },
                   {
                       "path":  "ARCHITECTURE.md",
-                      "sha256":  "e29856d57dbfc2a5d50e5975f66b00b831f0ec4c12bd7b92c6dc56c8781aed70",
-                      "size":  11235
+                      "sha256":  "bbe03e08e4aadc7c2a8c52818328f1283e75e752ea0f3becc1c0b0eadcc9beca",
+                      "size":  11720
                   },
                   {
                       "path":  "mcps.json",
@@ -123,6 +128,11 @@
                       "path":  "pipelines/feedback-improvement.md",
                       "sha256":  "ce2d09807861a47ab4148c6b4c0af3729dbb322a40928e53a5f946014fc5b9df",
                       "size":  8033
+                  },
+                  {
+                      "path":  "pipelines/fundraising-readiness.md",
+                      "sha256":  "d846b9c1153f2bdf5cedb8cd4eb5de13f088ced629f64b54f7c4393f47c248f7",
+                      "size":  7656
                   },
                   {
                       "path":  "pipelines/growth-engine.md",
@@ -236,8 +246,8 @@
                   },
                   {
                       "path":  "scripts/test_mvp_compatibility.ps1",
-                      "sha256":  "140dcaa0de4030b222805747dd693faf4e37bc66b578324f323935d1e8c1fd30",
-                      "size":  13896
+                      "sha256":  "6e440a8714ea5fdf529e66d4da4a45941d9f98a52144364f7a9c1712711ff5be",
+                      "size":  15379
                   },
                   {
                       "path":  "scripts/update-agent.ps1",
@@ -246,8 +256,8 @@
                   },
                   {
                       "path":  "SKILLS.md",
-                      "sha256":  "bcbd5e306ea334255ae763b74e0a382de9d7cd2beb0715dcd28cd97f188916a4",
-                      "size":  10414
+                      "sha256":  "eb95026da26a2b131786f3994de827abfc95510b1fa5638eb002a2c130a8d174",
+                      "size":  11501
                   },
                   {
                       "path":  "skills/ad-creative/agents/openai.yaml",
@@ -420,6 +430,16 @@
                       "size":  8095
                   },
                   {
+                      "path":  "skills/fundraising-financials/agents/openai.yaml",
+                      "sha256":  "02a1bf692c1caffb656f3e76c4a49160a02a0e299f583e7be42fbecc196f26e5",
+                      "size":  320
+                  },
+                  {
+                      "path":  "skills/fundraising-financials/SKILL.md",
+                      "sha256":  "9f68ed4555b79dc852958dae0371b9148de1e1a962659241e9c62768900c710d",
+                      "size":  3360
+                  },
+                  {
                       "path":  "skills/image/agents/openai.yaml",
                       "sha256":  "4f77f36378869b3ef2ab2f701c6916938c99e657d33eaa49478d9cb90d73b128",
                       "size":  358
@@ -428,6 +448,36 @@
                       "path":  "skills/image/SKILL.md",
                       "sha256":  "a772355a71100d9427d09e1e61abf49f421902d247768e84da6e30324e8ff44a",
                       "size":  15754
+                  },
+                  {
+                      "path":  "skills/investment-legal-drafts/agents/openai.yaml",
+                      "sha256":  "012fefdcba6f04c0faf863852adbfc43e375f9d3ec458706554bf2169a807712",
+                      "size":  314
+                  },
+                  {
+                      "path":  "skills/investment-legal-drafts/SKILL.md",
+                      "sha256":  "3661f8d8e610953bc0d40676bc5f9b489d4229bb9fbfeed6ae77e11493ec6248",
+                      "size":  3176
+                  },
+                  {
+                      "path":  "skills/investor-data-room/agents/openai.yaml",
+                      "sha256":  "8f7084ba1f7be958081f050620dedb7bf50a07bb5c9126316d145111f5e80d94",
+                      "size":  312
+                  },
+                  {
+                      "path":  "skills/investor-data-room/SKILL.md",
+                      "sha256":  "45e1d67de76a58391563cd852ec2c1d08fffd4780672d504b8c17c96a8231fff",
+                      "size":  3044
+                  },
+                  {
+                      "path":  "skills/investor-documents/agents/openai.yaml",
+                      "sha256":  "760f8275c8a540c645c2abae6ee78720a399255283db09fd00258c8abb05301b",
+                      "size":  312
+                  },
+                  {
+                      "path":  "skills/investor-documents/SKILL.md",
+                      "sha256":  "63204c4bcaf403e1a930ae48faad076a86c7a4ff00b688b3a2ef58009da01211",
+                      "size":  3998
                   },
                   {
                       "path":  "skills/launch/agents/openai.yaml",
@@ -451,8 +501,8 @@
                   },
                   {
                       "path":  "skills/list.md",
-                      "sha256":  "28b43019f8a3f4c9d0c2008dc60f4bb44c33318c0e8f0508b5681a56b3051cda",
-                      "size":  4833
+                      "sha256":  "b299e09cef5b089bf4ea6f73d38697377b6e8563d39b5158f1756b82b63f3806",
+                      "size":  5068
                   },
                   {
                       "path":  "skills/market-ads/agents/openai.yaml",

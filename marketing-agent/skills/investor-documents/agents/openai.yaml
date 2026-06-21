@@ -1,0 +1,4 @@
+interface:
+  display_name: "Investor Documents"
+  short_description: "Yatirimci anlatimi ve sunum dokumanlari"
+  default_prompt: "In Codex'te, use the $investor-documents skill in this workspace and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."

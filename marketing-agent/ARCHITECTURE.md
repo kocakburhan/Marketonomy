@@ -59,8 +59,9 @@ workspace type, then the output type, then the canonical target folder for every
 inputs are preserved in `00-gelen-kutusu/`; processed research goes to `02-arastirma/`, strategy
 to `03-strateji/`, product docs to `04-urun/`, weekly plans and daily schedules to
 `05-haftalik-planlar/`, execution outputs to `06-pazarlama-uygulamalari/`, launch to
-`07-lansman/`, reports to `08-raporlar/`, reusable assets to `09-varliklar/`, approved
-deliverables to `10-final/`, working notes to `11-notlar/`, and archived versions to `99-arsiv/`.
+`07-lansman/`, reports including investor and financial packages to `08-raporlar/`, reusable
+assets to `09-varliklar/`, approved deliverables to `10-final/`, working notes to `11-notlar/`,
+and archived versions to `99-arsiv/`.
 User data or project outputs are not written inside `.pa/agent/`.
 
 An LLM-wiki output memory layer sits above those canonical folders as derived Markdown navigation.
@@ -72,9 +73,9 @@ folders, or make `.pa/agent/` a data store.
 
 ## Specialist Model
 
-13 specialist roles are maintained: onboarding, market research, strategy, product architecture,
-launch, content, growth, international market expansion, outreach, analytics, brand, campaign, and
-schedule coordination. These are not independent data repositories or mandatory separate
+14 specialist roles are maintained: onboarding, market research, strategy, product architecture,
+launch, content, growth, international market expansion, outreach, analytics, brand, campaign,
+schedule coordination, and investor readiness. These are not independent data repositories or mandatory separate
 processes/runtimes; they are focused instruction files that Codex reads according to the task.
 
 The onboarding role owns first-use Marketer Profile Intake. It asks once for the marketer's city,
@@ -118,6 +119,12 @@ market research, strategy, outreach, product readiness, and analytics playbooks 
 beachhead-market decision. It treats global expansion as a testable sequence: current traction
 evidence, transferable ICP, candidate country scorecard, localization and trust package, technical
 globalization readiness, and a 90-day demand test before heavy investment.
+
+Fundraising and investor preparation uses `pipelines/fundraising-readiness.md` and
+`agents/investor-readiness-advisor.md`. This role does not create a separate runtime; it
+coordinates investor narrative documents, financial models, data room readiness, diligence packs,
+and legal business drafts while preserving the rule that the marketer makes fundraising decisions
+and the agent produces evidence-backed working files.
 
 ## Data-Driven Opportunity Discovery Model
 

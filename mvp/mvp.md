@@ -420,6 +420,8 @@ marketers/
           haftalik/
           pazarlama/
           analitik/
+          yatirimci/
+          finansal/
           pdf/
           excel/
 
@@ -432,6 +434,7 @@ marketers/
           prd/
           coder-briefleri/
           raporlar/
+          yatirimci/
           lansman/
           dijital/
           saha/
@@ -564,6 +567,8 @@ ayrilir:
 - `gorseller/`: fotograf, reklam gorseli, kreatif referans veya marka gorselleri
 - `ekran-goruntuleri/`: urun, rakip, analytics, yorum veya kampanya ekran goruntuleri
 - `ses-video/`: gorusme kaydi, demo videosu, reklam videosu veya ses notlari
+- `yatirimci/`: eski pitch deck, cap table, finansal export, data room kaynagi, due diligence
+  dokumani veya yatirimci ile paylasilacak ham girdi
 - `referanslar/`: ornek landing page, kampanya, marka veya tasarim referans dosyalari
 - `diger/`: yukaridaki kategorilere uymayan gecici dosyalar
 
@@ -658,9 +663,11 @@ burada tutulur. Lansman dijital, saha veya hibrit olabilir.
 
 `08-raporlar/`
 
-Haftalik raporlar, pazarlama raporlari, analitik raporlari ve disari aktarilacak rapor
-dosyalari burada tutulur. PDF ciktilari `pdf/`, Excel veya CSV tabanli rapor ciktilari
-`excel/` altinda saklanir.
+Haftalik raporlar, pazarlama raporlari, analitik raporlari, yatirimci hazirlik raporlari,
+finansal modeller ve disari aktarilacak rapor dosyalari burada tutulur. Yatirimci calisma
+dokumanlari `yatirimci/`, financial model, cap table, unit economics, revenue, burn/runway ve
+use of funds gibi sayisal ciktilar `finansal/`, PDF ciktilari `pdf/`, Excel veya CSV tabanli
+rapor ciktilari `excel/` altinda saklanir.
 
 `09-varliklar/`
 
@@ -671,8 +678,11 @@ materyalleri; `marka/` ise logo, renk, font ve ortak marka kaynaklari icindir.
 `10-final/`
 
 Onaylanmis ve teslim edilebilir son ciktilarin yeridir. Yetkili marketer, coder veya sistem
-sahibi proje klasorunu actiginda once buraya bakarak final PRD, coder brief, rapor, lansman ve
-dijital, saha veya hibrit pazarlama ciktilarina ulasir.
+sahibi proje klasorunu actiginda once buraya bakarak final PRD, coder brief, rapor, yatirimci
+paketi, lansman ve dijital, saha veya hibrit pazarlama ciktilarina ulasir. Yatirimciya
+gonderilecek pitch deck, one-pager, executive summary, data room index, investor update veya
+finansal ekler yalnizca kullanici onayi sonrasi `10-final/yatirimci/` altina kopyalanir; kaynak
+calisma dosyalari `08-raporlar/` altinda kalir.
 
 `11-notlar/`
 
@@ -1988,8 +1998,9 @@ manuel kaldirir ve web app'te onaylar. Coder'in gecmisi ve ciktilari korunur.
 ```text
 1. Yetkili marketer veya coder ilgili proje klasorunu Codex root olarak acar.
 2. Agent PROJE.md, ilgili 01-baglam dosyalari, KARARLAR.md ve gerekli ham kaynaklari okur.
-3. PRD'yi 04-urun/prd/, arastirmayi 02-arastirma/, stratejiyi 03-strateji/ veya raporu
-   08-raporlar/ altina yazar.
+3. PRD'yi 04-urun/prd/, arastirmayi 02-arastirma/, stratejiyi 03-strateji/, raporu
+   08-raporlar/ veya yatirimci/finansal calisma dokumanlarini 08-raporlar/yatirimci/ ve
+   08-raporlar/finansal/ altina yazar.
 4. DURUM.md ve .pa/project/state.json icindeki operasyonel durumu gunceller.
 5. Ilgili haftalik gorev yalnizca kullanici tamamlanma onayindan sonra kapatilir.
 6. Yetkili proje uyesi gerekli Drive cikti linkini veya aktif hafta ozetini Project Pool'da

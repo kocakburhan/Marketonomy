@@ -64,8 +64,9 @@ Cover these points in plain Turkish:
    the orientation should still reveal the available capabilities so they know what to demand.
 3. The agent can support idea discovery, idea evaluation, market research, competitor research,
    customer research, product positioning, pricing, PRD/coder brief, launch, content, ads, email,
-   social media, field marketing, B2B outbound, proposals, growth, retention, analytics, reports,
-   weekly planning, and follow-up.
+   social media, field marketing, B2B outbound, proposals, investor documents, fundraising
+   financials, data room readiness, growth, retention, analytics, reports, weekly planning, and
+   follow-up.
 4. The agent works best when the marketer gives constraints, examples, target customer, budget,
    time capacity, location, available channels, and examples of competitors or desired tone.
 5. The agent has limits: it must not invent data, must not claim unavailable tools, must not submit
@@ -88,6 +89,7 @@ Keep the explanation user-facing and action-oriented:
 | Content Creator | Produces content strategy, landing copy, email, social, visuals, video briefs, and campaign assets. | `content-strategy`, `copywriting`, `copy-editing`, `emails`, `social`, `image`, `video` |
 | Growth Hacker | Designs acquisition, activation, referral, retention, reactivation, and experiment loops. | `referrals`, `churn-prevention`, `paywalls`, `analytics`, `marketing-ideas` |
 | Outreach Specialist | Builds B2B prospecting, cold email, field follow-up, proposals, demo support, and partner/channel sales material. | `prospecting`, `cold-email`, `market-proposal`, `copywriting`, `community-marketing` |
+| Investor Readiness Advisor | Prepares fundraising story, investor documents, financial model, data room, due diligence pack, term sheet/SHA business drafts, and final investor-pack review. | `fundraising-readiness`, `investor-documents`, `fundraising-financials`, `investor-data-room`, `investment-legal-drafts` |
 | Analytics Master | Defines KPIs, event tracking, reporting, funnel metrics, ROI, and improvement loops. | `analytics`, `market-report`, `market-report-pdf`, `market-funnel` |
 | Brand Guardian | Protects brand voice, differentiation, offer clarity, positioning, and messaging consistency. | `market-brand`, `copy-editing`, `marketing-psychology`, `copywriting` |
 | Campaign Manager | Designs paid campaigns, targeting, budget, creative variants, and test plans. | `ads`, `ad-creative`, `market-ads`, `analytics` |
@@ -105,6 +107,9 @@ Give examples that teach the marketer to ask for complete, evidence-backed work:
   ilk 3'u benim avantajima gore skorla."
 - "Bu B2B urun icin ICP, prospect listesi kriterleri, cold email dizisi, follow-up plani ve teklif
   taslagi hazirla."
+- "Yatirimci aramaya hazirlaniyoruz; pitch deck, one-pager, executive summary, financial model,
+  cap table, traction report, data room index ve eksik due diligence listesini kanit/varsayim
+  ayrimiyla hazirla."
 - "Bu yerel B2C is icin saha aktivasyonu, poster/flyer metni, WhatsApp takip mesaji, haftalik
   gorev plani ve olcum tablosu hazirla."
 - "Landing page metnini, 5 email welcome serisini, 14 gunluk sosyal medya takvimini ve reklam
@@ -125,9 +130,9 @@ structure:
    project setup/gap check, weekly plan, research, content/campaign, sales/outreach, or analytics.
 
 In an evaluation workspace, emphasize idea quality, user advantage, research, and the decision
-report. In a project workspace, emphasize execution, launch, content, sales, growth, weekly plan,
-and reporting. Always keep the tone practical: the agent is there to produce usable files,
-decisions, and next actions, not to give a motivational tour.
+report. In a project workspace, emphasize execution, launch, content, sales, fundraising/investor
+readiness, growth, weekly plan, and reporting. Always keep the tone practical: the agent is there
+to produce usable files, decisions, and next actions, not to give a motivational tour.
 
 ## Evaluation Workspace
 
@@ -160,6 +165,8 @@ Present what the user can do based on the workspace type:
 - strategy, pricing, and positioning
 - PRD and coder brief (project workspace only)
 - weekly plan, content, campaign, outreach, field, physical B2C, B2B sales, and hybrid work
+- investor documents, fundraising financials, data room, due diligence, investor update, board
+  deck, term sheet and SHA business drafts
 - launch, analytics, and reporting
 
 Do not make the user memorize agent, pipeline, and skill names. Users need only express their

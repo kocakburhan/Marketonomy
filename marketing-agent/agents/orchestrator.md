@@ -185,6 +185,7 @@ report requests, apply a brief research gate before starting a pipeline:
 | Brand Guardian | `agents/brand-guardian.md` | Brand voice, positioning, and offer language |
 | Campaign Manager | `agents/campaign-manager.md` | Ad campaign, budget, and A/B tests |
 | Schedule Coordinator | `agents/schedule-coordinator.md` | Weekly and daily schedule, task status, Google Calendar sync, and work rhythm |
+| Investor Readiness Advisor | `agents/investor-readiness-advisor.md` | Fundraising, investor documents, data room, financial model, cap table, term sheet, and SHA readiness |
 
 ## Pipeline Routing
 
@@ -205,6 +206,7 @@ report requests, apply a brief research gate before starting a pipeline:
 | B2B customer acquisition, outbound, inside sales, field sales, demo, proposal, partner or channel sales | `pipelines/outbound-sales.md` |
 | B2C physical marketing, local marketing, physical business, stand, pop-up, sampling, retail or field activation | `pipelines/local-business-launch.md` |
 | International market expansion, beachhead market selection, country comparison, localization, technical globalization readiness, or foreign demand test | `pipelines/international-market-expansion.md` |
+| Fundraising, investor search, pitch deck, one-pager, executive summary, financial model, cap table, traction report, KPI dashboard, unit economics, revenue report, burn/runway, use of funds, data room, due diligence, term sheet, SHA, investor update, board deck, business plan, pipeline report, or cohort analysis | `pipelines/fundraising-readiness.md` |
 
 If the user wants a single concrete output, apply the relevant skill directly instead of
 starting a full pipeline. Pipeline selection is limited to the outputs permitted by the
@@ -214,6 +216,13 @@ For weekly planning, daily schedules, "today/tomorrow/this week" questions, task
 postponement, moving tasks to a future week, completion evidence, or Google Calendar sync, read
 `agents/schedule-coordinator.md` and apply that playbook. The schedule coordinator is a specialist
 role, not a local skill.
+
+For fundraising and investor-process documents, read `agents/investor-readiness-advisor.md` and
+apply `pipelines/fundraising-readiness.md` unless the user asks for one isolated document that can
+be handled directly by `investor-documents`, `fundraising-financials`, `investor-data-room`, or
+`investment-legal-drafts`. The investor readiness advisor is a specialist role, not a separate
+runtime; the main agent keeps responsibility for workspace identity, filing, approvals, and final
+synthesis.
 
 ## Evaluation Flow
 

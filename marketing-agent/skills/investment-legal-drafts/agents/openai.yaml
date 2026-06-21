@@ -1,0 +1,4 @@
+interface:
+  display_name: "Investment Legal Drafts"
+  short_description: "Term sheet ve SHA is taslaklari"
+  default_prompt: "In Codex'te, use the $investment-legal-drafts skill in this workspace and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."

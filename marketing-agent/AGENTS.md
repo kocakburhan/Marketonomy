@@ -224,10 +224,10 @@ Project workspaces have fixed root files and numbered folders:
 - `06-pazarlama-uygulamalari/hibrit/`: Campaigns, customer journeys, and channel coordination
   that combine digital and field work.
 - `07-lansman/`: Launch plans, checklists, and channel plans.
-- `08-raporlar/`: Weekly, marketing, analytics, PDF, and Excel/CSV reports.
+- `08-raporlar/`: Weekly, marketing, analytics, investor, financial, PDF, and Excel/CSV reports.
 - `09-varliklar/`: Reusable digital, print, and brand assets.
 - `10-final/`: Only deliverables explicitly approved as final by the user or authorized project
-  member.
+  member, including final investor-facing copies under `10-final/yatirimci/`.
 - `11-notlar/`: Working notes, meeting notes, customer interview notes, field notes, follow-up
   notes, and summaries.
 - `99-arsiv/`: Old versions, rejected work, or invalidated outputs.
@@ -468,9 +468,9 @@ Do not use project folders or the project override system inside an evaluation w
 - Field sales and marketing: `06-pazarlama-uygulamalari/saha/`
 - Hybrid coordination: `06-pazarlama-uygulamalari/hibrit/`
 - Launch: `07-lansman/`
-- Reports: `08-raporlar/`
+- Reports, investor documents, and financial models: `08-raporlar/`
 - Reusable assets: `09-varliklar/`
-- Approved deliverables only: `10-final/`
+- Approved deliverables only: `10-final/`, including `10-final/yatirimci/` for approved investor packs
 - Working and meeting notes: `11-notlar/`
 - Old, rejected, or invalidated work: `99-arsiv/`
 

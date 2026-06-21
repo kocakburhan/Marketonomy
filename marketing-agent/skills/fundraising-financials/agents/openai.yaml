@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fundraising Financials"
+  short_description: "Yatirim finansallari ve varsayim modeli"
+  default_prompt: "In Codex'te, use the $fundraising-financials skill in this workspace and save the output according to the PersonalAutonomy MVP folder contract. Default user-facing language is Turkish."
