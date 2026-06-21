@@ -274,13 +274,14 @@ marketers/
             settings.json
 ```
 
-`DEGERLENDIRME.md`, web app'in degismez `idea_id` degerini, fikir basligini, incelenen fikir
-surumunu, degerlendiren marketer'i, karar kriterlerini ve son yayin durumunu tutar. `idea_id`
-script tarafindan yazilir; kullanici veya agent tarafindan degistirilemez.
+`DEGERLENDIRME.md`, approved create flow tarafindan uretilen veya parametre olarak verilen
+degismez `idea_id` degerini, fikir basligini, incelenen fikir surumunu ve degerlendirme
+kriterlerini tutar.
 
 `DURUM.md`, degerlendirmenin aktif adimini, bekleyen karari ve sonraki islemi insan tarafindan
-okunabilir bicimde ozetler. `RAPOR.md`, marketer isterse web app'teki sonuca ekleyecegi raporun
-calisma dosyasidir. Ham kaynaklar `kaynaklar/`, uretilen analiz ve rapor dosyalari `ciktilar/`
+okunabilir bicimde ozetler. `RAPOR.md`, marketer'in inceleyip onaylayacagi calisma raporudur. Ilk
+fazda rapor Drive workspace'inde kalir; ileriki web app fazinda istenirse bu rapora link
+verilebilir. Ham kaynaklar `kaynaklar/`, uretilen analiz ve rapor dosyalari `ciktilar/`
 altinda tutulur. `ciktilar/bilgi-haritasi/`, LLM-wiki mantigiyla uretilen rapor, kaynak, karar,
 celiski ve sonraki kullanim iliskilerini tutan turetilmis hafiza katmanidir; ham kaynaklarin veya
 canonical cikti dosyalarinin yerine gecmez. Degerlendirme sirasinda tutulan serbest calisma
@@ -293,7 +294,8 @@ temel profilinden kopyalanir; workspace icinde yalnizca bu degerlendirmeye ozel 
 kanal veya avantaj farklari eklenir. Yas ve ogrenim bilgisi zorunlu degildir; yalnizca belirli bir
 pazarlama kararini gercekten etkiliyorsa, nedeni aciklanarak istenir. Bu dosyalar web app workflow'unu veya fikir kimligini degistiremez.
 
-Degerlendirme sonucu, istege bagli aciklama ve istege bagli rapor linki web app'e yazilir. Ham
+Degerlendirme sonucu ve gerekcesi ilk fazda `RAPOR.md`, `DURUM.md` ve gerekiyorsa
+`KARARLAR.md` icinde tutulur. Web app'e sonuc yazma akisi post-MVP kapsamidir. Ham
 workspace dosyalari marketer'in kisisel alaninda kalir ve diger kullanicilara otomatik olarak
 acilmaz.
 
@@ -850,8 +852,8 @@ Bu kuralin nedeni:
 - Her workspace kendi thread gecmisine ve agent durumuna sahip olur.
 - Kok `AGENTS.md` workspace sinirlarini belirler ve aktif agent talimatlari icin
   `.pa/agent/AGENTS.md` dosyasina yonlendirir.
-- Degismez `idea_id` ve `project_id` degerleri web app kaydi ile yerel workspace arasindaki
-  baglantiyi korur.
+- Degismez `idea_id` ve `project_id` degerleri approved create flow ile yerel workspace
+  arasindaki kimlik tutarliligi icindir.
 
 ---
 
@@ -2040,7 +2042,10 @@ manuel kaldirir ve web app'te onaylar. Coder'in gecmisi ve ciktilari korunur.
    08-raporlar/ veya yatirimci/finansal calisma dokumanlarini 08-raporlar/yatirimci/ ve
    08-raporlar/finansal/ altina yazar.
 4. DURUM.md ve .pa/project/state.json icindeki operasyonel durumu gunceller.
-5. Ilgili haftalik gorev yalnizca kullanici tamamlanma onayindan sonra kapatilir.
+5. Ilgili haftalik gorev, workspace artifact'i gorevi acikca kanitliyorsa agent tarafindan
+   kapatilir ve kullanici bilgilendirilir. Harici aksiyonlar kullanici tamamladigini
+   bildirene kadar `Kullanici Bildirimi Bekliyor` kalir. Final yayin veya teslim acik
+   kullanici onayi ister.
 6. Yetkili proje uyesi gerekli Drive cikti linkini veya aktif hafta ozetini Project Pool'da
    gunceller.
 7. Web app alan gecmisini olusturur ve tum aktif kullanicilara ilgili workflow bildirimini

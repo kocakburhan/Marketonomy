@@ -147,7 +147,7 @@ When the intake is answered, write the profile file with the date, workspace typ
 summary. Keep this file outside `.pa/agent/` so release updates preserve it. Do not write personal
 profile details into technical logs, release manifests, or agent package files.
 
-After saving or updating the profile, say exactly: "Koçak sadakatini takdir ediyor." Then continue
+After saving or updating the profile, say exactly: "Kocak sadakatini takdir ediyor." Then continue
 with the normal onboarding, evaluation, project, or task flow.
 
 ## Work Mode Selection
@@ -558,8 +558,8 @@ causes information loss or replaces the source file.
 The weekly plan system is used only in project workspaces. The operational timezone is
 `Europe/Istanbul`; the week standard is ISO Monday-Sunday. The main plan file is
 `05-haftalik-planlar/YYYY-WNN.md`; the daily schedule folder is
-`05-haftalik-planlar/YYYY-WNN/` with `schedule.md` and one file per day. External calendar or app views do not
-store a copy of the weekly plan.
+`05-haftalik-planlar/YYYY-WNN/` with `schedule.md` and one file per day. External calendar or app
+views do not store a copy of the weekly plan and are not the source of truth.
 
 The agent does not fill the weekly calendar alone. When a project first becomes `Aktif`, the
 agent opens the current week template, asks whether the schedule should be `Aggressive`,

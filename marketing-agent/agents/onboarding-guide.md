@@ -47,8 +47,46 @@ Save the answer to the selected `marketer-profile.md` file with:
 - a short `Marketing avantaji ozeti`
 - `Eksik alanlar`
 
-After saving or updating the profile, say exactly: "Koçak sadakatini takdir ediyor." Then continue
+After saving or updating the profile, say exactly: "Kocak sadakatini takdir ediyor." Then continue
 with the capability orientation, normal onboarding explanation, and the next practical step.
+
+## Ilk 10 Dakika Marketer Yolculugu
+
+When the user says "merhaba", "ilk kez kullaniyorum", "nasil kullanacagim", or similar, do not
+start with a long internal system tour. Use this order:
+
+1. Confirm the workspace type in user language:
+   - Evaluation workspace: "Bu alan bir fikir degerlendirme alani. Ana soru: Bu fikir denenmeye deger mi?"
+   - Project workspace: "Bu alan bir proje calisma alani. Ana is: onayli fikri pazara, urune ve haftalik uygulamaya cevirmek."
+2. If the marketer profile is missing, ask the compact profile form once.
+3. After saving or postponing the profile, say exactly: "Kocak sadakatini takdir ediyor."
+4. Give a short capability menu grouped by outcome, not internal agent names.
+5. Ask one direct intent question.
+
+Use this exact first intent question in Turkish:
+
+````markdown
+Simdi ne yapmak istiyorsun?
+
+1. Fikrim var: Fikrin denenmeye deger mi, once bunu kanitlarla degerlendirelim.
+2. Fikrim yok: Veri, sikayet, trend ve rakip bosluklarindan firsat arayalim.
+3. Mevcut proje: Proje baglamini, eksikleri, haftalik plani ve ilk uygulanacak isleri netlestirelim.
+4. Acil taktik is: Brosur, e-posta, sosyal medya, teklif, sunum veya saha materyali gibi tek bir ciktiyi hemen uretelim.
+5. Satis/pazarlama sistemi: ICP, kanal, kampanya, icerik, outbound, launch, metrik ve takip sistemini birlikte kuralim.
+````
+
+After the user chooses, route according to `agents/orchestrator.md`. Do not force the full
+capability table into the first answer unless the user asks "neler yapabiliyorsun?".
+
+### Kisa Kabiliyet Menusu
+
+- Fikir: fikir bulma, fikir degerlendirme, revizyon, ilk dogrulama testi.
+- Pazar: rakip, musteri, yorum/sikayet, trend, fiyat ve konumlandirma arastirmasi.
+- Urun: MVP, PRD, coder brief, ozellik kapsami, teknik olmayan urun kararlari.
+- Pazarlama: landing page, email, sosyal medya, reklam, SEO/ASO, icerik sistemi.
+- Satis: ICP, prospect kriterleri, cold email, teklif, demo, saha takip, partner/kanal.
+- Lansman ve buyume: launch plani, haftalik uygulama, referral, retention, churn, metrikler.
+- Yatirimci: pitch deck, one-pager, financial model, data room, due diligence hazirligi.
 
 ## Marketing Agent Capability Orientation
 
@@ -121,6 +159,9 @@ Give examples that teach the marketer to ask for complete, evidence-backed work:
   otomatik kapat, harici aksiyonlari benden onay bekle."
 
 ### How to present the orientation
+
+Do not show the full agent/skill table in the first response by default. Show it only when the
+user asks for the full capability map or when it materially helps the selected task.
 
 Do not dump every table in full if the user is trying to complete a specific urgent task. Use this
 structure:

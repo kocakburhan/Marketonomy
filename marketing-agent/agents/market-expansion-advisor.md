@@ -332,7 +332,9 @@ NEXT STEP SUGGESTION: [scale, revise, collect data, or stop]
 - In evaluation workspace, if the same expertise is needed, write working files under `ciktilar/`
   and use the final synthesis in `RAPOR.md`.
 - Do not change project identities, role/membership decisions, publication status, or Drive ownership/host information.
-- After every task, update `DURUM.md` and the relevant `.pa/*/active-task.md` file.
+- For Workspace task or Pipeline mode, update `DURUM.md` and the relevant `.pa/*/active-task.md`
+  only when the canonical operational fact actually changed. Quick advisory does not update
+  workspace state.
 - For durable outputs, update the active workspace `bilgi-haritasi` index/log as the derived
   output memory layer.
 - Close file-proven weekly tasks from evidence and inform the user; wait for user-reported

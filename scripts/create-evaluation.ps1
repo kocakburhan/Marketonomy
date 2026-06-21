@@ -36,12 +36,38 @@ function New-LocalId([string]$Prefix) {
     return "$Prefix-" + (Get-Date -Format "yyyyMMddHHmmss") + "-" + ([guid]::NewGuid().ToString("N").Substring(0, 8))
 }
 
+function Get-MarketerRootProfilePath([string]$Target) {
+    $resolvedTarget = if (Test-Path -LiteralPath $Target) {
+        (Resolve-Path -LiteralPath $Target).Path
+    } else {
+        [System.IO.Path]::GetFullPath($Target)
+    }
+    $parent = Split-Path -Parent $resolvedTarget
+    if (-not $parent) { return $null }
+
+    $parentName = Split-Path -Leaf $parent
+    $marketerRoot = if ($parentName -in @("idea-workspace", "projects")) {
+        Split-Path -Parent $parent
+    } else {
+        $parent
+    }
+    if (-not $marketerRoot) { return $null }
+
+    $profilePath = Join-Path $marketerRoot ".pa\marketer-profile.md"
+    if (Test-Path -LiteralPath $profilePath) { return $profilePath }
+    return $null
+}
+
 if ([string]::IsNullOrWhiteSpace($IdeaId)) {
     $IdeaId = New-LocalId "idea"
 }
 
 $target = Assert-SafeTarget $TargetRoot
 $now = Get-Date
+
+if (-not $MarketerProfilePath) {
+    $MarketerProfilePath = Get-MarketerRootProfilePath $target
+}
 
 foreach ($folder in @("kaynaklar", "ciktilar", "notlar", ".pa\evaluation")) {
     New-Item -ItemType Directory -Force -Path (Join-Path $target $folder) | Out-Null
@@ -70,6 +96,7 @@ Write-Utf8 (Join-Path $target "DURUM.md") @"
 
 Write-Utf8 (Join-Path $target "RAPOR.md") "# Degerlendirme Raporu`n`nTaslak rapor burada olusturulur.`n"
 Write-Utf8 (Join-Path $target ".pa\evaluation\active-task.md") "# Active Task`n`nDurum: Bos`n"
+Write-Utf8 (Join-Path $target ".pa\evaluation\settings.json") "{`"timezone`":`"Europe/Istanbul`"}`n"
 
 $state = [ordered]@{
     schema_version = "1.0"

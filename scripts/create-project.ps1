@@ -42,6 +42,42 @@ function Get-FileSha256OrEmpty([string]$Path) {
     return (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLowerInvariant()
 }
 
+function Get-ActiveIsoWeekName([datetime]$Date) {
+    $day = [int]$Date.DayOfWeek
+    if ($day -eq 0) { $day = 7 }
+    $thursday = $Date.AddDays(4 - $day)
+    $year = $thursday.Year
+    $jan1 = [datetime]::new($year, 1, 1)
+    $jan1Day = [int]$jan1.DayOfWeek
+    if ($jan1Day -eq 0) { $jan1Day = 7 }
+    $firstThursdayOffset = (4 - $jan1Day + 7) % 7
+    $firstThursday = $jan1.AddDays($firstThursdayOffset)
+    $week = [int][Math]::Floor(($thursday - $firstThursday).TotalDays / 7) + 1
+    return "{0}-W{1:D2}" -f $year, $week
+}
+
+function Get-MarketerRootProfilePath([string]$Target) {
+    $resolvedTarget = if (Test-Path -LiteralPath $Target) {
+        (Resolve-Path -LiteralPath $Target).Path
+    } else {
+        [System.IO.Path]::GetFullPath($Target)
+    }
+    $parent = Split-Path -Parent $resolvedTarget
+    if (-not $parent) { return $null }
+
+    $parentName = Split-Path -Leaf $parent
+    $marketerRoot = if ($parentName -in @("idea-workspace", "projects")) {
+        Split-Path -Parent $parent
+    } else {
+        $parent
+    }
+    if (-not $marketerRoot) { return $null }
+
+    $profilePath = Join-Path $marketerRoot ".pa\marketer-profile.md"
+    if (Test-Path -LiteralPath $profilePath) { return $profilePath }
+    return $null
+}
+
 if ([string]::IsNullOrWhiteSpace($IdeaId)) {
     $IdeaId = New-LocalId "idea"
 }
@@ -51,6 +87,10 @@ if ([string]::IsNullOrWhiteSpace($ProjectId)) {
 
 $target = Assert-SafeTarget $TargetRoot
 $now = Get-Date
+
+if (-not $MarketerProfilePath) {
+    $MarketerProfilePath = Get-MarketerRootProfilePath $target
+}
 
 foreach ($folder in @(
     "00-gelen-kutusu",
@@ -73,6 +113,26 @@ foreach ($folder in @(
     New-Item -ItemType Directory -Force -Path (Join-Path $target $folder) | Out-Null
 }
 
+$gitkeepFolders = @(
+    "00-gelen-kutusu",
+    "01-baglam",
+    "02-arastirma",
+    "03-strateji",
+    "04-urun",
+    "06-pazarlama-uygulamalari\dijital",
+    "06-pazarlama-uygulamalari\saha",
+    "06-pazarlama-uygulamalari\hibrit",
+    "07-lansman",
+    "08-raporlar",
+    "09-varliklar",
+    "10-final\yatirimci",
+    "11-notlar",
+    "99-arsiv"
+)
+foreach ($folder in $gitkeepFolders) {
+    Write-Utf8 (Join-Path $target "$folder\.gitkeep") ""
+}
+
 Write-Utf8 (Join-Path $target "PROJE.md") @"
 # $Title
 
@@ -86,12 +146,15 @@ idea_id: $IdeaId
 
 "@
 
+$activeWeek = Get-ActiveIsoWeekName $now
+
 Write-Utf8 (Join-Path $target "DURUM.md") @"
 # Durum
 
 - Workspace turu: Project
-- Aktif is: Baslangic hazirligi
-- Sonraki adim: `01-baglam/` proje baglamini tamamla.
+- Aktif is: Proje baglami tamamlaniyor
+- Aktif haftalik plan: 05-haftalik-planlar/$activeWeek.md
+- Sonraki adim: 01-baglam/ proje baglamini tamamla.
 
 "@
 
@@ -102,6 +165,66 @@ Write-Utf8 (Join-Path $target ".pa\project\settings.json") "{`"timezone`":`"Euro
 Write-Utf8 (Join-Path $target ".pa\project\overrides.md") "# Project Overrides`n`nOnayli proje-ozel tercih yok.`n"
 Write-Utf8 (Join-Path $target ".pa\project\overrides-approved.md") "# Approved Project Overrides`n`nOnayli proje-ozel tercih yok.`n"
 
+$weekFile = Join-Path $target "05-haftalik-planlar\$activeWeek.md"
+$weekFolder = Join-Path $target "05-haftalik-planlar\$activeWeek"
+$scheduleFile = Join-Path $weekFolder "schedule.md"
+New-Item -ItemType Directory -Force -Path $weekFolder | Out-Null
+
+Write-Utf8 $weekFile @"
+# $activeWeek Haftalik Plan
+
+- Workspace: $Title
+- Durum: Baslangic plan taslagi
+- Kapanis kurali: Workspace artifact'i gorevi acikca kanitliyorsa agent gorevi kapatir ve kullaniciyi bilgilendirir. Harici aksiyonlar kullanici bildirimi bekler. Final yayin veya teslim acik onay ister.
+
+## Bu Haftanin Odaklari
+- Baslangic gorevi yok.
+
+## Notlar
+- Bu dosya create-project.ps1 tarafindan baslangic iskeleti olarak olusturuldu.
+- Ilk gercek haftalik gorevler kullanici ile birlikte planlanir.
+
+"@
+
+Write-Utf8 $scheduleFile @"
+# $activeWeek Schedule
+
+Timezone: Europe/Istanbul
+
+## Haftalik Gorunum
+- Pazartesi:
+- Sali:
+- Carsamba:
+- Persembe:
+- Cuma:
+- Cumartesi:
+- Pazar:
+
+"@
+
+$dayFiles = [ordered]@{
+    "pazartesi.md" = "Pazartesi"
+    "sali.md" = "Sali"
+    "carsamba.md" = "Carsamba"
+    "persembe.md" = "Persembe"
+    "cuma.md" = "Cuma"
+    "cumartesi.md" = "Cumartesi"
+    "pazar.md" = "Pazar"
+}
+
+foreach ($entry in $dayFiles.GetEnumerator()) {
+    $dayPath = Join-Path $weekFolder $entry.Key
+    Write-Utf8 $dayPath @"
+# $activeWeek $($entry.Value)
+
+Timezone: Europe/Istanbul
+
+## Gorevler
+- Baslangic gorevi yok.
+
+"@
+}
+
 $overridesHash = Get-FileSha256OrEmpty (Join-Path $target ".pa\project\overrides.md")
 $state = [ordered]@{
     schema_version = "1.0"
@@ -111,6 +234,8 @@ $state = [ordered]@{
     title = $Title
     timezone = "Europe/Istanbul"
     overrides_sha256 = $overridesHash
+    active_week = $activeWeek
+    active_week_plan = "05-haftalik-planlar/$activeWeek.md"
     created_at = $now.ToString("o")
     created_by = "scripts/create-project.ps1"
 }

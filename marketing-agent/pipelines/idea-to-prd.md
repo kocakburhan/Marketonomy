@@ -79,8 +79,49 @@ User: "I have an idea"
             [5.9] Product Architect -> Prepare coder brief
                  |  Output: 04-urun/coder-briefleri/coder-brief.md
                  v
-            [5.10] Orchestrator -> Direct user to forward MVP and PRD files to coder
+             [5.10] Orchestrator -> Direct user to forward MVP and PRD files to coder
 ```
+
+## Workspace Output Path Rules
+
+### Evaluation Workspace Output Paths
+
+In an evaluation workspace, this pipeline is only an idea-value decision process. It must not
+write project folders, MVP final documents, PRDs, coder briefs, launch plans, or weekly project
+plans.
+
+Use these paths:
+
+| Output | Path |
+|---|---|
+| User/marketer execution guidance | `ciktilar/kullanici-pazarlama-avantaji.md` |
+| Market and competitor research | `ciktilar/pazar-arastirmasi.md` |
+| Idea value decision | `ciktilar/fikir-dogrulama.md` |
+| Publishable working decision report | `RAPOR.md` |
+| Operational status | `DURUM.md` and `.pa/evaluation/active-task.md` |
+
+If the idea is approved as `Denenmeye Değer` or `Revizyonla Denenmeye Değer`, the project
+workspace is created separately through the approved create flow.
+
+### Project Workspace Output Paths
+
+In a project workspace, use these paths after the idea-value decision is approved:
+
+| Output | Path |
+|---|---|
+| User/marketer execution guidance | `03-strateji/dogrulama/kullanici-pazarlama-avantaji.md` |
+| Market and competitor research | `02-arastirma/pazar-arastirmasi.md` |
+| Idea value decision | `03-strateji/dogrulama/fikir-dogrulama.md` |
+| MVP | `04-urun/fikir-ozetleri/mvp.md` |
+| PRD | `04-urun/prd/prd.md` |
+| Coder brief | `04-urun/coder-briefleri/coder-brief.md` |
+| Operational status | `DURUM.md` and `.pa/project/active-task.md` |
+
+### Marketer Fit Guidance is not the idea-value verdict
+
+Marketer fit can affect the recommended validation route, channel support, mentor/partner need,
+budget caution, and execution risk. It must never turn an otherwise valuable idea into
+`Denenmeye Değmez` by itself.
 
 ---
 
@@ -116,7 +157,7 @@ Measure the marketability of the idea specifically for the user. Collect the fol
 8. Weekly time capacity and trial budget
 9. City, language, culture, regulation, or operational advantage/disadvantage
 
-**Output format (`03-strateji/dogrulama/kullanici-pazarlama-avantaji.md`):**
+**Output format:** use the workspace-specific path from `Workspace Output Path Rules`.
 
 ```markdown
 # User Marketing Advantage: [Idea]
@@ -204,7 +245,7 @@ Evaluate `pazar-arastirmasi.md`, `kullanici-pazarlama-avantaji.md`, and the user
 If either research file is missing or too shallow, return to [5.2] or [5.3] instead of scoring
 from assumptions.
 
-**Output format (`03-strateji/dogrulama/fikir-dogrulama.md`):**
+**Output format:** use the workspace-specific path from `Workspace Output Path Rules`.
 
 ```markdown
 # Idea Validation: [Idea]
@@ -390,17 +431,27 @@ The coder can read these files and extract the technical plan and implementation
 
 ## Output Files
 
+### Evaluation Workspace
+
+| File | Produced By | Description |
+|-------|--------|----------|
+| `ciktilar/kullanici-pazarlama-avantaji.md` | Orchestrator | User's idea marketing power |
+| `ciktilar/pazar-arastirmasi.md` | Market Scout | Competitor, trend, customer signal |
+| `ciktilar/fikir-dogrulama.md` | Strategy Analyst | Hard score, risk, and decision |
+| `RAPOR.md` | Orchestrator | Publishable working decision report |
+| `DURUM.md` and `.pa/evaluation/active-task.md` | Orchestrator | Operational status |
+
+### Project Workspace
+
 | File | Produced By | Description |
 |-------|--------|----------|
 | `03-strateji/dogrulama/kullanici-pazarlama-avantaji.md` | Orchestrator | User's idea marketing power |
-| `02-arastirma/pazar-arastirmasi/pazar-arastirmasi.md` | Market Scout | Competitor, trend, customer signal |
+| `02-arastirma/pazar-arastirmasi.md` | Market Scout | Competitor, trend, customer signal |
 | `03-strateji/dogrulama/fikir-dogrulama.md` | Strategy Analyst | Hard score, risk, and decision |
 | `04-urun/fikir-ozetleri/mvp.md` | Product Architect | Approved MVP definition |
 | `04-urun/prd/prd.md` | Product Architect | PRD based on MVP |
 | `04-urun/coder-briefleri/coder-brief.md` | Product Architect | Implementable summary for coder |
-
-In an evaluation workspace, corresponding working files are kept under `ciktilar/`, and the final
-synthesis is kept in `RAPOR.md`.
+| `DURUM.md` and `.pa/project/active-task.md` | Orchestrator | Operational status |
 
 ---
 

@@ -124,7 +124,9 @@ NEXT STEP SUGGESTION: Send experiment results to Analytics Master
 - In evaluation workspace, if the same expertise is needed, write working files under ciktilar/
   and use the final synthesis in RAPOR.md.
 - Do not change project identities, role/membership decisions, publication status, or Drive ownership/host information.
-- After every task, update DURUM.md and the relevant .pa/*/active-task.md file.
+- For Workspace task or Pipeline mode, update `DURUM.md` and the relevant `.pa/*/active-task.md`
+  only when the canonical operational fact actually changed. Quick advisory does not update
+  workspace state.
 - Close file-proven weekly tasks from evidence and inform the user; wait for user-reported
   completion for external-action tasks.
 - Only copy user-approved copies under 10-final/; preserve the source file.
