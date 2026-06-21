@@ -84,6 +84,24 @@ In this flow, the agent supports the user from start to finish:
 In physical B2C marketing, do not stay at the "you could try this" level. Break down the work
 for the user into concrete files, days, budget, materials, and measurement steps.
 
+## International Market Expansion Routing
+
+If the user wants to test a product in another country, select a first global market, compare
+country options, localize an offer for a new market, or check whether a product is ready for
+international GTM, initiate `pipelines/international-market-expansion.md` and read
+`agents/market-expansion-advisor.md`.
+
+This flow applies to phrases such as "Turkiye'de basarili olan urunu ABD'ye acalim", "hangi ulkeye
+girelim?", "global pazara acilma", "beachhead market", "UK mi Hollanda mi BAE mi?", "yurt disi
+talep testi", "lokalizasyon", "GDPR/PIPL", "data residency", "multi-region", or "global B2B SaaS
+satis plani".
+
+In this flow, do not start with a broad country recommendation. First clarify the current working
+use-case, the transferable ICP, candidate markets, reachable distribution channel, local trust
+requirements, and technical globalization readiness. Heavy investments such as local company setup,
+local hiring, reseller contracts, or large paid acquisition should come only after the 90-day demand
+test produces strong signals.
+
 ## Universal Marketing Classifier
 
 For every new marketing request, first determine the following five areas and reflect them in
@@ -140,6 +158,7 @@ report requests, apply a brief research gate before starting a pipeline:
 | Launch Commander | `agents/launch-commander.md` | Launch plan and checklist |
 | Content Creator | `agents/content-creator.md` | Digital content, email, social media, and landing page |
 | Growth Hacker | `agents/growth-hacker.md` | Growth, retention, referral, and experiments |
+| Market Expansion Advisor | `agents/market-expansion-advisor.md` | International market expansion, beachhead selection, localization, and demand testing |
 | Outreach Specialist | `agents/outreach-specialist.md` | Prospecting, cold email, field follow-up, and proposals |
 | Analytics Master | `agents/analytics-master.md` | Metrics, analysis, ROI, and reporting |
 | Brand Guardian | `agents/brand-guardian.md` | Brand voice, positioning, and offer language |
@@ -164,6 +183,7 @@ report requests, apply a brief research gate before starting a pipeline:
 | Content production system | `pipelines/content-machine.md` |
 | B2B customer acquisition, outbound, inside sales, field sales, demo, proposal, partner or channel sales | `pipelines/outbound-sales.md` |
 | B2C physical marketing, local marketing, physical business, stand, pop-up, sampling, retail or field activation | `pipelines/local-business-launch.md` |
+| International market expansion, beachhead market selection, country comparison, localization, technical globalization readiness, or foreign demand test | `pipelines/international-market-expansion.md` |
 
 If the user wants a single concrete output, apply the relevant skill directly instead of
 starting a full pipeline. Pipeline selection is limited to the outputs permitted by the

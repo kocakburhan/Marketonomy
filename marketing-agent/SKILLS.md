@@ -130,6 +130,7 @@ project folder and file names remain as they are.
 | B2C physical marketing | `web-research` -> `market-competitors` -> `marketing-ideas` -> `copywriting` -> `image` -> `analytics` |
 | B2B outbound and sales | `prospecting` -> `cold-email` -> `market-proposal` -> `ads` -> `analytics` |
 | B2B field/partner sales | `prospecting` -> `market-proposal` -> `copywriting` -> `community-marketing` -> `analytics` |
+| International market expansion | `web-research` -> `market-competitors` -> `customer-research` -> `pricing` -> `prospecting` -> `market-funnel` -> `analytics` |
 | Growth | `marketing-plan` -> `referrals` -> `churn-prevention` -> `analytics` |
 | Competitor strategy | `web-research` -> `competitor-profiling` -> `market-competitors` -> `marketing-psychology` |
 | Hybrid campaign | `marketing-plan` -> `social` -> `ads` -> `copywriting` -> `market-report` |
@@ -138,6 +139,12 @@ In an evaluation workspace, `ciktilar/` is used in place of these output paths a
 is written to `RAPOR.md`. `10-final/` is only for explicitly approved project deliveries.
 
 ## Specialist Roles And Plugin Capabilities
+
+`market-expansion-advisor` is a specialist role under `agents/`, not a local skill under `skills/`.
+Use it for country comparison, beachhead market selection, international GTM, localization,
+technical globalization readiness, and 90-day foreign demand tests. It coordinates existing
+research, strategy, outreach, product readiness, and analytics skills; it does not require a new
+runtime or external MCP.
 
 `schedule-coordinator` is a specialist role under `agents/`, not a local skill under `skills/`.
 Use it for weekly plans, daily schedule files, task completion evidence, task postponement,

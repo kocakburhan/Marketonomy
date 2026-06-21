@@ -72,10 +72,10 @@ folders, or make `.pa/agent/` a data store.
 
 ## Specialist Model
 
-12 specialist roles are maintained: onboarding, market research, strategy, product architecture,
-launch, content, growth, outreach, analytics, brand, campaign, and schedule coordination. These
-are not independent data repositories or mandatory separate processes/runtimes; they are focused
-instruction files that Codex reads according to the task.
+13 specialist roles are maintained: onboarding, market research, strategy, product architecture,
+launch, content, growth, international market expansion, outreach, analytics, brand, campaign, and
+schedule coordination. These are not independent data repositories or mandatory separate
+processes/runtimes; they are focused instruction files that Codex reads according to the task.
 
 The onboarding role owns first-use Marketer Profile Intake. It asks once for the marketer's city,
 age or age range, education, profession, expertise, marketing/sales experience, accessible
@@ -111,6 +111,13 @@ with `outbound-sales` but is supplemented with `local-business-launch`, `content
 `campaign-manager`, and `analytics-master` outputs when events, physical materials, or local
 activation is needed. For B2C physical marketing, P9 is the main flow; digital support, growth,
 and feedback loops are added as needed.
+
+International market expansion uses `pipelines/international-market-expansion.md` and
+`agents/market-expansion-advisor.md`. This role does not create a separate runtime; it coordinates
+market research, strategy, outreach, product readiness, and analytics playbooks around one
+beachhead-market decision. It treats global expansion as a testable sequence: current traction
+evidence, transferable ICP, candidate country scorecard, localization and trust package, technical
+globalization readiness, and a 90-day demand test before heavy investment.
 
 ## Data-Driven Opportunity Discovery Model
 

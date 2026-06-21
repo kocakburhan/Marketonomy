@@ -45,6 +45,11 @@
                       "size":  4396
                   },
                   {
+                      "path":  "agents/market-expansion-advisor.md",
+                      "sha256":  "fdb18d9f83045349148ee0ebe87d8cc54135a19694ac498a3da6bb0f2341504f",
+                      "size":  13315
+                  },
+                  {
                       "path":  "agents/market-scout.md",
                       "sha256":  "0c8c517f2aa2b5e26e82dcb2e8b97a5630b090c109d0404a57c06370c4638c8f",
                       "size":  12896
@@ -56,8 +61,8 @@
                   },
                   {
                       "path":  "agents/orchestrator.md",
-                      "sha256":  "5235cf57dd06f65160c90b23bf68ca0f8a9f13052f57dd40f203a489c0753501",
-                      "size":  13711
+                      "sha256":  "7a7361a806fd256364fa51206d8506872d3ecd04a55e676ad9c08a4fd5477d52",
+                      "size":  15154
                   },
                   {
                       "path":  "agents/outreach-specialist.md",
@@ -86,8 +91,8 @@
                   },
                   {
                       "path":  "ARCHITECTURE.md",
-                      "sha256":  "abeec77db70caa5763d2d253c2a16adbd298a18744881af03dde0bb56908761b",
-                      "size":  10657
+                      "sha256":  "e29856d57dbfc2a5d50e5975f66b00b831f0ec4c12bd7b92c6dc56c8781aed70",
+                      "size":  11235
                   },
                   {
                       "path":  "mcps.json",
@@ -133,6 +138,11 @@
                       "path":  "pipelines/idea-to-prd.md",
                       "sha256":  "10af247cf9f52f0028151beb278e33122fcb01e3c35c0eb33e59a8a0ed2808d7",
                       "size":  13383
+                  },
+                  {
+                      "path":  "pipelines/international-market-expansion.md",
+                      "sha256":  "aad08c8551a5ac69a48001975f93ee43dfb3234028d3f26018bc2ef62ec9fec9",
+                      "size":  11731
                   },
                   {
                       "path":  "pipelines/local-business-launch.md",
@@ -226,8 +236,8 @@
                   },
                   {
                       "path":  "scripts/test_mvp_compatibility.ps1",
-                      "sha256":  "72d1650a795edfddcaddcbb6ee62cc085f2bba5cf30d3aed3c63ce87c9eabde9",
-                      "size":  13060
+                      "sha256":  "140dcaa0de4030b222805747dd693faf4e37bc66b578324f323935d1e8c1fd30",
+                      "size":  13896
                   },
                   {
                       "path":  "scripts/update-agent.ps1",
@@ -236,8 +246,8 @@
                   },
                   {
                       "path":  "SKILLS.md",
-                      "sha256":  "97838f4b5b51c1e40d21d09674a377f78c2e2cc8c708cf21aaa0b61ef676c194",
-                      "size":  9844
+                      "sha256":  "bcbd5e306ea334255ae763b74e0a382de9d7cd2beb0715dcd28cd97f188916a4",
+                      "size":  10414
                   },
                   {
                       "path":  "skills/ad-creative/agents/openai.yaml",
@@ -441,8 +451,8 @@
                   },
                   {
                       "path":  "skills/list.md",
-                      "sha256":  "5e08a538ce47830e1937d90705144b4a3db69fdc27e92f0bb87999a47e4b276b",
-                      "size":  4577
+                      "sha256":  "28b43019f8a3f4c9d0c2008dc60f4bb44c33318c0e8f0508b5681a56b3051cda",
+                      "size":  4833
                   },
                   {
                       "path":  "skills/market-ads/agents/openai.yaml",

@@ -161,8 +161,8 @@ foreach ($skillFile in $skillFiles) {
 
 foreach ($agentName in @(
     "analytics-master.md", "brand-guardian.md", "campaign-manager.md", "content-creator.md",
-    "growth-hacker.md", "launch-commander.md", "market-scout.md", "outreach-specialist.md",
-    "product-architect.md", "schedule-coordinator.md", "strategy-analyst.md"
+    "growth-hacker.md", "launch-commander.md", "market-expansion-advisor.md", "market-scout.md",
+    "outreach-specialist.md", "product-architect.md", "schedule-coordinator.md", "strategy-analyst.md"
 )) {
     $path = Join-Path $AgentRoot "agents\$agentName"
     Assert-Text $path "PersonalAutonomy Workspace Contract" "Uzman workspace sozlesmesi eksik: agents/$agentName"
@@ -211,6 +211,13 @@ foreach ($pipelinePath in $ideaDiscoveryPipelines) {
 Assert-Text (Join-Path $AgentRoot "pipelines\idea-discovery.md") "Data-Driven Idea Discovery" "Idea discovery ana akisi veri-endeksli degil"
 Assert-Text (Join-Path $AgentRoot "pipelines\store-intelligence.md") "Playwright" "Store intelligence Playwright fallback sozlesmesi eksik"
 Assert-Text (Join-Path $AgentRoot "pipelines\user-advantage-fit.md") "First 10-50 user" "User advantage fit ilk kullanici erisim kontrolu eksik"
+
+Assert-Path "pipelines\international-market-expansion.md"
+Assert-Text (Join-Path $AgentRoot "agents\orchestrator.md") "international-market-expansion.md" "Uluslararasi pazar genisleme routing'i eksik"
+Assert-Text (Join-Path $AgentRoot "agents\market-expansion-advisor.md") "Beachhead Market Selection" "Market expansion beachhead secim akisi eksik"
+Assert-Text (Join-Path $AgentRoot "agents\market-expansion-advisor.md") "Technical Globalization Readiness" "Market expansion teknik hazirlik kontrolu eksik"
+Assert-Text (Join-Path $AgentRoot "pipelines\international-market-expansion.md") "Kaynak ve Kanit Defteri" "Market expansion kanit defteri eksik"
+Assert-Text (Join-Path $AgentRoot "pipelines\international-market-expansion.md") "90-Day Market Entry Test" "Market expansion 90 gun test plani eksik"
 
 $researchContracts = @(
     @{

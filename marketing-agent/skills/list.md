@@ -16,6 +16,7 @@ Bu dosya `marketing-agent/agents/` altindaki tum agent'lari ve her agent'in
 | `content-creator` | `content-strategy`, `copywriting`, `copy-editing`, `social`, `image`, `video`, `competitors`, `lead-magnets` | — | 8 |
 | `growth-hacker` | `referrals`, `churn-prevention`, `community-marketing`, `paywalls`, `marketing-ideas` | — | 5 |
 | `launch-commander` | `launch`, `aso`, `seo-audit`, `directory-submissions`, `community-marketing` | — | 5 |
+| `market-expansion-advisor` | `customer-research`, `pricing`, `prospecting`, `analytics` | `web-research`, `market-competitors`, `market-funnel` | 7 |
 | `market-scout` | `competitor-profiling`, `customer-research`, `ai-seo` | `web-research`, `market-competitors` | 5 |
 | `onboarding-guide` | — | — | 0 |
 | `orchestrator` | — | — | 0 |
@@ -27,7 +28,7 @@ Bu dosya `marketing-agent/agents/` altindaki tum agent'lari ve her agent'in
 ## Upstream Skill Kullanim Sikligi
 
 Upstream repodan toplam 33 farkli skill en az bir agent'a bagli. Tekrar
-edenler dahil 56 skill referansi var.
+edenler dahil 60 skill referansi var.
 
 | Upstream Skill | Kullanan Agent Sayisi | Kullanan Agent'lar |
 |---|---:|---|
@@ -38,8 +39,8 @@ edenler dahil 56 skill referansi var.
 | `directory-submissions` | 2 | launch-commander, outreach-specialist |
 | `marketing-ideas` | 2 | growth-hacker, strategy-analyst |
 | `paywalls` | 2 | growth-hacker, product-architect |
-| `pricing` | 2 | product-architect, strategy-analyst |
-| `analytics` | 1 | analytics-master |
+| `pricing` | 3 | market-expansion-advisor, product-architect, strategy-analyst |
+| `analytics` | 2 | analytics-master, market-expansion-advisor |
 | `churn-prevention` | 1 | growth-hacker |
 | `co-marketing` | 1 | outreach-specialist |
 | `cold-email` | 1 | outreach-specialist |
@@ -48,7 +49,7 @@ edenler dahil 56 skill referansi var.
 | `content-strategy` | 1 | content-creator |
 | `copy-editing` | 1 | content-creator |
 | `copywriting` | 1 | content-creator |
-| `customer-research` | 1 | market-scout |
+| `customer-research` | 2 | market-expansion-advisor, market-scout |
 | `emails` | 1 | outreach-specialist |
 | `image` | 1 | content-creator |
 | `launch` | 1 | launch-commander |
@@ -57,7 +58,7 @@ edenler dahil 56 skill referansi var.
 | `marketing-psychology` | 1 | strategy-analyst |
 | `offers` | 1 | brand-guardian |
 | `product-marketing` | 1 | product-architect |
-| `prospecting` | 1 | outreach-specialist |
+| `prospecting` | 2 | market-expansion-advisor, outreach-specialist |
 | `referrals` | 1 | growth-hacker |
 | `revops` | 1 | outreach-specialist |
 | `seo-audit` | 1 | launch-commander |
@@ -85,7 +86,7 @@ uzman rolu veya yonlendirici olarak calisir:
 
 ## Ozet (v5.2.0)
 
-- 13 agent, 10'u skill baglantisina sahip.
+- 14 agent, 11'i skill baglantisina sahip.
 - 33 farkli upstream skill, 8 farkli local skill kullaniliyor (toplam 41 skill).
 - En genis agent: `content-creator` (8 skill).
 - En dar skill baglantilisi: `campaign-manager` (3 skill).
