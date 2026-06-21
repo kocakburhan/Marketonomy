@@ -63,6 +63,13 @@ to `03-strateji/`, product docs to `04-urun/`, weekly plans and daily schedules 
 deliverables to `10-final/`, working notes to `11-notlar/`, and archived versions to `99-arsiv/`.
 User data or project outputs are not written inside `.pa/agent/`.
 
+An LLM-wiki output memory layer sits above those canonical folders as derived Markdown navigation.
+For evaluation workspaces it lives under `ciktilar/bilgi-haritasi/`; for project workspaces it
+lives under `11-notlar/bilgi-haritasi/`. The layer keeps `index.md` as a content map and `log.md`
+as an append-only chronology, linking source evidence, canonical outputs, decisions,
+contradictions, and follow-up use. It does not duplicate raw data, replace the numbered MVP
+folders, or make `.pa/agent/` a data store.
+
 ## Specialist Model
 
 12 specialist roles are maintained: onboarding, market research, strategy, product architecture,

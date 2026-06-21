@@ -220,6 +220,9 @@ marketers/
 
         kaynaklar/
         ciktilar/
+          bilgi-haritasi/
+            index.md
+            log.md
         notlar/
 
         .pa/
@@ -249,8 +252,10 @@ script tarafindan yazilir; kullanici veya agent tarafindan degistirilemez.
 `DURUM.md`, degerlendirmenin aktif adimini, bekleyen karari ve sonraki islemi insan tarafindan
 okunabilir bicimde ozetler. `RAPOR.md`, marketer isterse web app'teki sonuca ekleyecegi raporun
 calisma dosyasidir. Ham kaynaklar `kaynaklar/`, uretilen analiz ve rapor dosyalari `ciktilar/`
-altinda tutulur. Degerlendirme sirasinda tutulan serbest calisma notlari, gorusme notlari ve
-kullanicinin agent'a aldirdigi notlar `notlar/` altinda saklanir.
+altinda tutulur. `ciktilar/bilgi-haritasi/`, LLM-wiki mantigiyla uretilen rapor, kaynak, karar,
+celiski ve sonraki kullanim iliskilerini tutan turetilmis hafiza katmanidir; ham kaynaklarin veya
+canonical cikti dosyalarinin yerine gecmez. Degerlendirme sirasinda tutulan serbest calisma
+notlari, gorusme notlari ve kullanicinin agent'a aldirdigi notlar `notlar/` altinda saklanir.
 
 `.pa/agent/`, merkezi release'ten kopyalanan bagimsiz Marketing Agent paketidir.
 `.pa/evaluation/`, degerlendirme workspace'inin makine-okunabilir durumunu ve teknik ayarlarini
@@ -441,6 +446,10 @@ marketers/
           saha-notlari/
           takip-notlari/
           ozetler/
+          bilgi-haritasi/
+            index.md
+            log.md
+            sayfalar/
 
         99-arsiv/
           eski-versiyonlar/
@@ -672,6 +681,16 @@ notlari ve ozetler icindir. Kullanici buraya manuel not alabilir veya Marketing 
 alanda not tutmasini isteyebilir. Notlar Drive ile senkronize olur; ancak ham kaynak dosyalari
 yerine gecmez ve ilgili arastirma, strateji, satis ya da rapor ciktilari kendi canonical
 klasorlerine ayrica yazilir.
+
+`11-notlar/bilgi-haritasi/`, proje icin LLM-wiki tarzinda tutulan cikti iliski hafizasidir.
+`index.md` konu, cikti, karar ve kaynak haritasidir; `log.md` agent'in ekledigi onemli cikti,
+soru, sentez ve lint islemlerinin kronolojik kaydidir. `sayfalar/` altinda gerekirse musteri
+segmenti, rakip, karar, ders, risk veya kampanya temali atomik Markdown sayfalari tutulabilir.
+Bu alan yalnizca turetilmis navigasyon ve sentez katmanidir: ham kaynaklar `00-gelen-kutusu/`
+veya ilgili `raw/` klasorlerinde, islenmis ciktilar ise `02-arastirma/`, `03-strateji/`,
+`04-urun/`, `06-pazarlama-uygulamalari/`, `08-raporlar/` veya `10-final/` gibi canonical
+klasorlerinde kalir. Celisen bilgiler sessizce silinmez; hangi kaynagin ne soyledigi ve son
+karari nasil etkiledigi bilgi haritasinda isaretlenir.
 
 `99-arsiv/`
 

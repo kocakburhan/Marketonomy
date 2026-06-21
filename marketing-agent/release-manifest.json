@@ -11,8 +11,8 @@
                   },
                   {
                       "path":  "AGENTS.md",
-                      "sha256":  "50202800e42eea6b10edd262871cba0825c7e9a9836d07bcc4e7254d7622b74c",
-                      "size":  26155
+                      "sha256":  "e02ec9f12f12aadd984e6caa72e747e63319d3c8e7a3e8133314cd6d46a09e2c",
+                      "size":  30113
                   },
                   {
                       "path":  "agents/analytics-master.md",
@@ -56,8 +56,8 @@
                   },
                   {
                       "path":  "agents/orchestrator.md",
-                      "sha256":  "2bec94b9652f82b9b89e070cbd9db312d5ba13adef540ecead83ff2395b4a13c",
-                      "size":  13557
+                      "sha256":  "5235cf57dd06f65160c90b23bf68ca0f8a9f13052f57dd40f203a489c0753501",
+                      "size":  13711
                   },
                   {
                       "path":  "agents/outreach-specialist.md",
@@ -86,8 +86,8 @@
                   },
                   {
                       "path":  "ARCHITECTURE.md",
-                      "sha256":  "088280b86058b3f8900c5b03439b6c94323ae52581c475d2821c1bf2c6d6dcc9",
-                      "size":  10143
+                      "sha256":  "abeec77db70caa5763d2d253c2a16adbd298a18744881af03dde0bb56908761b",
+                      "size":  10657
                   },
                   {
                       "path":  "mcps.json",
@@ -226,8 +226,8 @@
                   },
                   {
                       "path":  "scripts/test_mvp_compatibility.ps1",
-                      "sha256":  "e0d44162a863cae0d41ef1318ae70dad8301304d5f531921f2cbacc7433e83ce",
-                      "size":  12460
+                      "sha256":  "72d1650a795edfddcaddcbb6ee62cc085f2bba5cf30d3aed3c63ce87c9eabde9",
+                      "size":  13060
                   },
                   {
                       "path":  "scripts/update-agent.ps1",
@@ -236,8 +236,8 @@
                   },
                   {
                       "path":  "SKILLS.md",
-                      "sha256":  "605ea815e862f875642717d9c5f5247be0d85107360ffcc40334706bb0d55250",
-                      "size":  9024
+                      "sha256":  "97838f4b5b51c1e40d21d09674a377f78c2e2cc8c708cf21aaa0b61ef676c194",
+                      "size":  9844
                   },
                   {
                       "path":  "skills/ad-creative/agents/openai.yaml",

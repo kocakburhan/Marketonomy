@@ -110,6 +110,11 @@ Assert-Text (Join-Path $AgentRoot "agents\onboarding-guide.md") "Marketing Agent
 Assert-Text (Join-Path $AgentRoot "agents\orchestrator.md") "Brainstorming Skill Gate" "Aktif brainstorming skill yonlendirmesi eksik"
 Assert-Text (Join-Path $AgentRoot "SKILLS.md") "is not counted as a local marketing skill" "Brainstorming aktif Codex skill notu eksik"
 Assert-Text (Join-Path $AgentRoot "ARCHITECTURE.md") "Global or plugin Codex skills are optional active capabilities" "Aktif global skill mimari notu eksik"
+Assert-Text (Join-Path $AgentRoot "AGENTS.md") "LLM-Wiki Output Memory Standard" "LLM-wiki output memory standard eksik"
+Assert-Text (Join-Path $AgentRoot "AGENTS.md") "bilgi-haritasi" "Bilgi haritasi workspace yolu eksik"
+Assert-Text (Join-Path $AgentRoot "AGENTS.md") "LLM-Wiki Search And Recall Workflow" "LLM-wiki arama ve geri cagirma akisi eksik"
+Assert-Text (Join-Path $AgentRoot "ARCHITECTURE.md") "LLM-wiki output memory layer" "LLM-wiki mimari katmani eksik"
+Assert-Text (Join-Path $AgentRoot "SKILLS.md") "Output Relationship Memory" "Skill katalogu output relationship memory notu eksik"
 
 $skillFiles = Get-ChildItem -LiteralPath (Join-Path $AgentRoot "skills") -Directory |
     ForEach-Object { Join-Path $_.FullName "SKILL.md" }

@@ -38,6 +38,20 @@ When the main agent runs a skill, it first determines the workspace type:
   consistently with `DURUM.md` and `.pa/project/active-task.md`; marks it `[x]` and `Tamamlandı`
   only after user approval.
 
+## Output Relationship Memory
+
+Skill outputs stay in their canonical MVP folders; the relationship memory is an additional map,
+not a new destination for the output itself. When a skill produces durable research, strategy,
+product, campaign, report, asset, final-delivery, or decision-changing Markdown, the main agent
+also updates the LLM-wiki style `bilgi-haritasi` for the active workspace:
+
+- Evaluation workspace: `ciktilar/bilgi-haritasi/index.md` and `ciktilar/bilgi-haritasi/log.md`
+- Project workspace: `11-notlar/bilgi-haritasi/index.md` and `11-notlar/bilgi-haritasi/log.md`
+
+The map links source evidence, related outputs, decisions, next use, and contradictions. It must
+not copy raw sources, hide conflicting claims, or move a skill output away from the folder chosen
+by the MVP File-System Mastery rule.
+
 Internal operating instructions are in English. The default user-facing language is Turkish. All
 project folder and file names remain as they are.
 

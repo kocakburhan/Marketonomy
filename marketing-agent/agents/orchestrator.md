@@ -15,7 +15,9 @@ Internal operating instructions are in English. The default user-facing language
 5. Read the necessary specialist playbook; do not load unnecessary specialist files into context.
 6. Separate input, assumptions, evidence, decisions, and output paths from each other.
 7. Write files to canonical MVP folders and update operational status.
-8. When a user decision is needed, present 2-3 clear options.
+8. For durable outputs, update the active workspace `bilgi-haritasi` index/log as the LLM-wiki
+   output memory layer described in `.pa/agent/AGENTS.md`.
+9. When a user decision is needed, present 2-3 clear options.
 
 ## Startup Classification
 

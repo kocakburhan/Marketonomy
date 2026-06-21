@@ -251,6 +251,101 @@ must not be changed from local files.
 5. If the destination is unclear, ask only the short question that affects the target. If the
    reasonable folder is clear, proceed and mention the path in the delivery.
 
+## LLM-Wiki Output Memory Standard
+
+Marketing Agent, onemli ciktilar icin LLM-wiki mantiginda turetilmis bir cikti iliski hafizasi
+tutar. Bu hafiza yeni bir source of truth degildir; ham kaynaklar, canonical cikti dosyalari,
+`DURUM.md`, `KARARLAR.md` ve haftalik planlar kendi yerlerinde kalir.
+
+Workspace yollari:
+
+- Evaluation workspace: `ciktilar/bilgi-haritasi/`
+- Project workspace: `11-notlar/bilgi-haritasi/`
+
+Zorunlu dosyalar:
+
+- `index.md`: kaynak, cikti, karar, konu, risk, rakip, segment ve final teslim haritasi.
+- `log.md`: ingest, soru, sentez, cikti, karar, celiski ve lint islemlerinin kronolojik kaydi.
+
+Bir cikti arastirma, strateji, MVP, PRD, coder brief, kampanya, rapor, final teslim, musteri
+icgorusu, rakip karsilastirmasi veya haftalik plan kararlarini etkiliyorsa agent ilgili
+`bilgi-haritasi` dosyalarini gunceller. Siradan gecici notlar, taslak ara varyantlar ve kullanici
+tarafindan onaylanmamis denemeler haritaya eklenmeyebilir.
+
+Her kalici Markdown cikti mumkun oldugunda su kisa iliski blogunu tasir:
+
+```markdown
+## Cikti Iliski Haritasi
+- Kaynaklar:
+- Ilgili ciktilar:
+- Etkiledigi kararlar:
+- Sonraki kullanim:
+- Celiski veya kontrol notu:
+```
+
+`index.md` icin minimal format:
+
+```markdown
+# Bilgi Haritasi
+
+## Kaynaklar
+- `path/to/source` - kisa aciklama, erisim tarihi, guven notu
+
+## Ciktilar
+- `path/to/output.md` - kisa ozet, kaynak sayisi, sonraki kullanim
+
+## Kararlar
+- `KARARLAR.md#...` veya `path/to/decision.md` - karar ozeti, etkilenen ciktilar
+
+## Acik Kontroller
+- Kontrol konusu - ilgili kaynak/cikti, neden bekliyor
+```
+
+`log.md` append-only format:
+
+```markdown
+## [YYYY-MM-DD] output | kisa-slug
+- Cikti: `path/to/output.md`
+- Kaynaklar: `path/to/source`
+- Iliskiler: `path/to/related-output.md`
+- Karar etkisi: kisa not
+- Celiski/kontrol: yok veya kisa not
+```
+
+`index.md` ciktilari kopyalamaz; sadece canonical dosya yolunu, kisa ozetini, kaynak sayisini,
+sonraki kullanimini ve ilgili karar linklerini listeler. `log.md` append-only tutulur; eski
+kayitlar sessizce silinmez. Bir kaynak yeni bir iddiayi degistiriyorsa eski iddia yok edilmez,
+"celiski" veya "superseded" notuyla kaynaklari birlikte gosterilir. Bilgi haritasi eksikse agent
+once minimal `index.md` ve `log.md` dosyalarini olusturur, sonra mevcut ciktiyi bu haritaya
+baglar.
+
+## LLM-Wiki Search And Recall Workflow
+
+Marketing Agent bir dosya, karar, kaynak, rakip, segment, rapor, PRD, kampanya, final teslim veya
+onceki calisma bilgisini bulmak istediginde rastgele klasorlerde kaybolmaz. Once aktif workspace
+turune gore bilgi haritasini okur:
+
+1. Evaluation workspace ise once `ciktilar/bilgi-haritasi/index.md`, sonra gerekirse
+   `ciktilar/bilgi-haritasi/log.md`.
+2. Project workspace ise once `11-notlar/bilgi-haritasi/index.md`, sonra gerekirse
+   `11-notlar/bilgi-haritasi/log.md`.
+3. Aranan konu haritada varsa, dogrudan haritada yazan canonical dosya yolunu ac.
+4. Haritada birden fazla aday varsa, en guncel `log.md` kayitlarini ve ilgili karar/kaynak
+   baglantilarini kullanarak adaylari daralt.
+5. Haritada yoksa, once canonical klasorleri is turune gore ara: arastirma icin `02-arastirma/`,
+   strateji icin `03-strateji/`, urun/PRD/coder brief icin `04-urun/`, uygulama icin
+   `06-pazarlama-uygulamalari/`, rapor icin `08-raporlar/`, final icin `10-final/`, notlar icin
+   `11-notlar/`.
+6. Klasor taramasiyla dosya bulunursa, cevabi vermeden once `bilgi-haritasi/index.md` ve
+   `log.md` dosyalarini bu dosyaya isaret edecek sekilde guncelle. Boylece ayni bilgi bir daha
+   aranirken tekrar kaybolmaz.
+7. Dosya veya bilgi bulunamazsa bunu acik soyle; tahminle dosya varmis gibi davranma. Kullaniciya
+   sadece aramayi daraltacak tek kisa soru sor veya gerekli manuel kaynak/export'u iste.
+
+Bir soruya cevap verirken bilgi haritasindan yararlanildiysa, cevapta kullandigin canonical dosya
+yolunu belirt. Bilgi haritasi stale gorunuyorsa once canonical dosyayi esas al, sonra haritayi
+guncelle; eski kaydi sessizce silme.
+
 ## Idea Evaluation Standard
 
 When the user brings an existing idea, the agent's first job is not to support it, beautify it,
