@@ -161,17 +161,19 @@ Each candidate receives a score. Do not hide weak scores.
 | Competitor gap | | | |
 | Trend / timing signal | | | |
 | MVP feasibility | | | |
-| User marketing advantage | | | |
-| First 10-50 user access | | | |
 | Data confidence | | | |
-| **Total** | **/40** | | |
+| **Idea value subtotal** | **/30** | | |
 ```
 
-Decision guidance:
+Score idea value without marketer fit. Then attach the separate `user-advantage-fit` guidance;
+weak marketer fit can trigger caution or support recommendations but cannot make the idea itself
+`Denenmeye Değmez`.
 
-- `30-40`: strong candidate, can move to idea brief if no fatal risk exists.
-- `22-29`: revise or narrow before idea brief.
-- `<22`: do not recommend unless the user explicitly wants a speculative experiment.
+Decision guidance for the idea-value subtotal:
+
+- `23-30`: strong candidate, can move to idea brief if no fatal risk exists.
+- `16-22`: revise or narrow before idea brief.
+- `<16`: weak candidate unless new market evidence changes the score.
 
 ---
 
@@ -234,7 +236,8 @@ Required sections:
 - Revenue hypothesis:
 
 ## First Validation Test
-- How to reach first 10-50 users:
+- Sales motion and selected validation unit:
+- How to reach that validation unit:
 - What to test:
 - Success metric:
 - Stop condition:
@@ -253,9 +256,9 @@ Required sections:
 After the user approves the idea brief, treat the idea as a ready idea and start
 `pipelines/idea-to-prd.md`. The P5 gate may still decide:
 
-- `Denenmeye Deger`
-- `Revizyonla Denenmeye Deger`
-- `Denenmeye Degmez`
+- `Denenmeye Değer`
+- `Revizyonla Denenmeye Değer`
+- `Denenmeye Değmez`
 
 The agent must not consider a generated idea validated merely because it was produced by this
 pipeline.

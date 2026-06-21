@@ -1,23 +1,49 @@
-# Marketing Agent - Codex App Hızlı Başlangıç
+# Marketing Agent - Codex App Hizli Baslangic
 
-## Kurulum Mantığı
+## Kurulum Mantigi
 
-Bu klasör tek başına gerçek proje workspace'i değildir. Marketer gerçek proje klasörünü Codex
-root olarak açar ve resmi repo installer'ı ile bu paketi hedef workspace'e kurar.
+Bu klasor tek basina gercek proje workspace'i degildir. Ilk product fazi Codex + Google Drive
+first modelidir: marketer Google Drive ile senkronize edilen yerel klasorde onayli create
+scriptleriyle workspace olusturur, olusan workspace'i Codex root olarak acar ve agent bu dosya
+sistemi uzerinden calisir. Web app is deferred; ilk fazda agent kullanimi icin zorunlu degildir.
 
 Kurulumdan sonra hedef workspace'te:
 
-- kök `AGENTS.md` bootstrap dosyası bulunur,
-- asıl agent paketi `.pa/agent/` altında bulunur,
-- asıl davranış talimatı `.pa/agent/AGENTS.md` dosyasından okunur,
-- `.pa/agent-install.json` dosyası kurulum kaynağını ve güncelleme politikasını saklar.
+- kok `AGENTS.md` bootstrap dosyasi bulunur,
+- asil agent paketi `.pa/agent/` altinda bulunur,
+- asil davranis talimati `.pa/agent/AGENTS.md` dosyasindan okunur,
+- `.pa/agent-install.json` dosyasi kurulum kaynagini ve guncelleme politikasini saklar.
 
-## Güncelleme Mantığı
+## Yeni Workspace
 
-Drive bu etapta agent güncelleme kaynağı değildir. Kurulu workspace kendi içindeki
-`.pa/agent-install.json` dosyasından GitHub repo bilgisini okur. Her yeni oturumda Codex önce
-`.pa/agent/scripts/check-update.ps1` ile kontrol yapar. Yeni sürüm varsa kullanıcıya sorar.
-Kullanıcı onayı olmadan güncelleme yapılmaz.
+Yeni degerlendirme veya proje klasorlerini elle olusturma. Marketer'in Drive ile senkronize
+edilen uygun ust klasorunde onayli PowerShell create scriptini calistir.
+
+Evaluation workspace:
+
+```powershell
+.\scripts\create-evaluation.ps1 -TargetRoot "G:\Drive\PersonalAutonomy\idea-workspace\ornek-fikir" -Title "Ornek Fikir" -SourceAgentRoot .\marketing-agent
+```
+
+Project workspace:
+
+```powershell
+.\scripts\create-project.ps1 -TargetRoot "G:\Drive\PersonalAutonomy\projects\ornek-proje" -Title "Ornek Proje" -SourceAgentRoot .\marketing-agent
+```
+
+Scriptler `idea_id` ve `project_id` degerlerini approved create flow ile uretir; istenirse
+parametre olarak verilebilir. Scriptin basari mesajindan sonra olusan klasoru yeni Codex root
+olarak ac.
+
+Installer yalnizca kimlik dosyasi ile state kimlikleri eslesen gecerli bir project veya
+evaluation workspace'ine kurulur. Yanlis veya bos klasore agent paketi birakmaz.
+
+## Guncelleme Mantigi
+
+Drive bu etapta agent guncelleme kaynagi degildir. Kurulu workspace kendi icindeki
+`.pa/agent-install.json` dosyasindan GitHub repo bilgisini okur. Her yeni oturumda Codex once
+`.pa/agent/scripts/check-update.ps1` ile kontrol yapar. Yeni surum varsa kullaniciya sorar.
+Kullanici onayi olmadan guncelleme yapilmaz.
 
 Onaydan sonra:
 
@@ -25,59 +51,77 @@ Onaydan sonra:
 .\.pa\agent\scripts\update-agent.ps1 -TargetRoot . -Yes
 ```
 
-Güncelleme yalnızca `.pa/agent/` paketini değiştirir. `PROJE.md`, `DURUM.md`, `KARARLAR.md`,
-çalışma çıktıları, `.pa/project/` ve `.pa/evaluation/` korunur.
+Guncelleme yalnizca `.pa/agent/` paketini degistirir. `PROJE.md`, `DURUM.md`, `KARARLAR.md`,
+calisma ciktilari, `.pa/project/` ve `.pa/evaluation/` korunur.
 
 ## Marketer Promptu
 
 ```text
-Bu klasör PersonalAutonomy proje workspace'i.
+Bu klasor PersonalAutonomy proje workspace'i.
 
-Şu resmi GitHub reposundaki PersonalAutonomy Marketing Agent'ı bu projeye kur:
+Su resmi GitHub reposundaki PersonalAutonomy Marketing Agent'i bu projeye kur:
 <GITHUB_REPO_URL>
 
-Kurulumu serbest elle yapma. Repodaki scripts/install-marketing-agent.ps1 installer'ını kullan.
-Installer'ı -RepoUrl <GITHUB_REPO_URL> -Version latest parametreleriyle çalıştır.
-Hedef proje kökü şu anda Codex'te açık olan klasördür.
+Kurulumu serbest elle yapma. Repodaki scripts/install-marketing-agent.ps1 installer'ini kullan.
+Installer'i -RepoUrl <GITHUB_REPO_URL> -Version latest parametreleriyle calistir.
+Hedef proje koku su anda Codex'te acik olan klasordur.
 
-Kurulumdan sonra .pa/agent/ paketini, kök AGENTS.md bootstrap dosyasını ve
-release-manifest.json doğrulamasını kontrol et. Var olan proje dosyalarımı silme.
+Kurulumdan sonra .pa/agent/ paketini, kok AGENTS.md bootstrap dosyasini ve
+release-manifest.json dogrulamasini kontrol et. Var olan proje dosyalarimi silme.
 ```
 
-## Kullanıcı Akışı
+## Kullanici Akisi
 
-1. Google Drive for desktop senkronizasyonunun tamamlandığını kontrol et.
-2. Gerçek çalışma için ilgili fikir değerlendirme veya proje klasörünü Codex root olarak aç.
-3. Her workspace için ayrı bir Codex thread başlat.
-4. Marketing Agent kurulu değilse yukarıdaki kurulum promptunu kullan.
-5. Kurulumdan sonra doğal dille hedefini yaz: "Bu fikri değerlendir", "Bu hafta için plan
-   hazırla" veya "B2B coder brief oluştur" gibi.
-6. Codex'in belirttiği kaynak dosyaları, çıktı yolunu ve bekleyen onayı incele.
+1. Google Drive for desktop senkronizasyonunun tamamlandigini kontrol et.
+2. Gercek calisma icin ilgili fikir degerlendirme veya proje klasorunu Codex root olarak ac.
+3. Her workspace icin ayri bir Codex thread baslat.
+4. Marketing Agent kurulu degilse yukaridaki kurulum promptunu kullan.
+5. Kurulumdan sonra dogal dille hedefini yaz: "Bu fikri degerlendir", "Bu hafta icin plan
+   hazirla" veya "B2B coder brief olustur" gibi.
+6. Codex'in belirttigi kaynak dosyalari, cikti yolunu ve bekleyen onayi incele.
 
-Üst `idea-workspace/` veya `projects/` klasörünü analiz root'u olarak kullanma. Bu klasörler
-yalnızca mevcut workspace'leri listelemek ve onaylı create scriptini çalıştırmak içindir.
+Ust `idea-workspace/` veya `projects/` klasorunu analiz root'u olarak kullanma. Bu klasorler
+yalnizca mevcut workspace'leri listelemek ve onayli create scriptini calistirmak icindir.
 
-## Yeni Workspace
+## Calisma Esnekligi
 
-Yeni değerlendirme veya proje klasörlerini elle oluşturma. Web app'ten gelen değişmez
-kimliklerle, marketer'ın kendi üst klasöründe onaylı PowerShell scriptini Codex'e çalıştırt.
-Scriptin başarı mesajından sonra oluşan klasörü yeni Codex root olarak aç.
+Marketing Agent her istegi pipeline'a zorlamaz:
 
-## İlk Proje Çalışması
+- `Quick advisory`: kisa soru, aciklama veya degerlendirme; dosya ve state degismez.
+- `Workspace task`: tek ve somut cikti; yalnizca ilgili dosyalar guncellenir.
+- `Pipeline mode`: cok asamali, kanit-agir veya ozellikle siki yurutulmesi istenen calisma.
 
-1. `PROJE.md` ve `01-baglam/` dosyalarını agent ile tamamla.
-2. Web app Drive aktivasyon checklist'ini tamamla.
-3. `Europe/Istanbul` tarihine göre aktif ISO haftalık planı kalan günler için doldur.
-4. Çıktıları numaralı proje klasörlerinde üret.
-5. Bir işi tamamladığında agent'in haftalık görevi kapatabilmesi için açık onay ver.
+Mevcut projelerde dogrulama eksik olsa bile dusuk riskli taslaklar ve acil taktik isler
+yapilabilir; varsayimlar acikca yazilir. Yuksek maliyetli, geri dondurulemez, hukuken hassas
+veya final yayin kararlar gerekli kanit ve onay olmadan ilerletilmez.
 
-## Dış Araçlar
+## Ilk Proje Calismasi
 
-Codex'te etkin olan Browser, Chrome, web veya MCP araçları kullanılabilir. `mcps.json` yalnızca
-capability envanteridir. Bir araç görünmüyorsa kurulu varsayılmaz; agent alternatif script veya
+1. `PROJE.md` ve `01-baglam/` dosyalarini agent ile tamamla.
+2. Drive senkronizasyonu ve gerekiyorsa manuel paylasim durumunu kontrol et.
+3. `Europe/Istanbul` tarihine gore aktif ISO haftalik plani kalan gunler icin doldur.
+4. Ciktilari numarali proje klasorlerinde uret.
+5. Workspace dosyasi isi acikca kanitliyorsa agent gorevi otomatik kapatir ve seni
+   bilgilendirir. Harici aksiyonlarda tamamladigini sen bildirirsin; final yayin veya teslim icin
+   acik onay verirsin.
+
+## Durum Uzlastirma
+
+Kimlik veya operasyonel durumdan suphelenirsen kurulu workspace kokunde:
+
+```powershell
+.\.pa\agent\scripts\reconcile-workspace-state.ps1 -WorkspaceRoot .
+```
+
+Bu script read-only rapor verir; gizli onarim yapmaz.
+
+## Dis Araclar
+
+Codex'te etkin olan Browser, Chrome, web veya MCP araclari kullanilabilir. `mcps.json` yalnizca
+capability envanteridir. Bir arac gorunmuyorsa kurulu varsayilmaz; agent alternatif script veya
 manuel veri listesi sunar.
 
-## Sağlık Kontrolü
+## Saglik Kontrolu
 
 Kurulu agent paketinde:
 
@@ -86,5 +130,5 @@ Kurulu agent paketinde:
 .\.pa\agent\scripts\test_mvp_compatibility.ps1 -AgentRoot .\.pa\agent
 ```
 
-Bir kimlik, release, state veya erişim hatası giderilemiyorsa tekrar tekrar denemek yerine
-gösterilen sanitize edilmiş log adıyla Yönetici Burhan Kocak'a başvur.
+Bir kimlik, release, state veya erisim hatasi giderilemiyorsa tekrar tekrar denemek yerine
+gosterilen sanitize edilmis log adiyla Yonetici Burhan Kocak'a basvur.

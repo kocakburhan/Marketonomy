@@ -249,6 +249,6 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md). Key prosp
 - **customer-research**: For understanding why current customers buy — informs the ICP definition
 - **competitor-profiling**: For deeper research on individual accounts (different from list-building qualification)
 - **revops**: For lead routing, lifecycle, and CRM handoff after prospecting
-- **sales-enablement**: For battle cards and one-pagers used in the outreach
+- **competitors**: For battle cards and comparison one-pagers used in outreach
 - **directory-submissions**: For inbound discovery surfaces (the prospects might find you back)
 - **product-marketing**: For the ICP definition that anchors every prospecting engagement

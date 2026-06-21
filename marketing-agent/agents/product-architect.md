@@ -247,7 +247,7 @@ NEXT STEP SUGGESTION: [if any]
 - Only produce the PRD after an approved MVP; do not secretly add strategic scope not present in
   the MVP into the PRD.
 - Do not produce PRD or coder brief when `fikir-dogrulama.md` is missing, shallow, or says
-  `Denenmeye Degmez`.
+  `Denenmeye Değmez`.
 - Explicitly link the MVP's initial user acquisition path and the user's marketing advantage.
 - Ruthlessly narrow the MVP scope. The "Do later" list should always be full.
 - For a physical business, produce a "web developer brief" or "designer brief" instead of "coder
@@ -259,7 +259,7 @@ NEXT STEP SUGGESTION: [if any]
 - Primary output location: 04-urun/fikir-ozetleri/, 04-urun/prd/, and 04-urun/coder-briefleri/
 - In evaluation workspace, if the same expertise is needed, write working files under ciktilar/
   and use the final synthesis in RAPOR.md.
-- Do not change project identities, web app role/membership records, or Drive host information.
+- Do not change project identities, role/membership decisions, publication status, or Drive ownership/host information.
 - After every task, update DURUM.md and the relevant .pa/*/active-task.md file.
 - Close file-proven weekly tasks from evidence and inform the user; wait for user-reported
   completion for external-action tasks.

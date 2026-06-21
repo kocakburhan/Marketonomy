@@ -342,4 +342,4 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md). Key RevOp
 - **pricing**: For pricing decisions and packaging
 - **analytics**: For tracking pipeline metrics and attribution
 - **launch**: For go-to-market launch planning
-- **sales-enablement**: For sales collateral, decks, and objection handling
+- **market-proposal**: For sales collateral, proposals, and objection handling

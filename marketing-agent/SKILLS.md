@@ -35,14 +35,16 @@ When the main agent runs a skill, it first determines the workspace type:
 - `10-final/` is only for deliveries that have received explicit final approval; the source
   working file stays in its canonical folder.
 - Every skill tied to a weekly task tracks the active `05-haftalik-planlar/YYYY-WNN.md` task
-  consistently with `DURUM.md` and `.pa/project/active-task.md`; marks it `[x]` and `Tamamlandı`
-  only after user approval.
+  consistently with `DURUM.md` and `.pa/project/active-task.md`. Workspace evidence closes the
+  task automatically and the user is informed; an external action waits for user report; final
+  publication or delivery always waits for explicit approval.
 
 ## Output Relationship Memory
 
 Skill outputs stay in their canonical MVP folders; the relationship memory is an additional map,
 not a new destination for the output itself. When a skill produces durable research, strategy,
-product, campaign, report, asset, final-delivery, or decision-changing Markdown, the main agent
+MVP/PRD, main campaign plan, final report, final-delivery, decision-changing, or superseding
+Markdown, the main agent
 also updates the LLM-wiki style `bilgi-haritasi` for the active workspace:
 
 - Evaluation workspace: `ciktilar/bilgi-haritasi/index.md` and `ciktilar/bilgi-haritasi/log.md`
@@ -87,6 +89,9 @@ project folder and file names remain as they are.
 | `emails` | Lifecycle and campaign email sequences | `06-pazarlama-uygulamalari/dijital/eposta/` |
 | `social` | Social media strategy and calendar | `06-pazarlama-uygulamalari/dijital/sosyal-medya/` |
 | `market-brand` | Brand voice and differentiation analysis | `01-baglam/marka.md`, `09-varliklar/marka/` |
+| `competitors` | Competitor comparison and alternative-page messaging | `06-pazarlama-uygulamalari/dijital/icerik/` |
+| `lead-magnets` | Lead magnet concept, format, capture path, and follow-up | `06-pazarlama-uygulamalari/dijital/icerik/` |
+| `offers` | Offer design, value framing, packaging, guarantees, and urgency | `03-strateji/konumlandirma/`, `03-strateji/fiyatlandirma/` |
 | `image` | Comprehensive prompt and Codex image generation output | `09-varliklar/dijital/` or `09-varliklar/basili/` |
 | `video` | Video strategy, script, and production brief | `06-pazarlama-uygulamalari/dijital/icerik/` |
 
@@ -120,9 +125,11 @@ project folder and file names remain as they are.
 | `churn-prevention` | Cancellation, save offer, and reactivation | `03-strateji/buyume/` |
 | `referrals` | Referral and invitation program | `03-strateji/buyume/` |
 | `community-marketing` | Community and ambassador system | `06-pazarlama-uygulamalari/hibrit/` |
+| `co-marketing` | Partner selection and joint campaign planning | `06-pazarlama-uygulamalari/hibrit/` |
 | `prospecting` | ICP-based prospect list | `06-pazarlama-uygulamalari/saha/potansiyel-musteriler/` |
 | `cold-email` | B2B cold email and follow-up sequence | `06-pazarlama-uygulamalari/saha/takip/` |
 | `market-proposal` | Marketing service proposal | `06-pazarlama-uygulamalari/saha/teklifler/` |
+| `revops` | Lead lifecycle, scoring, handoff, and revenue operations | `03-strateji/pazara-giris/`, `08-raporlar/analitik/` |
 | `launch` | Pre-launch, launch day, and post-launch | `07-lansman/` |
 
 ## Skill Chains

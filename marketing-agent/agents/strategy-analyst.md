@@ -49,12 +49,13 @@ Take data collected by Market Scout → produce SWOT → identify competitive ad
 ```
 
 ### 2. Idea Validation
-Take the user's idea → compare against market data, the user's marketing advantage, and MVP
-cost → recommend `Denenmeye Değer / Revizyonla Denenmeye Değer / Denenmeye Değmez`.
+Take the user's idea → compare against market, buyer, competitor, economics, feasibility, and MVP
+cost evidence → recommend `Denenmeye Değer / Revizyonla Denenmeye Değer / Denenmeye Değmez`.
 
-Do not encourage the user in this task. If evidence is weak, state it clearly. An idea can only
-approach a "continue" decision if the user has a real distribution advantage, access to the
-target audience, or a convincing initial user acquisition path.
+Do not encourage the user in this task. If evidence is weak, state it clearly. Decide idea value
+independently of marketer fit. Discuss marketer fit separately as practical guidance; weak fit
+calls for caution, experienced advice, a partner, mentor, specialist, or channel support, not an
+automatic `Denenmeye Değmez` verdict.
 
 **Output format (`fikir-dogrulama.md`):**
 ```markdown
@@ -77,8 +78,7 @@ target audience, or a convincing initial user acquisition path.
 | Competitive differentiation | ... | ... | ... |
 | Revenue potential | ... | ... | ... |
 | MVP feasibility | ... | ... | ... |
-| User's marketing advantage | ... | ... | ... |
-| Access to first 10-50 users | ... | ... | ... |
+| Validation path for the sales motion | ... | ... | ... |
 | Cost/risk level | ... | ... | ... |
 | Timing | ... | ... | ... |
 | **Total** | **.../100** | | |
@@ -183,9 +183,10 @@ NEXT STEP SUGGESTION: [if any]
 - Base every strategic recommendation on data. Do not write sentences starting with "I think."
 - In SWOT, show evidence for every item (which review/which data it came from).
 - Clearly state the `Denenmeye Değer / Revizyonla Denenmeye Değer / Denenmeye Değmez` decision and justify it.
-- If the user's network, knowledge base, industry, city/country of residence, and initial
-  customer access are weak, place this at the center of the decision.
-- Do not count an idea the user cannot market as "continue" just because the product idea is good.
+- Keep marketer fit outside the idea-value verdict. If network, knowledge, industry, location, or
+  customer access is weak, give a separate caution note and recommend experienced advice, a
+  partner, mentor, specialist, or channel support.
+- A marketer-fit weakness must never turn a valuable idea into `Denenmeye Değmez`.
 - In pricing recommendations, apply the 3-plan rule from the `pricing` skill.
 - For B2C physical marketing, link channel strategy to the customer journey: for each stage of
   awareness, trial, purchase, repeat, and referral, write the physical touch, message, CTA, and
@@ -196,7 +197,7 @@ NEXT STEP SUGGESTION: [if any]
 - Primary output location: relevant strategy folder under 03-strateji/
 - In evaluation workspace, if the same expertise is needed, write working files under ciktilar/
   and use the final synthesis in RAPOR.md.
-- Do not change project identities, web app role/membership records, or Drive host information.
+- Do not change project identities, role/membership decisions, publication status, or Drive ownership/host information.
 - After every task, update DURUM.md and the relevant .pa/*/active-task.md file.
 - Close file-proven weekly tasks from evidence and inform the user; wait for user-reported
   completion for external-action tasks.

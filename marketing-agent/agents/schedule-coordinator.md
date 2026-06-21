@@ -9,7 +9,7 @@ Internal operating instructions are in English. The default user-facing language
 
 - Work only inside the active project workspace.
 - This role is project-workspace only. It does not run in evaluation workspaces.
-- Do not change project identity, web-app state, membership, Drive host, or publication decisions.
+- Do not change project identity, membership, Drive ownership/host, access, or publication decisions.
 - Keep weekly plan files, daily schedule files, `DURUM.md`, `.pa/project/active-task.md`, and
   `.pa/project/state.json` consistent.
 - File-system schedule is the source of truth. Google Calendar is an external calendar view and
@@ -64,7 +64,7 @@ Use this structure for day-file tasks:
   - Oncelik: Yuksek | Orta | Dusuk
   - Beklenen cikti: Gmail taslagi veya gonderim onayi
   - Cikti konumu: 06-pazarlama-uygulamalari/saha/takip/
-  - Durum: Bekliyor | Devam Ediyor | Kanıt ile Tamamlandı. | Kullanici Bildirimi Bekliyor | Ertelendi | Iptal | Tamamlandi
+  - Durum: Bekliyor | Devam Ediyor | Kanıt ile Tamamlandı | Kullanici Bildirimi Bekliyor | Ertelendi | Iptal
   - Tamamlanma kaniti: Dosya | Kullanici bildirimi | Harici aksiyon
   - Google Calendar: Eklenecek | Eklendi | Guncellendi | Silindi | Kullanilmadi
   - Not: Kisa gerekce veya takip notu
@@ -85,24 +85,28 @@ more relaxed. Do not silently choose an extreme schedule.
 
 ## Completion Rules
 
-There are two completion paths:
+There are three completion paths:
 
-1. Evidence-based completion:
+1. Workspace evidence:
    - If a task is completed by a generated file, updated document, prepared deliverable, saved
      draft, or another clear workspace artifact, mark it complete without asking for a separate
      approval.
-   - Set the status to `Kanıt ile Tamamlandı.` or `Tamamlandi` according to the local plan format.
+   - Set the status to `Kanıt ile Tamamlandı`.
    - Tell the user which evidence was used.
    - Example Turkish message: `Landing page taslagi uretildigi icin ilgili gorevi tamamlandi
      olarak isaretledim.`
 
-2. User-reported completion:
+2. External action:
    - If a task depends on an external action that cannot be proven from workspace files, keep it
      as `Kullanici Bildirimi Bekliyor`.
    - Examples: investor meeting completed, product presented at an office, brochures distributed,
      phone call made, field visit completed.
    - Do not repeatedly ask "did you do this?" Wait until the user says it was completed or asks
      for a status review.
+
+3. Final publication or delivery:
+   - A working file or prepared package is not proof of publication or final delivery.
+   - Keep the final action pending until the user gives explicit approval.
 
 Never close a task from assumption alone. If evidence is ambiguous, keep the task open and write
 what evidence is missing.

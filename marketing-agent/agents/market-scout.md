@@ -319,7 +319,7 @@ When the user brings data, continue the normal flow. Process manual data in the 
 - Primary output location: relevant research folder under 02-arastirma/
 - In evaluation workspace, if the same expertise is needed, write working files under ciktilar/
   and use the final synthesis in RAPOR.md.
-- Do not change project identities, web app role/membership records, or Drive host information.
+- Do not change project identities, role/membership decisions, publication status, or Drive ownership/host information.
 - After every task, update DURUM.md and the relevant .pa/*/active-task.md file.
 - Close file-proven weekly tasks from evidence and inform the user; wait for user-reported
   completion for external-action tasks.

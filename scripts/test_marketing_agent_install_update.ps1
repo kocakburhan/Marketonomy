@@ -50,15 +50,44 @@ function Assert-Equal([object]$Actual, [object]$Expected, [string]$Message) {
 $sourceAgentRoot = Join-Path $RepoRoot "marketing-agent"
 $installer = Join-Path $RepoRoot "scripts\install-marketing-agent.ps1"
 $workspace = Join-Path $env:TEMP ("pa-workspace-test-" + [guid]::NewGuid().ToString("N"))
+$invalidWorkspace = Join-Path $env:TEMP ("pa-invalid-workspace-test-" + [guid]::NewGuid().ToString("N"))
 $oldAgent = $null
 $newAgent = $null
 
 try {
     $oldAgent = Copy-AgentFixture -SourceAgentRoot $sourceAgentRoot -Version "v5.0.0"
     $newAgent = Copy-AgentFixture -SourceAgentRoot $sourceAgentRoot -Version "v5.1.0"
+    New-Item -ItemType Directory -Force -Path $invalidWorkspace | Out-Null
+    $invalidInstallRejected = $false
+    try {
+        powershell -NoProfile -ExecutionPolicy Bypass -File $installer `
+            -TargetRoot $invalidWorkspace `
+            -SourceAgentRoot $oldAgent `
+            -Version "v5.0.0" 2>&1 | Out-Null
+    } catch {
+        $invalidInstallRejected = $true
+    }
+    Assert-True $invalidInstallRejected "Installer kimlik dosyalari olmayan hedefi reddetmeli."
+    Assert-True (-not (Test-Path -LiteralPath (Join-Path $invalidWorkspace ".pa\agent"))) "Gecersiz hedefte agent paketi olusmamali."
+
+    Write-Utf8 (Join-Path $invalidWorkspace "PROJE.md") "project_id: project-conflict`nidea_id: idea-conflict`n"
+    Write-Utf8 (Join-Path $invalidWorkspace ".pa\project\state.json") "{`"project_id`":`"project-conflict`",`"idea_id`":`"idea-conflict`"}`n"
+    Write-Utf8 (Join-Path $invalidWorkspace "DEGERLENDIRME.md") "idea_id: idea-conflict`n"
+    $mixedWorkspaceRejected = $false
+    try {
+        powershell -NoProfile -ExecutionPolicy Bypass -File $installer `
+            -TargetRoot $invalidWorkspace `
+            -SourceAgentRoot $oldAgent `
+            -Version "v5.0.0" 2>&1 | Out-Null
+    } catch {
+        $mixedWorkspaceRejected = $true
+    }
+    Assert-True $mixedWorkspaceRejected "Installer karisik veya yarim kalmis workspace isaretlerini reddetmeli."
+    Assert-True (-not (Test-Path -LiteralPath (Join-Path $invalidWorkspace ".pa\agent"))) "Karisik hedefte agent paketi olusmamali."
+
     New-Item -ItemType Directory -Force -Path $workspace | Out-Null
 
-    Write-Utf8 (Join-Path $workspace "PROJE.md") "Kullanici proje ilerlemesi`n"
+    Write-Utf8 (Join-Path $workspace "PROJE.md") "project_id: project-a`nidea_id: idea-a`n`nKullanici proje ilerlemesi`n"
     Write-Utf8 (Join-Path $workspace "DURUM.md") "Calisma devam ediyor`n"
     Write-Utf8 (Join-Path $workspace ".pa\project\state.json") "{`"project_id`":`"project-a`",`"idea_id`":`"idea-a`"}`n"
 
@@ -116,7 +145,7 @@ try {
 } catch {
     Add-Failure $_.Exception.Message
 } finally {
-    foreach ($path in @($workspace, $oldAgent, $newAgent)) {
+    foreach ($path in @($workspace, $invalidWorkspace, $oldAgent, $newAgent)) {
         if ($path -and (Test-Path -LiteralPath $path)) {
             Remove-Item -LiteralPath $path -Recurse -Force
         }

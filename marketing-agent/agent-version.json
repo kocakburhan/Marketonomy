@@ -1,6 +1,6 @@
 {
-  "version": "v5.2.0",
+  "version": "v5.4.0",
   "runtime": "codex",
-  "mvp_contract": "PersonalAutonomy MVP 2026-06-15",
+  "mvp_contract": "PersonalAutonomy MVP 2026-06-21",
   "release_status": "source"
 }

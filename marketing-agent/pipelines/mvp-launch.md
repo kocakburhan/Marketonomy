@@ -73,7 +73,7 @@ Validation check before moving to 2.2:
 
 - Is the target segment specific enough to reach?
 - Is there evidence of painful demand or willingness to pay?
-- Is the first 10-50 user path realistic for this marketer?
+- Is the sales-motion-appropriate validation and acquisition path realistic?
 - Are the main competitors and alternatives understood?
 - Has the MVP/offer scope been approved?
 

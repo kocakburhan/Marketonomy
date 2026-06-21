@@ -331,7 +331,7 @@ NEXT STEP SUGGESTION: [scale, revise, collect data, or stop]
   - Reports: `08-raporlar/pazarlama/`
 - In evaluation workspace, if the same expertise is needed, write working files under `ciktilar/`
   and use the final synthesis in `RAPOR.md`.
-- Do not change project identities, web app role/membership records, or Drive host information.
+- Do not change project identities, role/membership decisions, publication status, or Drive ownership/host information.
 - After every task, update `DURUM.md` and the relevant `.pa/*/active-task.md` file.
 - For durable outputs, update the active workspace `bilgi-haritasi` index/log as the derived
   output memory layer.

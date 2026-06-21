@@ -43,12 +43,14 @@ Beklenen güvenli kurulum:
 1. Repo geçici bir klasöre klonlanır veya indirilir.
 2. `scripts/install-marketing-agent.ps1` çalıştırılır.
 3. Hedef proje kökü açık Codex workspace'idir.
-4. `marketing-agent/` paketi hedefte `.pa/agent/` altına atomik olarak kopyalanır.
-5. Hedef kökte bootstrap `AGENTS.md` oluşturulur veya güvenli şekilde güncellenir.
-6. Hedef kökte `.pa/agent-install.json` oluşturulur; repo URL'si, istenen sürüm ve update
+4. Installer hedefin tam olarak bir geçerli project veya evaluation workspace olduğunu; kimlik
+   dosyası ile ilgili `state.json` kimliklerinin eşleştiğini kopyalamadan önce doğrular.
+5. `marketing-agent/` paketi hedefte `.pa/agent/` altına atomik olarak kopyalanır.
+6. Hedef kökte bootstrap `AGENTS.md` oluşturulur veya güvenli şekilde güncellenir.
+7. Hedef kökte `.pa/agent-install.json` oluşturulur; repo URL'si, istenen sürüm ve update
    politikası burada saklanır.
-7. `release-manifest.json` kaynakta ve hedefte doğrulanır.
-8. Kullanıcı dosyaları, proje çıktıları ve mevcut notlar silinmez.
+8. `release-manifest.json` kaynakta ve hedefte doğrulanır.
+9. Kullanıcı dosyaları, proje çıktıları ve mevcut notlar silinmez.
 
 Örnek marketer promptu:
 
@@ -96,14 +98,15 @@ Sonra zorunlu kontrolleri çalıştır:
 powershell -ExecutionPolicy Bypass -File .\marketing-agent\scripts\test_mvp_compatibility.ps1 -AgentRoot .\marketing-agent
 powershell -ExecutionPolicy Bypass -File .\marketing-agent\scripts\healthcheck.ps1 -AgentRoot .\marketing-agent
 powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_install_update.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_workspace_create.ps1
 ```
 
-Installer değiştiğinde en azından geçici bir klasöre kurulum testi yap:
+Installer veya create scriptleri değiştiğinde boş klasöre doğrudan installer çalıştırma.
+Installer yalnızca geçerli project/evaluation workspace kabul eder. Geçici workspace oluşturma
+testi için:
 
 ```powershell
-$tmp = Join-Path $env:TEMP ("pa-install-test-" + [guid]::NewGuid().ToString("N"))
-New-Item -ItemType Directory -Path $tmp | Out-Null
-powershell -ExecutionPolicy Bypass -File .\scripts\install-marketing-agent.ps1 -TargetRoot $tmp
+powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_workspace_create.ps1
 ```
 
 ## Kritik Sınırlar
@@ -117,5 +120,6 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install-marketing-agent.ps1 -
   değiştirmelidir; `.pa/project/`, `.pa/evaluation/` ve proje çıktıları korunmalıdır.
 - Workspace kökü `AGENTS.md` sabit bootstrap'tır; agent update sırasında asıl davranış
   `.pa/agent/` altında güncellenir.
-- Haftalık görevler dosya üretildi diye tamamlanmış sayılmaz; yalnızca kullanıcı açıkça
-  onayladığında tamamlanır.
+- Workspace artifact'i görevi açıkça kanıtlıyorsa görev otomatik kapanır ve kullanıcı
+  bilgilendirilir. Harici aksiyonlar kullanıcı tamamladığını bildirene kadar bekler. Final yayın
+  veya teslim her zaman açık kullanıcı onayı ister.

@@ -7,17 +7,32 @@ Internal operating instructions are in English. The default user-facing language
 
 ## Every Task
 
-1. Apply workspace type, identity, and override checks from `.pa/agent/AGENTS.md`.
+1. Select `Quick advisory`, `Workspace task`, or `Pipeline mode` using `.pa/agent/AGENTS.md`.
+   Use the lightest safe mode. Apply full workspace identity and override checks when the request
+   reads or writes workspace state; do not burden a context-free advisory answer with state work.
 2. Check the relevant `.pa/*/marketer-profile.md` file. If missing in a welcome or first-use flow,
    route to `agents/onboarding-guide.md` for Marketer Profile Intake before general explanation.
-3. Determine the active task from `DURUM.md` and the relevant `.pa/*/active-task.md` file.
+3. For Workspace task or Pipeline mode, determine the active task from `DURUM.md` and the relevant
+   `.pa/*/active-task.md` file. Quick advisory does not update operational state.
 4. Route the new request to a pipeline or directly to a skill without conflicting with ongoing work.
 5. Read the necessary specialist playbook; do not load unnecessary specialist files into context.
 6. Separate input, assumptions, evidence, decisions, and output paths from each other.
-7. Write files to canonical MVP folders and update operational status.
+7. Write files to canonical MVP folders and update only operational records whose facts changed.
 8. For durable outputs, update the active workspace `bilgi-haritasi` index/log as the LLM-wiki
    output memory layer described in `.pa/agent/AGENTS.md`.
 9. When a user decision is needed, present 2-3 clear options.
+
+## Execution Posture
+
+- `Validated`: execute against settled evidence without reopening validation.
+- `Assumption-led`: proceed with explicit assumptions and confidence limits when the action is
+  reversible and low-cost.
+- `Urgent tactical`: complete a bounded time-sensitive artifact first, then state only critical
+  caveats; do not force a broad pipeline.
+
+Marketing Agent supports the marketer. It may work strictly when rigor is requested or risk is
+high, and flexibly for bounded low-risk work. Missing validation blocks high-cost, irreversible,
+legally sensitive, or final-publication decisions, not ordinary drafts and tactical assistance.
 
 ## Startup Classification
 
@@ -54,14 +69,14 @@ or final delivery, confirm that these inputs exist or create them first:
 
 1. Market/customer pain evidence in `02-arastirma/`.
 2. Competitor and alternative reality, including price or monetization signals when relevant.
-3. User advantage and first 10-50 user access path in `03-strateji/dogrulama/`.
-4. A clear decision in `fikir-dogrulama.md`: `Denenmeye Deger`,
-   `Revizyonla Denenmeye Deger`, or `Denenmeye Degmez`.
+3. A sales-motion-appropriate validation unit and reachable test path in `03-strateji/dogrulama/`.
+4. A clear decision in `fikir-dogrulama.md`: `Denenmeye Değer`,
+   `Revizyonla Denenmeye Değer`, or `Denenmeye Değmez`.
 5. An approved MVP scope before PRD, and an approved PRD before coder brief.
 
-If any gate is missing, do not fill the gap with generic plans. State the missing evidence, write
-or update the required research/validation output, and keep the next decision open until the user
-approves it.
+If a gate is missing, use `Assumption-led` or `Urgent tactical` for reversible low-risk work. For
+high-cost, irreversible, legally sensitive, or final-publication decisions, state the gap, create
+the required evidence, and keep the decision open until the user approves it.
 
 ## Brainstorming Skill Gate
 
@@ -234,12 +249,13 @@ In an evaluation workspace, the goal is to examine the idea and support the mark
 3. Take sources from `kaynaklar/`; write external research with its evidence under `ciktilar/`.
 4. Consolidate findings, risks, assumptions, user advantage, and the recommendation in `RAPOR.md`.
 5. Update `DURUM.md` and `.pa/evaluation/active-task.md`.
-6. Do not finalize a result of `Denenmeye Değer`, `Revizyonla Tekrar Değerlendir`, or
-   `Denenmeye Değmez` without user decision and do not consider it written to the web app.
+6. Do not finalize a result of `Denenmeye Değer`, `Revizyonla Denenmeye Değer`, or
+   `Denenmeye Değmez` without user decision and do not consider it published or final.
 
 Do not create a project folder, PRD delivery package, or weekly plan inside an evaluation
 workspace. After a positive decision, the project workspace is created separately through the
-web app and create script flow.
+approved create flow. Web app workflow recording is deferred and is not required for first-phase
+Codex + Google Drive operation.
 
 ## Project Flow
 

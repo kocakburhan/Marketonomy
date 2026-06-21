@@ -9,15 +9,16 @@ and does not search for other workspaces.
 
 ## Marketer Profile Intake
 
-Before explaining the workspace in a first-use or welcome flow, check whether the relevant profile
-file already exists:
+Before explaining the workspace in a first-use or welcome flow, check whether the approved create
+flow copied the marketer's reusable base profile into the relevant workspace profile file:
 
 - Evaluation workspace: `.pa/evaluation/marketer-profile.md`
 - Project workspace: `.pa/project/marketer-profile.md`
 
 If the file exists and has `Profil durumu: Tamamlandi`, `Profil durumu: Ertelendi`, or another
-clear status, do not ask the full intake again. Use the saved information when judging user
-advantage, channel fit, local opportunities, weekly capacity, and likely execution constraints.
+clear status, do not ask the full intake again. Ask only for project-specific differences in
+capacity, budget, channel, or advantage when they matter. Use the saved information when judging
+user advantage, channel fit, local opportunities, weekly capacity, and likely execution constraints.
 
 If the profile file is missing, empty, or the user explicitly says they are using the system for the
 first time, ask once with a compact Turkish form:
@@ -26,15 +27,16 @@ first time, ask once with a compact Turkish form:
 Seni ve pazarlama avantajini daha iyi anlamak icin kisa bir profil cikaracagim.
 Istersen bilmedigin veya paylasmak istemedigin alanlara "belirtmek istemiyorum" yazabilirsin.
 
-1. Yas veya yas araligi:
-2. Yasadigin sehir/ulke veya ana calisma lokasyonun:
-3. Ogrenim durumun:
-4. Su an yaptigin meslek / ana isin:
-5. Uzmanlik alanlarin ve iyi bildigin sektorler:
-6. Varsa gecmis marketing, satis, is gelistirme, icerik, topluluk veya saha tecruben:
-7. Varsa mevcut network, kitle, musteri erisimi veya kullanabildigin kanallar:
-8. Bu projelere ayirabilecegin haftalik zaman ve yaklasik butce araligi:
+1. Yasadigin sehir/ulke veya ana calisma lokasyonun:
+2. Su an yaptigin meslek / ana isin:
+3. Uzmanlik alanlarin ve iyi bildigin sektorler:
+4. Varsa gecmis marketing, satis, is gelistirme, icerik, topluluk veya saha tecruben:
+5. Varsa mevcut network, kitle, musteri erisimi veya kullanabildigin kanallar:
+6. Bu projelere ayirabilecegin haftalik zaman ve yaklasik butce araligi:
 ```
+
+Age and education are optional. Ask either only when it materially affects a specific marketing
+decision, and explain briefly why the information is relevant before asking.
 
 Save the answer to the selected `marketer-profile.md` file with:
 
@@ -71,7 +73,8 @@ Cover these points in plain Turkish:
    time capacity, location, available channels, and examples of competitors or desired tone.
 5. The agent has limits: it must not invent data, must not claim unavailable tools, must not submit
    forms or send messages without approval, must not publish final decisions without user approval,
-   and must not change identity, role, Drive host, membership, or web-app state from local files.
+   and must not change identity, role, Drive ownership/host, membership, publication, or access
+   decisions from local files.
 
 ### Agent ve skill haritasi
 
@@ -99,7 +102,7 @@ Keep the explanation user-facing and action-oriented:
 
 Give examples that teach the marketer to ask for complete, evidence-backed work:
 
-- "Bu fikri benim sehir, network, zaman ve butceme gore Denenmeye Deger mi diye acimasizca
+- "Bu fikri benim sehir, network, zaman ve butceme gore Denenmeye Değer mi diye acimasizca
   degerlendir; kanitlari ve riskleri ayri yaz."
 - "Bu pazarda 5 rakibi bul, fiyatlarini, mesajlarini, zayif yorumlarini ve bana acilan boslugu
   raporla."
@@ -152,7 +155,8 @@ to produce usable files, decisions, and next actions, not to give a motivational
 4. Identify missing fields in `PROJE.md` and under `01-baglam/`; do not touch identity fields.
 5. Clarify the marketing model: B2B/B2C/Hybrid, Digital/Physical-Field/Hybrid, sales motion,
    and lifecycle stage.
-6. Do not assume Drive activation is complete in the web app; ask the user about the current state.
+6. Do not assume Drive sync or sharing is complete; ask the user about the current local/Drive
+   state when it affects the next step.
 7. Check the active `05-haftalik-planlar/YYYY-WNN.md` file.
 8. If the project started mid-week, propose realistic tasks only for the remaining days.
 9. Write the first active task into `DURUM.md` and `.pa/project/active-task.md`.

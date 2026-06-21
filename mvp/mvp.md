@@ -4,6 +4,24 @@ Bu dokuman, PersonalAutonomy projesinin MVP asamasinda nasil calisacagini tarif 
 Amac, marketing ve coding ekibinin Codex destekli calisma akisini hizli, dusuk maliyetli
 ve yonetilebilir sekilde test etmektir.
 
+## First Product Phase: Codex + Google Drive
+
+2026-06-21 karariyla ilk product fazinda PersonalAutonomy web app zorunlu runtime degildir.
+Teslim edilecek ilk sistem Codex App + Google Drive for desktop + onayli PowerShell create/install
+scriptleriyle calisir. Web app, PWA, Web Push, merkezi rol/uyelik ekrani ve web tabanli workflow
+kaydi post-MVP/ileriki faz kapsamidir.
+
+Bu nedenle ilk fazda:
+
+- `idea_id` ve `project_id` degerleri onayli `create-evaluation.ps1` ve `create-project.ps1`
+  akislariyla uretilir veya bu scriptlere parametre olarak verilir.
+- Workspace klasoru lokal veya Google Drive ile senkronize edilen bir klasorde olusturulur.
+- Marketing Agent workspace icindeki dosyalari source of truth kabul eder.
+- Rol, uyelik, Drive paylasimi, host/sahiplik ve final yayin kararlarinda web app kaydi aranmaz;
+  bunlar manuel operasyon karari olarak kullanici/sistem sahibi tarafindan yurutulur.
+- Bu dokumandaki web app/PWA bolumleri ilk faz icin zorunlu kabul edilmez; ileriki faz tasarim
+  notu olarak saklanir.
+
 MVP'nin ana fikri sudur:
 
 - Sisteme yalnizca yonetici tarafindan davet edilen kullanicilar girer.
@@ -53,12 +71,12 @@ MVP sistemi bes ana parcadan olusur:
    - Codex'in aktif workspace'te nasil davranacagini belirler.
    - Merkezi release klasorunden guncellenir.
 
-5. **PersonalAutonomy web app (PWA)**
-   - Davetli kullanici kaydini ve rol sinirlarini yonetir.
-   - Idea Pool, marketer degerlendirmeleri ve Project Pool is akisini yonetir.
-   - Roller, proje uyelikleri, durumlar, Drive linkleri ve degisiklik gecmisini tutar.
-   - Telefonlara Web Push bildirimi gonderir ve uygulama ici bildirim merkezi sunar.
-   - Gercek proje dosyalarini depolamaz; Google Drive'a baglanti verir.
+5. **PersonalAutonomy web app (PWA) - deferred**
+   - Ilk product fazinda zorunlu degildir.
+   - Davetli kullanici kaydi, rol sinirlari, merkezi workflow kaydi, Web Push ve uygulama ici
+     bildirim merkezi ileriki faz kapsamidir.
+   - Gercek proje dosyalarini ilk fazda da depolamaz; Google Drive dosya sistemi ana calisma
+     katmani kalir.
 
 MVP'nin operasyonel saat dilimi `Europe/Istanbul` olarak sabittir. Web app zaman damgalarini
 veritabaninda UTC saklar, arayuzde `Europe/Istanbul` olarak gosterir. ISO hafta dosya adi ve
@@ -85,6 +103,8 @@ PersonalAutonomy/
 
   marketers/
     ayse/
+      .pa/
+        marketer-profile.md
       .pa-create-work/
       .pa-script-logs/
       idea-workspace/
@@ -156,6 +176,8 @@ Kisisel Drive calisma alani yalnizca Marketer rolundeki kullanicilar icin olustu
 ```text
 marketers/
   ayse/
+    .pa/
+      marketer-profile.md
     .pa-create-work/
     .pa-script-logs/
     idea-workspace/
@@ -181,6 +203,13 @@ hedef kimlik ve sanitize edilmis teknik nedeni tutar. Kullanici bu klasoru elle 
 Gecici workspace'ler `idea-workspace/` veya `projects/` altinda olusturulmaz. Basarili
 dogrulamadan sonra hedef kokteki kalici adina tek tasima ile yayinlanir; hata halinde gecici
 alan temizlenir.
+
+Marketer kokundeki `.pa/marketer-profile.md`, marketer'in yeniden kullanilabilir temel profilidir.
+Yalnizca marketer ve onayli create scriptleri tarafindan kullanilir. Marketing Agent aktif
+workspace kokunun disina cikarak bu dosyayi aramaz veya okumaz. `create-evaluation.ps1` ve
+`create-project.ps1`, dosya varsa yeni workspace'in `.pa/evaluation/marketer-profile.md` veya
+`.pa/project/marketer-profile.md` yoluna kopyalar. Workspace kopyasi daha sonra yalnizca o ise
+ozel zaman, butce, kanal ve avantaj farklarini tasir.
 
 Bu iki ust klasor yalnizca su islemler icin Codex root olabilir:
 
@@ -259,9 +288,10 @@ notlari, gorusme notlari ve kullanicinin agent'a aldirdigi notlar `notlar/` alti
 
 `.pa/agent/`, merkezi release'ten kopyalanan bagimsiz Marketing Agent paketidir.
 `.pa/evaluation/`, degerlendirme workspace'inin makine-okunabilir durumunu ve teknik ayarlarini
-tutar. `marketer-profile.md`, marketer'in kendi beyanina dayanan sehir, yas, ogrenim, meslek,
-uzmanlik, gecmis marketing/satis tecrubesi, kanal erisimi, zaman ve butce gibi ilk tanima
-bilgilerini tutar. Bu dosyalar web app workflow'unu veya fikir kimligini degistiremez.
+tutar. `marketer-profile.md`, onayli create akisi tarafindan marketer'in yeniden kullanilabilir
+temel profilinden kopyalanir; workspace icinde yalnizca bu degerlendirmeye ozel kapasite, butce,
+kanal veya avantaj farklari eklenir. Yas ve ogrenim bilgisi zorunlu degildir; yalnizca belirli bir
+pazarlama kararini gercekten etkiliyorsa, nedeni aciklanarak istenir. Bu dosyalar web app workflow'unu veya fikir kimligini degistiremez.
 
 Degerlendirme sonucu, istege bagli aciklama ve istege bagli rapor linki web app'e yazilir. Ham
 workspace dosyalari marketer'in kisisel alaninda kalir ve diger kullanicilara otomatik olarak
@@ -496,11 +526,12 @@ altinda guncellenir. Script'lerin dosyayi dogrulayabilmesi icin bootstrap sablon
 
 Projenin ana kimlik kartidir:
 
-- web app tarafindan uretilen degismez `project_id`
+- approved create flow tarafindan uretilen veya parametre olarak verilen degismez `project_id`
 - bagli fikrin degismez `idea_id` degeri
 - proje amaci
 - urun/fikir ozeti
-- proje ekibi ve Drive host icin ana kaynak olan web app Project Pool kaydina referans
+- ilk fazda manuel proje ekibi/Drive sahipligi notlari; ileriki fazda web app Project Pool
+  referansi
 - oncelikler
 - kisitlar
 - musteri/urun bilgileri
@@ -701,6 +732,10 @@ veya ilgili `raw/` klasorlerinde, islenmis ciktilar ise `02-arastirma/`, `03-str
 `04-urun/`, `06-pazarlama-uygulamalari/`, `08-raporlar/` veya `10-final/` gibi canonical
 klasorlerinde kalir. Celisen bilgiler sessizce silinmez; hangi kaynagin ne soyledigi ve son
 karari nasil etkiledigi bilgi haritasinda isaretlenir.
+Bilgi haritasi kalici arastirma, karar, strateji, MVP/PRD/coder brief, ana kampanya plani,
+final rapor/teslim ve onceki bir iddiayi superseded yapan ciktilar icin guncellenir. Rutin not,
+kucuk metin duzeltmesi, gecici taslak, ara varyant ve siradan haftalik gorevler icin zorunlu
+metadata uretilmez.
 
 `99-arsiv/`
 
@@ -753,12 +788,14 @@ dosyayi dogrudan duzenlemek yerine gorev degisikligini Codex'e soyler.
 
 `.pa/project/marketer-profile.md`
 
-Workspace'te calisan marketer'i ilk kurulum veya ilk karsilama sirasinda tanimak icin kullanilan
-insan tarafindan okunabilir profil dosyasidir. Sehir/ulke, yas veya yas araligi, ogrenim durumu,
-meslek, uzmanlik alanlari, gecmis marketing/satis/is gelistirme tecrubesi, mevcut network veya
-kanallar, haftalik zaman ve yaklasik butce bilgileri kullanici beyanina gore yazilir. Kullanici
-bir alani paylasmazsa `Belirtilmedi` olarak kalir. Bu dosya proje kimligi, rol, uyelik, Drive
-host veya yayin durumunu degistiremez; agent guncellemeleri dosyayi korur.
+Workspace'te calisan marketer'in yeniden kullanilabilir temel profilinin onayli create akisi
+tarafindan kopyalanan insan-okunabilir workspace kopyasidir. Proje icinde yalnizca bu projeye ozel
+zaman, butce, kanal ve avantaj farklari eklenir. Sehir/ulke, meslek, uzmanlik alanlari, gecmis
+marketing/satis/is gelistirme tecrubesi ve mevcut network veya kanallar kullanici beyanina gore
+yazilir. Yas ve ogrenim zorunlu degildir; yalnizca belirli bir pazarlama kararini gercekten
+etkiliyorsa, nedeni aciklanarak istenir. Kullanici bir alani paylasmazsa `Belirtilmedi` olarak
+kalir. Bu dosya proje kimligi, rol, uyelik, Drive host veya yayin durumunu degistiremez; agent
+guncellemeleri dosyayi korur.
 
 `.pa/project/settings.json`
 
@@ -1323,9 +1360,10 @@ SHA-256 degerini `state.json` icindeki `overrides_sha256` ile karsilastirir. Deg
 
 - platform guvenligi ve erisim izinleri
 - proje klasoru disina cikmama ve kullanici izolasyonu
-- web app tarafindan uretilen `project_id` ve `idea_id` kimlikleri
+- approved create flow tarafindan uretilen veya parametre olarak verilen `project_id` ve
+  `idea_id` kimlikleri
 - davet, rol, proje uyeligi ve Drive host kurallari
-- haftalik gorevleri tamamlamak icin gereken acik kullanici onayi
+- workspace kanitli gorev, harici aksiyon ve final teslim icin tanimlanan tek kapanis kurali
 - agent release dogrulama, update, backup ve rollback kurallari
 - kullanici verisini koruma ve gizli bilgileri loglamama kurallari
 - dosya sahipligi ve degisiklik onayi akisi

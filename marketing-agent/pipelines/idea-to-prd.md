@@ -5,8 +5,8 @@
 **When it runs:** When the user already has an idea in mind and wants to test "is it worth trying?"
 and if valuable, convert it to MVP and PRD.
 
-**Goal:** Confront the existing idea with user advantage, market data, competitor reality, customer
-pain, distribution channel, revenue potential, and MVP cost. Only if a "worth it" decision emerges,
+**Goal:** Confront the existing idea with market data, competitor reality, customer pain, buyer
+evidence, differentiation, revenue potential, feasibility, and MVP cost. Only if a "worth it" decision emerges,
 produce first the MVP document, then the PRD and coder brief based on this MVP.
 
 **Prerequisite:** The user must have a concrete idea. In a project workspace, `PROJE.md` and the relevant
@@ -30,13 +30,15 @@ willingness to pay is not proven.
 Rules:
 
 1. Do not use unsourced positive language like "nice idea", "it has potential", "it could be worth trying".
-2. If the idea is weak, say so directly; explain the reason with market, distribution, cost, or user advantage.
+2. If the idea is weak, say so directly; explain the reason with market, buyer, differentiation,
+   economics, feasibility, or risk evidence. Marketer fit is not an idea-value rejection reason.
 3. Take the user's experience seriously but do not count it as sole evidence. Weigh it together with research outputs.
-4. If the user cannot market the idea, this alone may result in a "not worth it" or "revision required" decision.
+4. If marketer fit is weak, give cautious guidance and recommend experienced advice, a partner,
+   mentor, specialist, or channel support. Never change the idea-value verdict for this reason alone.
 5. If you see a better target audience, niche, channel, pricing model, or MVP scope, freely suggest a revision.
 6. Do not produce MVP, PRD, or coder brief before the user explicitly approves the final idea and decision direction.
 7. Do not treat `PROJE.md`, a user request for a PRD, or an available coder as validation. Market
-   evidence and user distribution advantage must still be present.
+   evidence and a sales-motion-appropriate validation path must still be present.
 
 ---
 
@@ -110,7 +112,7 @@ Measure the marketability of the idea specifically for the user. Collect the fol
 4. Network: accessible customer, institution, community, influencer, channel, or decision-maker circles
 5. Existing audience: email list, social media, community, customer portfolio, store traffic
 6. Sales and marketing experience
-7. How they can reach the first 10-50 users
+7. How they can reach the sales-motion-appropriate validation unit
 8. Weekly time capacity and trial budget
 9. City, language, culture, regulation, or operational advantage/disadvantage
 
@@ -224,8 +226,7 @@ from assumptions.
 | Competitive differentiation | ... | ... | ... |
 | Revenue potential | ... | ... | ... |
 | MVP feasibility | ... | ... | ... |
-| User's marketing advantage | ... | ... | ... |
-| Access to first 10-50 users | ... | ... | ... |
+| Validation path for the sales motion | ... | ... | ... |
 | Cost/risk level | ... | ... | ... |
 | Timing | ... | ... | ... |
 | **Total** | **.../100** | | |
@@ -237,24 +238,50 @@ from assumptions.
 - If there is a reason to abandon:
 ```
 
+### Idea Value Decision
+
 Decision threshold:
 
-- `Denenmeye Değer`: total score should generally be 70/100 and above; problem pain, marketing
-  advantage, and first user access should not be individually weak.
+- `Denenmeye Değer`: total score should generally be 70/100 and above; problem pain, buyer,
+  differentiation, economics, and a credible validation path should not be individually weak.
 - `Revizyonla Denenmeye Değer`: there is signal in the idea but target audience, channel, scope,
-  pricing, or user advantage is not clear.
-- `Denenmeye Değmez`: if pain is weak, user cannot reach the target audience, there is no
-  competitive differentiation, MVP cost is high, or the revenue path is unrealistic.
+  pricing, differentiation, or validation design is not clear.
+- `Denenmeye Değmez`: if pain is weak, no buyer or budget exists, there is no competitive
+  differentiation, MVP cost is high, the revenue path is unrealistic, or a fatal legal/operational
+  blocker exists. Marketer fit alone can never produce this verdict.
+
+### Marketer Fit Guidance
+
+Discuss marketer fit separately from the idea-value score and verdict. This is guidance between
+Marketing Agent and the marketer, not a rejection gate:
+
+- Strong fit: show how the marketer can use sector knowledge, network, credibility, location, or
+  channel access.
+- Partial fit: recommend the missing capability, channel, partner, mentor, or specialist support.
+- Weak fit: recommend caution and getting advice from experienced people before a high-cost move.
+
+Never change `Denenmeye Değer` to `Denenmeye Değmez` because the current marketer lacks experience,
+network, audience, or a direct distribution channel.
+
+### Validation Unit By Sales Motion
+
+- B2C/self-service: typically 10-50 target users or equivalent behavioral tests.
+- SMB B2B: typically 3-10 buyer conversations, pilots, or credible commitments.
+- Enterprise/high-ticket/regulated: typically 1-3 design partners or budget-owner commitments.
+- Physical/local: a defined number of visits, trials, orders, or repeat purchases.
+- Marketplace: separate supply-side and demand-side thresholds.
+
+Treat these as planning defaults. Adapt the threshold to price, cycle length, risk, and evidence
+quality; do not use one universal count as an automatic verdict rule.
 
 Hard stop conditions before PRD/coder brief:
 
-- No credible path to reach the first 10-50 users.
+- No credible path to reach an appropriate validation unit for the sales motion.
 - No evidence of painful or costly demand.
 - No buyer or budget owner is identifiable.
 - Competitors already solve the problem well and no sharp differentiation exists.
 - MVP cost or implementation time is high relative to the validation signal.
-- The user has no realistic channel, credibility, location, network, audience, or sales path for
-  this market.
+- A fatal legal, operational, safety, or economic blocker makes even a bounded test unreasonable.
 
 ### 5.5 — Realist Decision Discussion
 **Agent:** Orchestrator
@@ -271,7 +298,7 @@ Why:
 My pragmatic recommendation:
 - [Proceed / proceed with this revision / abandon]
 
-Critical fact regarding user advantage:
+Separate marketer-fit guidance:
 - ...
 
 Your decision:
@@ -289,8 +316,8 @@ Even if the user says "proceed", if the agent sees a fatal risk, restate it and 
 Runs only after the approved value decision. The MVP is the minimum testable product definition of
 the idea; it is not a feature pile.
 
-If the decision was `Revizyonla Denenmeye Deger`, the MVP must be based on the revised idea, not
-the original unfiltered version. If the decision was `Denenmeye Degmez`, this step must not run.
+If the decision was `Revizyonla Denenmeye Değer`, the MVP must be based on the revised idea, not
+the original unfiltered version. If the decision was `Denenmeye Değmez`, this step must not run.
 
 **Output:** `04-urun/fikir-ozetleri/mvp.md`
 
@@ -298,14 +325,14 @@ The MVP must include:
 
 - Final idea definition
 - Target user and first segment to reach
-- User's distribution advantage and first user acquisition path
+- Sales-motion-appropriate validation path
 - Main problem solved
 - Single core promise of the MVP
 - Must-have features
 - Out-of-scope items
 - If there is a first manual/concierge trial path
 - Success metrics
-- Plan to reach first 10-50 users
+- Plan to reach the selected validation unit
 - Biggest risks and test plan
 
 ### 5.7 — MVP Approval
@@ -353,7 +380,7 @@ The coder can read these files and extract the technical plan and implementation
 |---------|------------------|-------------------------------|
 | Starting point | No idea | Has an idea |
 | First task | Generate opportunities | Test the idea against hard reality |
-| User profile | Used for interest area | Scored as marketing advantage |
+| User profile | Used for marketer guidance | Never changes the idea-value verdict by itself |
 | Research | For opportunity discovery | To kill, revise, or validate the idea |
 | Decision | Opportunity selection | Worth trying / revision / not worth |
 | MVP | If the idea becomes clear | Only after value decision |

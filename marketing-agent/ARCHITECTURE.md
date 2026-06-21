@@ -3,8 +3,11 @@
 ## Vision
 
 A marketer opens an evaluation or project folder as the Codex root and works with a single main
-agent. The main agent loads specialist playbooks, pipelines, and skills as needed; all persistent
-state is kept in PersonalAutonomy workspace files.
+agent. The first product phase is Codex + Google Drive first: workspaces live in local or
+Drive-synced folders and are created by approved PowerShell create scripts. A future web app can
+record workflow state later, but it is not a first-phase runtime dependency. The main agent loads
+specialist playbooks, pipelines, and skills as needed; all persistent state is kept in
+PersonalAutonomy workspace files.
 
 ```text
 User
@@ -69,7 +72,25 @@ For evaluation workspaces it lives under `ciktilar/bilgi-haritasi/`; for project
 lives under `11-notlar/bilgi-haritasi/`. The layer keeps `index.md` as a content map and `log.md`
 as an append-only chronology, linking source evidence, canonical outputs, decisions,
 contradictions, and follow-up use. It does not duplicate raw data, replace the numbered MVP
-folders, or make `.pa/agent/` a data store.
+folders, or make `.pa/agent/` a data store. It is mandatory only for durable research, decisions,
+strategy, MVP/PRD/coder briefs, main campaign plans, final reports/deliveries, and superseding
+outputs; routine notes, small copy edits, temporary drafts, and ordinary weekly tasks do not add
+relationship metadata.
+
+## Work Mode Model
+
+The agent selects the lightest safe mode for each request:
+
+- `Quick advisory` answers or reviews without creating files or changing workspace state.
+- `Workspace task` produces one bounded canonical output and updates only operational facts that
+  actually changed.
+- `Pipeline mode` runs multi-stage, evidence-heavy, or explicitly strict work.
+
+Existing projects may execute as `Validated`, `Assumption-led`, or `Urgent tactical`. Incomplete
+validation does not block reversible low-risk drafts or time-sensitive tactical support. It does
+block high-cost, irreversible, legally sensitive, identity-changing, and final-publication
+decisions. Specialist roles and pipelines provide rigor when needed; they are not mandatory
+ceremony for every marketer request.
 
 ## Specialist Model
 
@@ -78,12 +99,12 @@ launch, content, growth, international market expansion, outreach, analytics, br
 schedule coordination, and investor readiness. These are not independent data repositories or mandatory separate
 processes/runtimes; they are focused instruction files that Codex reads according to the task.
 
-The onboarding role owns first-use Marketer Profile Intake. It asks once for the marketer's city,
-age or age range, education, profession, expertise, marketing/sales experience, accessible
-channels, budget range, and weekly time capacity, then saves the answer under `.pa/evaluation/` or
-`.pa/project/`. A saved or postponed profile prevents the full intake from being repeated in every
-thread, while still letting downstream pipelines ask for missing facts when a decision requires
-them.
+The onboarding role owns first-use Marketer Profile Intake. Approved create flows copy a reusable
+base profile into the workspace when available; the workspace copy stores only project-specific
+capacity, budget, channel, or advantage differences. City, profession, expertise,
+marketing/sales experience, accessible channels, budget range, and weekly time are the normal
+fields. Age and education are optional and requested with a reason only when material to a
+specific decision. A saved or postponed profile prevents the full intake from being repeated.
 
 Codex subagent work is applied only when the user explicitly requests it or when the main request
 explicitly specifies parallel agent usage. In all cases, the main agent verifies and consolidates
@@ -91,9 +112,10 @@ results according to the workspace contract.
 
 ## Marketing Coverage Model
 
-The release does not reduce marketing demand to a single channel or single customer type. The
-orchestrator classifies the customer model, channel model, lifecycle stage, market scope, and
-sales motion for every request.
+The release does not reduce marketing demand to a single channel or single customer type. For a
+Workspace task or Pipeline mode where the classification affects the result, the orchestrator
+classifies customer model, channel model, lifecycle stage, market scope, and sales motion. Quick
+advisory does not create a formal classification record unless the answer needs one.
 
 ```text
 Customer model:

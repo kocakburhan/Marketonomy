@@ -159,11 +159,11 @@ Scoring rules:
 
 Recommended decision labels:
 
-- `Denenmeye Deger`: one market has strong ICP transfer, reachable channel, manageable risk, and
+- `Denenmeye Değer`: one market has strong ICP transfer, reachable channel, manageable risk, and
   credible technical readiness.
-- `Revizyonla Denenmeye Deger`: the market may work but message, product, technical readiness,
+- `Revizyonla Denenmeye Değer`: the market may work but message, product, technical readiness,
   partner, or ICP must narrow first.
-- `Denenmeye Degmez`: no reachable buyer, fatal compliance gap, weak proof, or unrealistic
+- `Denenmeye Değmez`: no reachable buyer, fatal compliance gap, weak proof, or unrealistic
   execution cost.
 
 ## Step 6: Localization And Trust Package

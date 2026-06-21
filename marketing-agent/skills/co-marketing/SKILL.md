@@ -287,4 +287,4 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md). Key tools
 - **referrals** — For customer referral and affiliate programs (customers referring customers)
 - **launch** — For product launches with partners; covers co-marketing as a "borrowed channel"
 - **content-strategy** — For content planning including co-created content
-- **sales-enablement** — For partner-facing collateral and enablement materials
+- **market-proposal** — For partner-facing proposals and collaboration materials
