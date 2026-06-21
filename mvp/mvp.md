@@ -34,8 +34,8 @@ MVP'nin ana fikri sudur:
 - Her fikir degerlendirmesi ve her proje ayri bir klasor, Codex root ve Codex thread olarak
   calisir.
 - Marketing Agent dosyalari degerlendirme ve proje workspace'lerine surumlu olarak kopyalanir.
-- Agent guncellemeleri merkezi release klasorunden script ile tum gecerli workspace'lere
-  dagitilir.
+- Agent guncellemeleri her workspace icinde `.pa/agent-install.json` kaydina gore, kullanici
+  onayli `check-update.ps1` ve `update-agent.ps1` akislariyla yapilir.
 
 Bu model asil deger onerisine odaklanir: marketing ekiplerinin teknik detaylarla
 ugrasmadan, telefon uzerinden yonlendirebildikleri Codex agent'lari ile PRD, analiz,
@@ -223,8 +223,8 @@ Analiz, rapor, PRD, icerik veya diger gercek calismalar her zaman ilgili degerle
 proje klasorunun icinde yeni bir Codex thread ile yapilir.
 
 Yalnizca Coder rolundeki kullanicinin kisisel `idea-workspace/` veya `projects/` klasoru olmaz.
-Coder, Project Pool'dan katildigi ve Drive erisimi kendisine manuel olarak verilen proje
-klasorunu kendi bilgisayarinda senkronize ederek calisir.
+Coder, ilk fazda manuel ekip karari ve Drive erisimiyle kendisine verilen proje klasorunu kendi
+bilgisayarinda senkronize ederek calisir. Project Pool uzerinden katilim Post-MVP tasarim notudur.
 
 ---
 
@@ -1387,7 +1387,7 @@ tercihleri korurken sistemin temel guvenlik ve tutarlilik kurallarinin bozulmasi
 > bolumleri ilk product fazi icin runtime gereksinimi degildir. Bu bolum ileriki web
 > app/PWA/central workflow/role/member notification tasarimi icin saklanir.
 
-## 10. Web App'in MVP'deki Rolu (Post-MVP Future Design Note)
+### 10. Web App'in Post-MVP Rolu
 
 > Post-MVP note: This subsection is future web app/PWA design. It is not a first-product-phase
 > runtime requirement.
@@ -1708,7 +1708,7 @@ yonetim kaydina yazilir.
 
 ---
 
-## 11. Drive Link Modeli (MVP)
+### 11. Post-MVP Drive Link Modeli
 
 Web app dosya yuklemez, Drive dosyalarini okumaz ve Google Drive izinlerini otomatik
 degistirmez. Gercek degerlendirme ve proje dosyalari Google Drive'da kalir. Web app yalnizca
@@ -1752,10 +1752,10 @@ Web app link hedefini sunucu tarafinda takip etmez, indirmez veya genel URL fetc
 yapmaz. Bu kural SSRF ve kimlik avi riskini azaltir. Link yeni sekmede `noopener` ve
 `noreferrer` guvenlikleriyle acilir.
 
-### Proje aktivasyon checklist'i
+### Post-MVP proje aktivasyon checklist'i
 
-Proje klasor linkinin eklenmesi tek basina projeyi `Aktif` yapmaz. Kayitli Drive host marketer
-proje `Drive Kurulumu Bekliyor` durumundayken su kosullari tamamlar:
+Post-MVP web app tasariminda proje klasor linkinin eklenmesi tek basina projeyi `Aktif` yapmaz.
+Kayitli Drive host marketer proje `Drive Kurulumu Bekliyor` durumundayken su kosullari tamamlar:
 
 ```text
 - [ ] create-project.ps1 dogru project_id ve idea_id ile basariyla tamamlandi.
@@ -1768,7 +1768,8 @@ proje `Drive Kurulumu Bekliyor` durumundayken su kosullari tamamlar:
 Kurallar:
 
 - Script basarisi ve Drive senkronizasyonu Drive host marketer'in acik onayiyla isaretlenir.
-- Scriptteki `project_id` web app Project Pool kaydiyla ayni olmalidir.
+- Post-MVP web app akisi kullaniliyorsa scriptteki `project_id` web app Project Pool kaydiyla
+  ayni olmalidir.
 - Klasor linki guvenli URL ve klasor turu kontrolunden gecmelidir.
 - GitHub reposu Drive'in yerine gecmez. Repo private olmali, buyuk medya/dokuman arsivleri,
   ham video, agir PDF ve gizli bilgiler GitHub'a pushlanmamalidir.
@@ -1892,7 +1893,7 @@ kaydedilir.
 
 ---
 
-## 12. Gunluk Kullanim Akislari
+### 12. Post-MVP Gunluk Kullanim Akislari
 
 ### Davet, ilk giris ve bildirim kurulumu
 
@@ -2007,8 +2008,8 @@ karari Project Pool kaydi veya proje workspace'i olusturmaz.
 ### Coder katilimi ve coding asamasina gecis
 
 ```text
-1. Coder Drive Kurulumu Bekliyor dahil, Yeniden Degerlendiriliyor veya Arsivlendi olmayan
-   projeye Project Pool'dan katilir.
+1. Post-MVP web app akisinda coder, Drive Kurulumu Bekliyor dahil, Yeniden Degerlendiriliyor
+   veya Arsivlendi olmayan projeye Project Pool'dan katilir.
 2. Uyelik ve aktivite kaydi olusturulur; coder Drive Erisimi Bekliyor durumunda baslar.
 3. Drive host marketer veya sistem sahibi yalnizca ilgili proje klasorunu coder ile Editor
    olarak paylasir.
@@ -2099,15 +2100,16 @@ manuel kaldirir ve web app'te onaylar. Coder'in gecmisi ve ciktilari korunur.
 
 ## 13. Nihai MVP Karari
 
-PersonalAutonomy MVP, fikirden pazarlama ve urun uygulamasina kadar olan ekip workflow'unu web
-app ile gorunur hale getiren; gercek calismayi Google Drive uzerindeki izole workspace'lerde
-Codex ve Marketing Agent ile yuruten hibrit bir sistemdir.
+PersonalAutonomy ilk product fazi, fikirden pazarlama ve urun uygulamasina kadar olan calismayi
+Codex App + Google Drive for desktop + onayli PowerShell create/install/update scriptleriyle
+yuruten workspace-first sistemdir. Web app/PWA, merkezi rol ekrani, Project Pool ve web tabanli
+workflow kaydi Post-MVP tasarim notudur; ilk product fazi icin runtime gereksinimi degildir.
 
 ### Kesin mimari
 
 ```text
 Koordinasyon ve workflow:
-  Mobil oncelikli PersonalAutonomy PWA
+  Codex thread'leri + workspace dosyalari + manuel ekip/Drive operasyon kararlari
 
 Gercek dosya sistemi:
   Google Drive + Google Drive for desktop
@@ -2116,16 +2118,14 @@ Calisma motoru:
   Kullanicinin bilgisayarindaki Codex App + Marketing Agent
 
 Mobil bildirim:
-  PWA Web Push + uygulama ici bildirim merkezi
+  Ilk fazda zorunlu degil; Post-MVP PWA/Web Push tasarim adayi
 
 Zaman standardi:
-  Veritabaninda UTC
-  Arayuz ve ISO haftalarda Europe/Istanbul
+  Workspace dosyalari, ISO hafta planlari ve agent operasyonu Europe/Istanbul
 
 Kullanici erisimi:
-  Yalnizca yonetici daveti ve dogrulanmis davet e-postasiyla
-  Roller: Marketer, Coder veya davetin izin verdigi ikisi birlikte
-  Yonetici: Yalnizca Burhan Kocak hesabinda sabit
+  Ilk fazda Google Drive paylasimi, yerel klasor erisimi ve manuel operasyon kararlari
+  Web app davet/rol ekrani Post-MVP tasarim adayi
 
 Kisisel Drive alani:
   Yalnizca Marketer rolundeki kullanicilar
@@ -2152,41 +2152,40 @@ Agent dagitimi:
 
 ### Baglayici fikir ve proje karari
 
-1. Her aktif kullanici Idea Pool'a fikir ekleyebilir; fikir degismez `idea_id` alir ve tum
-   aktif kullanicilara, islemi yapan dahil, bildirilir.
-2. Marketer her fikri kendi izole degerlendirme workspace'inde Marketing Agent ile inceler.
-   `create-evaluation.ps1` ayni marketer/fikir icin tek workspace olusturur.
-3. Degerlendirme sonucu `Denenmeye Deger` veya `Olumsuz` olur. Aciklama ve Drive raporu
-   istege baglidir; tum sonuclar web app'te herkes tarafindan okunabilir.
-4. Yonetici degerlendirmesi gorus kaydidir ve tek basina proje olusturmaz.
-5. Yalnizca marketer'in `Denenmeye Deger` karari, degismez `project_id` ile tek Project Pool
-   kaydi olusturur ve marketer'i esit yetkili proje uyesi ile Drive host yapar.
-6. Ayni fikir icin sonraki olumlu marketer'lar mevcut projeye katilir; ikinci proje olusmaz.
-7. Proje klasorunu yalnizca kayitli Drive host marketer, `create-project.ps1` ile
-   `project_id`, `idea_id`, proje adi ve host kimligini kullanarak olusturur.
-8. Proje; script basarisi, Drive senkronizasyonu ve canonical klasor linki onaylanmadan
-   `Aktif` olamaz.
-9. Coder, `Yeniden Degerlendiriliyor` veya `Arsivlendi` olmayan projeye katilabilir ve sadece
-   ilgili proje klasorune manuel Drive erisimi alir. Coder katilimi proje durumunu otomatik
-   olarak degistirmez; coding asamasina gecis aktivasyon sonrasinda acik islem gerektirir.
-10. Son olumlu marketer kalmadiginda proje silinmez; web app'te
-    `Yeniden Degerlendiriliyor` durumunda dondurulur. Drive konumu ve izinleri otomatik
-    degismez. Yeni olumlu marketer mevcut projeyi yeniden etkinlestirir.
+1. Fikir degerlendirmesi, marketer'in izole evaluation workspace'inde Marketing Agent ile yapilir.
+   `create-evaluation.ps1` evaluation workspace'ini olusturur; `idea_id` script tarafindan
+   uretilir veya script'e parametre olarak verilir.
+2. Degerlendirme sonucu ilk fazda `RAPOR.md`, `DURUM.md` ve gerekiyorsa `KARARLAR.md` icinde
+   tutulur. Web app'te merkezi sonuc okuma Post-MVP tasarim notudur.
+3. Bir fikir `Denenmeye Deger` veya `Revizyonla Denenmeye Deger` oldugunda proje workspace'i
+   yalnizca onayli `create-project.ps1` akisi ile olusturulur.
+4. `project_id`, `idea_id`, proje adi ve host bilgisi ilk fazda create script parametreleri,
+   state dosyalari ve proje root dosyalariyla izlenir. Project Pool ve merkezi uyelik kaydi
+   Post-MVP tasarim notudur.
+5. Proje klasoru Google Drive ile senkronize edilen ilgili `projects/` alaninda olusturulur ve
+   sonra ayri Codex root olarak acilir.
+6. Proje; script basarisi, workspace dosyalari, Drive senkronizasyonu ve gerekli manuel ekip
+   kararlarindan once `Aktif` sayilmaz.
+7. Coder veya ek marketer katilimi ilk fazda manuel Drive erisimi ve acik ekip karariyla
+   yurutulur. Coder katilimi proje durumunu otomatik olarak degistirmez.
+8. Fikir veya proje kararlari geri alinacaksa mevcut dosyalar silinmez; gerekce `KARARLAR.md`
+   ve operasyonel durum dosyalarinda izlenir.
 
 ### Drive sahipligi ve veri siniri
 
-- Google Drive gercek degerlendirme/proje dosyalari icin tek dogruluk kaynagidir.
+- Google Drive ve workspace dosyalari gercek degerlendirme/proje dosyalari icin tek dogruluk
+  kaynagidir.
 - Web app davet, rol, fikir, degerlendirme, proje, uyelik, durum, checklist, link, bildirim ve
-  degisiklik gecmisi icin tek dogruluk kaynagidir.
+  degisiklik gecmisi Post-MVP tasarim notudur.
 - Ham degerlendirme dosyalari marketer'in kisisel `idea-workspace/` alaninda kalir.
-- Istege bagli degerlendirme raporu marketer tarafindan Viewer olarak paylasilir; web app
-  yalnizca canonical linki saklar.
+- Istege bagli degerlendirme raporu marketer tarafindan Viewer olarak paylasilabilir; ilk fazda
+  canonical link web app'e yazilmak zorunda degildir.
 - Drive host rolu degerlendirme sonucu ve normal proje uyeliginden ayri sorumluluktur. Mevcut
   host veya Burhan Kocak, aktif olumlu marketer'a acik devir yapmadan host degismez.
-- Web app Drive dosyalarini okumaz, yuklemez, tasimaz, silmez, indirmez, yeniden yazmaz veya
-  izinlerini otomatik yonetmez.
-- Drive ile web app celisirse sistem sessizce varsayim yapmaz; ilgili kullaniciya uyari ve
-  acik duzeltme adimi sunar.
+- Ilk fazda web app runtime bulunmadigi icin Drive dosyalarini okuyan, yukleyen, tasiyan,
+  silen, indiren, yeniden yazan veya izinlerini otomatik yoneten web katmani yoktur.
+- Drive/workspace dosyalari ile herhangi bir manuel operasyon notu celisirse sistem sessizce
+  varsayim yapmaz; ilgili kullaniciya uyari ve acik duzeltme adimi sunar.
 
 ### Marketing calisma karari
 
@@ -2221,6 +2220,7 @@ kullaniciya bildirir. Harici aksiyon gerektiren gorevler kullanici tamamladigini
 MVP asamasinda:
 
 - acik kullanici kaydi yoktur,
+- web app/PWA runtime zorunlu degildir,
 - web app dosya yuklemez veya depolamaz,
 - Google Drive API, Google OAuth veya Google Picker kullanilmaz,
 - web app otomatik Drive klasoru olusturmaz,

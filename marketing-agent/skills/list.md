@@ -1,4 +1,4 @@
-# Marketing Agent — Agent ve Skill Listesi (v5.3.0)
+# Marketing Agent — Agent ve Skill Listesi (v5.4.2)
 
 Bu dosya `marketing-agent/agents/` altindaki tum agent'lari ve her agent'in
 `## Skills You Use` tablosunda bagli olan skill'leri ozetler.
@@ -85,7 +85,7 @@ uzman rolu veya yonlendirici olarak calisir:
 - `onboarding-guide` — Karsilama ve pazarlamaci profil alimi.
 - `schedule-coordinator` — Haftalik ve gunluk plan, Google Calendar senkronu.
 
-## Ozet (v5.3.0)
+## Ozet (v5.4.2)
 
 - 15 agent, 12'si skill baglantisina sahip.
 - 33 farkli upstream skill, 12 farkli local skill kullaniliyor (toplam 45 skill).
@@ -95,5 +95,8 @@ uzman rolu veya yonlendirici olarak calisir:
   (co-marketing, competitors, lead-magnets, offers, revops) eklendi.
 - v5.2.0 → v5.3.0: esnek calisma modlari, fikir degeri/marketer fit ayrimi,
   satis-modeli dogrulama birimleri ve semantik release kontrolleri eklendi.
+- v5.3.0 → v5.4.2: marketer ozgurlugu, yanlis klasorde 3 secenekli kurtarma,
+  ilk 10 dakika onboarding akisi, idea-value-first karar akisi, Post-MVP web app siniri,
+  fundraising/investor readiness yuzeyi ve workspace-local update kontrolleri netlestirildi.
 - 4 Codex-ozgu skill (seo-audit, competitor-profiling, ai-seo, aso) bu tur
   guncellenmedi; proje-ozgu Codex Evidence Rule bolumleri korundu.

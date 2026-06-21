@@ -158,9 +158,10 @@ workspace type and identity checks, select the workspace profile path:
 
 If the selected file exists and contains a usable `Profil durumu`, read it and do not repeat the
 full intake. Use the saved facts as context for user-advantage, channel, schedule, and execution
-recommendations. If the user explicitly says this is their first time, asks to be introduced to the
-system, asks the agent to learn them, or the selected profile file is missing during onboarding,
-run the intake once before the general workspace explanation.
+recommendations. If the user says this is their first time but a usable workspace profile already
+exists, treat the request as product onboarding, not as a reason to rerun the full intake. Run the
+intake only when the user explicitly asks the agent to learn/update them, the selected profile file
+is missing during onboarding, or a current decision truly needs missing profile facts.
 
 Ask in Turkish with one compact form. Collect only useful marketing context:
 

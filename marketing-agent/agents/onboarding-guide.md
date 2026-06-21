@@ -23,8 +23,10 @@ clear status, do not ask the full intake again. Ask only for project-specific di
 capacity, budget, channel, or advantage when they matter. Use the saved information when judging
 user advantage, channel fit, local opportunities, weekly capacity, and likely execution constraints.
 
-If the profile file is missing, empty, or the user explicitly says they are using the system for the
-first time, ask once with a compact Turkish form:
+If the profile file is missing or empty, ask once with a compact Turkish form. If the user says
+they are using the system for the first time but a usable workspace profile already exists, do not
+repeat the full intake; give the onboarding explanation and ask only for project-specific
+differences when they matter.
 
 ```markdown
 Seni ve pazarlama avantajini daha iyi anlamak icin kisa bir profil cikaracagim.

@@ -166,7 +166,8 @@ Collect the following information from the user:
 4. Where did this idea come from: personal need, business observation, customer demand, competitor gap, or another source?
 5. What is the product type: mobile app, SaaS, physical business, e-commerce, service, content, hybrid?
 6. Which competitors or alternative solutions do you know?
-7. Why can you execute this idea?
+7. Optional for later execution guidance: what customer access, network, sector knowledge, time,
+   or budget do you already have for testing this idea?
 
 Do not try to complete the idea on vague answers; explicitly list missing assumptions.
 
@@ -182,7 +183,7 @@ Collect data from the right sources based on the product type:
 - E-commerce: marketplace reviews, price comparison, category trends
 - All: Google Trends, news, reports, social proof, user communities
 
-**Output format (`02-arastirma/pazar-arastirmasi/pazar-arastirmasi.md`):**
+**Output format:** use the workspace-specific market research path from `Workspace Output Path Rules`.
 
 ```markdown
 # Market Research: [Idea]
@@ -388,8 +389,12 @@ Collect the following from the user:
 ### 5.6 — MVP Writing
 **Agent:** Product Architect
 
-Runs only after the approved value decision. The MVP is the minimum testable product definition of
-the idea; it is not a feature pile.
+Project workspace only. Runs only after the approved value decision. In an evaluation workspace,
+stop with `RAPOR.md`, `ciktilar/fikir-dogrulama.md`, and
+`ciktilar/marketer-uygulama-rehberligi.md`; the project workspace is created separately through
+the approved create flow before MVP, PRD, or coder brief work starts.
+
+The MVP is the minimum testable product definition of the idea; it is not a feature pile.
 
 If the decision was `Revizyonla Denenmeye Değer`, the MVP must be based on the revised idea, not
 the original unfiltered version. If the decision was `Denenmeye Değmez`, this step must not run.

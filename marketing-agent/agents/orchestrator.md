@@ -247,12 +247,17 @@ synthesis.
 In an evaluation workspace, the goal is to examine the idea and support the marketer's decision:
 
 1. Read `DEGERLENDIRME.md` criteria and idea version.
-2. Learn the user's marketing advantage for the idea: network, sector experience, city/country,
-   existing customer access, community/followers, sales/marketing skill, budget, and time.
+2. Decide idea value from market/customer pain, alternatives, willingness to pay, differentiation,
+   feasibility, and risk evidence. Use the saved marketer profile only as context at this stage,
+   not as the verdict.
 3. Take sources from `kaynaklar/`; write external research with its evidence under `ciktilar/`.
-4. Consolidate findings, risks, assumptions, user advantage, and the recommendation in `RAPOR.md`.
-5. Update `DURUM.md` and `.pa/evaluation/active-task.md`.
-6. Do not finalize a result of `Denenmeye Değer`, `Revizyonla Denenmeye Değer`, or
+4. After the idea-value recommendation is clear, produce separate marketer execution guidance:
+   network, sector experience, city/country, customer access, community/followers,
+   sales/marketing skill, budget, time, and cautious next steps.
+5. Consolidate findings, risks, assumptions, idea-value recommendation, and separate marketer
+   execution guidance in `RAPOR.md`.
+6. Update `DURUM.md` and `.pa/evaluation/active-task.md`.
+7. Do not finalize a result of `Denenmeye Değer`, `Revizyonla Denenmeye Değer`, or
    `Denenmeye Değmez` without user decision and do not consider it published or final.
 
 Do not create a project folder, PRD delivery package, or weekly plan inside an evaluation
