@@ -76,7 +76,7 @@ marketers/<isim>/.pa/marketer-profile.md
   -TargetRoot "...\PersonalAutonomy\marketers\ayse\idea-workspace\ornek-fikir" `
   -Title "Ornek Fikir" `
   -RepoUrl "<GITHUB_REPO_URL>" `
-  -Version latest
+  -Version v5.4.2
 ```
 
 - [ ] Script basari mesajinda `Path` ve `idea_id` degerlerini kontrol et.
@@ -108,7 +108,7 @@ Merhaba, ilk kez kullanıyorum. Bu fikri Marketing Agent ile değerlendirmek ist
   -Title "Ornek Proje" `
   -IdeaId "<evaluation idea_id>" `
   -RepoUrl "<GITHUB_REPO_URL>" `
-  -Version latest
+  -Version v5.4.2
 ```
 
 - [ ] Script basari mesajinda `project_id` ve `idea_id` degerlerini kontrol et.
