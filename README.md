@@ -83,9 +83,9 @@ Projects/<ad>/
     │   └── settings.json
     └── agent/                   # Sürümlü agent paketi
         ├── AGENTS.md
-        ├── agents/              # 15 uzman rol
-        ├── pipelines/           # 16 çok adımlı iş akışı
-        ├── skills/              # 45 yerel pazarlama becerisi
+        ├── agents/              # 15 agent
+        ├── pipelines/           # 16 çok adımlı pipeline
+        ├── skills/              # 45 yerel marketing skill
         └── scripts/             # Güncelleme, sağlık kontrolü, araçlar
 ```
 
@@ -106,45 +106,44 @@ zamanı davranışı için. Çelişkiler sessizce çözülmez; kullanıcıya gö
 
 ## Agent Yetenekleri
 
-### 15 Uzman Rol
-Orkestratör, pazar gözcüsü, strateji analisti, ürün mimarı, kampanya yöneticisi,
-içerik üretici, büyüme korsanı, lansman komutanı, analitik ustası, marka koruyucusu,
-outreach uzmanı, pazar genişleme danışmanı, takvim koordinatörü, yatırımcı hazırlık
-danışmanı ve daha fazlası.
+### 15 Agent
+Orchestrator, Market Scout, Strategy Analyst, Product Architect, Campaign Manager,
+Content Creator, Growth Hacker, Launch Commander, Analytics Master, Brand Guardian,
+Outreach Specialist, Market Expansion Advisor, Schedule Coordinator, Investor Readiness
+Advisor ve daha fazlası.
 
 ### 16 Pipeline
-Fikirden PRD'ye, fikir keşfi, rakip atağı/açığı, şikâyet madenciliği, içerik makinesi,
-fon toplama hazırlığı, büyüme motoru, MVP lansmanı, outbound satış, mağaza istihbaratı,
-trendden ürüne ve daha fazlası.
+idea-to-PRD, idea-discovery, competitor-attack/gap, complaint-mining, content-machine,
+fundraising-readiness, growth-engine, MVP-launch, outbound-sales, store-intelligence,
+trend-to-product ve daha fazlası.
 
-### 45 Beceri
-Ürün pazarlama, rakip profilleme, SEO/ASO, metin yazarlığı, reklam, fiyatlandırma,
-yatırımcı dokümanları, cold email, topluluk pazarlaması, tavsiye sistemleri, churn
-önleme, analitik, raporlama ve daha fazlası.
+### 45 Skill
+product-marketing, competitor-profiling, SEO/ASO, copywriting, ads, pricing,
+investor-documents, cold-email, community-marketing, referrals, churn-prevention,
+analytics, reporting ve daha fazlası.
 
-### 14 Beceri Zinciri
-B2B outbound, fon toplama hazırlığı, fikir keşfi, içerik yayınlama, büyüme deneyleri
-gibi uçtan uca senaryolar.
+### 14 Skill Chain
+B2B outbound, fundraising readiness, idea discovery, content publishing, growth
+experimentation gibi uçtan uca senaryolar.
 
-Tüm beceri ve pipeline'lar **Kaynak ve Kanıt Defteri** ile **Veri İşleme Notları**
+Tüm skill ve pipeline'lar **Kaynak ve Kanıt Defteri** ile **Veri İşleme Notları**
 eşliğinde, kanıta dayalı çıktı üretir.
 
 ---
 
 ## Kurulum
 
-```powershell
-# Repoyu geçici konuma klonla
-git clone <repo-url> temp-personalautonomy
+Marketer'ların sistemi nasıl kuracağı ve kullanacağı adım adım
+[REHBER.md](REHBER.md) dosyasında anlatılmaktadır. Özet akış:
 
-# Mevcut bir proje workspace'ine kur
-powershell -ExecutionPolicy Bypass -File temp-personalautonomy\scripts\install-marketing-agent.ps1 `
-    -RepoUrl <repo-url> -Version latest
-
-# Sıfırdan yeni proje workspace'i oluştur
-powershell -ExecutionPolicy Bypass -File temp-personalautonomy\scripts\create-project.ps1 `
-    -ProjectName "proje-adım" -ProjectsRoot "C:\Users\...\Projects"
-```
+1. Google Drive ile senkronize bir `Projects/` ana klasörü oluşturulur.
+2. Codex App'te `Projects/` kök olarak açılır.
+3. GitHub repo linki ile onboarding prompt'u verilir — Codex resmi installer
+   script'leri (`install-marketing-agent.ps1`, `create-project.ps1`) kullanarak
+   kurulumu ve proje oluşturmayı yönetir.
+4. Plugin kontrolü, marketer profili toplama ve ilk proje oluşturma tamamlanır.
+5. Oluşturulan `Projects/<proje-adı>/` klasörü yeni Codex workspace olarak açılır
+   ve tüm çalışma burada yürütülür.
 
 Installer, hedefin geçerli bir proje workspace'i olduğunu (`PROJE.md` +
 `.pa/project/state.json` kimlik eşleşmesi) doğrular, agent paketini atomik
@@ -196,13 +195,13 @@ powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_workspac
 |-------|------|
 | `mvp/mvp.md` | Yetkili mimari sözleşme — workspace modeli, Drive modeli, kapsam kararları |
 | `marketing-agent/AGENTS.md` | Çalışma zamanı davranışı — sınırlar, çalışma modları, başlangıç sırası, kapanış kuralları |
-| `marketing-agent/ARCHITECTURE.md` | Mimari plan — paket/workspace ayrımı, uzman/beceri modelleri |
-| `marketing-agent/SKILLS.md` | Tam beceri kataloğu — çıktı yolları, zincirler ve uzman atamaları |
+| `marketing-agent/ARCHITECTURE.md` | Mimari plan — paket/workspace ayrımı, agent/skill modelleri |
+| `marketing-agent/SKILLS.md` | Tam skill kataloğu — çıktı yolları, chain'ler ve agent atamaları |
 | `marketing-agent/release-manifest.json` | Paketteki her dosya için SHA-256 bütünlük kaydı |
 | `marketing-agent/agent-version.json` | Semantik sürüm + çalışma zamanı + MVP sözleşme tarihi |
 | `scripts/install-marketing-agent.ps1` | Doğrulanmış, atomik agent kurulum betiği |
 | `scripts/create-project.ps1` | Kimlik üretimi ve iskelet oluşturma ile tam workspace fabrikası |
-| `REHBER.md` | Türkçe son kullanıcı onboarding rehberi |
+| `REHBER.md` | Türkçe son kullanıcı onboarding ve kurulum rehberi |
 
 ---
 
