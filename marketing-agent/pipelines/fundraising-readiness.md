@@ -12,9 +12,9 @@ Investor Update, Board Deck, Business Plan, Pipeline Report, or Cohort Analysis.
 decisions into consistent investor-ready working documents, then copy only user-approved final
 versions into `10-final/yatirimci/`.
 
-**Prerequisite:** Project workspace for full fundraising documents. In evaluation workspaces,
-produce only readiness notes, risk lists, and preliminary assessment under `ciktilar/` and
-`RAPOR.md`.
+**Prerequisite:** Project workspace for all fundraising documents. In early idea-evaluation mode,
+produce only readiness notes, risk lists, and preliminary assessment under `02-arastirma/fikir-degerlendirme/` and
+`03-strateji/dogrulama/fikir-dogrulama.md`.
 
 ---
 
@@ -220,7 +220,7 @@ approval. Preserve working copies.
 
 - Main project output areas: `08-raporlar/yatirimci/`, `08-raporlar/finansal/`, and approved
   final copies under `10-final/yatirimci/`.
-- In evaluation workspaces, write preliminary readiness assessment under `ciktilar/` and do not
+- In project idea-evaluation mode, write preliminary readiness assessment under `02-arastirma/fikir-degerlendirme/` and do not
   create project-only folders.
 - Raw uploaded sources remain under `00-gelen-kutusu/yuklemeler/`; normalized tables and analysis
   are separate working files.

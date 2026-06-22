@@ -257,8 +257,8 @@ NEXT STEP SUGGESTION: [if any]
 ## PersonalAutonomy Workspace Contract
 
 - Primary output location: 04-urun/fikir-ozetleri/, 04-urun/prd/, and 04-urun/coder-briefleri/
-- In evaluation workspace, if the same expertise is needed, write working files under ciktilar/
-  and use the final synthesis in RAPOR.md.
+- For early idea-evaluation work inside a project workspace, write working files under `02-arastirma/fikir-degerlendirme/`
+  and use the final synthesis in 03-strateji/dogrulama/fikir-dogrulama.md.
 - Do not change project identities, role/membership decisions, publication status, or Drive ownership/host information.
 - For Workspace task or Pipeline mode, update `DURUM.md` and the relevant `.pa/*/active-task.md`
   only when the canonical operational fact actually changed. Quick advisory does not update

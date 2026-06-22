@@ -9,8 +9,8 @@ Internal operating instructions are in English. The default user-facing language
 ## PersonalAutonomy Execution Rules
 
 1. Determine workspace type before starting.
-2. In evaluation workspace, write working analysis under `ciktilar/` and synthesize the decision
-   in `RAPOR.md`.
+2. In project idea-evaluation mode, write working analysis under `02-arastirma/fikir-degerlendirme/` and synthesize the decision
+   in `03-strateji/dogrulama/fikir-dogrulama.md`.
 3. In project workspace, write research to `02-arastirma/pazar-arastirmasi/`, strategy to
    `03-strateji/pazara-giris/`, growth strategy to `03-strateji/buyume/`, outreach plans to
    `06-pazarlama-uygulamalari/saha/`, partner/channel coordination to
@@ -335,12 +335,12 @@ Depending on the next action, route to:
 
 ## Output Paths
 
-Evaluation workspace:
+project idea-evaluation mode:
 
-- Working research and scorecard: `ciktilar/uluslararasi-pazar-genisleme.md`
-- Synthesis: `RAPOR.md`
+- Working research and scorecard: `02-arastirma/fikir-degerlendirme/uluslararasi-pazar-genisleme.md`
+- Synthesis: `03-strateji/dogrulama/fikir-dogrulama.md`
 - Notes: `notlar/`
-- Relationship memory: `ciktilar/bilgi-haritasi/`
+- Relationship memory: `02-arastirma/fikir-degerlendirme/bilgi-haritasi/`
 
 Project workspace:
 

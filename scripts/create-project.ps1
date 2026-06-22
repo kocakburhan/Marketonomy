@@ -65,16 +65,14 @@ function Get-MarketerRootProfilePath([string]$Target) {
     $parent = Split-Path -Parent $resolvedTarget
     if (-not $parent) { return $null }
 
-    $parentName = Split-Path -Leaf $parent
-    $marketerRoot = if ($parentName -in @("idea-workspace", "projects")) {
-        Split-Path -Parent $parent
-    } else {
-        $parent
+    $current = $parent
+    while ($current) {
+        $profilePath = Join-Path $current ".pa\marketer-profile.md"
+        if (Test-Path -LiteralPath $profilePath) { return $profilePath }
+        $next = Split-Path -Parent $current
+        if (-not $next -or $next -eq $current) { break }
+        $current = $next
     }
-    if (-not $marketerRoot) { return $null }
-
-    $profilePath = Join-Path $marketerRoot ".pa\marketer-profile.md"
-    if (Test-Path -LiteralPath $profilePath) { return $profilePath }
     return $null
 }
 
@@ -97,7 +95,19 @@ foreach ($folder in @(
     "00-gelen-kutusu",
     "01-baglam",
     "02-arastirma",
+    "02-arastirma\fikir-degerlendirme",
+    "02-arastirma\pazar-arastirmasi",
+    "02-arastirma\rakip-arastirmasi",
+    "02-arastirma\musteri-arastirmasi",
+    "02-arastirma\trend-arastirmasi",
+    "02-arastirma\store-intelligence\raw",
+    "02-arastirma\store-intelligence\snapshots",
     "03-strateji",
+    "03-strateji\dogrulama",
+    "03-strateji\konumlandirma",
+    "03-strateji\fiyatlandirma",
+    "03-strateji\pazara-giris",
+    "03-strateji\buyume",
     "04-urun",
     "05-haftalik-planlar",
     "06-pazarlama-uygulamalari\dijital",
@@ -118,7 +128,19 @@ $gitkeepFolders = @(
     "00-gelen-kutusu",
     "01-baglam",
     "02-arastirma",
+    "02-arastirma\fikir-degerlendirme",
+    "02-arastirma\pazar-arastirmasi",
+    "02-arastirma\rakip-arastirmasi",
+    "02-arastirma\musteri-arastirmasi",
+    "02-arastirma\trend-arastirmasi",
+    "02-arastirma\store-intelligence\raw",
+    "02-arastirma\store-intelligence\snapshots",
     "03-strateji",
+    "03-strateji\dogrulama",
+    "03-strateji\konumlandirma",
+    "03-strateji\fiyatlandirma",
+    "03-strateji\pazara-giris",
+    "03-strateji\buyume",
     "04-urun",
     "06-pazarlama-uygulamalari\dijital",
     "06-pazarlama-uygulamalari\saha",
@@ -144,6 +166,13 @@ idea_id: $IdeaId
 - Durum: Yeni proje workspace'i
 - Olusturma tarihi: $($now.ToString("yyyy-MM-dd"))
 - Olusturma akisi: approved create flow, Codex + Google Drive first
+
+## Fikir Degerlendirme Modu
+Bu workspace tek proje calisma alanidir. Fikir ayri bir calisma klasorune tasinmaz.
+Kullanici isterse ilk is olarak fikir burada acimasizca degerlendirilir; arastirma ve karar
+izleri `02-arastirma/fikir-degerlendirme/`, `03-strateji/dogrulama/`, `KARARLAR.md` ve
+`DURUM.md` icinde tutulur. Fikir denenmeye degmezse proje dosyalari silinmez; gerekce ve sonraki
+secenekler kayda gecirilir.
 
 "@
 

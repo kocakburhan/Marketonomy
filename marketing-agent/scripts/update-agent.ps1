@@ -48,42 +48,25 @@ function Assert-WorkspaceIdentity(
 function Assert-ValidTargetWorkspace([string]$Root) {
     $projectDocument = Join-Path $Root "PROJE.md"
     $projectStatePath = Join-Path $Root ".pa\project\state.json"
-    $evaluationDocument = Join-Path $Root "DEGERLENDIRME.md"
-    $evaluationStatePath = Join-Path $Root ".pa\evaluation\state.json"
 
     $hasProjectDocument = Test-Path -LiteralPath $projectDocument
     $hasProjectState = Test-Path -LiteralPath $projectStatePath
-    $hasEvaluationDocument = Test-Path -LiteralPath $evaluationDocument
-    $hasEvaluationState = Test-Path -LiteralPath $evaluationStatePath
-    $hasAnyProjectMarker = $hasProjectDocument -or $hasProjectState
-    $hasAnyEvaluationMarker = $hasEvaluationDocument -or $hasEvaluationState
 
-    if ($hasAnyProjectMarker -and $hasAnyEvaluationMarker) {
-        throw "Hedef project ve evaluation isaretlerini birlikte iceremez."
+    if ((Test-Path -LiteralPath (Join-Path $Root "DEGERLENDIRME.md")) -or
+        (Test-Path -LiteralPath (Join-Path $Root ".pa\evaluation"))) {
+        throw "Ayrik evaluation workspace modeli kaldirildi. Hedef tek tip proje workspace'i olmali."
     }
     if ($hasProjectDocument -ne $hasProjectState) {
         throw "Project workspace eksik: PROJE.md ve .pa/project/state.json birlikte bulunmali."
     }
-    if ($hasEvaluationDocument -ne $hasEvaluationState) {
-        throw "Evaluation workspace eksik: DEGERLENDIRME.md ve .pa/evaluation/state.json birlikte bulunmali."
-    }
-
-    $hasProject = $hasProjectDocument -and $hasProjectState
-    $hasEvaluation = $hasEvaluationDocument -and $hasEvaluationState
-    if (-not $hasProject -and -not $hasEvaluation) {
-        throw "Hedef tam olarak bir gecerli PersonalAutonomy workspace turu olmali: PROJE.md + .pa/project/state.json veya DEGERLENDIRME.md + .pa/evaluation/state.json."
+    if (-not ($hasProjectDocument -and $hasProjectState)) {
+        throw "Hedef gecerli PersonalAutonomy proje workspace'i olmali: PROJE.md + .pa/project/state.json."
     }
 
     try {
-        if ($hasProject) {
-            $state = Read-Utf8 $projectStatePath | ConvertFrom-Json
-            Assert-WorkspaceIdentity -DocumentPath $projectDocument -State $state `
-                -IdentityFields @("project_id", "idea_id") -WorkspaceType "Project workspace"
-        } else {
-            $state = Read-Utf8 $evaluationStatePath | ConvertFrom-Json
-            Assert-WorkspaceIdentity -DocumentPath $evaluationDocument -State $state `
-                -IdentityFields @("idea_id") -WorkspaceType "Evaluation workspace"
-        }
+        $state = Read-Utf8 $projectStatePath | ConvertFrom-Json
+        Assert-WorkspaceIdentity -DocumentPath $projectDocument -State $state `
+            -IdentityFields @("project_id", "idea_id") -WorkspaceType "Project workspace"
     } catch {
         throw "Hedef workspace dogrulanamadi: $($_.Exception.Message)"
     }
@@ -319,7 +302,7 @@ try {
         Write-Output "Hedef workspace: $root"
         Write-Output "Eski surum: $currentVersion"
         Write-Output "Yeni surum: $sourceVersion"
-        Write-Output "Korunan alanlar: proje dosyalari ve .pa/project veya .pa/evaluation"
+        Write-Output "Korunan alanlar: proje dosyalari ve .pa/project"
     } catch {
         if (Test-Path -LiteralPath $staging) {
             Remove-Item -LiteralPath $staging -Recurse -Force

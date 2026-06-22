@@ -9,9 +9,7 @@ and if valuable, convert it to MVP and PRD.
 evidence, differentiation, revenue potential, feasibility, and MVP cost. Only if a "worth it" decision emerges,
 produce first the MVP document, then the PRD and coder brief based on this MVP.
 
-**Prerequisite:** The user must have a concrete idea. In a project workspace, `PROJE.md` and the relevant
-`01-baglam/` files must be created. If working in an evaluation workspace, this pipeline does not produce
-a PRD; the decision report stays under `RAPOR.md` and `ciktilar/`.
+**Prerequisite:** The user must have a concrete idea and be working inside a project workspace with `PROJE.md` and `.pa/project/state.json`. The pipeline may start as pure idea evaluation inside the project; MVP, PRD, and coder brief are produced only after the user approves the decision direction.
 
 Internal operating instructions are in English. The default user-facing language is Turkish.
 
@@ -98,32 +96,11 @@ User: "I have an idea"
 
 ## Workspace Output Path Rules
 
-### Evaluation Workspace Output Paths
-
-In an evaluation workspace, this pipeline is only an idea-value decision process. It must not
-write project folders, MVP final documents, PRDs, coder briefs, launch plans, or weekly project
-plans.
-
-Use these paths:
+### Project Workspace Output Paths`r`n`r`nUse these paths inside the project workspace:
 
 | Output | Path |
 |---|---|
-| Market and competitor research | `ciktilar/pazar-arastirmasi.md` |
-| Idea value decision | `ciktilar/fikir-dogrulama.md` |
-| Marketer execution guidance | `ciktilar/marketer-uygulama-rehberligi.md` |
-| Publishable working decision report | `RAPOR.md` |
-| Operational status | `DURUM.md` and `.pa/evaluation/active-task.md` |
-
-If the idea is approved as `Denenmeye Değer` or `Revizyonla Denenmeye Değer`, the project
-workspace is created separately through the approved create flow.
-
-### Project Workspace Output Paths
-
-In a project workspace, use these paths after the idea-value decision is approved:
-
-| Output | Path |
-|---|---|
-| Market and competitor research | `02-arastirma/pazar-arastirmasi.md` |
+| Idea-evaluation evidence | `02-arastirma/fikir-degerlendirme/` |`r`n| Market and competitor research | `02-arastirma/fikir-degerlendirme/pazar-rakip-kanitlari.md` |
 | Idea value decision | `03-strateji/dogrulama/fikir-dogrulama.md` |
 | Marketer execution guidance | `03-strateji/dogrulama/marketer-uygulama-rehberligi.md` |
 | MVP | `04-urun/fikir-ozetleri/mvp.md` |
@@ -389,10 +366,9 @@ Collect the following from the user:
 ### 5.6 — MVP Writing
 **Agent:** Product Architect
 
-Project workspace only. Runs only after the approved value decision. In an evaluation workspace,
-stop with `RAPOR.md`, `ciktilar/fikir-dogrulama.md`, and
-`ciktilar/marketer-uygulama-rehberligi.md`; the project workspace is created separately through
-the approved create flow before MVP, PRD, or coder brief work starts.
+Project workspace only.
+
+Runs only after the approved value decision inside the same project workspace. If the decision is not worth trying, stop with `03-strateji/dogrulama/fikir-dogrulama.md`, record the reason in `KARARLAR.md`, and do not produce MVP, PRD, or coder brief.
 
 The MVP is the minimum testable product definition of the idea; it is not a feature pile.
 
@@ -470,21 +446,9 @@ The coder can read these files and extract the technical plan and implementation
 
 ## Output Files
 
-### Evaluation Workspace
-
-| File | Produced By | Description |
+### Project Workspace`r`n`r`n| File | Produced By | Description |
 |-------|--------|----------|
-| `ciktilar/pazar-arastirmasi.md` | Market Scout | Competitor, trend, customer signal |
-| `ciktilar/fikir-dogrulama.md` | Strategy Analyst | Hard score, risk, and decision |
-| `ciktilar/marketer-uygulama-rehberligi.md` | Orchestrator | Marketer execution guidance, not verdict |
-| `RAPOR.md` | Orchestrator | Publishable working decision report |
-| `DURUM.md` and `.pa/evaluation/active-task.md` | Orchestrator | Operational status |
-
-### Project Workspace
-
-| File | Produced By | Description |
-|-------|--------|----------|
-| `02-arastirma/pazar-arastirmasi.md` | Market Scout | Competitor, trend, customer signal |
+| `02-arastirma/fikir-degerlendirme/pazar-rakip-kanitlari.md` | Market Scout | Competitor, trend, customer signal |
 | `03-strateji/dogrulama/fikir-dogrulama.md` | Strategy Analyst | Hard score, risk, and decision |
 | `03-strateji/dogrulama/marketer-uygulama-rehberligi.md` | Orchestrator | Marketer execution guidance, not verdict |
 | `04-urun/fikir-ozetleri/mvp.md` | Product Architect | Approved MVP definition |
@@ -498,11 +462,9 @@ The coder can read these files and extract the technical plan and implementation
 
 - Main output areas: 02-arastirma/, 03-strateji/dogrulama/, and 04-urun/
 - The pipeline does not create its own project or status folder. It keeps the active step in
-  DURUM.md and the relevant .pa/*/active-task.md file.
-- In an evaluation workspace, it does not apply project-only steps; it does not interpret a positive
-  result as authorization to create a project.
-- In an evaluation workspace, do not produce MVP, PRD, and coder brief as final delivery; these are
-  written in a project workspace after the approved value decision.
+  `DURUM.md` and `.pa/project/active-task.md`.
+- Idea evaluation, validation, MVP, PRD, and coder brief all stay inside the same project workspace.
+- Do not produce MVP, PRD, or coder brief until the idea-value decision and MVP direction are approved by the user.
 - In a project, PROJE.md, relevant 01-baglam/ files, and KARARLAR.md are prerequisites.
 - Record claims requiring current data with source and access date; if data is missing, explicitly
   label the assumption.

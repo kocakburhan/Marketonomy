@@ -90,9 +90,7 @@ foreach ($entry in $forbiddenPatterns.GetEnumerator()) {
 
 $agentsPath = Join-Path $AgentRoot "AGENTS.md"
 foreach ($requiredText in @(
-    "DEGERLENDIRME.md",
     "PROJE.md",
-    ".pa/evaluation/state.json",
     ".pa/project/state.json",
     "Europe/Istanbul",
     "05-haftalik-planlar",
@@ -103,7 +101,6 @@ foreach ($requiredText in @(
     "Active Codex Skill Gate",
     "Marketer Profile Intake",
     ".pa/project/marketer-profile.md",
-    ".pa/evaluation/marketer-profile.md",
     "Kocak sadakatini takdir ediyor.",
     "Default user-facing language is Turkish",
     "Kaynak ve Kanit Defteri",
@@ -149,7 +146,6 @@ Assert-Text (Join-Path $AgentRoot "AGENTS.md") "LLM-Wiki Search And Recall Workf
 Assert-Text (Join-Path $AgentRoot "ARCHITECTURE.md") "LLM-wiki output memory layer" "LLM-wiki mimari katmani eksik"
 Assert-Text (Join-Path $AgentRoot "SKILLS.md") "Output Relationship Memory" "Skill katalogu output relationship memory notu eksik"
 Assert-Text (Join-Path $AgentRoot "ARCHITECTURE.md") "Codex + Google Drive first" "Drive-first mimari sozlesmesi eksik"
-Assert-Text (Join-Path $AgentRoot "QUICKSTART.md") "create-evaluation.ps1" "Quickstart evaluation create akisi eksik"
 Assert-Text (Join-Path $AgentRoot "QUICKSTART.md") "create-project.ps1" "Quickstart project create akisi eksik"
 
 $behaviorContracts = @(
@@ -164,8 +160,8 @@ foreach ($contract in $behaviorContracts) {
     }
 }
 
-Assert-Text (Join-Path $AgentRoot "pipelines\idea-to-prd.md") "Evaluation Workspace Output Paths" "Idea-to-PRD evaluation path ayrimi eksik"
-Assert-Text (Join-Path $AgentRoot "pipelines\idea-to-prd.md") "Project Workspace Output Paths" "Idea-to-PRD project path ayrimi eksik"
+Assert-Text (Join-Path $AgentRoot "pipelines\idea-to-prd.md") "Project Workspace Output Paths" "Idea-to-PRD project path sozlesmesi eksik"
+Assert-Text (Join-Path $AgentRoot "pipelines\idea-to-prd.md") "fikir-degerlendirme" "Idea-to-PRD proje ici fikir degerlendirme yolu eksik"
 Assert-Text (Join-Path $AgentRoot "pipelines\idea-to-prd.md") "Marketer Fit Guidance is not the idea-value verdict" "Marketer fit verdict ayrimi eksik"
 
 foreach ($dayFile in @("pazartesi.md", "sali.md", "carsamba.md", "persembe.md", "cuma.md", "cumartesi.md", "pazar.md")) {
@@ -179,20 +175,23 @@ foreach ($specialistFile in Get-ChildItem -LiteralPath (Join-Path $AgentRoot "ag
 
 $repoRoot = Split-Path -Parent $AgentRoot
 $mvpPath = Join-Path $repoRoot "mvp\mvp.md"
-$createEvaluationPath = Join-Path $repoRoot "scripts\create-evaluation.ps1"
 $createProjectPath = Join-Path $repoRoot "scripts\create-project.ps1"
-if (Test-Path -LiteralPath $createEvaluationPath) {
-    Assert-Text $createEvaluationPath "Get-MarketerRootProfilePath" "create-evaluation.ps1 marketer root profil auto-copy eksik"
-    Assert-Text $createEvaluationPath ".pa\marketer-profile.md" "create-evaluation.ps1 marketer root profil yolu eksik"
+if (Test-Path -LiteralPath (Join-Path $repoRoot "scripts\create-evaluation.ps1")) {
+    Add-Failure "create-evaluation.ps1 kaldirilmali; fikir degerlendirme proje ici moddur."
 }
 if (Test-Path -LiteralPath $createProjectPath) {
     Assert-Text $createProjectPath "Get-MarketerRootProfilePath" "create-project.ps1 marketer root profil auto-copy eksik"
     Assert-Text $createProjectPath ".pa\marketer-profile.md" "create-project.ps1 marketer root profil yolu eksik"
+    Assert-Text $createProjectPath "Fikir Degerlendirme Modu" "create-project.ps1 fikir degerlendirme modunu proje icine yazmiyor"
+    Assert-Text $createProjectPath "02-arastirma\fikir-degerlendirme" "create-project.ps1 proje ici fikir degerlendirme klasoru olusturmuyor"
     Assert-Text $createProjectPath ".gitkeep" "create-project.ps1 bos klasor .gitkeep korumasi eksik"
     Assert-Text $createProjectPath "Proje baglami tamamlaniyor" "create-project.ps1 mvp baslangic durumunu yazmiyor"
     Assert-Text $createProjectPath "Baslangic gorevi yok" "create-project.ps1 bos haftalik plan sozlesmesi eksik"
 }
 if (Test-Path -LiteralPath $mvpPath) {
+    Assert-NoText $mvpPath "idea-workspace" "mvp.md eski idea-workspace modelini icermemeli"
+    Assert-NoText $mvpPath "create-evaluation.ps1" "mvp.md eski create-evaluation akisini icermemeli"
+    Assert-NoText $mvpPath ".pa/evaluation" "mvp.md eski .pa/evaluation modelini icermemeli"
     Assert-NoText $mvpPath "web app'in degismez ``idea_id``" "mvp.md ilk fazda web app idea_id ifadesi kalmis"
     Assert-NoText $mvpPath "Degerlendirme sonucu, istege bagli aciklama ve istege bagli rapor linki web app'e yazilir" "mvp.md web app sonuc yazma ifadesi kalmis"
     Assert-NoText $mvpPath "Ilgili haftalik gorev yalnizca kullanici tamamlanma onayindan sonra kapatilir" "mvp.md eski haftalik kapanis kurali kalmis"

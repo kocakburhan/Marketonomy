@@ -27,8 +27,7 @@ rule is always the MVP File-System Mastery in `.pa/agent/AGENTS.md` and the fold
 
 When the main agent runs a skill, it first determines the workspace type:
 
-- In an evaluation workspace, skill outputs are not written outside `kaynaklar/`, `ciktilar/`,
-  `RAPOR.md`, `DURUM.md`, and `.pa/evaluation/`.
+- In project idea-evaluation mode, skill outputs stay inside the project workspace, especially `02-arastirma/fikir-degerlendirme/`, `03-strateji/dogrulama/`, `DURUM.md`, and `KARARLAR.md`.
 - In a project workspace, raw inputs are preserved inside `00-gelen-kutusu/`; processed outputs
   are written to one of the numbered folders according to the context, research, strategy,
   product, execution, launch, report, asset, final, or archive type.
@@ -47,7 +46,7 @@ MVP/PRD, main campaign plan, final report, final-delivery, decision-changing, or
 Markdown, the main agent
 also updates the LLM-wiki style `bilgi-haritasi` for the active workspace:
 
-- Evaluation workspace: `ciktilar/bilgi-haritasi/index.md` and `ciktilar/bilgi-haritasi/log.md`
+- project idea-evaluation mode: `02-arastirma/fikir-degerlendirme/bilgi-haritasi/index.md` and `02-arastirma/fikir-degerlendirme/bilgi-haritasi/log.md`
 - Project workspace: `11-notlar/bilgi-haritasi/index.md` and `11-notlar/bilgi-haritasi/log.md`
 
 The map links source evidence, related outputs, decisions, next use, and contradictions. It must
@@ -152,8 +151,7 @@ project folder and file names remain as they are.
 | Competitor strategy | `web-research` -> `competitor-profiling` -> `market-competitors` -> `marketing-psychology` |
 | Hybrid campaign | `marketing-plan` -> `social` -> `ads` -> `copywriting` -> `market-report` |
 
-In an evaluation workspace, `ciktilar/` is used in place of these output paths and the synthesis
-is written to `RAPOR.md`. `10-final/` is only for explicitly approved project deliveries.
+In project idea-evaluation mode, use `02-arastirma/fikir-degerlendirme/` before downstream outputs and the synthesis is written to `03-strateji/dogrulama/fikir-dogrulama.md`. `10-final/` is only for explicitly approved project deliveries.
 
 ## Specialist Roles And Plugin Capabilities
 

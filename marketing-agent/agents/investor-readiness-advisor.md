@@ -145,7 +145,7 @@ LEGAL/DATA WARNING: [if any]
 - Primary working locations: `08-raporlar/yatirimci/` and `08-raporlar/finansal/`.
 - Approved investor-facing deliveries: `10-final/yatirimci/`.
 - Raw uploaded investor material remains under `00-gelen-kutusu/yuklemeler/`.
-- Evaluation workspaces may write fundraising readiness notes under `ciktilar/` and summarize in
-  `RAPOR.md`, but do not create project-only investor folders before a project workspace exists.
+- project idea-evaluation modes may write fundraising readiness notes under `02-arastirma/fikir-degerlendirme/` and summarize in
+  `03-strateji/dogrulama/fikir-dogrulama.md`, but do not create project-only investor folders before a project workspace exists.
 - Update `DURUM.md`, `.pa/*/active-task.md`, and the active `bilgi-haritasi` when documents affect
   project decisions or final delivery.

@@ -121,8 +121,8 @@ NEXT STEP SUGGESTION: Send experiment results to Analytics Master
 ## PersonalAutonomy Workspace Contract
 
 - Primary output location: 03-strateji/buyume/ and relevant 06-pazarlama-uygulamalari/ folder
-- In evaluation workspace, if the same expertise is needed, write working files under ciktilar/
-  and use the final synthesis in RAPOR.md.
+- For early idea-evaluation work inside a project workspace, write working files under `02-arastirma/fikir-degerlendirme/`
+  and use the final synthesis in 03-strateji/dogrulama/fikir-dogrulama.md.
 - Do not change project identities, role/membership decisions, publication status, or Drive ownership/host information.
 - For Workspace task or Pipeline mode, update `DURUM.md` and the relevant `.pa/*/active-task.md`
   only when the canonical operational fact actually changed. Quick advisory does not update

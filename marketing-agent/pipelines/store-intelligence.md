@@ -104,13 +104,13 @@ Normalized app record:
 
 Store raw data before summarizing:
 
-- Evaluation workspace: `kaynaklar/store-intelligence/` for raw exports if available, otherwise
-  `ciktilar/store-intelligence-raw.md`.
+- project idea-evaluation mode: `kaynaklar/store-intelligence/` for raw exports if available, otherwise
+  `02-arastirma/fikir-degerlendirme/store-intelligence-raw.md`.
 - Project workspace: `02-arastirma/store-intelligence/raw/`.
 
 Normalized output:
 
-- Evaluation workspace: `ciktilar/store-intelligence-normalized.md`
+- project idea-evaluation mode: `02-arastirma/fikir-degerlendirme/store-intelligence-normalized.md`
 - Project workspace: `02-arastirma/store-intelligence/store-intelligence-normalized.md`
 
 ---
@@ -143,7 +143,7 @@ Public store endpoints usually return the current chart, not a historical 14-day
 
 Snapshot output:
 
-- Evaluation workspace: `ciktilar/store-intelligence-snapshot-[YYYY-MM-DD].json`
+- project idea-evaluation mode: `02-arastirma/fikir-degerlendirme/store-intelligence-snapshot-[YYYY-MM-DD].json`
 - Project workspace: `02-arastirma/store-intelligence/snapshots/[YYYY-MM-DD].json`
 
 Trend fields:
@@ -198,7 +198,7 @@ Quantify themes:
 
 Write to:
 
-- Evaluation workspace: `ciktilar/store-intelligence-opportunity-report.md`
+- project idea-evaluation mode: `02-arastirma/fikir-degerlendirme/store-intelligence-opportunity-report.md`
 - Project workspace: `02-arastirma/store-intelligence/store-intelligence-opportunity-report.md`
 
 ```markdown
@@ -249,7 +249,7 @@ Write to:
 
 ## PersonalAutonomy Execution Rules
 
-- Main output areas: in evaluation `ciktilar/`; in project `02-arastirma/store-intelligence/`
+- Main output areas: in evaluation `02-arastirma/fikir-degerlendirme/`; in project `02-arastirma/store-intelligence/`
   and later `03-strateji/dogrulama/` if scored.
 - Preserve raw chart/review data separately from normalized analysis.
 - Do not fabricate exact revenue, downloads, rank history, or keyword volume.

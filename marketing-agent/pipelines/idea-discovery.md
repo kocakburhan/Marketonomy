@@ -11,8 +11,8 @@ marketer. The agent must not brainstorm from taste alone. It must collect eviden
 pain, compare competitors, score user advantage, and turn only the strongest opportunities into
 testable ideas.
 
-**Prerequisite:** In an evaluation workspace, `DEGERLENDIRME.md` and workspace state must exist.
-In a project workspace, `PROJE.md` and relevant `01-baglam/` files must exist. If the user is
+**Prerequisite:** In project idea-evaluation mode, `PROJE.md` and workspace state must exist.
+For downstream project execution, relevant `01-baglam/` files must exist. If the user is
 only exploring before a workspace is ready, write a draft plan and list required setup steps.
 
 Internal operating instructions are in English. The default user-facing language is Turkish.
@@ -92,7 +92,7 @@ Minimum inputs:
 
 Output file:
 
-- Evaluation workspace: `ciktilar/fikir-kesif-cercevesi.md`
+- project idea-evaluation mode: `02-arastirma/fikir-degerlendirme/fikir-kesif-cercevesi.md`
 - Project workspace: `03-strateji/dogrulama/fikir-kesif-cercevesi.md`
 
 ---
@@ -205,7 +205,7 @@ the hard valuation gate.
 
 Output:
 
-- Evaluation workspace: `ciktilar/idea-brief.md`
+- project idea-evaluation mode: `02-arastirma/fikir-degerlendirme/idea-brief.md`
 - Project workspace: `04-urun/fikir-ozetleri/idea-brief.md`
 
 Required sections:
@@ -270,24 +270,23 @@ creates a candidate; P5 decides whether the candidate deserves build effort.
 
 ## Output Files
 
-| File | Produced by | Evaluation path | Project path |
+| File | Produced by | Idea-evaluation path | Project path |
 |---|---|---|---|
-| `fikir-kesif-cercevesi.md` | Orchestrator | `ciktilar/` | `03-strateji/dogrulama/` |
-| Source research files | Market Scout | `ciktilar/` | `02-arastirma/` |
-| `firsat-skorlari.md` | Strategy Analyst | `ciktilar/` | `03-strateji/dogrulama/` |
-| `idea-brief.md` | Product Architect | `ciktilar/` | `04-urun/fikir-ozetleri/` |
+| `fikir-kesif-cercevesi.md` | Orchestrator | `02-arastirma/fikir-degerlendirme/` | `03-strateji/dogrulama/` |
+| Source research files | Market Scout | `02-arastirma/fikir-degerlendirme/` | `02-arastirma/` |
+| `firsat-skorlari.md` | Strategy Analyst | `02-arastirma/fikir-degerlendirme/` | `03-strateji/dogrulama/` |
+| `idea-brief.md` | Product Architect | `02-arastirma/fikir-degerlendirme/` | `04-urun/fikir-ozetleri/` |
 
 ---
 
 ## PersonalAutonomy Execution Rules
 
-- Main output areas: in evaluation `ciktilar/` and `RAPOR.md`; in project `02-arastirma/`,
+- Main output areas: in idea-evaluation mode `02-arastirma/fikir-degerlendirme/` and `03-strateji/dogrulama/fikir-dogrulama.md`; in downstream project execution `02-arastirma/`,
   `03-strateji/dogrulama/`, and `04-urun/fikir-ozetleri/`.
 - Preserve raw source notes separately from normalized summaries.
 - The pipeline does not create its own project or status folder. It keeps the active step in
   `DURUM.md` and the relevant `.pa/*/active-task.md` file.
-- In an evaluation workspace, do not produce final PRD, coder brief, weekly project plan, or
-  project-only folders.
+- In project idea-evaluation mode, do not produce final PRD, coder brief, weekly project plan, or project-only folders.
 - In a project, `PROJE.md`, relevant `01-baglam/` files, and `KARARLAR.md` are prerequisites.
 - Record claims requiring current data with source and access date; if data is missing, label the
   assumption explicitly.

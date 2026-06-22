@@ -1,52 +1,49 @@
-# PersonalAutonomy Marketing Agent Kullanım Rehberi
+# PersonalAutonomy Marketing Agent Kullanim Rehberi
 
-Bu rehber, PersonalAutonomy Marketing Agent'ı kullanacak marketer kullanıcılar için hazırlanmıştır.
-Teknik detayları bilmeniz gerekmez. Ama sistemin nasıl düşündüğünü, dosyaları nereye koyduğunu
-ve sizden ne zaman karar beklediğini bilirseniz agent'tan çok daha iyi sonuç alırsınız.
+Bu rehber Marketing Agent'i kullanacak marketer'lar icindir. Teknik detaylari bilmeniz gerekmez;
+dogru klasoru acmaniz ve agent'a ne istediginizi net soylemeniz yeterlidir.
 
-## Kısa Özet
+## Kisa Ozet
 
-PersonalAutonomy Marketing Agent, Codex App içinde çalışan bir pazarlama çalışma arkadaşıdır.
-Sizinle konuşur, proje klasörünüzdeki dosyaları okur, pazarlama araştırması yapar, rapor yazar,
-PRD ve coder brief hazırlar, haftalık plan çıkarır, kampanya fikirleri üretir, içerik ve satış
-materyalleri oluşturur.
+PersonalAutonomy Marketing Agent, Codex App icinde calisan bir pazarlama calisma arkadasidir.
+Fikirleri gercekci sekilde degerlendirir, pazar ve rakip arastirmasi yapar, PRD ve coder brief
+hazirlar, kampanya ve satis materyali uretir, haftalik plan cikarir ve ciktıları proje
+klasorunuzde dogru yere dosyalar.
 
-Marketing Agent'ın temel görevi şudur:
+## Klasor Mantigi
 
-- Fikirleri aceleyle güzel göstermek yerine gerçekçi biçimde değerlendirmek
-- Pazar, rakip, müşteri, fiyat, kanal ve uygulanabilirlik açısından kanıt toplamak
-- Uygun fikirleri MVP, PRD, coder brief, kampanya ve lansman planına dönüştürmek
-- B2B, B2C, dijital, saha ve hibrit pazarlama işlerinde size günlük/haftalık uygulanabilir
-  aksiyonlar çıkarmak
-- Ürettiği her şeyi proje klasörünüzde doğru yere dosyalamak
-- Bir görevi ancak siz açıkça onayladığınızda tamamlanmış saymak
-
-## Sistem Nasıl Çalışır?
-
-PersonalAutonomy MVP'de gerçek çalışma dosyaları Google Drive'dadır. Web app fikir, proje,
-üyelik, durum, bildirim ve linkleri takip eder; ama dosyaları otomatik yönetmez. Codex App ise
-sizin bilgisayarınızda açtığınız proje klasöründe Marketing Agent ile çalışır.
-
-Basitçe:
+Ana model artik basittir:
 
 ```text
-Web app:
-  Fikir, proje durumu, üyelik, bildirim ve linkleri takip eder.
-
-Google Drive:
-  Gerçek dosyaları ve proje klasörlerini saklar.
-
-Codex App:
-  Açtığınız klasörde Marketing Agent ile çalışır.
-
-Marketing Agent:
-  Pazarlama, araştırma, planlama, raporlama ve doküman üretimini yapar.
+Projects/
+  .pa/
+    marketer-profile.md
+  x-projesi/
+  y-projesi/
 ```
+
+`Projects/` ana klasoru yalnizca:
+
+- ilk onboarding
+- Codex App plugin kurulumu
+- kullanici/marketer profilini toplama
+- yeni proje klasoru olusturma
+
+icin kullanilir.
+
+Gercek calisma her zaman proje klasorunde yapilir:
+
+```text
+Projects/x-projesi/
+```
+
+Her proje ayri Codex workspace ve ayri Codex thread olarak acilir. Bir projenin dosyalari baska
+bir projenin dosyalariyla karistirilmaz.
 
 ## Codex App Plugin Kurulumu
 
-Marketer'lar Codex App'i açtıklarında karar verilen pluginleri Codex App üzerinden elle
-kurmalıdır. Kurulacak pluginler:
+Marketer'lar Codex App'i actiklarinda karar verilen pluginleri Codex App uzerinden elle
+kurmalidir. Kurulacak pluginler:
 
 1. Google Drive
 2. Google Calendar
@@ -55,606 +52,336 @@ kurmalıdır. Kurulacak pluginler:
 5. Figma
 6. GitHub
 
-- Daha iyi fikir geliştirme, kampanya yönü seçme, teklif veya özellik şekillendirme ve belirsiz
-  strateji konuşmaları için Codex'te `brainstorming` skill'inin kurulu ve aktif olması önerilir.
+Daha iyi fikir gelistirme, kampanya yonu secme, teklif veya ozellik sekillendirme ve belirsiz
+strateji konusmalari icin Codex'te `brainstorming` skill'inin kurulu ve aktif olmasi onerilir.
 
-Her fikir değerlendirmesi ve her proje ayrı bir klasördür. Her klasör ayrı bir Codex workspace
-ve ayrı bir Codex thread olarak düşünülmelidir. Bir projenin dosyaları başka bir projenin
-dosyalarıyla karıştırılmaz.
+## Ilk Kullanim
 
-## Marketing Agent Nedir?
-
-Marketing Agent tek bir basit chatbot değildir. İçinde farklı pazarlama uzmanlıkları, hazır iş
-akışları ve beceriler vardır. Siz doğal dille ne istediğinizi söylersiniz; agent hangi uzmanlık
-ve iş akışının gerektiğini kendisi seçer.
-
-Örneğin:
-
-- Fikir değerlendirme gerekiyorsa fikrin gerçekten denenmeye değer olup olmadığını inceler.
-- Pazar araştırması gerekiyorsa kaynak ve kanıt toplamaya odaklanır.
-- PRD gerekiyorsa ürün kapsamını, kullanıcı ihtiyacını ve coder brief'i hazırlar.
-- Lansman gerekiyorsa kanal planı, kontrol listesi ve içerik akışı çıkarır.
-- B2B satış gerekiyorsa ICP, potansiyel müşteri, cold email, demo ve teklif dosyaları üretir.
-- Fiziksel/saha pazarlama gerekiyorsa etkinlik, toplantı, demo, stant, broşür, saha takip ve
-  satış materyalleri planlar.
-- Haftalık plan gerekiyorsa günlere bölünmüş, çıktı konumu belli, takip edilebilir görevler
-  oluşturur.
-
-Agent'ın amacı size yalnızca fikir vermek değildir. İşi dosyalara, görevlere, kanallara,
-materyallere ve ölçüme dönüştürmektir.
-
-## Marketing Agent Hangi İşlerde Yardımcı Olur?
-
-### Fikir ve fırsat değerlendirme
-
-- Fikir gerçekten denenmeye değer mi?
-- Hedef müşteri kim?
-- Pazarda benzer çözümler var mı?
-- Sizin bu fikri pazara taşıma avantajınız var mı?
-- Fikir revize edilmeli mi, daraltılmalı mı, pivot edilmeli mi?
-- Deneme için en küçük uygulanabilir MVP ne olmalı?
-
-### Araştırma ve kanıt toplama
-
-- Pazar araştırması
-- Rakip araştırması
-- Müşteri araştırması
-- Trend araştırması
-- SEO/ASO incelemesi
-- Potansiyel müşteri listesi
-- Fiyat ve paket karşılaştırması
-- Yorum, feedback ve metrik analizi
-
-Agent araştırma yaptığında kaynakları ve varsayımları belirtmelidir. Sayısal iddiaları
-kaynaksız uydurmaz; emin olmadığı bilgiyi tahmin olarak işaretler.
-
-### Ürün ve proje dokümanları
-
-- Fikir özeti
-- MVP kapsamı
-- PRD
-- Coder brief
-- Ürün kararları
-- Kullanıcı segmenti
-- Konumlandırma
-- Fiyatlandırma
-
-### Pazarlama stratejisi
-
-- Pazara giriş planı
-- Büyüme planı
-- Kanal stratejisi
-- Konumlandırma ve teklif
-- Marka sesi
-- Kampanya fikirleri
-- Müşteri yolculuğu
-- Funnel ve dönüşüm analizi
-
-### Dijital pazarlama
-
-- Landing page metni
-- Sosyal medya içerikleri
-- İçerik takvimi
-- E-posta kampanyaları
-- Reklam metinleri
-- SEO planı
-- AI arama görünürlüğü
-- App Store / Google Play optimizasyonu
-
-### Saha, B2B ve fiziksel pazarlama
-
-- Potansiyel müşteri listeleri
-- Demo ve toplantı hazırlığı
-- Satış konuşması
-- Teklif dosyası
-- Etkinlik ve saha planı
-- Broşür, afiş, kart, sunum ve basılı materyal briefleri
-- Takip mesajları
-- Partner veya kanal satış planı
-
-### Raporlama ve takip
-
-- Haftalık durum raporu
-- Pazarlama raporu
-- Analitik raporu
-- Kampanya sonucu özeti
-- Metrik ve KPI planı
-- ROI veya gelir tahmini
-- Eksik veri ve risk listesi
-
-## Marketing Agent Ne Değildir?
-
-Marketing Agent sihirli bir karar verici değildir. Sizin yerinize web app'te proje kararı
-yayınlamaz, Drive izinlerini değiştirmez, dosyalarınızı silmez, kullanıcı onayı olmadan final
-teslim yapmaz.
-
-Şunları yapmamalıdır:
-
-- Sizin onayınız olmadan haftalık görevi tamamlandı işaretlemek
-- Web app'teki `idea_id`, `project_id`, üyelik, Drive host veya yayın durumunu değiştirmek
-- Ham kaynak dosyaları özetle değiştirip orijinali kaybettirmek
-- Kaynaksız pazar büyüklüğü, gelir, trafik veya kullanıcı sayısı uydurmak
-- Dış sistemde form göndermek, mesaj atmak, satın alma yapmak veya veri yazmak için onaysız
-  işlem yapmak
-- Bir proje klasöründen çıkıp başka projelerin dosyalarını taramak
-
-## Klasörleri Nasıl Düşünmelisiniz?
-
-Marketing Agent dosyaları rastgele yerlere koymaz. Proje klasörünüzün yapısı bir çalışma
-sistemi gibidir.
-
-En önemli klasörler:
+1. Codex'te ana `Projects/` klasorunu acin.
+2. Onboarding agent sizi tanisin ve `.pa/marketer-profile.md` profilini olustursun.
+3. Plugin checklist'ini tamamlayin.
+4. Yeni proje icin Codex'e soyleyin:
 
 ```text
-00-gelen-kutusu/
-  Sizden gelen ham fikir, not, link ve yüklemeler
-
-01-baglam/
-  Agent'ın her zaman bilmesi gereken ürün, hedef kitle, marka ve kısıt bilgileri
-
-02-arastirma/
-  Pazar, rakip, müşteri ve trend araştırmaları
-
-03-strateji/
-  Doğrulama, konumlandırma, fiyatlandırma, pazara giriş ve büyüme planları
-
-04-urun/
-  Fikir özeti, PRD, coder brief ve ürün kararları
-
-05-haftalik-planlar/
-  Günlere bölünmüş haftalık görev planları
-
-06-pazarlama-uygulamalari/
-  Dijital, saha ve hibrit pazarlama uygulama dosyaları
-
-07-lansman/
-  Lansman planları ve kontrol listeleri
-
-08-raporlar/
-  Haftalık, pazarlama, analitik, PDF ve Excel raporları
-
-09-varliklar/
-  Tekrar kullanılabilir görsel, basılı ve marka varlıkları
-
-10-final/
-  Sizin açıkça onayladığınız teslim edilebilir son çıktılar
-
-11-notlar/
-  Toplantı, müşteri görüşmesi, saha, günlük çalışma ve takip notları
-
-99-arsiv/
-  Eski, reddedilen veya geçersiz kalan dosyalar
+x isminde proje olustur.
 ```
 
-Pratik kural:
-
-- Ham bilgi `00-gelen-kutusu/` içine konur.
-- Çalışma ve taslak dosyalar ilgili konu klasörüne yazılır.
-- Final dosyalar yalnızca siz onayladıktan sonra `10-final/` altına alınır.
-
-## Değerlendirme Workspace'i ile Proje Workspace'i Farkı
-
-İki tür çalışma alanı vardır.
-
-### Değerlendirme workspace'i
-
-Bir fikir Project Pool'a geçmeden önce kullanılır. Amaç fikri incelemek ve marketer kararını
-desteklemektir.
-
-Burada genellikle şunlar olur:
-
-- Fikir incelenir
-- Pazar ve rakip sinyalleri araştırılır
-- Riskler ve fırsatlar yazılır
-- Rapor hazırlanır
-- Sonuç için öneri çıkarılır
-
-Değerlendirme workspace'inde proje klasörü, haftalık plan veya final PRD oluşturulmaz. Fikir
-olumlu görülürse proje workspace'i ayrıca oluşturulur.
-
-### Proje workspace'i
-
-Fikir olumlu karardan sonra Project Pool'a geçtiğinde kullanılır. Artık gerçek proje çalışması
-başlar.
-
-Burada genellikle şunlar olur:
-
-- `PROJE.md` ve `01-baglam/` tamamlanır
-- Haftalık plan hazırlanır
-- PRD, coder brief, araştırma, strateji ve kampanya dosyaları üretilir
-- Lansman, satış, içerik, reklam ve raporlama işleri takip edilir
-- Onaylı çıktılar `10-final/` altında toplanır
-
-## Marketing Agent'ı Kurma
-
-Bir proje klasöründe Marketing Agent kurulu değilse, Codex'e resmi kurulum promptu verilmelidir.
-Kurulum elle yapılmaz; installer script çalıştırılır.
-
-Proje klasörünü Codex App içinde açın ve şu promptu verin:
+Codex onayli scripti calistirir ve `Projects/x` klasorunu olusturur. Sonra size sunu soyler:
 
 ```text
-Bu klasör PersonalAutonomy proje workspace'i.
-
-Şu resmi GitHub reposundaki PersonalAutonomy Marketing Agent'ı bu projeye kur:
-<GITHUB_REPO_URL>
-
-Kurulumu serbest elle yapma. Repodaki scripts/install-marketing-agent.ps1 installer'ını kullan.
-Hedef proje kökü şu anda Codex'te açık olan klasördür.
-
-Kurulumdan sonra .pa/agent/ paketini, kök AGENTS.md bootstrap dosyasını ve
-release-manifest.json doğrulamasını kontrol et. Var olan proje dosyalarımı silme.
+Projeye devam etmek icin Codex'te Projects/x klasorunu ac ve yeni bir Codex oturumu baslat.
 ```
 
-Kurulum başarılı olduğunda proje klasörünüzde şunlar bulunur:
+## Proje Klasorunde Calisma
 
-- `AGENTS.md`
-- `.pa/agent/AGENTS.md`
-- `.pa/agent/ARCHITECTURE.md`
-- `.pa/agent/SKILLS.md`
-- `.pa/agent/agents/`
-- `.pa/agent/pipelines/`
-- `.pa/agent/skills/`
-- `.pa/agent/scripts/`
-- `.pa/agent/templates/`
-- `.pa/agent/release-manifest.json`
-- `.pa/agent/agent-version.json`
+Proje klasorunu actiginizda sunlardan birini isteyebilirsiniz:
 
-Siz çoğu zaman bu teknik dosyalara dokunmazsınız. Codex bunları okuyarak nasıl davranacağını
-öğrenir.
+- Fikrim var, once gercekci sekilde degerlendir.
+- Fikrim yok, veri ve rakip bosluklarindan firsat bul.
+- Proje baglamini tamamlayalim.
+- PRD hazirla.
+- Coder brief hazirla.
+- Pazar/rakip/musteri arastirmasi yap.
+- Landing page, e-posta, sosyal medya veya reklam metni uret.
+- B2B satis, outbound, demo veya teklif plani hazirla.
+- Haftalik calisma planini hazirla.
+- Yatirimci dokumanlari veya data room hazirligi yap.
 
-## İlk Kez Proje Çalışmasına Başlama
+## Fikir Degerlendirme
 
-Bir proje klasörünü açtığınızda önce agent'a bağlamı tamamlatın. İyi bağlam, iyi çıktı demektir.
+Fikir degerlendirme ayri klasor degildir. Proje klasorunun icinde yapilir. Agent fikri
+desteklemek zorunda degildir; pazar, rakip, musteri, maliyet, dagitim, sizin avantajiniz ve
+uygulanabilirlik acisindan acimasizca tartar.
 
-Örnek başlangıç promptu:
+Fikir degerlendirme dosyalari genelde buralara yazilir:
+
+- `02-arastirma/fikir-degerlendirme/`
+- `03-strateji/dogrulama/`
+- `KARARLAR.md`
+- `DURUM.md`
+
+Fikir `Denenmeye Degmez` cikarsa proje klasoru silinmez. Gerekce kaydedilir; revizyon, pivot,
+arsivleme veya baska proje yonu secilebilir.
+
+## En Onemli Klasorler
 
 ```text
-Bu proje workspace'ini incele. Önce PROJE.md, DURUM.md, KARARLAR.md ve 01-baglam klasörünü oku.
-Eksik bağlamları bana sırayla sor. Sonra bu haftaki çalışma planını birlikte hazırlayalım.
+00-gelen-kutusu/        Sizden gelen ham fikir, not, link ve yuklemeler
+01-baglam/              Urun, hedef kitle, marka, kisit ve rakip baglami
+02-arastirma/           Pazar, rakip, musteri, trend ve fikir degerlendirme
+03-strateji/            Dogrulama, konumlandirma, fiyat, pazara giris, buyume
+04-urun/                MVP, PRD, coder brief, urun kararlari
+05-haftalik-planlar/    Haftalik ve gunluk is plani
+06-pazarlama-uygulamalari/ Dijital, saha ve hibrit uygulama dosyalari
+08-raporlar/            Haftalik, pazarlama, analitik, yatirimci ve finansal raporlar
+10-final/               Sadece sizin onayladiginiz final teslimler
+11-notlar/              Notlar ve bilgi-haritasi
 ```
 
-Agent sizden şunları isteyebilir:
+## Gorev Kapanisi
 
-- Ürün veya fikir özeti
-- Hedef müşteri
-- Coğrafi pazar
-- Bütçe
-- Kısıtlar
-- Marka tonu
-- Mevcut rakipler
-- Satış kanalı
-- Pazarlama modeli
-- Bu haftaki öncelik
+Bir gorevin tamamlandigi uretilen dosya veya guncellenen dokumanla acikca kanitlaniyorsa agent
+gorevi kapatabilir ve size bilgi verir. Harici aksiyonlar, ornegin gorusme yapmak, teklif
+gondermek veya saha ziyareti tamamlamak, siz tamamladiginizi soyleyene kadar acik kalir. Final
+yayin veya teslim her zaman acik onay ister.
 
-Bu bilgileri ne kadar net verirseniz, agent'ın üreteceği PRD, kampanya, rapor ve planlar o kadar
-iyi olur.
+## Iyi Baslangic Promptlari
 
-## Haftalık Planı Nasıl Kullanmalısınız?
-
-Haftalık plan, Marketing Agent ile çalışmanın ana ritmidir. Her proje için hafta dosyaları
-`05-haftalik-planlar/YYYY-WNN.md` altında tutulur. Ayrıca aynı haftanın günlük yapılacaklar
-listesi `05-haftalik-planlar/YYYY-WNN/` klasöründe dosya dosya tutulabilir.
-
-Örnek görev:
-
-```markdown
-- [ ] Görev: B2B demo sunumunu hazırla
-  - Kanal: Saha
-  - Öncelik: Yüksek
-  - Beklenen çıktı: Demo sunumu
-  - Çıktı konumu: 06-pazarlama-uygulamalari/saha/sunumlar/
-  - Durum: Bekliyor
-  - Tamamlanma kanıtı: Dosya / Kullanıcı bildirimi / Harici aksiyon
-  - Google Calendar: Eklenecek / Eklendi / Güncellendi / Silindi / Kullanılmadı
-```
-
-Önemli kural:
-
-Bir görevin tamamlandığı üretilen dosya, güncellenen doküman, hazırlanan çıktı veya benzeri açık
-kanıtla anlaşılabiliyorsa agent görevi kendisi tamamlandı olarak işaretleyebilir ve sonra size
-bilgi verir. Örneğin landing page taslağı dosyası üretildiyse ilgili görev tamamlanmış sayılabilir.
-
-Ama bazı görevler dosyadan anlaşılamaz. Örneğin yatırımcı görüşmesini yaptınız, ürünü bir ofiste
-tanıttınız, broşür dağıttınız veya telefon görüşmesini tamamladınız. Böyle durumlarda agent sizi
-sürekli "bunu yaptınız mı?" diye darlamaz. Görevi yaptığınızda bunu açıkça söylemeniz gerekir:
+Yeni proje klasorunde:
 
 ```text
-Bugünkü yatırımcı görüşmesini yaptım.
-X ofisine ürün tanıtımını yaptım.
-Broşürleri dağıttım.
-Müşteriyle telefon görüşmesini tamamladım.
+Bu proje workspace'ini incele. PROJE.md, DURUM.md, KARARLAR.md ve 01-baglam klasorunu oku.
+Once fikri mi degerlendirecegiz, proje baglamini mi tamamlayacagiz, yoksa direkt bir cikti mi
+uretecegiz bana sor.
 ```
 
-Haftalık plan hazırlanırken agent size takvimi hangi yoğunlukta hazırlamasını istediğinizi sorar:
-`Aggressive`, `Balanced` veya `Relaxed`. Planı sunduktan sonra da yoğunluğu artırmayı veya
-azaltmayı önerebilir. Dosya sistemindeki schedule ana kaynaktır; Google Calendar plugin'i aktifse
-görevler sizin onayınızla Google Calendar'a da eklenebilir.
-
-Hafta başında kullanabileceğiniz prompt:
+Fikir degerlendirme:
 
 ```text
-Bu hafta için gerçekçi bir pazarlama çalışma planı hazırlayalım. Önce mevcut DURUM.md,
-PROJE.md ve geçen haftanın planını oku. Sonra bana bu hafta için en önemli hedefleri sor ve
-görevleri 05-haftalik-planlar altında oluştur.
+Bu fikri denemeye deger mi diye degerlendir. Beni memnun etmeye calisma; gercekci, kanitli ve
+pragmatik ol. Eksik bilgileri sor, arastirma yap, riskleri yaz ve onerini 03-strateji/dogrulama
+altinda topla.
 ```
 
-Hafta ortasında kullanabileceğiniz prompt:
+Haftalik plan:
 
 ```text
-Aktif haftalık planı kontrol et. Hangi görevler tamamlandı, hangileri bekliyor, hangileri benim
-onayımı bekliyor? Bana kısa bir durum özeti ver.
-```
-
-## En Etkili Kullanım Şekli
-
-### 1. Agent'a önce bağlam verin
-
-Kötü prompt:
-
-```text
-Bana pazarlama planı yaz.
-```
-
-Daha iyi prompt:
-
-```text
-PROJE.md ve 01-baglam dosyalarını oku. Ürünümüz B2B SaaS, hedef müşteri küçük e-ticaret
-işletmeleri. İlk hedefimiz 20 demo görüşmesi almak. Buna göre 4 haftalık pazara giriş planı
-hazırla ve çıktıyı 03-strateji/pazara-giris/ altına yaz.
-```
-
-### 2. Çıktı türünü söyleyin
-
-Agent'a ne istediğinizi net söyleyin:
-
-- "Araştırma istiyorum"
-- "PRD istiyorum"
-- "Coder brief istiyorum"
-- "Haftalık plan istiyorum"
-- "Landing page metni istiyorum"
-- "Cold email dizisi istiyorum"
-- "Rakip karşılaştırması istiyorum"
-- "Kampanya fikri istiyorum"
-- "PDF'e dönüştürülebilecek rapor istiyorum"
-
-### 3. Hedef klasörü biliyorsanız belirtin
-
-Örnek:
-
-```text
-Rakip araştırmasını 02-arastirma/rakip-arastirmasi/ altına yaz.
-```
-
-Eğer belirtmezseniz agent doğru klasörü kendisi seçmelidir.
-
-### 4. Onay noktalarını ciddiye alın
-
-Agent sizden onay istediğinde bu yalnızca formalite değildir. Onay verdiğinizde görev kapanır,
-final dosya oluşabilir veya proje kararı kayda geçebilir.
-
-Net cevaplar verin:
-
-- "Onaylıyorum, final klasörüne al."
-- "Henüz onaylamıyorum, şu kısmı revize et."
-- "Bu görevi ertele, gerekçesi bütçe belirsizliği olsun."
-- "Bu görevi iptal et, çünkü kanal önceliğimiz değişti."
-
-### 5. Kaynakları saklayın
-
-Rakip linkleri, notlar, PDF'ler, Excel dosyaları, ekran görüntüleri ve müşteri geri bildirimleri
-önemlidir. Bunları `00-gelen-kutusu/` veya ilgili kaynak klasörüne koyun ve agent'a söyleyin.
-
-Örnek:
-
-```text
-00-gelen-kutusu/ham-linkler.md içine üç rakip linki ekledim. Bunları inceleyip
-02-arastirma/rakip-arastirmasi/ altında karşılaştırmalı bir analiz hazırla.
-```
-
-## Örnek Kullanım Senaryoları
-
-### Hazır fikri değerlendirme
-
-```text
-Bu fikri gerçekçi şekilde değerlendir. Fikri hemen destekleme; pazar, rakip, maliyet, dağıtım,
-benim avantajlarım ve uygulanabilirlik açısından incele. Eksik bilgileri sırayla sor. Sonuçta
-Denenmeye Değer, Revizyonla Denenmeye Değer veya Denenmeye Değmez önerisi çıkar.
-```
-
-### PRD hazırlama
-
-```text
-PROJE.md, 01-baglam ve KARARLAR.md dosyalarını oku. Onaylı MVP kapsamına göre PRD hazırla.
-PRD'yi 04-urun/prd/ altına yaz. Coder brief'i PRD bittikten sonra ayrıca hazırlayacağız.
-```
-
-### Coder brief hazırlama
-
-```text
-Son PRD dosyasını oku ve coder için uygulanabilir bir brief hazırla. Teknik olmayan pazarlama
-amacını da koru. Çıktıyı 04-urun/coder-briefleri/ altına yaz.
-```
-
-### B2B satış planı
-
-```text
-Bu proje için B2B outbound satış planı hazırla. Önce ICP ve karar verici profili çıkar. Sonra
-potansiyel müşteri listesi formatı, cold email dizisi, demo akışı ve takip planı üret.
-Çıktıları 06-pazarlama-uygulamalari/saha/ altındaki uygun klasörlere yaz.
-```
-
-### Fiziksel pazarlama planı
-
-```text
-Bu ürün fiziksel temasla pazarlanacak. Yerel pazar, müşteri profili, satış noktası, etkinlik,
-broşür, demo ve takip adımlarını içeren uygulanabilir bir saha pazarlama planı hazırla.
-Görevleri haftalık plana da ekle.
-```
-
-### Sosyal medya içerik sistemi
-
-```text
-Marka tonunu ve hedef kitleyi oku. 4 haftalık sosyal medya içerik sistemi hazırla. Konu
-başlıkları, formatlar, yayın ritmi ve örnek post metinleri olsun. Çıktıyı
-06-pazarlama-uygulamalari/dijital/sosyal-medya/ altına yaz.
-```
-
-### Haftalık rapor
-
-```text
-Aktif haftalık planı, DURUM.md dosyasını ve bu hafta üretilen çıktıları oku. Kısa ama net bir
-haftalık durum raporu hazırla. Tamamlananlar, devam edenler, bekleyen kararlar, riskler ve
-sonraki adımlar olsun. Raporu 08-raporlar/haftalik/ altına yaz.
-```
-
-### Final teslim
-
-```text
-Bu dosyayı final teslim olarak onaylıyorum. Kaynak çalışma dosyasını koru, onaylı kopyayı
-10-final/ altındaki uygun klasöre al ve DURUM.md içinde final çıktıyı belirt.
-```
-
-## Agent'tan İyi Sonuç Almak İçin Altın Kurallar
-
-1. Her projeyi kendi klasöründe ve ayrı Codex thread'inde çalışın.
-2. Proje klasörünün dışındaki dosyaları agent'a karıştırmayın.
-3. Önce bağlamı tamamlayın, sonra çıktı isteyin.
-4. Hedef müşteri, bütçe, zaman, kanal ve kısıtları açık söyleyin.
-5. Ham kaynakları silmeyin; agent'ın işlemesine izin verin.
-6. Araştırma istiyorsanız kaynak ve kanıt bekleyin.
-7. Haftalık planı aktif kullanın; işleri günlere ve çıktılara bölün.
-8. Görev kapanışlarında açık onay verin veya revizyon isteyin.
-9. `10-final/` klasörünü yalnızca gerçekten onayladığınız teslimler için kullanın.
-10. Agent bir şeyden emin değilse varsayım yapmasını değil, size sormasını isteyin.
-
-## Sık Yapılan Hatalar
-
-### Hata: Üst klasörü Codex'te açmak
-
-`projects/` veya `idea-workspace/` üst klasörünü gerçek çalışma root'u olarak açmayın. Her proje
-veya değerlendirme klasörünü ayrı açın.
-
-Doğru:
-
-```text
-projects/x-projesi/
-```
-
-Yanlış:
-
-```text
-projects/
-```
-
-### Hata: Her şeyi final klasörüne koymak
-
-`10-final/` çalışma alanı değildir. Taslaklar, araştırmalar ve stratejiler önce kendi klasöründe
-oluşur. Final kopya, siz onayladıktan sonra alınır.
-
-### Hata: Agent'a belirsiz görev vermek
-
-"Bir şeyler hazırla" yerine hedef, kanal, çıktı türü ve başarı ölçütü belirtin.
-
-### Hata: Harici görevi agent'a bildirmemek
-
-Agent dosyadan veya üretilen çıktıdan anlayabildiği görevleri kendisi tamamlandı işaretleyebilir.
-Ama dış dünyada yaptığınız işleri agent kendiliğinden bilemez. Görüşme, ziyaret, tanıtım,
-dağıtım veya telefon gibi işleri tamamladığınızda bunu agent'a açıkça söyleyin.
-
-### Hata: Kaynak istemeden araştırma sonucu kabul etmek
-
-Özellikle pazar büyüklüğü, trafik, gelir, indirme, fiyat ve rakip verilerinde kaynak ve tarih
-isteyin.
-
-## Web App ile Dosya Sistemi Arasındaki Fark
-
-Web app proje durumunu, üyelikleri, bildirimleri ve linkleri takip eder. Google Drive ise gerçek
-dosyaları saklar. Marketing Agent Drive'daki proje klasörünüzde çalışır.
-
-Bu yüzden:
-
-- Web app'te proje durumu değişebilir.
-- Drive'da dosyalar üretilebilir.
-- İkisi her zaman aynı şey değildir.
-
-Örneğin agent bir PRD dosyası üretir. Bu dosya Drive'dadır. Ama web app'te ilgili linkin veya
-durumun güncellenmesi ayrıca yetkili kullanıcı onayı gerektirebilir.
-
-## Gizlilik ve Güvenlik
-
-- Gizli bilgileri gereksiz yere dosyalara yazmayın.
-- Müşteri verisi, e-posta, telefon veya özel bilgi kullanıyorsanız agent'tan veri minimizasyonu
-  isteyin.
-- Dış sisteme mesaj, form, kayıt veya satın alma işlemi yapılacaksa önce açık onay verin.
-- Google Drive izinleri otomatik yönetilmez; paylaşım ve erişim kararları yetkili kullanıcı
-  tarafından manuel yapılır.
-- GitHub yedekleri private repo olarak tutulmalıdır. Büyük medya dosyaları, ağır PDF'ler, ham
-  videolar, gizli bilgiler ve arşivler GitHub'a konmamalı; Google Drive'da kalmalıdır.
-
-## Sorun Yaşarsanız
-
-Agent şu durumlarda çalışmayı durdurup sizi uyarmalıdır:
-
-- `idea_id` veya `project_id` uyuşmazlığı
-- Bozuk veya eksik workspace yapısı
-- Okunamayan state dosyası
-- Eksik agent kurulumu
-- Manifest doğrulama hatası
-- Erişim veya Drive senkronizasyon sorunu
-- Gerekli aracın Codex'te mevcut olmaması
-
-Bu durumda aynı işlemi tekrar tekrar denemek yerine agent'ın verdiği hata özetini saklayın ve
-Yönetici Burhan Kocak'a iletin.
-
-## En Faydalı Başlangıç Promptları
-
-Yeni proje:
-
-```text
-Bu proje workspace'ini baştan incele. PROJE.md, DURUM.md, KARARLAR.md ve 01-baglam dosyalarını
-oku. Eksik bağlamları bana sırayla sor. Sonra aktif haftalık planı birlikte hazırlayalım.
-```
-
-Fikir değerlendirme:
-
-```text
-Bu fikri denemeye değer mi diye değerlendir. Beni memnun etmeye çalışma; gerçekçi, kanıtlı ve
-pragmatik ol. Eksik bilgileri sor, araştırma yap, riskleri yaz ve önerini RAPOR.md içinde topla.
-```
-
-Haftalık kontrol:
-
-```text
-Aktif haftalık planı ve DURUM.md dosyasını oku. Bana bugün neye odaklanmam gerektiğini,
-hangi görevlerin beklediğini ve hangi kararların benden beklendiğini söyle.
-```
-
-Araştırma:
-
-```text
-Bu konu için pazar ve rakip araştırması yap. Kaynak ve Kanıt Defteri ile Veri İşleme Notları
-bölümlerini ekle. Emin olmadığın sayıları Tahmin olarak işaretle.
+Bu hafta icin gercekci bir pazarlama calisma plani hazirlayalim. Mevcut DURUM.md, PROJE.md ve
+gecen haftanin planini oku. Sonra bana bu hafta icin en onemli hedefleri sor.
 ```
 
 Finale alma:
 
 ```text
-Bu çıktıyı onaylıyorum. Kaynak dosyayı koru, final kopyasını 10-final/ altında doğru klasöre al
-ve DURUM.md dosyasında bu teslimi belirt.
+Bu ciktiyi onayliyorum. Kaynak dosyayi koru, final kopyasini 10-final altinda dogru klasore al
+ve DURUM.md dosyasinda bu teslimi belirt.
 ```
 
-## Son Söz
+## Sifirdan Kurulum: Projects Klasorunu Actiktan Sonra
 
-Marketing Agent'tan en yüksek verimi almak için onu tek seferlik cevap veren bir araç gibi değil,
-proje klasörünüzü düzenli tutan, haftalık planınızı takip eden ve pazarlama işlerini kanıtlı
-dosyalara dönüştüren bir çalışma arkadaşı gibi kullanın.
+Bu bolum, kullanicinin kendi bilgisayarinda PersonalAutonomy Marketing Agent'i ilk kez kurarken
+izleyecegi pratik akistir.
 
-İyi kullanım şudur:
+### 1. Ana Projects klasorunu hazirlayin
+
+Bilgisayarinizda veya Google Drive ile senkronize edilen alanda bir ana klasor olusturun:
 
 ```text
-Bağlam ver -> Araştırma yaptır -> Strateji kur -> Görevleri haftaya yay -> Çıktıları üret ->
-Kontrol et -> Onayla -> Finale al -> Raporla -> Sonraki haftaya taşı
+Projects/
 ```
 
-Bu akış korunduğunda hem siz ne yapacağınızı daha net görürsünüz, hem coder'lar daha iyi brief
-alır, hem de proje geçmişi Drive içinde düzenli ve takip edilebilir kalır.
+Bu klasor sizin ana kontrol merkezinizdir. Gercek proje dosyalari daha sonra bu klasorun altinda
+olusturulur:
+
+```text
+Projects/x-projesi/
+```
+
+Ana `Projects/` klasorunde PRD, kampanya, rapor veya proje ciktisi uretilmez. Burada yalnizca
+kurulum, onboarding, profil toplama ve yeni proje olusturma yapilir.
+
+### 2. Codex App'te Projects klasorunu acin
+
+Codex App'i acin ve workspace/root olarak ana `Projects/` klasorunu secin.
+
+Dogru:
+
+```text
+Projects/
+```
+
+Yanlis:
+
+```text
+Belgeler/
+Masaustu/
+Projects/x-projesi/
+```
+
+Ilk kurulumda proje klasorunu degil, ana `Projects/` klasorunu acmalisiniz. Proje klasorune daha
+sonra gececeksiniz.
+
+### 3. GitHub repo linkini kopyalayin
+
+Size verilen resmi PersonalAutonomy Marketing Agent GitHub reposunu tarayicida acin.
+
+GitHub'da:
+
+1. Repo sayfasinda yesil `Code` butonuna tiklayin.
+2. `HTTPS` sekmesini secin.
+3. Linki kopyalayin.
+
+Link su formata benzer:
+
+```text
+https://github.com/<OWNER>/<REPO>.git
+```
+
+Bu rehberde bu linki `<GITHUB_REPO_URL>` olarak gosteriyoruz.
+
+### 4. Codex'e kurulum promptunu verin
+
+Ana `Projects/` klasoru Codex'te acikken Codex'e su promptu verin. `<GITHUB_REPO_URL>` yerine
+GitHub'dan kopyaladiginiz linki yapistirin:
+
+```text
+Bu klasor benim PersonalAutonomy ana Projects klasorum.
+
+Su resmi GitHub reposundaki PersonalAutonomy Marketing Agent kurulum ve proje olusturma sistemini
+bu Projects klasoru icin hazirla:
+<GITHUB_REPO_URL>
+
+Kurulumu serbest elle yapma. Repodaki resmi scriptleri kullan.
+
+Once bu ana Projects klasorunde onboarding akisini baslat:
+1. Codex App plugin checklist'ini bana yaptir.
+2. Benden reusable marketer profilimi topla ve .pa/marketer-profile.md olarak kaydet.
+3. Bundan sonra yeni proje istedigimde create-project.ps1 akisini kullanarak Projects/<proje-adi>
+   klasorunu olustur.
+
+Yeni proje olustururken scripti -RepoUrl <GITHUB_REPO_URL> -Version latest parametreleriyle
+calistir. Olusan proje klasorune Marketing Agent paketini kur, release-manifest.json
+dogrulamasini yap ve mevcut dosyalarimi silme.
+```
+
+### 5. Plugin checklist'ini tamamlayin
+
+Codex onboarding sirasinda sizden Codex App pluginlerini kontrol etmenizi ister. Kurulacak
+pluginler:
+
+1. Google Drive
+2. Google Calendar
+3. Gmail
+4. Canva
+5. Figma
+6. GitHub
+
+Bu pluginleri Codex App icinden elle kurun. Plugin kurulumu tamamlanmadan da bazi isler
+yapilabilir, ama sistemden tam verim almak icin bu listeyi tamamlamak daha dogrudur.
+
+Belirsiz fikir, kampanya yonu, teklif veya strateji konusmalari icin `brainstorming` skill'i de
+aktifse kullanilabilir.
+
+### 6. Marketer profilinizi doldurun
+
+Codex size kisa bir profil formu sorar. Bu profil her yeni projede tekrar tekrar ayni bilgileri
+anlatmamaniz icin kullanilir.
+
+Tipik olarak sunlari sorar:
+
+- yasadiginiz sehir/ulke veya calisma lokasyonunuz
+- mesleginiz veya ana isiniz
+- uzmanlik alanlariniz
+- marketing, satis, is gelistirme, icerik, topluluk veya saha tecrubeniz
+- mevcut network, kitle, musteri erisimi veya kanallariniz
+- haftalik zaman ve yaklasik butce araliginiz
+
+Bilmediginiz veya paylasmak istemediginiz alanlara `belirtmek istemiyorum` yazabilirsiniz.
+
+Profil kaydedildikten sonra ana `Projects/` klasorunde su dosya olusur:
+
+```text
+Projects/.pa/marketer-profile.md
+```
+
+### 7. Ilk projenizi olusturun
+
+Profil tamamlandiktan sonra Codex'e yeni proje olusturmasini soyleyin:
+
+```text
+x-projesi isminde yeni proje olustur.
+```
+
+Ya da daha acik yazmak isterseniz:
+
+```text
+Bu Projects klasorunun altinda x-projesi isminde yeni bir PersonalAutonomy proje workspace'i
+olustur. Resmi create-project.ps1 akisini kullan. GitHub repo kaynagi olarak daha once verdigim
+repo URL'sini ve latest surumu kullan. Proje olusunca bana hangi klasoru Codex'te acmam
+gerektigini soyle.
+```
+
+Codex bu adimda scripti calistirir. Script sunlari yapar:
+
+- `Projects/x-projesi/` klasorunu olusturur.
+- `PROJE.md`, `DURUM.md`, `KARARLAR.md` dosyalarini olusturur.
+- proje klasor yapisini kurar.
+- ana profili projeye kopyalar.
+- `.pa/agent/` altina Marketing Agent paketini kurar.
+- release manifest hashlerini dogrular.
+- baslangic haftalik plan iskeletini olusturur.
+
+### 8. Proje klasorunu yeni Codex workspace olarak acin
+
+Proje olustuktan sonra ana `Projects/` klasorunde calismaya devam etmeyin.
+
+Codex'in soylemesi gereken yonlendirme sudur:
+
+```text
+Projeye devam etmek icin Codex'te Projects/x-projesi klasorunu ac ve yeni bir Codex oturumu baslat.
+```
+
+Siz de Codex App'te yeni workspace/root olarak su klasoru acin:
+
+```text
+Projects/x-projesi/
+```
+
+Bu proje icin yeni bir Codex thread baslatin. Bundan sonra fikir degerlendirme, arastirma, PRD,
+kampanya, satis, haftalik plan ve diger tum isler bu klasorde yapilir.
+
+### 9. Proje klasorunde ilk mesaji verin
+
+Yeni proje klasorunu actiktan sonra Codex'e sunu yazabilirsiniz:
+
+```text
+Bu proje workspace'ini incele. PROJE.md, DURUM.md, KARARLAR.md ve 01-baglam klasorunu oku.
+Once fikri mi degerlendirecegiz, proje baglamini mi tamamlayacagiz, yoksa direkt bir cikti mi
+uretecegiz bana sor.
+```
+
+Eger hazir fikriniz varsa:
+
+```text
+Bu fikri denemeye deger mi diye degerlendir. Beni memnun etmeye calisma; gercekci, kanitli ve
+pragmatik ol. Eksik bilgileri sor, arastirma yap, riskleri yaz ve onerini proje icinde
+03-strateji/dogrulama altinda topla.
+```
+
+Eger henuz fikriniz yoksa:
+
+```text
+Henuz net fikrim yok. Benim profilime, sehir/network avantajima, zamanima ve butceme gore veri,
+sikayet, trend ve rakip bosluklarindan denenebilir fikirler bul.
+```
+
+### 10. Sonraki projelerde ayni kurulumu tekrar yapmayin
+
+Ana `Projects/` klasorunde profiliniz zaten varsa, yeni proje icin bastan kendinizi anlatmaniz
+gerekmez. Sadece ana `Projects/` klasorunu Codex'te acip sunu soyleyin:
+
+```text
+y-projesi isminde yeni proje olustur.
+```
+
+Codex mevcut `Projects/.pa/marketer-profile.md` dosyasini yeni projeye kopyalar ve proje
+klasorunu hazirlar.
+
+### 11. Sorun olursa ne yapmali?
+
+Kurulum veya proje olusturma sirasinda hata olursa ayni komutu tekrar tekrar denemeyin. Codex'ten
+kisa hata ozeti isteyin:
+
+```text
+Bu kurulum hatasini kisa ve teknik olmayan sekilde ozetle. Hangi adimda kaldik, hangi dosya veya
+izin eksik, Burhan Kocak'a ne iletmem gerekiyor yaz.
+```
+
+Ozellikle su durumlar hata sebebi olabilir:
+
+- GitHub repo linki yanlis kopyalanmistir.
+- Git bilgisayarda kurulu degildir veya PATH uzerinde degildir.
+- Google Drive klasoru henuz senkronize olmamistir.
+- Hedef proje klasoru bos degildir.
+- Codex yanlis klasorde acilmistir.
+- Manifest dogrulamasi basarisiz olmustur.

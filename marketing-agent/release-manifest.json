@@ -11,83 +11,83 @@
                   },
                   {
                       "path":  "AGENTS.md",
-                      "sha256":  "a19a0e4f975e7e8ad179aa586cdd2476b1d1b4454aa310387e4dfa60f9cfb63a",
-                      "size":  39679
+                      "sha256":  "4bb748191b712ecf5692822be72fd133e57d0f2742b2f48c1363b7d8cf506c33",
+                      "size":  11079
                   },
                   {
                       "path":  "agents/analytics-master.md",
-                      "sha256":  "c1136c7e2b5040a3559cd32ed5a9f7baeedb65f3c89386594911741ebee3c630",
-                      "size":  7696
+                      "sha256":  "85fd59237ebfc096cb6692fc87979f052cece008ebc6c915676ba1bcde589ec8",
+                      "size":  7755
                   },
                   {
                       "path":  "agents/brand-guardian.md",
-                      "sha256":  "61b7d15d82f35e5c58af54e56da051e0c82071fa253aa45af1117b1530d1b85c",
-                      "size":  4991
+                      "sha256":  "8985b380e85afa487cc7cd1575088f46e5781f9403fdaadd848e354a42e5ee63",
+                      "size":  5050
                   },
                   {
                       "path":  "agents/campaign-manager.md",
-                      "sha256":  "b55e823e7257e409943aefb12396bb671ec3b27e4f2e0a9bd1c2cec2dde66f8d",
-                      "size":  7561
+                      "sha256":  "e9dd28200b6f04fba482e354513e0effd2b58207536846c85e4b291e502125bd",
+                      "size":  7620
                   },
                   {
                       "path":  "agents/content-creator.md",
-                      "sha256":  "47e18e45c6a5ace6dc9bc351dfa8984b4a2835aa6926262521641b699742613e",
-                      "size":  7928
+                      "sha256":  "05244cb01e592b5b698bd920f0fb57b3acf6b9b696d1f0b89d75e0eb7bf7e653",
+                      "size":  7987
                   },
                   {
                       "path":  "agents/growth-hacker.md",
-                      "sha256":  "039f1a9c3c9d3e0396e9ab04fc38a83c7064c0c8c1a53e31f681922559da5894",
-                      "size":  4864
+                      "sha256":  "d4ccf49fb4681e208d8eb62caa4a1854f9acc11a8a18cc3a9112c6b854bf712e",
+                      "size":  4923
                   },
                   {
                       "path":  "agents/investor-readiness-advisor.md",
-                      "sha256":  "3d1e6ee8dc98e8af341d3257f8eed7fcd4218f9d798b32151b1ddb46a612568f",
-                      "size":  7429
+                      "sha256":  "a57714a4a9675cd52cc2de4bbaca0d82cee85251fdad03f5d72648061b58fa65",
+                      "size":  7493
                   },
                   {
                       "path":  "agents/launch-commander.md",
-                      "sha256":  "2824b8d83fdc6d676130c59a31b937e8f40079fbc76500c560749d747dd10778",
-                      "size":  4693
+                      "sha256":  "7dc3a8b5341767eb00a0f89a4eaa8194e85bd510a0e3e186ee70b20529762087",
+                      "size":  4752
                   },
                   {
                       "path":  "agents/market-expansion-advisor.md",
-                      "sha256":  "e0644efab10a78a662d4cb115b20c8e8d721dbe48dbda32500309d54d82aef2a",
-                      "size":  13803
+                      "sha256":  "fb6cc148046411038a8af8166f5fe2344149c82a2fc3b35cd2f6bd1678cd97b1",
+                      "size":  13860
                   },
                   {
                       "path":  "agents/market-scout.md",
-                      "sha256":  "828cfcf2ca1cebd44ac3295d71f437d1edddc9301c2126635056e4c61be25287",
-                      "size":  13374
+                      "sha256":  "89ae519295e049e10a931efd1c854f16c78fb7b9f0cecfceb29942137067dffb",
+                      "size":  13433
                   },
                   {
                       "path":  "agents/onboarding-guide.md",
-                      "sha256":  "00f52ad80e5e471a8981150ac13a61cd4513b3a3fabb7d63457fbfb92c668451",
-                      "size":  16380
+                      "sha256":  "d6dcd82c49192d8f07adb7a487760d761961f2845791f2d48d60080270e914bf",
+                      "size":  12678
                   },
                   {
                       "path":  "agents/orchestrator.md",
-                      "sha256":  "338f3504a4e49536783884633750b4d42c60041c2c2c065a26ea99008bddad29",
-                      "size":  19300
+                      "sha256":  "255cdfcb974b906e4a9e6227fa5114041450cf12bf8eb2a337796d2e6c683441",
+                      "size":  19350
                   },
                   {
                       "path":  "agents/outreach-specialist.md",
-                      "sha256":  "c13b40f912172be30c7e718a02ef04d4df6b5d8e3cba8b3c438b1f92919a0359",
-                      "size":  7732
+                      "sha256":  "ea873b970fc74aa2b4bbdb0a52d5e7c016f99f7c48c66685c028374654a51dfc",
+                      "size":  7791
                   },
                   {
                       "path":  "agents/product-architect.md",
-                      "sha256":  "522b0123934f0481a4d342019c3ed6e986f1551bffd20f9f0e2b0fa2f0c27810",
-                      "size":  8404
+                      "sha256":  "a2468e68e50a95294749e11b3bf7c0c2d28ab96a8c17197fecf09d2c2fb5ade0",
+                      "size":  8463
                   },
                   {
                       "path":  "agents/schedule-coordinator.md",
-                      "sha256":  "ad4ce482929c8e1b7414d4e6d59860b0e6e5423a41c3bfb63da5fa36b369ac3d",
-                      "size":  6135
+                      "sha256":  "7dc8f37dd2f96845f4ae98e6b7aa6868e6b8e33c6eb90225cb5558c056b66266",
+                      "size":  6143
                   },
                   {
                       "path":  "agents/strategy-analyst.md",
-                      "sha256":  "528ed6d911d9a10355b2491c54b11b08f5da4f6e6fa491e7efe2e358af075e19",
-                      "size":  7242
+                      "sha256":  "f850e0f0df60c3e6798aa37751290d1abb9cf7bdcabe6f34ed28afc1d565a865",
+                      "size":  7301
                   },
                   {
                       "path":  "agent-version.json",
@@ -96,8 +96,8 @@
                   },
                   {
                       "path":  "ARCHITECTURE.md",
-                      "sha256":  "91e8150d6b284a212a6ddf1b4e0422b777688c17c5ce81031ae6952eef7fa3b3",
-                      "size":  13246
+                      "sha256":  "51d19062f81545230d9b405ba5a0ba1783ab12c27b0d250d27ccd1633de5290e",
+                      "size":  6312
                   },
                   {
                       "path":  "mcps.json",
@@ -106,88 +106,88 @@
                   },
                   {
                       "path":  "pipelines/competitor-attack.md",
-                      "sha256":  "9150ff0364b6c44f3baff344a19425f50f962a0665ec276e8fcfc432c1df6dec",
-                      "size":  3898
+                      "sha256":  "065bb80f2754b37bfd9ba42de7d7f1b8022bfcc41106912b1029d7baa7d58493",
+                      "size":  3894
                   },
                   {
                       "path":  "pipelines/competitor-gap.md",
-                      "sha256":  "e645f6a4d286ef09d720a855d88b557fffb903b2f03e8b23628ae7cb9d33a710",
-                      "size":  3660
+                      "sha256":  "51938fbc4ae8a47caef5284f0b3708ec0ea316be6bc1bf8a890c20a0cbf231ac",
+                      "size":  3716
                   },
                   {
                       "path":  "pipelines/complaint-mining.md",
-                      "sha256":  "5d7e2343ea86c27f9674025b467ce145c5860ef93643a9fdec55814a2180d416",
-                      "size":  4662
+                      "sha256":  "cb7f547a6b5cc2c32dd34c980b8d7759e3d95bb46584549dab64fba4c5eaaf1b",
+                      "size":  4718
                   },
                   {
                       "path":  "pipelines/content-machine.md",
-                      "sha256":  "5ad7280f4ff1a8a76b1bd4111fc8ef32ea76e8fc279ec9cb2371f2dc49e82ec4",
-                      "size":  5274
+                      "sha256":  "32a9bca67b2aa6074c642898f5eec20d90341202b728ae6a137f11c058c694e9",
+                      "size":  5270
                   },
                   {
                       "path":  "pipelines/feedback-improvement.md",
-                      "sha256":  "ce2d09807861a47ab4148c6b4c0af3729dbb322a40928e53a5f946014fc5b9df",
-                      "size":  8033
+                      "sha256":  "8ae7d8dba7674e7c064f9f09faa4057683a21e49b20ed3b5150fc77cc8ac530e",
+                      "size":  8029
                   },
                   {
                       "path":  "pipelines/fundraising-readiness.md",
-                      "sha256":  "d846b9c1153f2bdf5cedb8cd4eb5de13f088ced629f64b54f7c4393f47c248f7",
-                      "size":  7656
+                      "sha256":  "8c57cc76dd52e3e6c02fb4b848331177df94e3e09b189ff794da70d401546cfe",
+                      "size":  7747
                   },
                   {
                       "path":  "pipelines/growth-engine.md",
-                      "sha256":  "3102826072cf9f3c5d8bc7c429d5d784d51c895dfe4eb110720ba830a1068c7b",
-                      "size":  5332
+                      "sha256":  "31521c11c996e3c04e2d59ea1377c1d079e57ba457d7a3ca2b056d4da59f9e4b",
+                      "size":  5328
                   },
                   {
                       "path":  "pipelines/idea-discovery.md",
-                      "sha256":  "de89ce00db002136f7f90074e16ffb42664fc0ebd9a7c594a766f6c57575243a",
-                      "size":  9518
+                      "sha256":  "41a241e4f8b8065977d24410f5472ad68cf92e086d340a9e170cb71a8608a614",
+                      "size":  9765
                   },
                   {
                       "path":  "pipelines/idea-to-prd.md",
-                      "sha256":  "3289995efc8febf4dd026d023d10510739e9077ed9aee4db01036b7e67ca5040",
-                      "size":  20607
+                      "sha256":  "b5fc7d4b77b142231367a78e2b94bca1c2f0864597de36218af3fc525ebe8d9a",
+                      "size":  19272
                   },
                   {
                       "path":  "pipelines/international-market-expansion.md",
-                      "sha256":  "3fb4f53ec7d1951367f6ebbe1524386f3bf8717e37491584aca579218e62d62a",
-                      "size":  11734
+                      "sha256":  "03bb100ca2e61db44e0e856ba4a35ee98438ad3c3b00174262dd0b3a60259749",
+                      "size":  11886
                   },
                   {
                       "path":  "pipelines/local-business-launch.md",
-                      "sha256":  "b26b4df9974e8f9dd7e8c7653c9290481370258e9b756aca0dc01a5e04ef9790",
-                      "size":  16002
+                      "sha256":  "39b558b3ae7707bce54ee8853b9aae124d49f59b60d1a690abaa0fff09dd6925",
+                      "size":  15998
                   },
                   {
                       "path":  "pipelines/mvp-launch.md",
-                      "sha256":  "53d81f0577965c740832c446bf160182e39f06ed36d6726784336c836ad76640",
-                      "size":  7426
+                      "sha256":  "0b0ec220e8f7dc433e47bd72c3ff5cc84198d06b4f4030c1404eb415196b7325",
+                      "size":  7422
                   },
                   {
                       "path":  "pipelines/outbound-sales.md",
-                      "sha256":  "48e3b8b70eda02d5c8401d182109cd78fe9d7a25e92c3cbca0e9771005960ea6",
-                      "size":  11289
+                      "sha256":  "feff07d1ddec67f3419c1d4a247b5e423f4bf95c7451e3cc0c6daa4aefcd5716",
+                      "size":  11285
                   },
                   {
                       "path":  "pipelines/store-intelligence.md",
-                      "sha256":  "961254e6a85673e0a89b396b501d569a0b0a76432200e7ac54cbefe85bf989e9",
-                      "size":  8064
+                      "sha256":  "f637c33f15563e0c2ec0e5c5b4c4b8e719e87f8dc66ee06727568d1b96655636",
+                      "size":  8216
                   },
                   {
                       "path":  "pipelines/trend-to-product.md",
-                      "sha256":  "16885d63b45defd7404e1493774bded75026153809fda9cda107c3c77002e6f9",
-                      "size":  3549
+                      "sha256":  "c26db632eded7e6d4699fe31c10da838eea06fcd78543be6ca0d70ace84ae854",
+                      "size":  3605
                   },
                   {
                       "path":  "pipelines/user-advantage-fit.md",
-                      "sha256":  "8f52c4c7793b454aa7550cd2ddb5c1adc7d85704d6cea3ab56a4f1730fae236d",
-                      "size":  4244
+                      "sha256":  "c0a6597baa161103b774d7054c1d6f312b29717cadf363652ce520b32d600261",
+                      "size":  4332
                   },
                   {
                       "path":  "QUICKSTART.md",
-                      "sha256":  "9f7868137ed3466eec302107de5cae050af315ac5593c4ce156db3c6a64f207f",
-                      "size":  5670
+                      "sha256":  "ade984bc5a96d18209ab6437cce4afaeac3444b723efb0433c5ed594f16befc6",
+                      "size":  2956
                   },
                   {
                       "path":  "scripts/analyze_page.py",
@@ -226,13 +226,13 @@
                   },
                   {
                       "path":  "scripts/healthcheck.ps1",
-                      "sha256":  "6b9c562dd6e2ccc73428461709652ce67baf5b6a1c7f2eeb91699fc02f806f73",
-                      "size":  9160
+                      "sha256":  "3fa5dc62d58b968ea01daac20a023f535d168429e7576d95a6f9bbd5de5a3dd9",
+                      "size":  9242
                   },
                   {
                       "path":  "scripts/reconcile-workspace-state.ps1",
-                      "sha256":  "5af7ea54068d3c17aeb3748e55cc74ef2bb8c3bb79036c4f07c09b28eaa2008d",
-                      "size":  5648
+                      "sha256":  "25f6a02cee5b289ce6ee83e0ca541cc36c053617b8933e004be2c678d670bb3d",
+                      "size":  4067
                   },
                   {
                       "path":  "scripts/reddit_scraper.py",
@@ -251,18 +251,18 @@
                   },
                   {
                       "path":  "scripts/test_mvp_compatibility.ps1",
-                      "sha256":  "6f599e8f04d3cc42874f9cf12e778fc2b678a8af99da3fb61c0e6e694fedc280",
-                      "size":  22470
+                      "sha256":  "864e4dc32bc163da04fd2229d5d28b8b07deb12b8584739d4b8bc1c4186ff435",
+                      "size":  22615
                   },
                   {
                       "path":  "scripts/update-agent.ps1",
-                      "sha256":  "2b593cbf5de364c9f51363ee3ad10a9d7beb9f0403c34a6ad20a722f2fa7b96a",
-                      "size":  12784
+                      "sha256":  "c05f0e0806db663242af1125a404179b6cbb0466533d2bf72b8dc432cd414b49",
+                      "size":  11789
                   },
                   {
                       "path":  "SKILLS.md",
-                      "sha256":  "ef6d0e90e6c0b12c9f8de1daf11c253cf2f274452ee2a7974764a1e6db6879dc",
-                      "size":  12264
+                      "sha256":  "4c3bfcbcc784084e5d75c5b2417a0e1e15a06d119a4ea7e0e0ee77ebb856b6dc",
+                      "size":  12417
                   },
                   {
                       "path":  "skills/ad-creative/agents/openai.yaml",
@@ -716,8 +716,8 @@
                   },
                   {
                       "path":  "skills/web-research/SKILL.md",
-                      "sha256":  "f0e0f257f09f34c9a0afcc6c5099ab8b1e8bbdc606cc480e028b22a7f7f2acbe",
-                      "size":  3405
+                      "sha256":  "bcc64fd693f169eee0588eb1ddb83b597c42f70c37e6ded2acf6560e64822cc3",
+                      "size":  3449
                   },
                   {
                       "path":  "templates/content-calendar.md",
@@ -751,8 +751,8 @@
                   },
                   {
                       "path":  "templates/workspace-bootstrap-AGENTS.md",
-                      "sha256":  "31b6027ad4f45c4018a0d3484d55f381a8b4af454b69bf62aa00b0069cfca0ea",
-                      "size":  1492
+                      "sha256":  "e1612d8ca63e092a918875250257c8507c285d5e4d37dc149aaf315deeb7df8f",
+                      "size":  1357
                   }
               ]
 }

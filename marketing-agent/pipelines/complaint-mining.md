@@ -111,7 +111,7 @@ Payment signal examples:
 
 Write to:
 
-- Evaluation workspace: `ciktilar/complaint-mining-report.md`
+- project idea-evaluation mode: `02-arastirma/fikir-degerlendirme/complaint-mining-report.md`
 - Project workspace: `02-arastirma/musteri-arastirmasi/complaint-mining-report.md`
 
 ```markdown
@@ -155,7 +155,7 @@ Write to:
 
 ## PersonalAutonomy Execution Rules
 
-- Main output areas: in evaluation `ciktilar/`; in project
+- Main output areas: in evaluation `02-arastirma/fikir-degerlendirme/`; in project
   `02-arastirma/musteri-arastirmasi/`.
 - Preserve raw samples separately from theme summaries.
 - Do not collect private or personal data beyond what is necessary for the research question.

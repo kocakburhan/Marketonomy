@@ -74,7 +74,7 @@ Valid gap types:
 
 Write to:
 
-- Evaluation workspace: `ciktilar/competitor-gap-report.md`
+- project idea-evaluation mode: `02-arastirma/fikir-degerlendirme/competitor-gap-report.md`
 - Project workspace: `02-arastirma/rakip-arastirmasi/competitor-gap-report.md`
 
 ```markdown
@@ -113,7 +113,7 @@ Write to:
 
 ## PersonalAutonomy Execution Rules
 
-- Main output areas: in evaluation `ciktilar/`; in project `02-arastirma/rakip-arastirmasi/`.
+- Main output areas: in evaluation `02-arastirma/fikir-degerlendirme/`; in project `02-arastirma/rakip-arastirmasi/`.
 - Do not claim a gap exists unless competitor evidence or user complaint evidence supports it.
 - Do not copy competitor branding, protected assets, paid content, or private data.
 - The pipeline does not create its own project or status folder. It keeps the active step in

@@ -2,8 +2,9 @@
 
 Bu repo, marketer'ların kendi proje klasörlerine kuracağı PersonalAutonomy Marketing Agent
 paketinin kaynak ve release deposudur. Gerçek müşteri/proje çalışması bu repo kökünde yapılmaz.
-Marketer gerçek işi Google Drive ile senkronize edilen ilgili değerlendirme veya proje
-workspace'inde, o klasörü Codex root olarak açarak yürütür.
+Marketer gerçek işi Google Drive ile senkronize edilen `Projects/<proje-adi>/` klasöründe, o
+klasörü Codex root olarak açarak yürütür. Ana `Projects/` klasörü yalnızca onboarding, plugin
+kontrolü, reusable marketer profili ve yeni proje oluşturma içindir.
 
 ## Ana Karar
 
@@ -13,7 +14,7 @@ Bu repoda üç farklı `AGENTS.md` seviyesi vardır:
    anlatır.
 2. `marketing-agent/AGENTS.md`: Proje workspace'ine `.pa/agent/AGENTS.md` olarak kopyalanan asıl
    Marketing Agent davranış sözleşmesidir.
-3. Her değerlendirme veya proje workspace'inin kökündeki `AGENTS.md`: Kısa bootstrap dosyasıdır;
+3. Her proje workspace'inin kökündeki `AGENTS.md`: Kısa bootstrap dosyasıdır;
    Codex'i `.pa/agent/AGENTS.md` dosyasına yönlendirir ve workspace dışına çıkmama kuralını
    taşır.
 
@@ -43,8 +44,8 @@ Beklenen güvenli kurulum:
 1. Repo geçici bir klasöre klonlanır veya indirilir.
 2. `scripts/install-marketing-agent.ps1` çalıştırılır.
 3. Hedef proje kökü açık Codex workspace'idir.
-4. Installer hedefin tam olarak bir geçerli project veya evaluation workspace olduğunu; kimlik
-   dosyası ile ilgili `state.json` kimliklerinin eşleştiğini kopyalamadan önce doğrular.
+4. Installer hedefin tam olarak bir geçerli project workspace olduğunu; `PROJE.md` ile
+   `.pa/project/state.json` kimliklerinin eşleştiğini kopyalamadan önce doğrular.
 5. `marketing-agent/` paketi hedefte `.pa/agent/` altına atomik olarak kopyalanır.
 6. Hedef kökte bootstrap `AGENTS.md` oluşturulur veya güvenli şekilde güncellenir.
 7. Hedef kökte `.pa/agent-install.json` oluşturulur; repo URL'si, istenen sürüm ve update
@@ -73,7 +74,7 @@ release-manifest.json doğrulamasını kontrol et. Var olan proje dosyalarımı 
 - Önce `mvp/mvp.md` ve ilgili `marketing-agent/` dosyalarını oku.
 - Release davranışını değiştirirken `marketing-agent/AGENTS.md`, `ARCHITECTURE.md`, `SKILLS.md`,
   pipeline, agent veya skill dosyalarının birbirini tamamladığını kontrol et.
-- Kurulum davranışını değiştirirken `scripts/install-marketing-agent.ps1` ve
+- Kurulum davranışını değiştirirken `scripts/install-marketing-agent.ps1`, `scripts/create-project.ps1` ve
   `marketing-agent/templates/workspace-bootstrap-AGENTS.md` dosyalarını birlikte düşün.
 - Agent update davranışını değiştirirken `marketing-agent/scripts/check-update.ps1`,
   `marketing-agent/scripts/update-agent.ps1` ve `scripts/test_marketing_agent_install_update.ps1`
@@ -102,8 +103,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_workspac
 ```
 
 Installer veya create scriptleri değiştiğinde boş klasöre doğrudan installer çalıştırma.
-Installer yalnızca geçerli project/evaluation workspace kabul eder. Geçici workspace oluşturma
-testi için:
+Installer yalnızca geçerli project workspace kabul eder. Geçici workspace oluşturma testi için:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_workspace_create.ps1
@@ -117,7 +117,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_workspac
 - Installer hedefteki proje dosyalarını silmemeli, sadece `.pa/agent/` paketini ve bootstrap
   `AGENTS.md` dosyasını yönetmelidir.
 - Update scripti kullanıcı onayı olmadan çalışmamalı ve yalnızca `.pa/agent/` paketini
-  değiştirmelidir; `.pa/project/`, `.pa/evaluation/` ve proje çıktıları korunmalıdır.
+  değiştirmelidir; `.pa/project/` ve proje çıktıları korunmalıdır.
 - Workspace kökü `AGENTS.md` sabit bootstrap'tır; agent update sırasında asıl davranış
   `.pa/agent/` altında güncellenir.
 - Workspace artifact'i görevi açıkça kanıtlıyorsa görev otomatik kapanır ve kullanıcı

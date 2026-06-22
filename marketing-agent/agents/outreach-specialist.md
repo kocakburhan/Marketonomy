@@ -223,8 +223,8 @@ NEXT STEP SUGGESTION: [if any]
 
 - Primary output location: 06-pazarlama-uygulamalari/saha/ and hibrit/ when needed; for B2C physical
   marketing: potansiyel-musteriler/, etkinlikler/, takip/, and hibrit/kampanyalar/ when needed
-- In evaluation workspace, if the same expertise is needed, write working files under ciktilar/
-  and use the final synthesis in RAPOR.md.
+- For early idea-evaluation work inside a project workspace, write working files under `02-arastirma/fikir-degerlendirme/`
+  and use the final synthesis in 03-strateji/dogrulama/fikir-dogrulama.md.
 - Do not change project identities, role/membership decisions, publication status, or Drive ownership/host information.
 - For Workspace task or Pipeline mode, update `DURUM.md` and the relevant `.pa/*/active-task.md`
   only when the canonical operational fact actually changed. Quick advisory does not update

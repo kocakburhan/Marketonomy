@@ -1,78 +1,94 @@
 # PersonalAutonomy Marketing Agent
 
-Bu repo, PersonalAutonomy Marketing Agent paketini marketer'ların kendi proje workspace'lerine
-kurması için hazırlanmıştır.
+PersonalAutonomy Marketing Agent, marketer'larin Codex App icinde proje klasorleriyle calismasini
+saglayan agentic pazarlama sistemidir. Ilk product fazi web app'e bagli degildir; Codex App,
+Google Drive for desktop ve onayli PowerShell scriptleriyle calisir.
 
-## Marketer İçin Kurulum
+## Aktif Model
 
-1. Google Drive for desktop ile senkronize olan proje klasörünü aç. Örnek: `x-projesi/`.
-2. Bu klasörü Codex App içinde workspace/root olarak aç.
-3. Codex'e aşağıdaki promptu ver ve `<GITHUB_REPO_URL>` alanına bu repo linkini ekle:
+Kullanici tek bir ana `Projects` klasoru acar:
 
 ```text
-Bu klasör PersonalAutonomy proje workspace'i.
-
-Şu resmi GitHub reposundaki PersonalAutonomy Marketing Agent'ı bu projeye kur:
-<GITHUB_REPO_URL>
-
-Kurulumu serbest elle yapma. Repodaki scripts/install-marketing-agent.ps1 installer'ını kullan.
-Installer'ı -RepoUrl <GITHUB_REPO_URL> -Version latest parametreleriyle çalıştır.
-Hedef proje kökü şu anda Codex'te açık olan klasördür.
-
-Kurulumdan sonra .pa/agent/ paketini, kök AGENTS.md bootstrap dosyasını ve
-release-manifest.json doğrulamasını kontrol et. Var olan proje dosyalarımı silme.
+Projects/
+  .pa/
+    marketer-profile.md
+  x-projesi/
+  y-projesi/
 ```
 
-Kurulum bittiğinde proje klasöründe şunlar oluşur:
+Ana `Projects` klasoru sadece:
 
-- `AGENTS.md`: Kısa workspace bootstrap dosyası
-- `.pa/agent/`: Marketing Agent paketi
-- `.pa/agent/AGENTS.md`: Asıl agent davranış sözleşmesi
-- `.pa/agent/release-manifest.json`: Kurulan release doğrulama manifesti
-- `.pa/agent-install.json`: Bu workspace'in agent'ı hangi repo/sürümden güncelleyeceğini
-  kaydeden metadata dosyası
+- onboarding
+- Codex App plugin kurulumu
+- reusable marketer profili
+- yeni proje olusturma
 
-Installer local kaynakla da çalışabilir, GitHub repo URL'siyle de çalışabilir:
+icin kullanilir.
+
+Gercek calisma her zaman `Projects/<proje-adi>/` klasorunde yapilir. Her proje ayri Codex
+workspace ve ayri Codex thread olarak acilir.
+
+## Fikir Degerlendirme
+
+Fikir degerlendirme kabiliyeti korunur, ancak ayri workspace tipi degildir. Kullanici proje
+klasorunu actiginda isterse ilk is olarak fikri acimasizca degerlendirir; isterse proje baglami,
+arastirma, PRD, kampanya, satis, yatirimci hazirlik veya haftalik plana gecer.
+
+Fikir degerlendirme izleri proje icinde tutulur:
+
+- `02-arastirma/fikir-degerlendirme/`
+- `03-strateji/dogrulama/`
+- `KARARLAR.md`
+- `DURUM.md`
+
+## Proje Olusturma
+
+Gelistirme ortaminda:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\install-marketing-agent.ps1 `
-  -TargetRoot "<workspace>" `
-  -RepoUrl "<GITHUB_REPO_URL>" `
-  -Version latest
+powershell -ExecutionPolicy Bypass -File .\scripts\create-project.ps1 `
+  -TargetRoot "G:\Drive\PersonalAutonomy\Projects\x-projesi" `
+  -Title "X Projesi" `
+  -SourceAgentRoot .\marketing-agent
 ```
 
-Kurulu workspace'te agent güncellemesi proje-local yapılır:
+Marketer tarafinda Codex, resmi GitHub kaynagindan ayni approved create flow'u calistirir.
+Script proje klasorunu olusturur, `.pa/agent/` paketini kurar, root `AGENTS.md` bootstrap
+dosyasini yazar ve manifest hashlerini dogrular.
 
-```powershell
-.\.pa\agent\scripts\check-update.ps1 -TargetRoot . -Json
-.\.pa\agent\scripts\update-agent.ps1 -TargetRoot . -Yes
+## Kurulum Ve Update
+
+Installer yalnizca gecerli proje workspace'ine kurulur:
+
+```text
+PROJE.md + .pa/project/state.json
 ```
 
-Güncelleme yalnızca `.pa/agent/` paketini değiştirir. Proje dosyaları, çıktılar,
-`.pa/project/` ve `.pa/evaluation/` korunur.
+Update sadece `.pa/agent/` paketini degistirir. `PROJE.md`, `DURUM.md`, `KARARLAR.md`,
+`.pa/project/`, haftalik planlar, notlar, kaynaklar ve ciktilar korunur.
 
-## Codex İçin Kural
+## Zorunlu Kontroller
 
-Bu repo gerçek proje çalışması için kullanılmaz. Gerçek çalışma marketer'ın kendi
-değerlendirme veya proje workspace'inde yapılır. Bu repo yalnızca agent paketi, installer,
-şablonlar ve doğrulama araçlarını taşır.
-
-## Geliştirici Doğrulaması
-
-Release değiştiğinde:
+Marketing Agent release'i degistiginde manifest'i yenile:
 
 ```powershell
 $agentRoot = (Resolve-Path -LiteralPath marketing-agent).Path
 .\marketing-agent\scripts\build_release_manifest.ps1 -AgentRoot $agentRoot
+```
+
+Sonra:
+
+```powershell
 powershell -ExecutionPolicy Bypass -File .\marketing-agent\scripts\test_mvp_compatibility.ps1 -AgentRoot .\marketing-agent
 powershell -ExecutionPolicy Bypass -File .\marketing-agent\scripts\healthcheck.ps1 -AgentRoot .\marketing-agent
 powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_install_update.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_workspace_create.ps1
 ```
 
-Installer testi:
+## Baglayici Kaynaklar
 
-```powershell
-$tmp = Join-Path $env:TEMP ("pa-install-test-" + [guid]::NewGuid().ToString("N"))
-New-Item -ItemType Directory -Path $tmp | Out-Null
-powershell -ExecutionPolicy Bypass -File .\scripts\install-marketing-agent.ps1 -TargetRoot $tmp
-```
+- `mvp/mvp.md`: MVP mimarisi ve workspace sozlesmesi
+- `marketing-agent/AGENTS.md`: runtime agent davranisi
+- `marketing-agent/ARCHITECTURE.md`: paket mimarisi
+- `marketing-agent/SKILLS.md`: yerel skill katalogu
+- `marketing-agent/release-manifest.json`: release hash kaydi

@@ -39,29 +39,21 @@ function Test-RequiredFile([string]$Root, [string]$RelativePath) {
 $root = (Resolve-Path -LiteralPath $WorkspaceRoot -ErrorAction Stop).Path
 $projectDocument = Join-Path $root "PROJE.md"
 $projectStatePath = Join-Path $root ".pa\project\state.json"
-$evaluationDocument = Join-Path $root "DEGERLENDIRME.md"
-$evaluationStatePath = Join-Path $root ".pa\evaluation\state.json"
 
 $hasProjectDocument = Test-Path -LiteralPath $projectDocument
 $hasProjectState = Test-Path -LiteralPath $projectStatePath
-$hasEvaluationDocument = Test-Path -LiteralPath $evaluationDocument
-$hasEvaluationState = Test-Path -LiteralPath $evaluationStatePath
 $hasProject = $hasProjectDocument -and $hasProjectState
-$hasEvaluation = $hasEvaluationDocument -and $hasEvaluationState
 
 $workspaceType = "unknown"
-if (($hasProjectDocument -or $hasProjectState) -and ($hasEvaluationDocument -or $hasEvaluationState)) {
-    Add-Issue "error" "mixed-workspace" "Project ve evaluation isaretleri ayni kokte birlikte bulunuyor."
+if ((Test-Path -LiteralPath (Join-Path $root "DEGERLENDIRME.md")) -or
+    (Test-Path -LiteralPath (Join-Path $root ".pa\evaluation"))) {
+    Add-Issue "error" "deprecated-evaluation-workspace" "Ayrik evaluation workspace modeli kaldirildi; fikir degerlendirme proje icinde moddur."
 } elseif ($hasProjectDocument -ne $hasProjectState) {
     Add-Issue "error" "partial-project-workspace" "PROJE.md ve .pa/project/state.json birlikte bulunmali."
-} elseif ($hasEvaluationDocument -ne $hasEvaluationState) {
-    Add-Issue "error" "partial-evaluation-workspace" "DEGERLENDIRME.md ve .pa/evaluation/state.json birlikte bulunmali."
 } elseif ($hasProject) {
     $workspaceType = "project"
-} elseif ($hasEvaluation) {
-    $workspaceType = "evaluation"
 } else {
-    Add-Issue "error" "not-workspace" "Gecerli PersonalAutonomy workspace isareti bulunamadi."
+    Add-Issue "error" "not-workspace" "Gecerli PersonalAutonomy proje workspace isareti bulunamadi."
 }
 
 if ($workspaceType -eq "project") {
@@ -87,28 +79,6 @@ if ($workspaceType -eq "project") {
         }
     } catch {
         Add-Issue "error" "unreadable-state" ".pa/project/state.json okunamadi: $($_.Exception.Message)"
-    }
-} elseif ($workspaceType -eq "evaluation") {
-    Test-RequiredFile $root "DEGERLENDIRME.md"
-    Test-RequiredFile $root "DURUM.md"
-    Test-RequiredFile $root "RAPOR.md"
-    Test-RequiredFile $root ".pa\evaluation\active-task.md"
-    Test-RequiredFile $root ".pa\evaluation\state.json"
-
-    try {
-        $state = Read-Utf8 $evaluationStatePath | ConvertFrom-Json
-        $document = Read-Utf8 $evaluationDocument
-        $docValue = Get-IdentityValue $document "idea_id"
-        $stateValue = [string]$state.idea_id
-        if ([string]::IsNullOrWhiteSpace($docValue) -or [string]::IsNullOrWhiteSpace($stateValue)) {
-            Add-Issue "error" "missing-identity" "idea_id DEGERLENDIRME.md veya state.json icinde eksik."
-        } elseif ($docValue -ne $stateValue) {
-            Add-Issue "error" "identity-mismatch" "idea_id DEGERLENDIRME.md ve state.json arasinda uyusmuyor."
-        } else {
-            Add-Check "identity:idea_id" "ok" $docValue
-        }
-    } catch {
-        Add-Issue "error" "unreadable-state" ".pa/evaluation/state.json okunamadi: $($_.Exception.Message)"
     }
 }
 

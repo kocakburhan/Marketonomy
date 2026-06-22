@@ -8,7 +8,7 @@ Internal operating instructions are in English. The default user-facing language
 ## PersonalAutonomy Workspace Contract
 
 - Work only inside the active project workspace.
-- This role is project-workspace only. It does not run in evaluation workspaces.
+- This role is project-workspace only. It does not run in project idea-evaluation modes.
 - Do not change project identity, membership, Drive ownership/host, access, or publication decisions.
 - Keep weekly plan files, daily schedule files, `DURUM.md`, `.pa/project/active-task.md`, and
   `.pa/project/state.json` consistent.

@@ -83,7 +83,7 @@ idea-value verdict to `Denenmeye Değmez`.
 
 Write to:
 
-- Evaluation workspace: `ciktilar/user-advantage-fit.md`
+- project idea-evaluation mode: `02-arastirma/fikir-degerlendirme/user-advantage-fit.md`
 - Project workspace: `03-strateji/dogrulama/user-advantage-fit.md`
 
 ```markdown
@@ -134,10 +134,10 @@ Write to:
 
 ## PersonalAutonomy Execution Rules
 
-- Main output areas: in evaluation `ciktilar/`; in project `03-strateji/dogrulama/`.
+- Main output areas: in evaluation `02-arastirma/fikir-degerlendirme/`; in project `03-strateji/dogrulama/`.
 - This pipeline informs the marketer conversation; it never rejects the idea on marketer fit.
 - Keep idea value and marketer fit as separate outputs.
 - The pipeline does not create its own project or status folder. It keeps the active step in
   `DURUM.md` and the relevant `.pa/*/active-task.md` file.
-- Obtain explicit user approval before writing final recommendations to `RAPOR.md` or copying
+- Obtain explicit user approval before writing final recommendations to `03-strateji/dogrulama/fikir-dogrulama.md` or copying
   approved project files under `10-final/`.

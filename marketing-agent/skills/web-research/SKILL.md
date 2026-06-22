@@ -41,8 +41,8 @@ approval.
 3. For each critical claim, keep page title, URL, access date, and a short evidence note.
 4. Separate source claims from your own inferences. Label inferences as `Cikarim`.
 5. Explicitly state inaccessible or dynamically non-viewable areas in the report.
-6. In an evaluation, write evidence to `ciktilar/`; in a project, to the relevant
-   `02-arastirma/` folder.
+6. In project idea-evaluation mode, write evidence to `02-arastirma/fikir-degerlendirme/`;
+   otherwise write it to the relevant `02-arastirma/` folder.
 
 ## Security
 

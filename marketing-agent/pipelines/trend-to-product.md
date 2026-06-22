@@ -74,7 +74,7 @@ Weak signals:
 
 Write to:
 
-- Evaluation workspace: `ciktilar/trend-to-product-report.md`
+- project idea-evaluation mode: `02-arastirma/fikir-degerlendirme/trend-to-product-report.md`
 - Project workspace: `02-arastirma/trend-arastirmasi/trend-to-product-report.md`
 
 ```markdown
@@ -111,7 +111,7 @@ Write to:
 
 ## PersonalAutonomy Execution Rules
 
-- Main output areas: in evaluation `ciktilar/`; in project `02-arastirma/trend-arastirmasi/`.
+- Main output areas: in evaluation `02-arastirma/fikir-degerlendirme/`; in project `02-arastirma/trend-arastirmasi/`.
 - Do not treat trend popularity as proof of willingness to pay.
 - Cross-check trends with complaints, competitors, or user workarounds before recommending ideas.
 - The pipeline does not create its own project or status folder. It keeps the active step in

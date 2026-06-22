@@ -228,7 +228,7 @@ Or if there is traction → **Pipeline 4 (Growth Engine)** is started.
   06-pazarlama-uygulamalari/, 08-raporlar/pazarlama/, and 08-raporlar/analitik/
 - The pipeline does not create its own project or status folder. It keeps the active step in
   DURUM.md and the relevant .pa/*/active-task.md file.
-- In an evaluation workspace, it does not apply project-only steps; it does not interpret a
+- In project idea-evaluation mode, it does not skip user approval before interpreting a
   positive result as authority to create a project.
 - In a project, PROJE.md, relevant 01-baglam/ files, and KARARLAR.md are prerequisites.
 - Records claims requiring current data with source and access date; if data is missing, labels

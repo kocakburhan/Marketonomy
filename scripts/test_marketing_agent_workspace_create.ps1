@@ -57,37 +57,20 @@ function Get-IsoWeekName([datetime]$Date) {
     return "{0}-W{1:D2}" -f $year, $week
 }
 
-$createEvaluation = Join-Path $RepoRoot "scripts\create-evaluation.ps1"
 $createProject = Join-Path $RepoRoot "scripts\create-project.ps1"
 $agentRoot = Join-Path $RepoRoot "marketing-agent"
 $tmpRoot = Join-Path $env:TEMP ("pa-create-test-" + [guid]::NewGuid().ToString("N"))
 $baseProfile = Join-Path $tmpRoot "base-marketer-profile.md"
 
 try {
-    Assert-True (Test-Path -LiteralPath $createEvaluation) "create-evaluation.ps1 bulunmali."
     Assert-True (Test-Path -LiteralPath $createProject) "create-project.ps1 bulunmali."
+    Assert-True (-not (Test-Path -LiteralPath (Join-Path $RepoRoot "scripts\create-evaluation.ps1"))) "Ayrik evaluation create scripti kalmamali; fikir degerlendirme proje icinde mod olmali."
 
-    if ((Test-Path -LiteralPath $createEvaluation) -and (Test-Path -LiteralPath $createProject)) {
+    if (Test-Path -LiteralPath $createProject) {
         New-Item -ItemType Directory -Force -Path $tmpRoot | Out-Null
         Write-Utf8 $baseProfile "Profil durumu: Hazir`nTercih edilen hitap: Test Marketer`n"
 
         $missingAgentRoot = Join-Path $tmpRoot "missing-agent-source"
-        $failedEvaluationRoot = Join-Path $tmpRoot "failed-evaluation"
-        $previousErrorActionPreference = $ErrorActionPreference
-        $ErrorActionPreference = "Continue"
-        try {
-            powershell -NoProfile -ExecutionPolicy Bypass -File $createEvaluation `
-                -TargetRoot $failedEvaluationRoot `
-                -Title "Basarisiz Degerlendirme" `
-                -IdeaId "idea-fail-001" `
-                -SourceAgentRoot $missingAgentRoot *> $null
-            $failedEvaluationExitCode = $LASTEXITCODE
-        } finally {
-            $ErrorActionPreference = $previousErrorActionPreference
-        }
-        $failedEvaluationCleaned = ($failedEvaluationExitCode -ne 0) -and (-not (Test-Path -LiteralPath $failedEvaluationRoot))
-        Assert-True $failedEvaluationCleaned "Evaluation create install hatasinda yarim workspace birakmamali."
-
         $failedProjectRoot = Join-Path $tmpRoot "failed-project"
         $previousErrorActionPreference = $ErrorActionPreference
         $ErrorActionPreference = "Continue"
@@ -105,25 +88,11 @@ try {
         $failedProjectCleaned = ($failedProjectExitCode -ne 0) -and (-not (Test-Path -LiteralPath $failedProjectRoot))
         Assert-True $failedProjectCleaned "Project create install hatasinda yarim workspace birakmamali."
 
-        $marketerRoot = Join-Path $tmpRoot "marketer-root"
-        $ideaParent = Join-Path $marketerRoot "idea-workspace"
-        $projectParent = Join-Path $marketerRoot "projects"
-        New-Item -ItemType Directory -Force -Path (Join-Path $marketerRoot ".pa") | Out-Null
-        New-Item -ItemType Directory -Force -Path $ideaParent | Out-Null
-        New-Item -ItemType Directory -Force -Path $projectParent | Out-Null
-        Write-Utf8 (Join-Path $marketerRoot ".pa\marketer-profile.md") "Profil durumu: Tamamlandi`nKaynak: Test marketer root`n"
+        $projectsRoot = Join-Path $tmpRoot "Projects"
+        New-Item -ItemType Directory -Force -Path (Join-Path $projectsRoot ".pa") | Out-Null
+        Write-Utf8 (Join-Path $projectsRoot ".pa\marketer-profile.md") "Profil durumu: Tamamlandi`nKaynak: Test Projects root`n"
 
-        $evaluationAutoProfileRoot = Join-Path $ideaParent "degerlendirme-auto-profile"
-        powershell -NoProfile -ExecutionPolicy Bypass -File $createEvaluation `
-            -TargetRoot $evaluationAutoProfileRoot `
-            -Title "Otomatik Profil Degerlendirme" `
-            -IdeaId "idea-auto-profile-001" `
-            -SourceAgentRoot $agentRoot | Out-Null
-
-        Assert-True (Test-Path -LiteralPath (Join-Path $evaluationAutoProfileRoot ".pa\evaluation\marketer-profile.md")) "Evaluation marketer root profili otomatik kopyalanmali."
-        Assert-True ((Read-Utf8 (Join-Path $evaluationAutoProfileRoot ".pa\evaluation\marketer-profile.md")) -match "Kaynak: Test marketer root") "Evaluation otomatik profil icerigi korunmali."
-
-        $projectAutoProfileRoot = Join-Path $projectParent "proje-auto-profile"
+        $projectAutoProfileRoot = Join-Path $projectsRoot "proje-auto-profile"
         powershell -NoProfile -ExecutionPolicy Bypass -File $createProject `
             -TargetRoot $projectAutoProfileRoot `
             -Title "Otomatik Profil Proje" `
@@ -132,35 +101,7 @@ try {
             -SourceAgentRoot $agentRoot | Out-Null
 
         Assert-True (Test-Path -LiteralPath (Join-Path $projectAutoProfileRoot ".pa\project\marketer-profile.md")) "Project marketer root profili otomatik kopyalanmali."
-        Assert-True ((Read-Utf8 (Join-Path $projectAutoProfileRoot ".pa\project\marketer-profile.md")) -match "Kaynak: Test marketer root") "Project otomatik profil icerigi korunmali."
-
-        $evaluationRoot = Join-Path $tmpRoot "degerlendirme"
-        powershell -NoProfile -ExecutionPolicy Bypass -File $createEvaluation `
-            -TargetRoot $evaluationRoot `
-            -Title "Akilli Teklif Araci" `
-            -IdeaId "idea-test-001" `
-            -SourceAgentRoot $agentRoot `
-            -MarketerProfilePath $baseProfile | Out-Null
-
-        Assert-True (Test-Path -LiteralPath (Join-Path $evaluationRoot "DEGERLENDIRME.md")) "Evaluation DEGERLENDIRME.md olusmali."
-        Assert-True (Test-Path -LiteralPath (Join-Path $evaluationRoot ".pa\evaluation\state.json")) "Evaluation state olusmali."
-        Assert-True (Test-Path -LiteralPath (Join-Path $evaluationRoot ".pa\agent\AGENTS.md")) "Evaluation agent paketi kurulmus olmali."
-        Assert-True (Test-Path -LiteralPath (Join-Path $evaluationRoot ".pa\evaluation\marketer-profile.md")) "Evaluation marketer profili kopyalanmali."
-        $evaluationState = Read-Utf8 (Join-Path $evaluationRoot ".pa\evaluation\state.json") | ConvertFrom-Json
-        Assert-Equal $evaluationState.idea_id "idea-test-001" "Evaluation idea_id state'e yazilmali."
-        Assert-True ((Read-Utf8 (Join-Path $evaluationRoot "DEGERLENDIRME.md")) -match "idea-test-001") "DEGERLENDIRME.md idea_id icermeli."
-        $evaluationReconcile = powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $evaluationRoot ".pa\agent\scripts\reconcile-workspace-state.ps1") `
-            -WorkspaceRoot $evaluationRoot `
-            -Json
-        Assert-Equal ((($evaluationReconcile -join "`n") | ConvertFrom-Json).status) "ok" "Evaluation reconciliation ok olmali."
-
-        $evaluationSettingsPath = Join-Path $evaluationRoot ".pa\evaluation\settings.json"
-        Assert-True (Test-Path -LiteralPath $evaluationSettingsPath) "Evaluation settings.json olusmali."
-        if (Test-Path -LiteralPath $evaluationSettingsPath) {
-            $evaluationSettings = Read-Utf8 $evaluationSettingsPath | ConvertFrom-Json
-            Assert-Equal $evaluationSettings.timezone "Europe/Istanbul" "Evaluation timezone Europe/Istanbul olmali."
-        }
-        Assert-NoControlChars (Join-Path $evaluationRoot "DURUM.md") "Evaluation DURUM.md temiz olmali."
+        Assert-True ((Read-Utf8 (Join-Path $projectAutoProfileRoot ".pa\project\marketer-profile.md")) -match "Kaynak: Test Projects root") "Project otomatik profil icerigi korunmali."
 
         $projectRoot = Join-Path $tmpRoot "proje"
         powershell -NoProfile -ExecutionPolicy Bypass -File $createProject `
@@ -173,12 +114,15 @@ try {
 
         Assert-True (Test-Path -LiteralPath (Join-Path $projectRoot "PROJE.md")) "Project PROJE.md olusmali."
         Assert-True (Test-Path -LiteralPath (Join-Path $projectRoot ".pa\project\state.json")) "Project state olusmali."
+        Assert-True (-not (Test-Path -LiteralPath (Join-Path $projectRoot "DEGERLENDIRME.md"))) "Project workspace ayrik DEGERLENDIRME.md icermemeli."
+        Assert-True (-not (Test-Path -LiteralPath (Join-Path $projectRoot ".pa\evaluation"))) "Project workspace .pa/evaluation icermemeli."
         Assert-True (Test-Path -LiteralPath (Join-Path $projectRoot ".pa\agent\AGENTS.md")) "Project agent paketi kurulmus olmali."
         Assert-True (Test-Path -LiteralPath (Join-Path $projectRoot ".pa\project\marketer-profile.md")) "Project marketer profili kopyalanmali."
         $projectState = Read-Utf8 (Join-Path $projectRoot ".pa\project\state.json") | ConvertFrom-Json
         Assert-Equal $projectState.idea_id "idea-test-001" "Project idea_id state'e yazilmali."
         Assert-Equal $projectState.project_id "project-test-001" "Project project_id state'e yazilmali."
         Assert-True ((Read-Utf8 (Join-Path $projectRoot "PROJE.md")) -match "project-test-001") "PROJE.md project_id icermeli."
+        Assert-True ((Read-Utf8 (Join-Path $projectRoot "PROJE.md")) -match "Fikir Degerlendirme Modu") "PROJE.md fikir degerlendirmeyi proje ici mod olarak anlatmali."
         $projectReconcile = powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $projectRoot ".pa\agent\scripts\reconcile-workspace-state.ps1") `
             -WorkspaceRoot $projectRoot `
             -Json
@@ -222,7 +166,9 @@ try {
             "00-gelen-kutusu",
             "01-baglam",
             "02-arastirma",
+            "02-arastirma\fikir-degerlendirme",
             "03-strateji",
+            "03-strateji\dogrulama",
             "04-urun",
             "06-pazarlama-uygulamalari\dijital",
             "06-pazarlama-uygulamalari\saha",
