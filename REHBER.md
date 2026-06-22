@@ -66,7 +66,8 @@ strateji konusmalari icin Codex'te `brainstorming` skill'inin kurulu ve aktif ol
 x isminde proje olustur.
 ```
 
-Codex onayli scripti calistirir ve `Projects/x` klasorunu olusturur. Sonra size sunu soyler:
+Codex isletim sisteminize uygun onayli scripti calistirir ve `Projects/x` klasorunu olusturur.
+Windows'ta `.ps1`, macOS'ta `.sh` scriptleri kullanilir. Sonra size sunu soyler:
 
 ```text
 Projeye devam etmek icin Codex'te Projects/x klasorunu ac ve yeni bir Codex oturumu baslat.
@@ -231,16 +232,18 @@ Su resmi GitHub reposundaki PersonalAutonomy Marketing Agent kurulum ve proje ol
 bu Projects klasoru icin hazirla:
 <GITHUB_REPO_URL>
 
-Kurulumu serbest elle yapma. Repodaki resmi scriptleri kullan.
+Kurulumu serbest elle yapma. Repodaki resmi scriptleri kullan. Windows kullaniciysan `.ps1`,
+macOS kullaniciysan `.sh` scriptlerini sec.
 
 Once bu ana Projects klasorunde onboarding akisini baslat:
 1. Codex App plugin checklist'ini bana yaptir.
 2. Benden reusable marketer profilimi topla ve .pa/marketer-profile.md olarak kaydet.
-3. Bundan sonra yeni proje istedigimde create-project.ps1 akisini kullanarak Projects/<proje-adi>
-   klasorunu olustur.
+3. Bundan sonra yeni proje istedigimde Windows'ta create-project.ps1, macOS'ta create-project.sh
+   akisini kullanarak Projects/<proje-adi> klasorunu olustur.
 
-Yeni proje olustururken scripti -RepoUrl <GITHUB_REPO_URL> -Version latest parametreleriyle
-calistir. Olusan proje klasorune Marketing Agent paketini kur, release-manifest.json
+Yeni proje olustururken Windows'ta scripti -RepoUrl <GITHUB_REPO_URL> -Version latest,
+macOS'ta --repo-url <GITHUB_REPO_URL> --version latest parametreleriyle calistir.
+Olusan proje klasorune Marketing Agent paketini kur, release-manifest.json
 dogrulamasini yap ve mevcut dosyalarimi silme.
 ```
 
@@ -296,9 +299,9 @@ Ya da daha acik yazmak isterseniz:
 
 ```text
 Bu Projects klasorunun altinda x-projesi isminde yeni bir PersonalAutonomy proje workspace'i
-olustur. Resmi create-project.ps1 akisini kullan. GitHub repo kaynagi olarak daha once verdigim
-repo URL'sini ve latest surumu kullan. Proje olusunca bana hangi klasoru Codex'te acmam
-gerektigini soyle.
+olustur. Windows'ta resmi create-project.ps1 akisini, macOS'ta create-project.sh akisini kullan.
+GitHub repo kaynagi olarak daha once verdigim repo URL'sini ve latest surumu kullan. Proje
+olusunca bana hangi klasoru Codex'te acmam gerektigini soyle.
 ```
 
 Codex bu adimda scripti calistirir. Script sunlari yapar:

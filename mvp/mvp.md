@@ -6,7 +6,8 @@ Bu dokuman PersonalAutonomy ilk product fazinin baglayici mimari ve calisma sozl
 
 ## First Product Phase: Codex + Google Drive
 
-PersonalAutonomy ilk product fazi, Codex App + Google Drive for desktop + onayli PowerShell create/install/update scriptleriyle calisir.
+PersonalAutonomy ilk product fazi, Codex App + Google Drive for desktop + onayli create/install/update scriptleriyle calisir.
+Windows kullanicilari `.ps1`, macOS kullanicilari `.sh` scriptlerini kullanir.
 Web app, PWA, Web Push, merkezi rol ekrani, web
 tabanli workflow kaydi ve otomatik Drive operasyonlari post-MVP kapsamidir.
 
@@ -222,7 +223,8 @@ Ana `Projects` klasorunde kullanici Codex'e yeni proje istedigini soyler:
 x isminde proje olustur.
 ```
 
-Codex onayli `create-project.ps1` akisini kullanir. Script:
+Codex isletim sistemine uygun onayli create akisini kullanir: Windows'ta `create-project.ps1`,
+macOS'ta `create-project.sh`. Script:
 
 1. Hedef `Projects/x` klasorunun bos veya yeni olusturulabilir oldugunu dogrular.
 2. `project_id` ve `idea_id` uretir veya verilen degerleri kullanir.
@@ -236,14 +238,14 @@ Codex onayli `create-project.ps1` akisini kullanir. Script:
 
 ## Installer Ve Update Siniri
 
-`install-marketing-agent.ps1` yalnizca gecerli proje workspace'ine kurulum yapar:
+`install-marketing-agent.ps1` ve `install-marketing-agent.sh` yalnizca gecerli proje workspace'ine kurulum yapar:
 
 ```text
 PROJE.md + .pa/project/state.json
 ```
 
-`update-agent.ps1 -Yes` yalnizca `.pa/agent/` paketini degistirir. Kullanici onayi olmadan
-calismaz. Korunan alanlar:
+`update-agent.ps1 -Yes` ve `update-agent.sh --yes` yalnizca `.pa/agent/` paketini degistirir.
+Kullanici onayi olmadan calismaz. Korunan alanlar:
 
 - `PROJE.md`
 - `DURUM.md`

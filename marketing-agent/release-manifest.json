@@ -205,6 +205,11 @@
                       "size":  4386
                   },
                   {
+                      "path":  "scripts/check-update.sh",
+                      "sha256":  "b3155da355813b9feefa19498ba42fa6582ea575c7945ce9ec1cbaab57ea07e1",
+                      "size":  4136
+                  },
+                  {
                       "path":  "scripts/competitor_scanner.py",
                       "sha256":  "f78f52cc386145397672000daee9d79253008e436e268a7ae2f5417240e869f1",
                       "size":  3682
@@ -226,8 +231,8 @@
                   },
                   {
                       "path":  "scripts/healthcheck.ps1",
-                      "sha256":  "3fa5dc62d58b968ea01daac20a023f535d168429e7576d95a6f9bbd5de5a3dd9",
-                      "size":  9242
+                      "sha256":  "6b82a6274d298e610ac69b1f84f4986dcf8fa30b3103a9f30b18018379b52b00",
+                      "size":  9346
                   },
                   {
                       "path":  "scripts/reconcile-workspace-state.ps1",
@@ -258,6 +263,11 @@
                       "path":  "scripts/update-agent.ps1",
                       "sha256":  "c05f0e0806db663242af1125a404179b6cbb0466533d2bf72b8dc432cd414b49",
                       "size":  11789
+                  },
+                  {
+                      "path":  "scripts/update-agent.sh",
+                      "sha256":  "c68d1e3e421ce182414dff890650b1e1245ed11e78750bb8e8fc07e165caa3ba",
+                      "size":  9091
                   },
                   {
                       "path":  "SKILLS.md",
@@ -751,8 +761,8 @@
                   },
                   {
                       "path":  "templates/workspace-bootstrap-AGENTS.md",
-                      "sha256":  "e1612d8ca63e092a918875250257c8507c285d5e4d37dc149aaf315deeb7df8f",
-                      "size":  1357
+                      "sha256":  "73a8287051a9af21f86cf727c0d64add5afae924ae8cfcc146a18c0a61db9eb3",
+                      "size":  1496
                   }
               ]
 }

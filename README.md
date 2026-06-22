@@ -186,7 +186,8 @@ Marketer'ların sistemi nasıl kuracağı ve kullanacağı adım adım
 1. Google Drive ile senkronize bir `Projects/` ana klasörü oluşturulur.
 2. Codex App'te `Projects/` kök olarak açılır.
 3. GitHub repo linki ile onboarding prompt'u verilir — Codex resmi installer
-   script'leri (`install-marketing-agent.ps1`, `create-project.ps1`) kullanarak
+   script'leri (Windows: `install-marketing-agent.ps1`, `create-project.ps1`; macOS:
+   `install-marketing-agent.sh`, `create-project.sh`) kullanarak
    kurulumu ve proje oluşturmayı yönetir.
 4. Plugin kontrolü, marketer profili toplama ve ilk proje oluşturma tamamlanır.
 5. Oluşturulan `Projects/<proje-adı>/` klasörü yeni Codex workspace olarak açılır
@@ -196,6 +197,13 @@ Installer, hedefin geçerli bir proje workspace'i olduğunu (`PROJE.md` +
 `.pa/project/state.json` kimlik eşleşmesi) doğrular, agent paketini atomik
 olarak kopyalar, bootstrap `AGENTS.md` oluşturur ve `release-manifest.json`
 ile SHA-256 bütünlük doğrulaması yapar. Mevcut proje dosyaları asla silinmez.
+
+macOS kullanan marketer'lar ayni akis icin `.sh` dosyalarini kullanir:
+
+```bash
+./scripts/create-project.sh --target-root "$HOME/Projects/x-projesi" --repo-url <GITHUB_REPO_URL> --version latest
+./scripts/install-marketing-agent.sh --target-root "$HOME/Projects/x-projesi" --repo-url <GITHUB_REPO_URL> --version latest
+```
 
 ---
 
@@ -218,6 +226,9 @@ powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_install_
 
 # Workspace oluşturma testi
 powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_workspace_create.ps1
+
+# macOS script sozlesmesi
+powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_macos_scripts.ps1
 ```
 
 ---
@@ -248,6 +259,8 @@ powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_workspac
 | `marketing-agent/agent-version.json` | Semantik sürüm + çalışma zamanı + MVP sözleşme tarihi |
 | `scripts/install-marketing-agent.ps1` | Doğrulanmış, atomik agent kurulum betiği |
 | `scripts/create-project.ps1` | Kimlik üretimi ve iskelet oluşturma ile tam workspace fabrikası |
+| `scripts/install-marketing-agent.sh` | macOS icin dogrulanmis, atomik agent kurulum betigi |
+| `scripts/create-project.sh` | macOS icin proje workspace fabrikasi |
 | `REHBER.md` | Türkçe son kullanıcı onboarding ve kurulum rehberi |
 
 ---

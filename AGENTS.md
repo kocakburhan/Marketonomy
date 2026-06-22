@@ -42,7 +42,8 @@ linkini verip kurulum ister. Kurulum serbest elle yapılmaz; resmi installer ça
 Beklenen güvenli kurulum:
 
 1. Repo geçici bir klasöre klonlanır veya indirilir.
-2. `scripts/install-marketing-agent.ps1` çalıştırılır.
+2. Windows'ta `scripts/install-marketing-agent.ps1`, macOS'ta
+   `scripts/install-marketing-agent.sh` çalıştırılır.
 3. Hedef proje kökü açık Codex workspace'idir.
 4. Installer hedefin tam olarak bir geçerli project workspace olduğunu; `PROJE.md` ile
    `.pa/project/state.json` kimliklerinin eşleştiğini kopyalamadan önce doğrular.
@@ -61,8 +62,10 @@ Bu klasör PersonalAutonomy proje workspace'i.
 Şu resmi GitHub reposundaki PersonalAutonomy Marketing Agent'ı bu projeye kur:
 <GITHUB_REPO_URL>
 
-Kurulumu serbest elle yapma. Repodaki scripts/install-marketing-agent.ps1 installer'ını kullan.
-Installer'ı -RepoUrl <GITHUB_REPO_URL> -Version latest parametreleriyle çalıştır.
+Kurulumu serbest elle yapma. Windows'ta repodaki scripts/install-marketing-agent.ps1
+installer'ını, macOS'ta scripts/install-marketing-agent.sh installer'ını kullan.
+Installer'ı Windows'ta -RepoUrl <GITHUB_REPO_URL> -Version latest; macOS'ta
+--repo-url <GITHUB_REPO_URL> --version latest parametreleriyle çalıştır.
 Hedef proje kökü şu anda Codex'te açık olan klasördür.
 
 Kurulumdan sonra .pa/agent/ paketini, kök AGENTS.md bootstrap dosyasını ve
@@ -74,10 +77,12 @@ release-manifest.json doğrulamasını kontrol et. Var olan proje dosyalarımı 
 - Önce `mvp/mvp.md` ve ilgili `marketing-agent/` dosyalarını oku.
 - Release davranışını değiştirirken `marketing-agent/AGENTS.md`, `ARCHITECTURE.md`, `SKILLS.md`,
   pipeline, agent veya skill dosyalarının birbirini tamamladığını kontrol et.
-- Kurulum davranışını değiştirirken `scripts/install-marketing-agent.ps1`, `scripts/create-project.ps1` ve
+- Kurulum davranışını değiştirirken `scripts/install-marketing-agent.ps1`,
+  `scripts/install-marketing-agent.sh`, `scripts/create-project.ps1`, `scripts/create-project.sh` ve
   `marketing-agent/templates/workspace-bootstrap-AGENTS.md` dosyalarını birlikte düşün.
 - Agent update davranışını değiştirirken `marketing-agent/scripts/check-update.ps1`,
-  `marketing-agent/scripts/update-agent.ps1` ve `scripts/test_marketing_agent_install_update.ps1`
+  `marketing-agent/scripts/check-update.sh`, `marketing-agent/scripts/update-agent.ps1`,
+  `marketing-agent/scripts/update-agent.sh` ve `scripts/test_marketing_agent_install_update.ps1`
   dosyalarını birlikte düşün.
 - Kullanıcı verisini temsil eden örnek proje klasörleri oluşturma; gerçek workspace kurulumu
   installer ile hedef klasörde yapılır.
@@ -100,6 +105,7 @@ powershell -ExecutionPolicy Bypass -File .\marketing-agent\scripts\test_mvp_comp
 powershell -ExecutionPolicy Bypass -File .\marketing-agent\scripts\healthcheck.ps1 -AgentRoot .\marketing-agent
 powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_install_update.ps1
 powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_workspace_create.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_macos_scripts.ps1
 ```
 
 Installer veya create scriptleri değiştiğinde boş klasöre doğrudan installer çalıştırma.
