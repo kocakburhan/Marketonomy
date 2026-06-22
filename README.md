@@ -131,6 +131,53 @@ eşliğinde, kanıta dayalı çıktı üretir.
 
 ---
 
+## LLM-Wiki Output Memory
+
+Proje, [Andrej Karpathy'nin llm-wiki yaklaşımından](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+esinlenen bir **türetilmiş çıktı hafıza katmanı** içerir. Bu katman, ham dosyaların
+yerine geçmez; kaynak kanıtlar, kanonik çıktılar, kararlar, çelişkiler ve yeniden
+kullanım ilişkileri arasında bir **bilgi haritası** görevi görür.
+
+### Yapı
+
+Proje workspace'inde `11-notlar/bilgi-haritasi/` altında üç bileşenden oluşur:
+
+| Dosya | Görev |
+|-------|-------|
+| `index.md` | İçerik haritası — tüm sayfaların ve ilişkilerin navigasyonu |
+| `log.md` | Kronolojik işlem günlüğü — hangi kararın ne zaman alındığı |
+| `sayfalar/` | Konu bazlı wiki sayfaları — varlık, konsept, karar ve ders sayfaları |
+
+Fikir değerlendirme modunda bu katman `02-arastirma/fikir-degerlendirme/bilgi-haritasi/`
+altında çalışır.
+
+### Çalışma Prensibi
+
+- **Kaynak değil haritadır:** Ham kaynaklar ve kanonik çıktılar kendi klasörlerinde
+  kalır; `bilgi-haritasi` yalnızca bunlar arasındaki ilişkileri, bağlantıları ve
+  çelişkileri kaydeder.
+- **Her çıktı değil, kalıcı çıktı:** Yalnızca araştırma, strateji, PRD, final
+  teslim veya karar değiştiren nitelikteki *kalıcı* çıktılar haritaya işlenir.
+- **Çelişkiler işaretlenir:** Birbiriyle çelişen bulgular sessizce silinmez;
+  açıkça işaretlenir.
+- **Skill çıktılarıyla entegre:** Herhangi bir skill kalıcı bir çıktı ürettiğinde,
+  orchestrator agent `bilgi-haritasi`'ni de günceller.
+
+### Arama ve Geri Çağırma Akışı
+
+Büyük strateji, PRD, lansman, yatırımcı veya haftalık planlama işlerinden önce
+agent şu sırayla okur:
+
+```
+index.md  →  log.md  →  ilgili sayfalar  →  kanonik dosyalar
+```
+
+Bu akış, agent'ın geçmiş kararları ve birikmiş bağlamı gözden kaçırmadan çalışmasını
+sağlar. Uyumluluk testleri (`test_mvp_compatibility.ps1`) bu katmanın varlığını
+zorunlu bir sözleşme maddesi olarak denetler.
+
+---
+
 ## Kurulum
 
 Marketer'ların sistemi nasıl kuracağı ve kullanacağı adım adım
