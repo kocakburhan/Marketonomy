@@ -18,11 +18,13 @@ Bu dosya, güncel tek `Projects/` sözleşmesine göre Marketing Agent'i markete
   - [x] `.\scripts\test_marketing_agent_install_update.ps1`
   - [x] `.\scripts\test_marketing_agent_macos_scripts.ps1`
   - [x] `git diff --check`
-- [ ] Pilot için kullanılacak GitHub repo URL'sini kesinleştir.
-- [ ] Pilot sürümünü kesinleştir:
-  - [ ] Tekrarlanabilir pilot için sabit release tag'i kullan.
+- [x] Pilot için kullanılacak GitHub repo URL'sini kesinleştir:
+  `https://github.com/kocakburhan/Marketonomy.git`
+- [x] Pilot sürümünü kesinleştir:
+  - [x] Tekrarlanabilir pilot için sabit `v5.5.0` release tag'ini kullan.
   - [ ] Geliştirme ortamında özellikle isteniyorsa `latest` kullan.
-- [ ] Son değişiklikleri commit et, push et ve gerekiyorsa release tag'ini yayınla.
+- [x] Son değişiklikleri commit et, `main` dalına push et ve `v5.5.0` GitHub Release'ini yayınla.
+- [x] Remote `v5.5.0` tag'inden temiz Projects root ve `x-projesi` smoke testini tamamla.
 
 ## 2. Marketer Bilgisayarı Hazırlığı
 
@@ -188,7 +190,7 @@ Bu işi final teslim olarak hazırlama, önce taslak üret.
 ## 10. Teslim Kararı
 
 - [ ] Pilot blokajlarını repo içinde düzelt.
-- [ ] Manifest gerektiren release-surface değişikliklerinde manifesti yenile.
-- [ ] Tüm zorunlu testleri tekrar çalıştır.
-- [ ] Son release/tag/push işlemini tamamla.
-- [ ] Marketer'lara `ilk kurulum.md`, repo URL'si ve kullanılacak sürümü teslim et.
+- [x] Manifest gerektiren release-surface değişikliklerinde manifesti yenile.
+- [x] Tüm zorunlu testleri tekrar çalıştır.
+- [x] Son `v5.5.0` release/tag/push işlemini tamamla.
+- [x] Marketer teslim paketi için `ilk kurulum.md`, repo URL'si ve kullanılacak sürümü hazırla.
