@@ -31,8 +31,13 @@ Marketer'in pratik dosya modeli:
 
 ```text
 Projects/
+  AGENTS.md
+  onboarding-guide.md
   .pa/
     marketer-profile.md
+    onboarding-install.json
+    onboarding/
+      scripts/
   .pa-create-work/
   .pa-script-logs/
   x-projesi/
@@ -42,6 +47,17 @@ Projects/
 `Projects/.pa/marketer-profile.md`, kullanicinin tekrar tekrar ayni bilgileri vermemesi icin
 tutulan reusable marketer profilidir. Ana onboarding bu dosyayi olusturur veya gunceller.
 `create-project.ps1`, dosya varsa yeni projenin `.pa/project/marketer-profile.md` yoluna kopyalar.
+Profil sabit sorularla sinirli degildir. Kullanici gonullu olarak calisma bicimi, erisilebilirlik,
+norocesitlilik veya isbirligini iyilestirecek baska bir baglam paylasirsa anlamini bozmadan
+`Ek kullanici baglami` altinda saklanir. Agent hassas bilgi cikarsamaz ve teshis istemez.
+
+`Projects/AGENTS.md`, ince onboarding bootstrap dosyasidir ve her oturumda
+`Projects/onboarding-guide.md` dosyasini okutur. `onboarding-guide.md`, release icindeki canonical
+`marketing-agent/agents/onboarding-guide.md` dosyasinin dogrulanmis kopyasidir.
+
+`Projects/.pa/onboarding-install.json`, onboarding kaynaginin repo URL'sini, istenen surumu,
+kurulu surumu ve update politikasini tutar. `.pa/onboarding/scripts/` salt-okunur update kontrolu
+ve acik onayli onboarding update scriptlerini tutar.
 
 `Projects/.pa-create-work/`, create scriptlerinin gecici hazirlama alanidir. Basarili dogrulamadan
 sonra hedef proje klasoru yayinlanir; hata halinde yarim workspace birakilmaz.
@@ -230,13 +246,25 @@ macOS'ta `create-project.sh`. Script:
 2. `project_id` ve `idea_id` uretir veya verilen degerleri kullanir.
 3. Proje klasor yapisini, `PROJE.md`, `DURUM.md`, `KARARLAR.md`, haftalik plan iskeletini ve
    `.pa/project/state.json` dosyasini olusturur.
-4. `Projects/.pa/marketer-profile.md` varsa projeye kopyalar.
+4. `Projects/.pa/marketer-profile.md` varsa tum ek kullanici baglamiyla birlikte byte-for-byte
+   `.pa/project/marketer-profile.md` yoluna kopyalar.
 5. GitHub veya verilen kaynak agent paketinden `.pa/agent/` kurar.
 6. `release-manifest.json` hashlerini dogrular.
 7. Yarim kurulumda hedef klasoru temizler.
 8. Kullaniciya projeye devam etmek icin `Projects/x` klasorunu Codex root olarak acmasini soyler.
 
 ## Installer Ve Update Siniri
+
+Bos veya mevcut ana `Projects/` kokunun onboarding kurulumu:
+
+```text
+install-projects-root.ps1 / install-projects-root.sh
+```
+
+Bu installer proje workspace'ini reddeder; `Projects/AGENTS.md`, `onboarding-guide.md`,
+`.pa/onboarding/` ve `.pa/onboarding-install.json` alanlarini yonetir. Mevcut
+`.pa/marketer-profile.md` ve proje klasorlerini korur. Onboarding update kullanici onayi olmadan
+calismaz.
 
 `install-marketing-agent.ps1` ve `install-marketing-agent.sh` yalnizca gecerli proje workspace'ine kurulum yapar:
 

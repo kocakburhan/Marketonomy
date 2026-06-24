@@ -10,7 +10,10 @@ inside the project workspace.
 
 ```text
 Projects root
-  -> onboarding-guide
+  -> AGENTS.md bootstrap
+  -> onboarding-guide.md
+  -> .pa/onboarding-install.json
+  -> .pa/onboarding/scripts/
   -> Codex App plugin checklist
   -> .pa/marketer-profile.md
   -> create-project.ps1
@@ -123,8 +126,11 @@ content, growth, international expansion, outreach, analytics, brand, campaign, 
 coordination, and investor readiness.
 
 The onboarding role owns the `Projects` root first-use flow and the Marketer Profile Intake.
-Approved create flow copies `Projects/.pa/marketer-profile.md` into
-`.pa/project/marketer-profile.md`, so each new project starts with the user's reusable context.
+`scripts/install-projects-root.ps1` and `.sh` install a thin root bootstrap plus the canonical
+`agents/onboarding-guide.md` copy. Approved create flow copies
+`Projects/.pa/marketer-profile.md` byte-for-byte into `.pa/project/marketer-profile.md`, so each
+new project starts with the user's reusable context, including voluntarily shared additional
+working or accessibility context.
 
 ## LLM-Wiki Output Memory Layer
 

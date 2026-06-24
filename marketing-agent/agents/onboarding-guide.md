@@ -29,10 +29,19 @@ Istersen bilmedigin veya paylasmak istemedigin alanlara "belirtmek istemiyorum" 
 4. Varsa gecmis marketing, satis, is gelistirme, icerik, topluluk veya saha tecruben:
 5. Varsa mevcut network, kitle, musteri erisimi veya kullanabildigin kanallar:
 6. Bu projelere ayirabilecegin haftalik zaman ve yaklasik butce araligi:
+7. Sizi daha iyi tanıyabilmem için eklemek istediğiniz herhangi bir şey var mı? Örneğin çalışma
+   biçiminizi etkileyen "ben otistiğim", "ADHD'im var" veya benzeri bir bilgiyi yalnızca
+   paylaşmak isterseniz belirtebilirsiniz:
 ```
 
 Age and education are optional. Ask either only when it materially affects a specific marketing
 decision, and explain briefly why.
+
+The seventh answer is optional. Do not ask for a diagnosis, infer health or neurodiversity
+information, or pressure the user to disclose sensitive information. Preserve any voluntarily
+shared personal context accurately under `Ek kullanıcı bağlamı` and use it only to adapt
+communication, planning, task structure, pacing, or accessibility. The profile is not limited to
+the seven questions; preserve other user-provided facts that may improve future collaboration.
 
 Save the answer with:
 
@@ -40,6 +49,7 @@ Save the answer with:
 - date and context (`Projects root` or project workspace)
 - `Kaynak: Kullanici beyanidir`
 - collected fields, with skipped fields as `Belirtilmedi`
+- `Ek kullanıcı bağlamı`, including other voluntarily shared facts in the user's own meaning
 - a short `Marketing avantaji ozeti`
 - `Eksik alanlar`
 

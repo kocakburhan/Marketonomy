@@ -17,7 +17,7 @@ her proje kendi kendine yeten bir klasördür ve kendi Codex workspace'i olarak 
 
 | | |
 |---|---|
-| **Sürüm** | `v5.4.2` |
+| **Sürüm** | `v5.5.0` |
 | **Çalışma Zamanı** | Codex |
 | **MVP Sözleşmesi** | 2026-06-21 |
 | **Dil** | Türkçe (varsayılan kullanıcı dili) |
@@ -185,12 +185,14 @@ Marketer'ların sistemi nasıl kuracağı ve kullanacağı adım adım
 
 1. Google Drive ile senkronize bir `Projects/` ana klasörü oluşturulur.
 2. Codex App'te `Projects/` kök olarak açılır.
-3. GitHub repo linki ile onboarding prompt'u verilir — Codex resmi installer
-   script'leri (Windows: `install-marketing-agent.ps1`, `create-project.ps1`; macOS:
-   `install-marketing-agent.sh`, `create-project.sh`) kullanarak
-   kurulumu ve proje oluşturmayı yönetir.
-4. Plugin kontrolü, marketer profili toplama ve ilk proje oluşturma tamamlanır.
-5. Oluşturulan `Projects/<proje-adı>/` klasörü yeni Codex workspace olarak açılır
+3. GitHub repo linki ile onboarding prompt'u verilir. Codex önce Windows'ta
+   `install-projects-root.ps1`, macOS'ta `install-projects-root.sh` kullanarak
+   `Projects/AGENTS.md`, `Projects/onboarding-guide.md` ve onboarding metadata/update
+   dosyalarını kurar.
+4. Plugin kontrolü ve marketer profili tamamlanır. Profil standart sorularla sınırlı değildir;
+   kullanıcının gönüllü verdiği ek çalışma veya erişilebilirlik bağlamı da korunur.
+5. Codex resmi `create-project.ps1/.sh` akışıyla ilk projeyi oluşturur.
+6. Oluşturulan `Projects/<proje-adı>/` klasörü yeni Codex workspace olarak açılır
    ve tüm çalışma burada yürütülür.
 
 Installer, hedefin geçerli bir proje workspace'i olduğunu (`PROJE.md` +
@@ -258,8 +260,10 @@ powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_macos_sc
 | `marketing-agent/release-manifest.json` | Paketteki her dosya için SHA-256 bütünlük kaydı |
 | `marketing-agent/agent-version.json` | Semantik sürüm + çalışma zamanı + MVP sözleşme tarihi |
 | `scripts/install-marketing-agent.ps1` | Doğrulanmış, atomik agent kurulum betiği |
+| `scripts/install-projects-root.ps1` | Windows ana Projects onboarding bootstrap installer'ı |
 | `scripts/create-project.ps1` | Kimlik üretimi ve iskelet oluşturma ile tam workspace fabrikası |
 | `scripts/install-marketing-agent.sh` | macOS icin dogrulanmis, atomik agent kurulum betigi |
+| `scripts/install-projects-root.sh` | macOS ana Projects onboarding bootstrap installer'i |
 | `scripts/create-project.sh` | macOS icin proje workspace fabrikasi |
 | `REHBER.md` | Türkçe son kullanıcı onboarding ve kurulum rehberi |
 

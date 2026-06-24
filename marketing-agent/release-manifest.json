@@ -1,6 +1,6 @@
 {
     "schema_version":  "1.0",
-    "version":  "v5.4.2",
+    "version":  "v5.5.0",
     "hash_algorithm":  "SHA-256",
     "generated_at":  "deterministic",
     "files":  [
@@ -11,8 +11,8 @@
                   },
                   {
                       "path":  "AGENTS.md",
-                      "sha256":  "4bb748191b712ecf5692822be72fd133e57d0f2742b2f48c1363b7d8cf506c33",
-                      "size":  11079
+                      "sha256":  "aacc26b25e81bd1df0cdc59b21c1b0f6d08ead0c815f2d6b4444145d36e608cd",
+                      "size":  11620
                   },
                   {
                       "path":  "agents/analytics-master.md",
@@ -61,8 +61,8 @@
                   },
                   {
                       "path":  "agents/onboarding-guide.md",
-                      "sha256":  "d6dcd82c49192d8f07adb7a487760d761961f2845791f2d48d60080270e914bf",
-                      "size":  12678
+                      "sha256":  "2905a4e5cb8618bf1faa9498976bc7264284e81c028d0e96d27c4ae498fc569b",
+                      "size":  13488
                   },
                   {
                       "path":  "agents/orchestrator.md",
@@ -91,13 +91,13 @@
                   },
                   {
                       "path":  "agent-version.json",
-                      "sha256":  "f8016818b925a4b7b560d9895fd976cb60c57a04b834d1ee65934ec554a2506a",
-                      "size":  131
+                      "sha256":  "7c3dd3bf6722fcf658a8c8535675972c6b7f4f1d1eaa060bea49fc430221ecf4",
+                      "size":  132
                   },
                   {
                       "path":  "ARCHITECTURE.md",
-                      "sha256":  "51d19062f81545230d9b405ba5a0ba1783ab12c27b0d250d27ccd1633de5290e",
-                      "size":  6312
+                      "sha256":  "f0fd1407c9e346c5985ae4225d9c6cd1e549fbb97d5b5a980b18fabfcf99857d",
+                      "size":  6620
                   },
                   {
                       "path":  "mcps.json",
@@ -186,8 +186,8 @@
                   },
                   {
                       "path":  "QUICKSTART.md",
-                      "sha256":  "ade984bc5a96d18209ab6437cce4afaeac3444b723efb0433c5ed594f16befc6",
-                      "size":  2956
+                      "sha256":  "a2df5a016e866171aec8012914d051ff1956b62403b5ac73346181505f50bc5f",
+                      "size":  3711
                   },
                   {
                       "path":  "scripts/analyze_page.py",
@@ -198,6 +198,16 @@
                       "path":  "scripts/build_release_manifest.ps1",
                       "sha256":  "1c01e915bb55883689ca34d1d4567307c1d7bc275f7e937c4d948c603bd8811e",
                       "size":  1569
+                  },
+                  {
+                      "path":  "scripts/check-onboarding-update.ps1",
+                      "sha256":  "8f92ddd780475cc220047e8c5cfbeaadb3c5b52dbb0d86a04d90186512c8fe4a",
+                      "size":  2029
+                  },
+                  {
+                      "path":  "scripts/check-onboarding-update.sh",
+                      "sha256":  "9d45c471349d4e6f2fef6978c57a9fe512235983d2473e491301aca61cea63f7",
+                      "size":  1166
                   },
                   {
                       "path":  "scripts/check-update.ps1",
@@ -231,7 +241,7 @@
                   },
                   {
                       "path":  "scripts/healthcheck.ps1",
-                      "sha256":  "6b82a6274d298e610ac69b1f84f4986dcf8fa30b3103a9f30b18018379b52b00",
+                      "sha256":  "a065e3eb89832ca50bffcea235dd2a5eef854023ab8431d7587d4b095a3d67ff",
                       "size":  9346
                   },
                   {
@@ -256,8 +266,8 @@
                   },
                   {
                       "path":  "scripts/test_mvp_compatibility.ps1",
-                      "sha256":  "864e4dc32bc163da04fd2229d5d28b8b07deb12b8584739d4b8bc1c4186ff435",
-                      "size":  22615
+                      "sha256":  "b73191c9940c17c230b7201676d53592d1ea28e8527da5b3dad00c1ff78c8c4d",
+                      "size":  23346
                   },
                   {
                       "path":  "scripts/update-agent.ps1",
@@ -268,6 +278,16 @@
                       "path":  "scripts/update-agent.sh",
                       "sha256":  "c68d1e3e421ce182414dff890650b1e1245ed11e78750bb8e8fc07e165caa3ba",
                       "size":  9091
+                  },
+                  {
+                      "path":  "scripts/update-onboarding.ps1",
+                      "sha256":  "1f91bf713628d2024442d3625de4d1a27ff2f2d8d8b383f068cd0edc67b07c0f",
+                      "size":  1486
+                  },
+                  {
+                      "path":  "scripts/update-onboarding.sh",
+                      "sha256":  "7bdcbaab3a56ad534d558006dec5d1bf8475ee5c05cb77c8d91a00d3f2b5b384",
+                      "size":  1674
                   },
                   {
                       "path":  "SKILLS.md",
@@ -516,8 +536,8 @@
                   },
                   {
                       "path":  "skills/list.md",
-                      "sha256":  "1f05e459dda5e675a209dfaf3e62a0628d70b4401d6c5c1d69a829782baf6d5e",
-                      "size":  5483
+                      "sha256":  "82160a64889a5d69f7c581c90990c793a2251ecfa46edc6119f25bb1bf85971b",
+                      "size":  5644
                   },
                   {
                       "path":  "skills/market-ads/agents/openai.yaml",
@@ -755,14 +775,19 @@
                       "size":  3139
                   },
                   {
+                      "path":  "templates/projects-root-bootstrap-AGENTS.md",
+                      "sha256":  "e050e5ab962b15e71d84f07e7867dea3f7e303eb84d7ae760379f1cb3994c18e",
+                      "size":  1730
+                  },
+                  {
                       "path":  "templates/proposal-template.md",
                       "sha256":  "bec9fea972706f09966a14430169db61640d9dae42aec6ec8405e59b2d34ba8e",
                       "size":  2546
                   },
                   {
                       "path":  "templates/workspace-bootstrap-AGENTS.md",
-                      "sha256":  "73a8287051a9af21f86cf727c0d64add5afae924ae8cfcc146a18c0a61db9eb3",
-                      "size":  1496
+                      "sha256":  "2bf78388add4e47b62224ca29b6db9b8df7de86f0875f8a42bfaba658eb6e7e4",
+                      "size":  1849
                   }
               ]
 }

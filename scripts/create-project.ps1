@@ -76,6 +76,25 @@ function Get-MarketerRootProfilePath([string]$Target) {
     return $null
 }
 
+function Get-OnboardingInstallMetadata([string]$Target) {
+    $resolvedTarget = if (Test-Path -LiteralPath $Target) {
+        (Resolve-Path -LiteralPath $Target).Path
+    } else {
+        [System.IO.Path]::GetFullPath($Target)
+    }
+    $current = Split-Path -Parent $resolvedTarget
+    while ($current) {
+        $metadataPath = Join-Path $current ".pa\onboarding-install.json"
+        if (Test-Path -LiteralPath $metadataPath) {
+            return [System.IO.File]::ReadAllText($metadataPath, $Utf8) | ConvertFrom-Json
+        }
+        $next = Split-Path -Parent $current
+        if (-not $next -or $next -eq $current) { break }
+        $current = $next
+    }
+    return $null
+}
+
 if ([string]::IsNullOrWhiteSpace($IdeaId)) {
     $IdeaId = New-LocalId "idea"
 }
@@ -90,9 +109,22 @@ try {
 if (-not $MarketerProfilePath) {
     $MarketerProfilePath = Get-MarketerRootProfilePath $target
 }
+if (-not $SourceAgentRoot -and -not $RepoUrl) {
+    $onboardingInstall = Get-OnboardingInstallMetadata $target
+    if ($onboardingInstall) {
+        if (-not [string]::IsNullOrWhiteSpace([string]$onboardingInstall.repo_url)) {
+            $RepoUrl = [string]$onboardingInstall.repo_url
+        }
+        if ($Version -eq "latest" -and
+            [string]$onboardingInstall.requested_version -match '^v\d+\.\d+\.\d+$') {
+            $Version = [string]$onboardingInstall.requested_version
+        }
+    }
+}
 
 foreach ($folder in @(
     "00-gelen-kutusu",
+    "00-gelen-kutusu\yuklemeler",
     "01-baglam",
     "02-arastirma",
     "02-arastirma\fikir-degerlendirme",
@@ -109,15 +141,34 @@ foreach ($folder in @(
     "03-strateji\pazara-giris",
     "03-strateji\buyume",
     "04-urun",
+    "04-urun\fikir-ozetleri",
+    "04-urun\prd",
+    "04-urun\coder-briefleri",
+    "04-urun\urun-kararlari",
     "05-haftalik-planlar",
     "06-pazarlama-uygulamalari\dijital",
     "06-pazarlama-uygulamalari\saha",
     "06-pazarlama-uygulamalari\hibrit",
     "07-lansman",
     "08-raporlar",
+    "08-raporlar\haftalik",
+    "08-raporlar\pazarlama",
+    "08-raporlar\analitik",
+    "08-raporlar\yatirimci",
+    "08-raporlar\finansal",
+    "08-raporlar\pdf",
+    "08-raporlar\excel",
     "09-varliklar",
+    "10-final\prd",
+    "10-final\coder-briefleri",
+    "10-final\raporlar",
     "10-final\yatirimci",
+    "10-final\lansman",
+    "10-final\dijital",
+    "10-final\saha",
+    "10-final\hibrit",
     "11-notlar",
+    "11-notlar\bilgi-haritasi\sayfalar",
     "99-arsiv",
     ".pa\project"
 )) {
@@ -194,6 +245,9 @@ Write-Utf8 (Join-Path $target ".pa\project\active-task.md") "# Active Task`n`nDu
 Write-Utf8 (Join-Path $target ".pa\project\settings.json") "{`"timezone`":`"Europe/Istanbul`"}`n"
 Write-Utf8 (Join-Path $target ".pa\project\overrides.md") "# Project Overrides`n`nOnayli proje-ozel tercih yok.`n"
 Write-Utf8 (Join-Path $target ".pa\project\overrides-approved.md") "# Approved Project Overrides`n`nOnayli proje-ozel tercih yok.`n"
+Write-Utf8 (Join-Path $target "10-final\linkler.md") "# Final Linkler`n`nHenuz final teslim linki yok.`n"
+Write-Utf8 (Join-Path $target "11-notlar\bilgi-haritasi\index.md") "# Bilgi Haritasi`n`nKalici cikti, karar ve kaynak iliskileri burada izlenir.`n"
+Write-Utf8 (Join-Path $target "11-notlar\bilgi-haritasi\log.md") "# Bilgi Haritasi Log`n`n"
 
 $weekFile = Join-Path $target "05-haftalik-planlar\$activeWeek.md"
 $weekFolder = Join-Path $target "05-haftalik-planlar\$activeWeek"

@@ -6,8 +6,13 @@ Use one central `Projects` folder and one folder per project:
 
 ```text
 Projects/
+  AGENTS.md
+  onboarding-guide.md
   .pa/
     marketer-profile.md
+    onboarding-install.json
+    onboarding/
+      scripts/
   x-projesi/
   y-projesi/
 ```
@@ -28,6 +33,29 @@ Install these manually in Codex App:
 
 For unclear idea shaping, campaign direction, offer design, or strategy discussion, keep the
 `brainstorming` skill active when available.
+
+## Install The Projects Root
+
+From the cloned repo on Windows:
+
+```powershell
+.\scripts\install-projects-root.ps1 `
+  -TargetRoot "G:\Drive\PersonalAutonomy\Projects" `
+  -RepoUrl "<GITHUB_REPO_URL>" `
+  -Version v5.5.0
+```
+
+On macOS:
+
+```bash
+./scripts/install-projects-root.sh \
+  --target-root "$HOME/Projects" \
+  --repo-url "<GITHUB_REPO_URL>" \
+  --version v5.5.0
+```
+
+This installs root `AGENTS.md`, the canonical `onboarding-guide.md`, onboarding update scripts,
+and `.pa/onboarding-install.json`. It preserves `.pa/marketer-profile.md` and project folders.
 
 ## Create A Project
 
@@ -51,8 +79,10 @@ GitHub repo when available:
   -Version latest
 ```
 
-The script creates the project folder, copies `Projects/.pa/marketer-profile.md` into the project
-when present, installs `.pa/agent/`, writes root `AGENTS.md`, and verifies the release manifest.
+The script creates the project folder, copies `Projects/.pa/marketer-profile.md` byte-for-byte
+into `.pa/project/marketer-profile.md` when present, installs `.pa/agent/`, writes root
+`AGENTS.md`, and verifies the release manifest. The project bootstrap explicitly reads the copied
+profile.
 
 After creation, open `Projects/x-projesi/` as a new Codex workspace and start a new thread.
 

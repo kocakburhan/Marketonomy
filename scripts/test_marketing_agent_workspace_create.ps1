@@ -90,7 +90,12 @@ try {
 
         $projectsRoot = Join-Path $tmpRoot "Projects"
         New-Item -ItemType Directory -Force -Path (Join-Path $projectsRoot ".pa") | Out-Null
-        Write-Utf8 (Join-Path $projectsRoot ".pa\marketer-profile.md") "Profil durumu: Tamamlandi`nKaynak: Test Projects root`n"
+        $rootProfileContent = @"
+Profil durumu: Tamamlandi
+Kaynak: Test Projects root
+Ek kullanıcı bağlamı: Ben otistiğim; yazılı ve net görevleri tercih ederim.
+"@
+        Write-Utf8 (Join-Path $projectsRoot ".pa\marketer-profile.md") $rootProfileContent
 
         $projectAutoProfileRoot = Join-Path $projectsRoot "proje-auto-profile"
         powershell -NoProfile -ExecutionPolicy Bypass -File $createProject `
@@ -101,7 +106,8 @@ try {
             -SourceAgentRoot $agentRoot | Out-Null
 
         Assert-True (Test-Path -LiteralPath (Join-Path $projectAutoProfileRoot ".pa\project\marketer-profile.md")) "Project marketer root profili otomatik kopyalanmali."
-        Assert-True ((Read-Utf8 (Join-Path $projectAutoProfileRoot ".pa\project\marketer-profile.md")) -match "Kaynak: Test Projects root") "Project otomatik profil icerigi korunmali."
+        Assert-Equal (Read-Utf8 (Join-Path $projectAutoProfileRoot ".pa\project\marketer-profile.md")) $rootProfileContent "Project marketer profili byte-for-byte korunmali."
+        Assert-True ((Read-Utf8 (Join-Path $projectAutoProfileRoot "AGENTS.md")) -match [regex]::Escape(".pa/project/marketer-profile.md")) "Project bootstrap marketer profilini okumaya yonlendirmeli."
 
         $projectRoot = Join-Path $tmpRoot "proje"
         powershell -NoProfile -ExecutionPolicy Bypass -File $createProject `
@@ -182,6 +188,41 @@ try {
         )
         foreach ($folder in $gitkeepFolders) {
             Assert-True (Test-Path -LiteralPath (Join-Path $projectRoot "$folder\.gitkeep")) "Bos klasor .gitkeep ile korunmali: $folder"
+        }
+
+        $canonicalFolders = @(
+            "00-gelen-kutusu\yuklemeler",
+            "04-urun\fikir-ozetleri",
+            "04-urun\prd",
+            "04-urun\coder-briefleri",
+            "04-urun\urun-kararlari",
+            "08-raporlar\haftalik",
+            "08-raporlar\pazarlama",
+            "08-raporlar\analitik",
+            "08-raporlar\yatirimci",
+            "08-raporlar\finansal",
+            "08-raporlar\pdf",
+            "08-raporlar\excel",
+            "10-final\prd",
+            "10-final\coder-briefleri",
+            "10-final\raporlar",
+            "10-final\yatirimci",
+            "10-final\lansman",
+            "10-final\dijital",
+            "10-final\saha",
+            "10-final\hibrit",
+            "11-notlar\bilgi-haritasi\sayfalar"
+        )
+        foreach ($folder in $canonicalFolders) {
+            Assert-True (Test-Path -LiteralPath (Join-Path $projectRoot $folder)) "Canonical proje klasoru olusmali: $folder"
+        }
+
+        foreach ($file in @(
+            "10-final\linkler.md",
+            "11-notlar\bilgi-haritasi\index.md",
+            "11-notlar\bilgi-haritasi\log.md"
+        )) {
+            Assert-True (Test-Path -LiteralPath (Join-Path $projectRoot $file)) "Canonical baslangic dosyasi olusmali: $file"
         }
     }
 } catch {

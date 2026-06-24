@@ -126,6 +126,11 @@ do not repeat the full intake. If the user says this is their first time but a u
 profile already exists, treat the request as product onboarding, not as a reason to rerun the full
 intake.
 
+The profile is not limited to the standard intake questions. Preserve other facts the user
+voluntarily shares under `Ek kullanıcı bağlamı`, including working-style, accessibility, or
+neurodiversity context such as autism or ADHD when the user chooses to disclose it. Do not ask for
+a diagnosis, infer sensitive information, or pressure disclosure.
+
 Ask missing profile facts only when onboarding is being completed, the user explicitly asks to
 update the profile, or the current decision truly needs those facts. Save skipped fields as
 `Belirtilmedi`. After saving or updating the profile, say exactly:
@@ -136,13 +141,16 @@ update the profile, or the current decision truly needs those facts. Save skippe
 
 When Codex is opened at the `Projects` root, run only onboarding and project creation support:
 
-1. Explain the system briefly.
-2. Walk the user through Codex App plugin setup: Google Drive, Google Calendar, Gmail, Canva,
+1. Read root `AGENTS.md`, then `onboarding-guide.md`. These files are installed by the official
+   Projects root installer.
+2. Explain the system briefly.
+3. Walk the user through Codex App plugin setup: Google Drive, Google Calendar, Gmail, Canva,
    Figma, GitHub. Recommend the active `brainstorming` skill for unclear strategy or idea shaping.
-3. Collect or update `Projects/.pa/marketer-profile.md`.
-4. When the user wants to start `x`, run or instruct the approved `create-project.ps1` flow to
+4. Collect or update `Projects/.pa/marketer-profile.md`.
+5. When the user wants to start `x`, use `.pa/onboarding-install.json` as the default repo/version
+   source and run the approved `create-project.ps1` flow to
    create `Projects/x`.
-5. Tell the user to open `Projects/x` as a new Codex workspace and start a new thread.
+6. Tell the user to open `Projects/x` as a new Codex workspace and start a new thread.
 
 Do not do project research, PRD, campaign, or weekly execution work in the `Projects` root.
 

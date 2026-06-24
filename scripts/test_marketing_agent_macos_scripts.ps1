@@ -32,12 +32,16 @@ function Assert-FileContains([string]$Path, [string]$Pattern, [string]$Message) 
 
 $rootInstall = Join-Path $RepoRoot "scripts\install-marketing-agent.sh"
 $rootCreate = Join-Path $RepoRoot "scripts\create-project.sh"
+$projectsInstall = Join-Path $RepoRoot "scripts\install-projects-root.sh"
 $agentCheck = Join-Path $RepoRoot "marketing-agent\scripts\check-update.sh"
 $agentUpdate = Join-Path $RepoRoot "marketing-agent\scripts\update-agent.sh"
+$onboardingCheck = Join-Path $RepoRoot "marketing-agent\scripts\check-onboarding-update.sh"
+$onboardingUpdate = Join-Path $RepoRoot "marketing-agent\scripts\update-onboarding.sh"
 $bootstrap = Join-Path $RepoRoot "marketing-agent\templates\workspace-bootstrap-AGENTS.md"
+$projectsBootstrap = Join-Path $RepoRoot "marketing-agent\templates\projects-root-bootstrap-AGENTS.md"
 $manifest = Join-Path $RepoRoot "marketing-agent\release-manifest.json"
 
-foreach ($script in @($rootInstall, $rootCreate, $agentCheck, $agentUpdate)) {
+foreach ($script in @($rootInstall, $rootCreate, $projectsInstall, $agentCheck, $agentUpdate, $onboardingCheck, $onboardingUpdate)) {
     Assert-True (Test-Path -LiteralPath $script) "macOS script bulunmali: $script"
     if (Test-Path -LiteralPath $script) {
         Assert-FileContains $script '^#!/usr/bin/env bash' "macOS script bash shebang ile baslamali: $script"
@@ -57,9 +61,24 @@ Assert-FileContains $rootInstall 'workspace-bootstrap-AGENTS\.md' "macOS install
 
 Assert-FileContains $rootCreate 'install-marketing-agent\.sh' "macOS create script macOS installer'i cagirmali."
 Assert-FileContains $rootCreate '\.pa/marketer-profile\.md' "macOS create script ana marketer profilini otomatik bulmali."
+Assert-FileContains $rootCreate 'onboarding-install\.json' "macOS create script Projects root kurulum metadata fallback'ini kullanmali."
 Assert-FileContains $rootCreate 'trap .*cleanup' "macOS create script hata halinde yarim workspace'i temizlemeli."
 Assert-FileContains $rootCreate '05-haftalik-planlar' "macOS create script haftalik plan iskeletini olusturmali."
 Assert-FileContains $rootCreate '11-notlar/bilgi-haritasi' "macOS create script bilgi-haritasi klasorunu olusturmali."
+Assert-FileContains $rootCreate '04-urun/fikir-ozetleri' "macOS create script canonical urun klasorlerini olusturmali."
+Assert-FileContains $rootCreate '08-raporlar/analitik' "macOS create script canonical rapor klasorlerini olusturmali."
+Assert-FileContains $rootCreate '10-final/linkler\.md' "macOS create script final linkler dosyasini olusturmali."
+Assert-FileContains $rootCreate '11-notlar/bilgi-haritasi/index\.md' "macOS create script bilgi haritasi index dosyasini olusturmali."
+
+Assert-FileContains $projectsInstall 'PROJE\.md' "macOS Projects installer proje workspace'ini reddetmeli."
+Assert-FileContains $projectsInstall 'projects-root-bootstrap-AGENTS\.md' "macOS Projects installer kok bootstrap sablonunu kullanmali."
+Assert-FileContains $projectsInstall 'onboarding-guide\.md' "macOS Projects installer canonical onboarding guide'i kurmali."
+Assert-FileContains $projectsInstall 'onboarding-install\.json' "macOS Projects installer metadata yazmali."
+Assert-FileContains $projectsBootstrap 'onboarding-guide\.md' "Projects bootstrap onboarding guide'a yonlendirmeli."
+Assert-FileContains $projectsBootstrap '\.pa/marketer-profile\.md' "Projects bootstrap reusable marketer profilini tanimali."
+Assert-FileContains $onboardingUpdate '--yes' "macOS onboarding update acik kullanici onayi istemeli."
+Assert-FileContains $onboardingUpdate 'install-projects-root\.sh' "macOS onboarding update resmi kok installer'i kullanmali."
+Assert-FileContains $onboardingUpdate '\$script_dir/install-projects-root\.sh' "macOS onboarding update kurulu surumlu installer'i kullanmali."
 
 Assert-FileContains $agentCheck 'agent-install\.json' "macOS check-update metadata repo bilgisini okuyabilmeli."
 Assert-FileContains $agentCheck 'git ls-remote' "macOS check-update RepoUrl ile tag kontrolu yapabilmeli."
@@ -79,6 +98,13 @@ if (Test-Path -LiteralPath $manifest) {
     $manifestPaths = @($manifestJson.files | ForEach-Object { $_.path })
     foreach ($path in @("scripts/check-update.sh", "scripts/update-agent.sh")) {
         Assert-True ($manifestPaths -contains $path) "Release manifest macOS agent scriptini icermeli: $path"
+    }
+    foreach ($path in @(
+        "scripts/check-onboarding-update.sh",
+        "scripts/update-onboarding.sh",
+        "templates/projects-root-bootstrap-AGENTS.md"
+    )) {
+        Assert-True ($manifestPaths -contains $path) "Release manifest onboarding dosyasini icermeli: $path"
     }
 }
 

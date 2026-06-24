@@ -107,6 +107,19 @@ find_marketer_profile() {
   done
 }
 
+find_onboarding_install() {
+  local target="$1"
+  local current
+  current="$(dirname "$target")"
+  while [[ -n "$current" && "$current" != "/" ]]; do
+    if [[ -f "$current/.pa/onboarding-install.json" ]]; then
+      echo "$current/.pa/onboarding-install.json"
+      return
+    fi
+    current="$(dirname "$current")"
+  done
+}
+
 write_state_json() {
   python3 - "$1" "$2" "$3" "$4" "$5" "$6" <<'PY'
 import hashlib, json, pathlib, sys
@@ -140,6 +153,24 @@ active_week="$(iso_week_name)"
 
 if [[ -z "$marketer_profile_path" ]]; then
   marketer_profile_path="$(find_marketer_profile "$target" || true)"
+fi
+if [[ -z "$source_agent_root" && -z "$repo_url" ]]; then
+  onboarding_install="$(find_onboarding_install "$target" || true)"
+  if [[ -n "$onboarding_install" ]]; then
+    metadata_values="$(python3 - "$onboarding_install" <<'PY'
+import json, pathlib, sys
+data = json.loads(pathlib.Path(sys.argv[1]).read_text(encoding="utf-8"))
+print(data.get("repo_url", ""))
+print(data.get("requested_version", ""))
+PY
+)"
+    metadata_repo_url="$(printf '%s\n' "$metadata_values" | sed -n '1p')"
+    metadata_version="$(printf '%s\n' "$metadata_values" | sed -n '2p')"
+    [[ -z "$metadata_repo_url" ]] || repo_url="$metadata_repo_url"
+    if [[ "$version" == "latest" && "$metadata_version" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+      version="$metadata_version"
+    fi
+  fi
 fi
 
 folders=(
@@ -208,6 +239,7 @@ printf '# Active Task\n\nDurum: Bos\n' > "$target/.pa/project/active-task.md"
 printf '{"timezone":"Europe/Istanbul"}\n' > "$target/.pa/project/settings.json"
 printf '# Project Overrides\n\nOnayli proje-ozel tercih yok.\n' > "$target/.pa/project/overrides.md"
 printf '# Approved Project Overrides\n\nOnayli proje-ozel tercih yok.\n' > "$target/.pa/project/overrides-approved.md"
+printf '# Final Linkler\n\nHenuz final teslim linki yok.\n' > "$target/10-final/linkler.md"
 
 week_folder="$target/05-haftalik-planlar/$active_week"
 mkdir -p "$week_folder"

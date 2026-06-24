@@ -9,6 +9,11 @@ Asil Marketing Agent talimatlari bu workspace icindeki `.pa/agent/AGENTS.md` dos
 yeni gorevde once bu dosyayi oku ve oradaki kimlik, dosyalama, haftalik plan, arastirma, kanit ve
 kullanici onayi kurallarini uygula.
 
+Proje baglamini okumaya baslarken `.pa/project/marketer-profile.md` dosyasi varsa onu da oku.
+Bu dosya ana `Projects/.pa/marketer-profile.md` profilinin proje olusturulurken kopyalanan
+surumudur. Profildeki kullanicinin gonullu paylastigi ek baglam, calisma bicimi ve erisilebilirlik
+tercihlerini koru; hassas bilgi cikarsama veya yeniden teshis etme.
+
 Bu kok `AGENTS.md` dosyasi bootstrap dosyasidir. Agent release guncellemeleri bu dosyayi davranis
 kaynagi olarak kullanmaz; surumlenen talimatlar `.pa/agent/` altinda guncellenir.
 

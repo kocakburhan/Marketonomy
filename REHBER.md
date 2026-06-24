@@ -16,8 +16,13 @@ Ana model artik basittir:
 
 ```text
 Projects/
+  AGENTS.md
+  onboarding-guide.md
   .pa/
     marketer-profile.md
+    onboarding-install.json
+    onboarding/
+      scripts/
   x-projesi/
   y-projesi/
 ```
@@ -58,9 +63,10 @@ strateji konusmalari icin Codex'te `brainstorming` skill'inin kurulu ve aktif ol
 ## Ilk Kullanim
 
 1. Codex'te ana `Projects/` klasorunu acin.
-2. Onboarding agent sizi tanisin ve `.pa/marketer-profile.md` profilini olustursun.
-3. Plugin checklist'ini tamamlayin.
-4. Yeni proje icin Codex'e soyleyin:
+2. Resmi Projects root installer `AGENTS.md` ve `onboarding-guide.md` dosyalarini kursun.
+3. Onboarding agent sizi tanisin ve `.pa/marketer-profile.md` profilini olustursun.
+4. Plugin checklist'ini tamamlayin.
+5. Yeni proje icin Codex'e soyleyin:
 
 ```text
 x isminde proje olustur.
@@ -232,17 +238,19 @@ Su resmi GitHub reposundaki PersonalAutonomy Marketing Agent kurulum ve proje ol
 bu Projects klasoru icin hazirla:
 <GITHUB_REPO_URL>
 
-Kurulumu serbest elle yapma. Repodaki resmi scriptleri kullan. Windows kullaniciysan `.ps1`,
-macOS kullaniciysan `.sh` scriptlerini sec.
+Kurulumu serbest elle yapma. Once Windows'ta scripts/install-projects-root.ps1, macOS'ta
+scripts/install-projects-root.sh ile ana Projects onboarding kokunu v5.5.0 surumunden kur.
+Kurulumdan sonra Projects/AGENTS.md ve Projects/onboarding-guide.md dosyalarini oku.
 
 Once bu ana Projects klasorunde onboarding akisini baslat:
 1. Codex App plugin checklist'ini bana yaptir.
-2. Benden reusable marketer profilimi topla ve .pa/marketer-profile.md olarak kaydet.
+2. Benden reusable marketer profilimi topla ve .pa/marketer-profile.md olarak kaydet. Standart
+   sorular disinda gonullu paylastigim ek bilgileri `Ek kullanici baglami` altinda koru.
 3. Bundan sonra yeni proje istedigimde Windows'ta create-project.ps1, macOS'ta create-project.sh
    akisini kullanarak Projects/<proje-adi> klasorunu olustur.
 
-Yeni proje olustururken Windows'ta scripti -RepoUrl <GITHUB_REPO_URL> -Version latest,
-macOS'ta --repo-url <GITHUB_REPO_URL> --version latest parametreleriyle calistir.
+Yeni proje olustururken `.pa/onboarding-install.json` icindeki repo URL'sini ve v5.5.0 surumunu
+kullan.
 Olusan proje klasorune Marketing Agent paketini kur, release-manifest.json
 dogrulamasini yap ve mevcut dosyalarimi silme.
 ```

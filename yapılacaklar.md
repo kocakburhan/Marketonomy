@@ -1,131 +1,136 @@
-# Marketing Agent Teslim ve Pilot Yapilacaklar
+# Marketing Agent Teslim ve Pilot Yapılacaklar
 
-Bu dosya, Marketing Agent'i marketer'lara teslim etmeden once kalan operasyonel isleri adim adim
-takip etmek icindir.
+Bu dosya, güncel tek `Projects/` sözleşmesine göre Marketing Agent'i marketer'lara teslim etmeden
+önce tamamlanacak operasyonel kontrolleri izler.
 
-## 1. Repo ve Release Hazirligi
+> Güncel modelde ayrı evaluation workspace ve `create-evaluation.ps1` yoktur. Fikir
+> değerlendirme, `Projects/<proje-adi>/` içindeki bir çalışma modudur.
 
-- [x] Son script/onboarding duzeltmelerini tekrar gozden gecir.
-- [x] Zorunlu testleri tekrar calistir:
+## 1. Repo ve Release Hazırlığı
+
+- [x] Ana mimariyi `mvp/mvp.md` ile doğrula.
+- [x] Ayrı evaluation create scriptinin bulunmadığını doğrula.
+- [x] Windows ve macOS create/install akışlarının bulunduğunu doğrula.
+- [x] Zorunlu testlerin tamamını güncel worktree üzerinde yeniden çalıştır:
   - [x] `.\marketing-agent\scripts\test_mvp_compatibility.ps1 -AgentRoot .\marketing-agent`
   - [x] `.\marketing-agent\scripts\healthcheck.ps1 -AgentRoot .\marketing-agent`
   - [x] `.\scripts\test_marketing_agent_workspace_create.ps1`
   - [x] `.\scripts\test_marketing_agent_install_update.ps1`
+  - [x] `.\scripts\test_marketing_agent_macos_scripts.ps1`
   - [x] `git diff --check`
-- [x] Degisiklikleri commit et.
-- [x] Commit'i GitHub'a push et.
-- [x] Release stratejisini netlestir:
-  - [ ] Pilot `main` uzerinden mi kurulacak?
-  - [x] Yoksa `v5.4.2` gibi temiz bir release tag'i mi olusturulacak?
-- [x] Tag kullanilacaksa tag'i olustur ve push et.
+- [ ] Pilot için kullanılacak GitHub repo URL'sini kesinleştir.
+- [ ] Pilot sürümünü kesinleştir:
+  - [ ] Tekrarlanabilir pilot için sabit release tag'i kullan.
+  - [ ] Geliştirme ortamında özellikle isteniyorsa `latest` kullan.
+- [ ] Son değişiklikleri commit et, push et ve gerekiyorsa release tag'ini yayınla.
 
-## 2. Google Drive Ana Klasor Kurulumu
+## 2. Marketer Bilgisayarı Hazırlığı
 
-- [ ] Sistem sahibinin Google Drive hesabinda ana klasoru olustur:
-
-```text
-PersonalAutonomy/
-  shared/
-    tools/
-      create-evaluation.ps1
-      create-project.ps1
-    templates/
-    logs/
-
-  marketers/
-    <marketer-adi>/
-      .pa/
-        marketer-profile.md
-      .pa-create-work/
-      .pa-script-logs/
-      idea-workspace/
-      projects/
-```
-
-- [ ] Ana `PersonalAutonomy/` klasorunu herkese acma.
-- [ ] Her marketer'a yalnizca kendi `marketers/<isim>/` klasorunu paylas.
-- [ ] Coder'lara kisisel workspace verme; sadece katildiklari proje klasorleri paylasilacak.
-- [ ] Google Drive for desktop senkronizasyonunun marketer bilgisayarinda calistigini dogrula.
-
-## 3. Resmi Scriptlerin Drive'a Konmasi
-
-- [ ] Guncel `scripts/create-evaluation.ps1` dosyasini `shared/tools/` altina koy.
-- [ ] Guncel `scripts/create-project.ps1` dosyasini `shared/tools/` altina koy.
-- [ ] Scriptlerin Drive'da yanlis veya eski kopyalari kalmadi mi kontrol et.
-- [ ] Marketer'a workspace klasorlerini elle olusturmamasi, sadece script kullanmasi gerektigini soyle.
-
-## 4. Marketer Base Profile Hazirligi
-
-- [ ] Her marketer icin profil dosyasi yolunu olustur:
-
-```text
-marketers/<isim>/.pa/marketer-profile.md
-```
-
-- [ ] Profil onceden biliniyorsa temel bilgileri gir.
-- [ ] Profil bilinmiyorsa dosyayi bos birak veya onboarding'in ilk kullanimda sormasina izin ver.
-- [ ] Profil dosyasina teknik log, secret veya hassas gereksiz veri yazma.
-
-## 5. Ilk Evaluation Workspace Pilotu
-
-- [ ] Pilot marketer icin bir ornek fikir sec.
-- [ ] Evaluation workspace'i create script ile olustur:
+- [ ] Codex App kurulu ve kullanıcı hesabıyla açık mı kontrol et.
+- [ ] Git kurulu mu kontrol et: `git --version`
+- [ ] Google Drive for desktop kurulu ve senkronizasyon tamamlanmış mı kontrol et.
+- [ ] Node.js 18 veya üzeri kurulu mu kontrol et: `node --version`
+- [ ] Codex App içindeki resmi plugin marketplace'ten `Superpowers` pluginini kur.
+- [ ] Codex'i yeniden başlat ve Superpowers skilllerinin görünür olduğunu doğrula.
+- [ ] Playwright MCP'yi kur:
 
 ```powershell
-.\shared\tools\create-evaluation.ps1 `
-  -TargetRoot "...\PersonalAutonomy\marketers\ayse\idea-workspace\ornek-fikir" `
-  -Title "Ornek Fikir" `
-  -RepoUrl "<GITHUB_REPO_URL>" `
-  -Version v5.4.2
+codex mcp add playwright -- npx "@playwright/mcp@latest"
 ```
 
-- [ ] Script basari mesajinda `Path` ve `idea_id` degerlerini kontrol et.
-- [ ] Olusan klasoru Codex root olarak ac.
-- [ ] Ilk Codex promptunu dene:
+- [ ] Codex'i yeniden başlat ve Playwright MCP'nin aktif araçlar arasında göründüğünü doğrula.
+- [ ] Google Drive, Calendar, Gmail, Canva, Figma ve GitHub bağlantılarını marketer ihtiyacına
+  göre kur veya eksik olanları kaydet.
+
+## 3. Google Drive Ana `Projects` Klasörü
+
+- [ ] Marketer'ın Google Drive alanında tek ana klasörü oluştur:
 
 ```text
-Merhaba, ilk kez kullanıyorum. Bu fikri Marketing Agent ile değerlendirmek istiyorum.
+Projects/
 ```
 
-- [ ] Onboarding akisini kontrol et:
-  - [ ] Workspace tipini dogru anlatiyor mu?
-  - [ ] Profil varsa tekrar uzun form sormuyor mu?
-  - [ ] Profil yoksa kisa ve anlasilir form soruyor mu?
-  - [ ] Capability menu marketer'i bogmadan yeterince yonlendiriyor mu?
-- [ ] Fikir degerlendirme akisini kontrol et:
-  - [ ] Once fikrin degerini tartisiyor mu?
-  - [ ] Marketer avantajini verdict degil uygulama rehberligi olarak ele aliyor mu?
-  - [ ] Ciktilari `ciktilar/`, `RAPOR.md`, `DURUM.md` icine yaziyor mu?
-  - [ ] Evaluation workspace icinde MVP/PRD/coder brief uretmeye kalkmiyor mu?
+- [ ] Bu klasörü Codex App'te ilk workspace/root olarak aç.
+- [ ] Ana `Projects/` klasörünün yalnızca onboarding, plugin kontrolü, reusable marketer profili
+  ve yeni proje oluşturma için kullanılacağını marketer'a anlat.
+- [ ] Gerçek proje çıktılarının doğrudan ana `Projects/` klasörüne yazılmadığını doğrula.
+- [ ] Marketer'ın yalnızca yetkili olduğu proje klasörlerine eriştiğini doğrula.
 
-## 6. Ilk Project Workspace Pilotu
+## 4. Ana Onboarding ve Reusable Marketer Profili
 
-- [ ] Evaluation sonucu pozitifse project workspace'i create script ile olustur:
+- [ ] Marketer'a `ilk kurulum.md` içindeki ana kurulum promptunu ver.
+- [ ] Resmi `install-projects-root.ps1/.sh` akışının `Projects/AGENTS.md`,
+  `Projects/onboarding-guide.md` ve `.pa/onboarding/` dosyalarını kurduğunu doğrula.
+- [ ] Codex'in proje-local `.pa/agent/` paketini doğrudan `Projects/` köküne kurmaya çalışmadığını
+  doğrula.
+- [ ] Profil sorularını tamamla veya paylaşılmak istenmeyen alanları açıkça işaretle.
+- [ ] Kalıcı profil dosyasının oluştuğunu doğrula:
 
-```powershell
-.\shared\tools\create-project.ps1 `
-  -TargetRoot "...\PersonalAutonomy\marketers\ayse\projects\ornek-proje" `
-  -Title "Ornek Proje" `
-  -IdeaId "<evaluation idea_id>" `
-  -RepoUrl "<GITHUB_REPO_URL>" `
-  -Version v5.4.2
+```text
+Projects/
+  AGENTS.md
+  onboarding-guide.md
+  .pa/
+    marketer-profile.md
+    onboarding-install.json
+    onboarding/
+      scripts/
 ```
 
-- [ ] Script basari mesajinda `project_id` ve `idea_id` degerlerini kontrol et.
-- [ ] Olusan proje klasorunu Codex root olarak ac.
-- [ ] Baslangic dosyalarini kontrol et:
-  - [ ] `PROJE.md`
-  - [ ] `DURUM.md`
+- [ ] Profil dosyasına secret, parola, erişim anahtarı veya gereksiz hassas veri yazılmadığını
+  kontrol et.
+- [ ] Yedinci açık uçlu soruda marketer'ın gönüllü paylaştığı ek bağlamın
+  `Ek kullanıcı bağlamı` altında saklandığını doğrula.
+- [ ] Superpowers ve Playwright MCP kurulumlarının `Projects/` içine dosya yazmadığını; bunların
+  Codex'in kullanıcı düzeyi plugin/config alanında yaşadığını doğrula.
+
+## 5. İlk Project Workspace Pilotu
+
+- [ ] Ana `Projects/` klasörü açıkken şu isteği ver:
+
+```text
+x-projesi isminde yeni bir PersonalAutonomy proje workspace'i oluştur.
+```
+
+- [ ] Codex'in repo kaynağını geçici bir klasöre indirdiğini ve resmi create scriptini kullandığını
+  doğrula:
+  - [ ] Windows: `scripts/create-project.ps1`
+  - [ ] macOS: `scripts/create-project.sh`
+- [ ] `create-evaluation.ps1`, `idea-workspace/`, `DEGERLENDIRME.md` veya `.pa/evaluation/`
+  oluşturulmadığını doğrula.
+- [ ] Script başarı mesajında `Path`, `project_id` ve `idea_id` değerlerini kontrol et.
+- [ ] `Projects/x-projesi/` klasörünün oluştuğunu doğrula.
+- [ ] Ana marketer profilinin `.pa/project/marketer-profile.md` yoluna kopyalandığını doğrula.
+- [ ] Proje kök `AGENTS.md` dosyasının `.pa/project/marketer-profile.md` dosyasını okumaya
+  yönlendirdiğini doğrula.
+- [ ] `.pa/agent/` paketinin ve kök `AGENTS.md` bootstrap dosyasının oluştuğunu doğrula.
+- [ ] `release-manifest.json` hash doğrulamasının başarılı olduğunu doğrula.
+- [ ] Yarım kurulum hatasında `x-projesi` klasörünün temizlendiğini doğrula.
+
+## 6. Proje İçi Fikir Değerlendirme Pilotu
+
+- [ ] `Projects/x-projesi/` klasörünü yeni Codex workspace/root olarak aç.
+- [ ] Bu proje için yeni bir Codex thread başlat.
+- [ ] İlk promptu dene:
+
+```text
+Bu projedeki fikri önce gerçekçi ve kanıta dayalı biçimde değerlendir. Fikir doğrulanmadan PRD,
+lansman veya final teslim üretme.
+```
+
+- [ ] Fikir değerlendirme çıktılarının proje içinde kaldığını doğrula:
+  - [ ] `02-arastirma/fikir-degerlendirme/`
+  - [ ] `03-strateji/dogrulama/`
   - [ ] `KARARLAR.md`
-  - [ ] `.pa/project/state.json`
-  - [ ] `.pa/agent/AGENTS.md`
-  - [ ] `05-haftalik-planlar/YYYY-WNN.md`
-  - [ ] `05-haftalik-planlar/YYYY-WNN/schedule.md`
-  - [ ] gunluk schedule dosyalari
+  - [ ] `DURUM.md`
+  - [ ] `11-notlar/bilgi-haritasi/`
+- [ ] Kararın `Denenmeye Değer`, `Revizyonla Denenmeye Değer` veya `Denenmeye Değmez`
+  biçimlerinden biriyle, kanıt ve durdurma koşuluyla verildiğini doğrula.
+- [ ] Sonuç olumsuzsa proje klasörünün silinmediğini doğrula.
 
-## 7. Project Workspace Gercek Kullanim Testleri
+## 7. Project Workspace Gerçek Kullanım Testleri
 
-- [ ] Codex'te su istekleri tek tek dene:
+- [ ] Aşağıdaki istekleri tek tek dene:
 
 ```text
 Bu projede eksikleri kontrol et.
@@ -151,39 +156,39 @@ Rakip araştırması yap ve kaynak/kanıt defteriyle raporla.
 Bu işi final teslim olarak hazırlama, önce taslak üret.
 ```
 
-- [ ] Dosyalar dogru canonical klasorlere yaziliyor mu kontrol et.
-- [ ] `DURUM.md`, active task ve haftalik plan gereksiz yere sisirilmiyor mu kontrol et.
-- [ ] Workspace artifact'i kanitli gorevleri otomatik kapatiyor mu kontrol et.
-- [ ] Harici aksiyon gerektiren islerde kullanici bildirimi bekliyor mu kontrol et.
-- [ ] Final teslim icin acik onay istiyor mu kontrol et.
+- [ ] Dosyaların canonical klasörlere yazıldığını doğrula.
+- [ ] Workspace artifact'i kanıtlı görevleri otomatik kapatıyor mu kontrol et.
+- [ ] Harici aksiyonlarda kullanıcı bildirimi bekleniyor mu kontrol et.
+- [ ] Final yayın veya teslim için açık kullanıcı onayı isteniyor mu kontrol et.
+- [ ] Eksik tool/plugin/MCP olduğunda sahte veri yerine manuel fallback sunuluyor mu kontrol et.
 
-## 8. Update ve Koruma Testi
+## 8. Update ve Kullanıcı Verisi Koruma Testi
 
-- [ ] Project workspace icinde `.pa/agent/scripts/check-update.ps1` ile update kontrolu dene.
-- [ ] Yeni surum varsa kullanici onayi olmadan update yapmiyor mu kontrol et.
-- [ ] Onayli update icin `.pa/agent/scripts/update-agent.ps1 -Yes` calistir.
-- [ ] Update sonrasi su alanlarin korundugunu kontrol et:
+- [ ] `.pa/agent/scripts/check-update.ps1` veya `.sh` ile salt-okunur update kontrolü yap.
+- [ ] Kullanıcı onayı olmadan update yapılmadığını doğrula.
+- [ ] Onaylı update'i ilgili `update-agent` scriptiyle çalıştır.
+- [ ] Update sonrasında şu alanların korunduğunu doğrula:
   - [ ] `PROJE.md`
   - [ ] `DURUM.md`
   - [ ] `KARARLAR.md`
   - [ ] `.pa/project/`
-  - [ ] proje ciktilari
-  - [ ] haftalik plan dosyalari
+  - [ ] numbered proje klasörleri
+  - [ ] araştırmalar, notlar, haftalık planlar ve final çıktılar
 
-## 9. Pilot Sonrasi Degerlendirme
+## 9. Pilot Sonrası Değerlendirme
 
-- [ ] Marketer ilk kullanimda rahat ilerledi mi?
-- [ ] Yanlis klasorde acarsa 3 secenekli kurtarma akisi anlasilir mi?
-- [ ] Fikir tartismasi tutarli ve gercekci mi?
-- [ ] Marketer kendini kisitlanmis degil desteklenmis hissediyor mu?
-- [ ] Drive sync yavasliginda kullanici ne yapacagini anliyor mu?
-- [ ] Agent eksik tool/plugin durumunda fake veri uretmeden manuel fallback veriyor mu?
-- [ ] Proje marketing asamalarinda content, satis, launch, growth, analytics, investor hazirligi gibi alanlarda yeterince yardimci oluyor mu?
+- [ ] Marketer yalnızca repo URL'siyle sıfırdan kurulumu tamamlayabildi mi?
+- [ ] Ana `Projects/` ile `Projects/x-projesi/` ayrımı anlaşıldı mı?
+- [ ] Superpowers ve Playwright MCP kurulumu anlaşılır mıydı?
+- [ ] Fikir değerlendirme ayrı workspace aramadan proje içinde başladı mı?
+- [ ] Drive senkronizasyon gecikmesinde kullanıcı ne yapacağını bildi mi?
+- [ ] Marketing, satış, lansman, growth, analytics ve yatırımcı hazırlığı akışları kullanılabildi mi?
+- [ ] Pilot bulgularını ve gerçek blokajları kaydet.
 
-## 10. Teslim Karari
+## 10. Teslim Kararı
 
-- [ ] Pilot bulgularini toparla.
-- [ ] Varsa kucuk pürüzleri repo icinde duzelt.
-- [ ] Testleri tekrar calistir.
-- [ ] Son release/tag/push islemini yap.
-- [ ] Marketer'lara kurulum promptu ve kisa kullanim notunu ver.
+- [ ] Pilot blokajlarını repo içinde düzelt.
+- [ ] Manifest gerektiren release-surface değişikliklerinde manifesti yenile.
+- [ ] Tüm zorunlu testleri tekrar çalıştır.
+- [ ] Son release/tag/push işlemini tamamla.
+- [ ] Marketer'lara `ilk kurulum.md`, repo URL'si ve kullanılacak sürümü teslim et.
