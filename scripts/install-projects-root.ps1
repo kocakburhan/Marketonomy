@@ -9,6 +9,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 $Utf8 = [System.Text.UTF8Encoding]::new($false)
+$TextExtensions = @(".md", ".json", ".ps1", ".sh", ".py", ".yaml", ".yml", ".toml", ".txt")
 
 function Read-Utf8([string]$Path) {
     [System.IO.File]::ReadAllText($Path, $Utf8)
@@ -18,6 +19,21 @@ function Write-Utf8([string]$Path, [string]$Content) {
     $parent = Split-Path -Parent $Path
     if ($parent) { New-Item -ItemType Directory -Force -Path $parent | Out-Null }
     [System.IO.File]::WriteAllText($Path, $Content, $Utf8)
+}
+
+function Get-CanonicalManifestHash([string]$Path) {
+    $item = Get-Item -LiteralPath $Path
+    $bytes = if ($item.Name -eq ".gitignore" -or $item.Extension.ToLowerInvariant() -in $TextExtensions) {
+        $Utf8.GetBytes((Read-Utf8 $Path).Replace("`r`n", "`n"))
+    } else {
+        [System.IO.File]::ReadAllBytes($Path)
+    }
+    $sha = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        ([System.BitConverter]::ToString($sha.ComputeHash($bytes))).Replace("-", "").ToLowerInvariant()
+    } finally {
+        $sha.Dispose()
+    }
 }
 
 function Test-VersionString([string]$Value) {
@@ -45,6 +61,19 @@ function Get-LatestGitTag([string]$RemoteUrl) {
         Select-Object -First 1
 }
 
+function Invoke-GitClone([string[]]$Arguments) {
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    try {
+        $output = & git @Arguments 2>&1
+        $exitCode = $LASTEXITCODE
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+    }
+    $output | Out-String | Write-Verbose
+    if ($exitCode -ne 0) { throw "Repo indirilemedi: $RepoUrl" }
+}
+
 function Test-Manifest([string]$AgentRoot) {
     $manifestPath = Join-Path $AgentRoot "release-manifest.json"
     if (-not (Test-Path -LiteralPath $manifestPath)) { throw "release-manifest.json bulunamadi." }
@@ -52,7 +81,7 @@ function Test-Manifest([string]$AgentRoot) {
     foreach ($file in $manifest.files) {
         $path = Join-Path $AgentRoot $file.path
         if (-not (Test-Path -LiteralPath $path)) { throw "Manifest dosyasi eksik: $($file.path)" }
-        $actual = (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant()
+        $actual = Get-CanonicalManifestHash $path
         if ($actual -ne $file.sha256) { throw "Manifest hash uyusmazligi: $($file.path)" }
     }
     $manifest
@@ -84,11 +113,10 @@ try {
         }
         $tempRepo = Join-Path $env:TEMP ("pa-projects-root-source-" + [guid]::NewGuid().ToString("N"))
         if ($resolvedVersion -eq "latest") {
-            & git -c core.autocrlf=false clone --depth 1 $RepoUrl $tempRepo 2>&1 | Out-String | Write-Verbose
+            Invoke-GitClone -Arguments @("-c", "core.autocrlf=false", "clone", "--depth", "1", $RepoUrl, $tempRepo)
         } else {
-            & git -c core.autocrlf=false clone --depth 1 --branch $resolvedVersion $RepoUrl $tempRepo 2>&1 | Out-String | Write-Verbose
+            Invoke-GitClone -Arguments @("-c", "core.autocrlf=false", "clone", "--depth", "1", "--branch", $resolvedVersion, $RepoUrl, $tempRepo)
         }
-        if ($LASTEXITCODE -ne 0) { throw "Repo indirilemedi: $RepoUrl" }
         $repoRoot = $tempRepo
     } else {
         $repoRoot = Split-Path -Parent $PSScriptRoot

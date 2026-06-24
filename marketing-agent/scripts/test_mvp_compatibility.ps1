@@ -4,6 +4,8 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+$Utf8 = [System.Text.UTF8Encoding]::new($false)
+$TextExtensions = @(".md", ".json", ".ps1", ".sh", ".py", ".yaml", ".yml", ".toml", ".txt")
 $failures = [System.Collections.Generic.List[string]]::new()
 
 function Add-Failure([string]$Message) {
@@ -18,7 +20,22 @@ function Assert-Path([string]$RelativePath) {
 }
 
 function Read-Utf8([string]$Path) {
-    return [System.IO.File]::ReadAllText($Path, [System.Text.UTF8Encoding]::new($false))
+    return [System.IO.File]::ReadAllText($Path, $Utf8)
+}
+
+function Get-CanonicalManifestHash([string]$Path) {
+    $item = Get-Item -LiteralPath $Path
+    $bytes = if ($item.Name -eq ".gitignore" -or $item.Extension.ToLowerInvariant() -in $TextExtensions) {
+        $Utf8.GetBytes((Read-Utf8 $Path).Replace("`r`n", "`n"))
+    } else {
+        [System.IO.File]::ReadAllBytes($Path)
+    }
+    $sha = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        ([System.BitConverter]::ToString($sha.ComputeHash($bytes))).Replace("-", "").ToLowerInvariant()
+    } finally {
+        $sha.Dispose()
+    }
 }
 
 function Normalize-Tr([string]$Text) {
@@ -407,7 +424,7 @@ if (-not $SkipManifest -and (Test-Path -LiteralPath (Join-Path $AgentRoot "relea
             Add-Failure "Manifest dosyasi bulunamadi: $($item.path)"
             continue
         }
-        $actual = (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant()
+        $actual = Get-CanonicalManifestHash $path
         if ($actual -ne $item.sha256) {
             Add-Failure "Manifest hash uyusmazligi: $($item.path)"
         }

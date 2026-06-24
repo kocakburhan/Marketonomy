@@ -6,6 +6,24 @@ param(
 $ErrorActionPreference = "Stop"
 $Utf8 = [System.Text.UTF8Encoding]::new($false)
 $versionPath = Join-Path $AgentRoot "agent-version.json"
+$TextExtensions = @(".md", ".json", ".ps1", ".sh", ".py", ".yaml", ".yml", ".toml", ".txt")
+
+function Get-CanonicalManifestBytes([string]$Path) {
+    $item = Get-Item -LiteralPath $Path
+    if ($item.Name -eq ".gitignore" -or $item.Extension.ToLowerInvariant() -in $TextExtensions) {
+        return $Utf8.GetBytes([System.IO.File]::ReadAllText($Path, $Utf8).Replace("`r`n", "`n"))
+    }
+    return [System.IO.File]::ReadAllBytes($Path)
+}
+
+function Get-BytesSha256([byte[]]$Bytes) {
+    $sha = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        return ([System.BitConverter]::ToString($sha.ComputeHash($Bytes))).Replace("-", "").ToLowerInvariant()
+    } finally {
+        $sha.Dispose()
+    }
+}
 
 if (-not $Version) {
     $Version = ([System.IO.File]::ReadAllText($versionPath, $Utf8) | ConvertFrom-Json).version
@@ -24,10 +42,11 @@ $files = Get-ChildItem -LiteralPath $AgentRoot -Recurse -File | Where-Object {
 } | Sort-Object { $_.FullName.Substring($AgentRoot.Length + 1).Replace('\', '/') }
 
 $items = foreach ($file in $files) {
+    $bytes = Get-CanonicalManifestBytes $file.FullName
     [ordered]@{
         path = $file.FullName.Substring($AgentRoot.Length + 1).Replace('\', '/')
-        sha256 = (Get-FileHash -LiteralPath $file.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
-        size = $file.Length
+        sha256 = Get-BytesSha256 $bytes
+        size = $bytes.Length
     }
 }
 

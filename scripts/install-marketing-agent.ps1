@@ -9,6 +9,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 $Utf8 = [System.Text.UTF8Encoding]::new($false)
+$TextExtensions = @(".md", ".json", ".ps1", ".sh", ".py", ".yaml", ".yml", ".toml", ".txt")
 
 function Resolve-ExistingDirectory([string]$Path, [string]$Name) {
     $resolved = Resolve-Path -LiteralPath $Path -ErrorAction Stop
@@ -21,6 +22,21 @@ function Resolve-ExistingDirectory([string]$Path, [string]$Name) {
 
 function Read-Utf8([string]$Path) {
     return [System.IO.File]::ReadAllText($Path, $Utf8)
+}
+
+function Get-CanonicalManifestHash([string]$Path) {
+    $item = Get-Item -LiteralPath $Path
+    $bytes = if ($item.Name -eq ".gitignore" -or $item.Extension.ToLowerInvariant() -in $TextExtensions) {
+        $Utf8.GetBytes((Read-Utf8 $Path).Replace("`r`n", "`n"))
+    } else {
+        [System.IO.File]::ReadAllBytes($Path)
+    }
+    $sha = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        ([System.BitConverter]::ToString($sha.ComputeHash($bytes))).Replace("-", "").ToLowerInvariant()
+    } finally {
+        $sha.Dispose()
+    }
 }
 
 function Assert-WorkspaceIdentity(
@@ -127,6 +143,19 @@ function Get-LatestGitTag([string]$RemoteUrl) {
     return ($versions | Sort-Object -Descending -Property @{ Expression = { (Convert-VersionParts $_)[0] } }, @{ Expression = { (Convert-VersionParts $_)[1] } }, @{ Expression = { (Convert-VersionParts $_)[2] } } | Select-Object -First 1)
 }
 
+function Invoke-GitClone([string[]]$Arguments, [string]$RemoteUrl) {
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    try {
+        $output = & git @Arguments 2>&1
+        $exitCode = $LASTEXITCODE
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+    }
+    $output | Out-String | Write-Verbose
+    if ($exitCode -ne 0) { throw "Repo indirilemedi: $RemoteUrl" }
+}
+
 function Resolve-RemoteAgentRoot([string]$RemoteUrl, [string]$RequestedVersion, [ref]$TempRoot) {
     if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
         throw "Git bulunamadi. RepoUrl ile kurulum icin git PATH uzerinde olmali veya -SourceAgentRoot kullanilmali."
@@ -144,12 +173,9 @@ function Resolve-RemoteAgentRoot([string]$RemoteUrl, [string]$RequestedVersion, 
     $TempRoot.Value = $temp
 
     if ($versionToClone -eq "latest") {
-        & git -c core.autocrlf=false clone --depth 1 $RemoteUrl $temp 2>&1 | Out-String | Write-Verbose
+        Invoke-GitClone -Arguments @("-c", "core.autocrlf=false", "clone", "--depth", "1", $RemoteUrl, $temp) -RemoteUrl $RemoteUrl
     } else {
-        & git -c core.autocrlf=false clone --depth 1 --branch $versionToClone $RemoteUrl $temp 2>&1 | Out-String | Write-Verbose
-    }
-    if ($LASTEXITCODE -ne 0) {
-        throw "Repo indirilemedi: $RemoteUrl"
+        Invoke-GitClone -Arguments @("-c", "core.autocrlf=false", "clone", "--depth", "1", "--branch", $versionToClone, $RemoteUrl, $temp) -RemoteUrl $RemoteUrl
     }
 
     $agentRoot = Join-Path $temp "marketing-agent"
@@ -172,7 +198,7 @@ function Test-Manifest([string]$AgentRoot) {
             throw "Manifest dosyasi eksik: $($file.path)"
         }
 
-        $actual = (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant()
+        $actual = Get-CanonicalManifestHash $path
         if ($actual -ne $file.sha256) {
             throw "Manifest hash uyusmazligi: $($file.path)"
         }
