@@ -136,9 +136,9 @@ resolve_remote_agent_root() {
   fi
   remote_temp_root="$(mktemp -d "${TMPDIR:-/tmp}/pa-agent-source.XXXXXX")"
   if [[ "$clone_version" == "latest" ]]; then
-    git clone --depth 1 "$remote" "$remote_temp_root" >/dev/null
+    git -c core.autocrlf=false clone --depth 1 "$remote" "$remote_temp_root" >/dev/null
   else
-    git clone --depth 1 --branch "$clone_version" "$remote" "$remote_temp_root" >/dev/null
+    git -c core.autocrlf=false clone --depth 1 --branch "$clone_version" "$remote" "$remote_temp_root" >/dev/null
   fi
   [[ -d "$remote_temp_root/marketing-agent" ]] || fail "Repo icinde marketing-agent klasoru bulunamadi: $remote"
   printf '%s\n' "$remote_temp_root/marketing-agent"

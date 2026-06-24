@@ -46,9 +46,9 @@ if [[ -n "$source_repo_root" ]]; then
 elif [[ -n "$repo_url" ]]; then
   temp_repo="$(mktemp -d "${TMPDIR:-/tmp}/pa-projects-root-source.XXXXXX")"
   if [[ "$version" == "latest" ]]; then
-    git clone --depth 1 "$repo_url" "$temp_repo"
+    git -c core.autocrlf=false clone --depth 1 "$repo_url" "$temp_repo"
   else
-    git clone --depth 1 --branch "$version" "$repo_url" "$temp_repo"
+    git -c core.autocrlf=false clone --depth 1 --branch "$version" "$repo_url" "$temp_repo"
   fi
   repo_root="$temp_repo"
 else

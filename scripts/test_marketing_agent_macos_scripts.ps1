@@ -53,6 +53,7 @@ Assert-FileContains $rootInstall 'PROJE\.md' "macOS installer PROJE.md kimligini
 Assert-FileContains $rootInstall '\.pa/project/state\.json' "macOS installer .pa/project/state.json kimligini dogrulamali."
 Assert-FileContains $rootInstall 'DEGERLENDIRME\.md|\.pa/evaluation' "macOS installer eski evaluation workspace isaretlerini reddetmeli."
 Assert-FileContains $rootInstall 'release-manifest\.json' "macOS installer release manifest dogrulamali."
+Assert-FileContains $rootInstall 'core\.autocrlf=false' "macOS installer clone sirasinda manifest baytlarini korumali."
 Assert-FileContains $rootInstall 'sha256sum|shasum -a 256' "macOS installer SHA-256 hash dogrulamasi yapmali."
 Assert-FileContains $rootInstall 'agent\.installing' "macOS installer staging klasoruyle atomik kurulum yapmali."
 Assert-FileContains $rootInstall 'agent\.backup' "macOS installer rollback icin backup kullanmali."
@@ -74,6 +75,7 @@ Assert-FileContains $projectsInstall 'PROJE\.md' "macOS Projects installer proje
 Assert-FileContains $projectsInstall 'projects-root-bootstrap-AGENTS\.md' "macOS Projects installer kok bootstrap sablonunu kullanmali."
 Assert-FileContains $projectsInstall 'onboarding-guide\.md' "macOS Projects installer canonical onboarding guide'i kurmali."
 Assert-FileContains $projectsInstall 'onboarding-install\.json' "macOS Projects installer metadata yazmali."
+Assert-FileContains $projectsInstall 'core\.autocrlf=false' "macOS Projects installer clone sirasinda manifest baytlarini korumali."
 Assert-FileContains $projectsBootstrap 'onboarding-guide\.md' "Projects bootstrap onboarding guide'a yonlendirmeli."
 Assert-FileContains $projectsBootstrap '\.pa/marketer-profile\.md' "Projects bootstrap reusable marketer profilini tanimali."
 Assert-FileContains $onboardingUpdate '--yes' "macOS onboarding update acik kullanici onayi istemeli."
@@ -89,6 +91,7 @@ Assert-FileContains $agentUpdate '\.pa/project' "macOS update .pa/project alanin
 Assert-FileContains $agentUpdate 'agent\.updating' "macOS update staging klasoru kullanmali."
 Assert-FileContains $agentUpdate 'agent\.backup' "macOS update rollback icin backup kullanmali."
 Assert-FileContains $agentUpdate 'release-manifest\.json' "macOS update manifest dogrulamali."
+Assert-FileContains $agentUpdate 'core\.autocrlf=false' "macOS update clone sirasinda manifest baytlarini korumali."
 
 Assert-FileContains $bootstrap 'check-update\.sh' "Bootstrap macOS update kontrol scriptini anlatmali."
 Assert-FileContains $bootstrap 'update-agent\.sh' "Bootstrap macOS update scriptini anlatmali."

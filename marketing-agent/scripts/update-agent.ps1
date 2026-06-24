@@ -147,9 +147,9 @@ function Resolve-RemoteAgentRoot([string]$RemoteUrl, [string]$RequestedVersion, 
     $TempRoot.Value = $temp
 
     if ($versionToClone -eq "latest") {
-        & git clone --depth 1 $RemoteUrl $temp 2>&1 | Out-String | Write-Verbose
+        & git -c core.autocrlf=false clone --depth 1 $RemoteUrl $temp 2>&1 | Out-String | Write-Verbose
     } else {
-        & git clone --depth 1 --branch $versionToClone $RemoteUrl $temp 2>&1 | Out-String | Write-Verbose
+        & git -c core.autocrlf=false clone --depth 1 --branch $versionToClone $RemoteUrl $temp 2>&1 | Out-String | Write-Verbose
     }
     if ($LASTEXITCODE -ne 0) {
         throw "Repo indirilemedi: $RemoteUrl"

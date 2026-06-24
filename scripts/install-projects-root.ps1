@@ -84,9 +84,9 @@ try {
         }
         $tempRepo = Join-Path $env:TEMP ("pa-projects-root-source-" + [guid]::NewGuid().ToString("N"))
         if ($resolvedVersion -eq "latest") {
-            & git clone --depth 1 $RepoUrl $tempRepo 2>&1 | Out-String | Write-Verbose
+            & git -c core.autocrlf=false clone --depth 1 $RepoUrl $tempRepo 2>&1 | Out-String | Write-Verbose
         } else {
-            & git clone --depth 1 --branch $resolvedVersion $RepoUrl $tempRepo 2>&1 | Out-String | Write-Verbose
+            & git -c core.autocrlf=false clone --depth 1 --branch $resolvedVersion $RepoUrl $tempRepo 2>&1 | Out-String | Write-Verbose
         }
         if ($LASTEXITCODE -ne 0) { throw "Repo indirilemedi: $RepoUrl" }
         $repoRoot = $tempRepo

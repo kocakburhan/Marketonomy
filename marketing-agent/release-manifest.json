@@ -271,13 +271,13 @@
                   },
                   {
                       "path":  "scripts/update-agent.ps1",
-                      "sha256":  "c05f0e0806db663242af1125a404179b6cbb0466533d2bf72b8dc432cd414b49",
-                      "size":  11789
+                      "sha256":  "99d2b66d8f7df748e673739cbc3acc371242806d2de0d25d592856d5edaf064c",
+                      "size":  11835
                   },
                   {
                       "path":  "scripts/update-agent.sh",
-                      "sha256":  "c68d1e3e421ce182414dff890650b1e1245ed11e78750bb8e8fc07e165caa3ba",
-                      "size":  9091
+                      "sha256":  "15926aadbcbe6c39e7bd3b0f442b9338721e289aeada28049d9952d6b99a28f1",
+                      "size":  9137
                   },
                   {
                       "path":  "scripts/update-onboarding.ps1",
