@@ -1,6 +1,6 @@
 {
     "schema_version":  "1.0",
-    "version":  "v5.5.0",
+    "version":  "v5.5.1",
     "hash_algorithm":  "SHA-256",
     "generated_at":  "deterministic",
     "files":  [
@@ -91,7 +91,7 @@
                   },
                   {
                       "path":  "agent-version.json",
-                      "sha256":  "7c3dd3bf6722fcf658a8c8535675972c6b7f4f1d1eaa060bea49fc430221ecf4",
+                      "sha256":  "51c45bff757515b9977c1ad07c6517116f37c8b7877dd189676de91cef0b56ba",
                       "size":  132
                   },
                   {
@@ -186,7 +186,7 @@
                   },
                   {
                       "path":  "QUICKSTART.md",
-                      "sha256":  "a2df5a016e866171aec8012914d051ff1956b62403b5ac73346181505f50bc5f",
+                      "sha256":  "c43ea1726f913dcc72ba0bae9f6fb63af90c59abf338401a740a9ac9a002d4bc",
                       "size":  3711
                   },
                   {
@@ -241,7 +241,7 @@
                   },
                   {
                       "path":  "scripts/healthcheck.ps1",
-                      "sha256":  "a065e3eb89832ca50bffcea235dd2a5eef854023ab8431d7587d4b095a3d67ff",
+                      "sha256":  "6464b25b01386946b72d7587b9fcc93e75f75cf5d82d34cd76fb1e5c6f0ea7a2",
                       "size":  9346
                   },
                   {
@@ -536,8 +536,8 @@
                   },
                   {
                       "path":  "skills/list.md",
-                      "sha256":  "82160a64889a5d69f7c581c90990c793a2251ecfa46edc6119f25bb1bf85971b",
-                      "size":  5644
+                      "sha256":  "c70313679ddd0b462526b4db4944d42999d4f23583e9fa51c5aa3cc77093cbe7",
+                      "size":  5783
                   },
                   {
                       "path":  "skills/market-ads/agents/openai.yaml",

@@ -33,6 +33,17 @@ oluşturulan proje klasörü içindeki bir çalışma modudur.
 
 ## 2. Bilgisayara Kurulacak Temel Araçlar
 
+Kurulumdan önce kullanıcının bilgisayarında şu temel araçlar hazır olmalıdır:
+
+1. Codex App
+2. Git
+3. Google Drive for desktop
+4. Node.js 18 veya üzeri
+
+Node.js özellikle Playwright MCP ve `npx` tabanlı araçlar için gerekir. Kullanıcı komut satırıyla
+çalışmayacak olsa bile Codex App bazı MCP/plugin kurulumlarında arka planda Node.js'e ihtiyaç
+duyabilir.
+
 ### 2.1 Codex App
 
 1. Codex App'i kurun.
@@ -73,7 +84,8 @@ G:\Drive'ım\Projects
 
 ### 2.4 Node.js
 
-Playwright MCP'nin `npx` ile çalışabilmesi için Node.js 18 veya üzeri gerekir.
+Playwright MCP'nin ve bazı Codex App plugin/MCP kurulumlarının çalışabilmesi için Node.js 18 veya
+üzeri kurulu olmalıdır.
 
 Kontrol:
 
@@ -98,7 +110,13 @@ Codex App'te:
 6. Yeni bir thread açıp skill listesindeki `using-superpowers`, `brainstorming`,
    `test-driven-development` ve `verification-before-completion` girişlerini kontrol edin.
 
-Codex CLI kullanılıyorsa:
+Kullanıcı bu üründe Codex'i CLI ile değil Codex App arayüzüyle kullanır. Bu yüzden plugin, skill ve
+MCP kurulumlarında birincil yol her zaman uygulamadaki **Plugins** sekmesidir. Gerekli bir plugin,
+skill veya MCP bu sekmede görünmüyorsa kullanıcı elle tahmin yürütmemelidir; Codex'ten ilgili
+kurulum yolunu bulmasını, resmi kaynakları kontrol etmesini ve güvenli kurulum adımlarını
+önermesini istemelidir.
+
+CLI sadece geliştirici veya teknik destek senaryosunda alternatif olabilir:
 
 1. `/plugins` komutunu açın.
 2. `superpowers` arayın.
@@ -110,7 +128,12 @@ Codex CLI kullanılıyorsa:
 Playwright MCP, Codex'in gerçek tarayıcı sayfalarını açmasına, incelemesine ve UI akışlarını test
 etmesine yardımcı olur. Bu kurulum da kullanıcı düzeyindedir; `Projects/` içine dosya yazmaz.
 
-Terminalde çalıştırın:
+Codex App'te önce **Plugins** sekmesini açın ve Playwright/MCP/browser automation ile ilgili resmi
+kurulum seçeneği görünüyorsa oradan kurun. Kurulumdan sonra Codex'i yeniden başlatın ve yeni bir
+thread içinde Playwright araçlarının aktif tool listesinde göründüğünü doğrulayın.
+
+Plugins sekmesinde Playwright MCP görünmüyorsa Codex'ten kurulumda yardım isteyin. Teknik destek
+veya geliştirici senaryosunda eşdeğer CLI komutu şudur:
 
 ```powershell
 codex mcp add playwright -- npx "@playwright/mcp@latest"
@@ -148,7 +171,31 @@ Marketer'ın işine göre şu bağlantıları kurun veya erişim durumunu kayded
 Her bağlantı zorunlu değildir. Agent yalnızca aktif tool listesinde görünen bağlantıları
 kullanabilir; görünmeyen plugin, MCP veya oturumu varmış gibi davranamaz.
 
-## 6. Ana `Projects/` Klasörünü Codex'te Açma
+## 6. Doğru Kurulum Roadmap'i
+
+Elinde yalnızca GitHub repo linki, Codex App ve Google Drive erişimi olan kullanıcı şu sırayla
+ilerlemelidir:
+
+1. Codex App, Git, Google Drive for desktop ve Node.js 18 veya üzerinin kurulu olduğunu doğrula.
+2. Google Drive içinde tek ana klasör oluştur: `Projects/`.
+3. Codex App'te repo klasörünü değil, Drive'daki `Projects/` klasörünü workspace/root olarak aç.
+4. Codex'e GitHub repo linkini ver ve `v5.5.1` sürümünden resmi `install-projects-root` akışını
+   çalıştırmasını iste.
+5. Codex'in repoyu geçici klasöre indirip `Projects/AGENTS.md`, `Projects/onboarding-guide.md`,
+   `.pa/onboarding-install.json` ve `.pa/onboarding/` scriptlerini kurduğunu kontrol et.
+6. Kullanıcı profil bilgilerinin `Projects/.pa/marketer-profile.md` içine kaydedildiğini doğrula;
+   secret, parola veya API key yazılmamalıdır.
+7. Yeni proje istendiğinde Codex'in resmi `create-project.ps1` veya `create-project.sh` scriptini
+   kullandığını doğrula.
+8. Projenin `Projects/x-projesi/` altında oluştuğunu; `.pa/agent/`, `PROJE.md`, `DURUM.md`,
+   `KARARLAR.md`, kök `AGENTS.md` ve manifest doğrulamasının başarılı olduğunu kontrol et.
+9. Gerçek çalışma için Codex'te `Projects/x-projesi/` klasörünü yeni workspace/root olarak aç ve
+   yeni bir thread başlat.
+10. Fikir değerlendirmeyi ayrı workspace olarak değil proje içinde yürüt. Çıktılar
+    `02-arastirma/fikir-degerlendirme/`, `03-strateji/dogrulama/`, `KARARLAR.md`, `DURUM.md` ve
+    `11-notlar/bilgi-haritasi/` yollarına yazılmalıdır.
+
+## 7. Ana `Projects/` Klasörünü Codex'te Açma
 
 Codex App'te workspace/root olarak doğrudan ana `Projects/` klasörünü seçin:
 
@@ -159,9 +206,11 @@ Projects/
 İlk kurulumda henüz `x-projesi/` klasörü yoktur. GitHub kaynak reposunu da gerçek çalışma
 workspace'i olarak açmayın.
 
-## 7. Projects Root Onboarding Kurulumu
+## 8. Projects Root Onboarding Kurulumu
 
-Codex'e repo URL'sini verdikten sonra resmi kök installer çalıştırılmalıdır.
+Codex'e repo URL'sini verdikten sonra resmi kök installer çalıştırılmalıdır. Kullanıcının elinde
+yalnızca GitHub repo linki varsa bu komutlar `Projects/` kökünde elle çalıştırılmaz; Codex önce
+repoyu geçici bir klasöre indirir ve aşağıdaki eşdeğer komutu o geçici repo içinden çalıştırır.
 
 Windows:
 
@@ -169,7 +218,7 @@ Windows:
 .\scripts\install-projects-root.ps1 `
   -TargetRoot "<PROJECTS_YOLU>" `
   -RepoUrl "<GITHUB_REPO_URL>" `
-  -Version v5.5.0
+  -Version v5.5.1
 ```
 
 macOS:
@@ -178,7 +227,7 @@ macOS:
 ./scripts/install-projects-root.sh \
   --target-root "<PROJECTS_YOLU>" \
   --repo-url "<GITHUB_REPO_URL>" \
-  --version v5.5.0
+  --version v5.5.1
 ```
 
 Bu installer:
@@ -190,7 +239,7 @@ Bu installer:
 - `.pa/onboarding-install.json` içine repo ve sürüm bilgisini yazar.
 - Mevcut `.pa/marketer-profile.md` ve proje klasörlerini korur.
 
-## 8. Ana Kurulum Promptu
+## 9. Ana Kurulum Promptu
 
 `Projects/` klasörü Codex'te açıkken aşağıdaki promptu verin. `<GITHUB_REPO_URL>` alanını gerçek
 repo bağlantısıyla değiştirin:
@@ -225,7 +274,7 @@ kontrolü, reusable marketer profili ve yeni proje oluşturma içindir.
    - Windows: scripts/create-project.ps1
    - macOS: scripts/create-project.sh
 8. Yeni projeyi Projects/<proje-adi>/ altında oluştur. `.pa/onboarding-install.json` içindeki repo
-   URL'sini ve `v5.5.0` sürümünü kullan.
+   URL'sini ve `v5.5.1` sürümünü kullan.
 9. Script bittikten sonra project_id, idea_id, .pa/agent/, kök AGENTS.md ve manifest doğrulamasını
    kontrol et.
 10. Gerçek çalışma için oluşan proje klasörünü yeni Codex workspace olarak açmam gerektiğini söyle.
@@ -233,10 +282,10 @@ kontrolü, reusable marketer profili ve yeni proje oluşturma içindir.
 Serbest elle proje workspace'i kurma ve mevcut dosyalarımı silme.
 ```
 
-Pilot için yayınlanmış sabit `v5.5.0` tag'ini kullanın. `latest` ancak yeni release doğrulandıktan
+Pilot için yayınlanmış sabit `v5.5.1` tag'ini kullanın. `latest` ancak yeni release doğrulandıktan
 sonra tercih edilmelidir.
 
-## 9. Prompt Sonrasında Ana `Projects/` Klasöründe Ne Oluşur?
+## 10. Prompt Sonrasında Ana `Projects/` Klasöründe Ne Oluşur?
 
 Ana onboarding installer sonrasında oluşan yapı:
 
@@ -268,7 +317,7 @@ Projects/
   `create-project` scripti bunları kalıcı çıktı olarak oluşturmaz. Bu yüzden ilk prompttan sonra
   varlıkları garanti edilmez.
 
-## 10. `x-projesi` Oluşturma
+## 11. `x-projesi` Oluşturma
 
 Ana `Projects/` workspace'i açıkken şu promptu verin:
 
@@ -286,7 +335,7 @@ Windows'ta çalıştırılması beklenen komutun eşdeğeri:
   -TargetRoot "<PROJECTS_YOLU>\x-projesi" `
   -Title "X Projesi" `
   -RepoUrl "<GITHUB_REPO_URL>" `
-  -Version v5.5.0
+  -Version v5.5.1
 ```
 
 macOS'ta eşdeğer:
@@ -296,7 +345,7 @@ macOS'ta eşdeğer:
   --target-root "<PROJECTS_YOLU>/x-projesi" \
   --title "X Projesi" \
   --repo-url "<GITHUB_REPO_URL>" \
-  --version v5.5.0
+  --version v5.5.1
 ```
 
 Script şu güvenlik kontrollerini uygular:
@@ -311,7 +360,7 @@ Script şu güvenlik kontrollerini uygular:
 8. Kaynak ve hedef `release-manifest.json` hashlerini doğrular.
 9. Kurulum yarıda kalırsa oluşturduğu hedef klasörü temizler.
 
-## 11. `x-projesi` İçinde Oluşan Ana Yapı
+## 12. `x-projesi` İçinde Oluşan Ana Yapı
 
 Başarılı kurulumdan sonra özet yapı şöyledir:
 
@@ -408,7 +457,7 @@ Projects/
       agent-install.json
 ```
 
-## 12. Proje Workspace'ine Geçiş
+## 13. Proje Workspace'ine Geçiş
 
 Kurulumdan sonra ana `Projects/` workspace'inde gerçek çalışmaya devam etmeyin.
 
@@ -441,7 +490,7 @@ DURUM.md
 11-notlar/bilgi-haritasi/
 ```
 
-## 13. Kurulumun Başarılı Olduğunu Doğrulama
+## 14. Kurulumun Başarılı Olduğunu Doğrulama
 
 Şunların tamamı doğru olmalıdır:
 
@@ -461,7 +510,7 @@ DURUM.md
 Bu kontrollerden biri başarısızsa proje üzerinde çalışmaya başlamayın. Hatalı klasörü elle
 tamamlamak yerine resmi create scriptini temiz, boş bir hedefte yeniden çalıştırın.
 
-## 14. Kaynaklar
+## 15. Kaynaklar
 
 - Codex skills ve MCP yapılandırması:
   `https://developers.openai.com/codex/codex-manual.md`

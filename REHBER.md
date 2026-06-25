@@ -239,7 +239,7 @@ bu Projects klasoru icin hazirla:
 <GITHUB_REPO_URL>
 
 Kurulumu serbest elle yapma. Once Windows'ta scripts/install-projects-root.ps1, macOS'ta
-scripts/install-projects-root.sh ile ana Projects onboarding kokunu v5.5.0 surumunden kur.
+scripts/install-projects-root.sh ile ana Projects onboarding kokunu v5.5.1 surumunden kur.
 Kurulumdan sonra Projects/AGENTS.md ve Projects/onboarding-guide.md dosyalarini oku.
 
 Once bu ana Projects klasorunde onboarding akisini baslat:
@@ -249,7 +249,7 @@ Once bu ana Projects klasorunde onboarding akisini baslat:
 3. Bundan sonra yeni proje istedigimde Windows'ta create-project.ps1, macOS'ta create-project.sh
    akisini kullanarak Projects/<proje-adi> klasorunu olustur.
 
-Yeni proje olustururken `.pa/onboarding-install.json` icindeki repo URL'sini ve v5.5.0 surumunu
+Yeni proje olustururken `.pa/onboarding-install.json` icindeki repo URL'sini ve v5.5.1 surumunu
 kullan.
 Olusan proje klasorune Marketing Agent paketini kur, release-manifest.json
 dogrulamasini yap ve mevcut dosyalarimi silme.
@@ -308,7 +308,7 @@ Ya da daha acik yazmak isterseniz:
 ```text
 Bu Projects klasorunun altinda x-projesi isminde yeni bir PersonalAutonomy proje workspace'i
 olustur. Windows'ta resmi create-project.ps1 akisini, macOS'ta create-project.sh akisini kullan.
-GitHub repo kaynagi olarak daha once verdigim repo URL'sini ve latest surumu kullan. Proje
+GitHub repo kaynagi olarak daha once verdigim repo URL'sini ve v5.5.1 surumunu kullan. Proje
 olusunca bana hangi klasoru Codex'te acmam gerektigini soyle.
 ```
 

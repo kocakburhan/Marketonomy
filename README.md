@@ -17,7 +17,7 @@ her proje kendi kendine yeten bir klasördür ve kendi Codex workspace'i olarak 
 
 | | |
 |---|---|
-| **Sürüm** | `v5.5.0` |
+| **Sürüm** | `v5.5.1` |
 | **Çalışma Zamanı** | Codex |
 | **MVP Sözleşmesi** | 2026-06-21 |
 | **Dil** | Türkçe (varsayılan kullanıcı dili) |
@@ -203,8 +203,8 @@ ile SHA-256 bütünlük doğrulaması yapar. Mevcut proje dosyaları asla silinm
 macOS kullanan marketer'lar ayni akis icin `.sh` dosyalarini kullanir:
 
 ```bash
-./scripts/create-project.sh --target-root "$HOME/Projects/x-projesi" --repo-url <GITHUB_REPO_URL> --version latest
-./scripts/install-marketing-agent.sh --target-root "$HOME/Projects/x-projesi" --repo-url <GITHUB_REPO_URL> --version latest
+./scripts/create-project.sh --target-root "$HOME/Projects/x-projesi" --repo-url <GITHUB_REPO_URL> --version v5.5.1
+./scripts/install-marketing-agent.sh --target-root "$HOME/Projects/x-projesi" --repo-url <GITHUB_REPO_URL> --version v5.5.1
 ```
 
 ---

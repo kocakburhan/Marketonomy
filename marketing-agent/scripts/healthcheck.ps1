@@ -142,7 +142,7 @@ Test-RequiredText "pipelines\idea-to-prd.md" "03-strateji/dogrulama/marketer-uyg
 Test-RequiredText "AGENTS.md" "treat the request as product onboarding"
 Test-RequiredText "agents\onboarding-guide.md" "usable workspace profile already exists"
 Test-RequiredText "agents\orchestrator.md" "After the idea-value recommendation is clear"
-Test-RequiredText "skills\list.md" "v5.5.0"
+Test-RequiredText "skills\list.md" "v5.5.1"
 Test-RequiredText "..\mvp\mvp.md" "Post-MVP Appendix"
 Test-RequiredText "..\mvp\mvp.md" "web app/PWA"
 Test-RequiredText "..\mvp\mvp.md" "ilk product fazi icin runtime gereksinimi degildir"
