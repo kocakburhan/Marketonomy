@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$TargetRoot = (Get-Location).Path,
     [string]$SourceAgentRoot,
     [string]$RepoUrl,
@@ -352,10 +352,14 @@ try {
 
     $versionPath = Join-Path $destinationAgent "agent-version.json"
     $agentVersion = Read-Utf8 $versionPath | ConvertFrom-Json
+    $metadataSourceAgentRoot = ""
+    if ($SourceAgentRoot -and -not $RepoUrl) {
+        $metadataSourceAgentRoot = $SourceAgentRoot
+    }
     Write-InstallMetadata `
         -TargetRoot $targetRootFull `
         -RepoUrl $RepoUrl `
-        -SourceAgentRoot $SourceAgentRoot `
+        -SourceAgentRoot $metadataSourceAgentRoot `
         -InstalledVersion $agentVersion.version `
         -UpdatePolicy $UpdatePolicy `
         -RequestedVersion $Version

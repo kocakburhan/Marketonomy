@@ -232,27 +232,37 @@ Ana `Projects/` klasoru Codex'te acikken Codex'e su promptu verin. `<GITHUB_REPO
 GitHub'dan kopyaladiginiz linki yapistirin:
 
 ```text
-Bu klasor benim PersonalAutonomy ana Projects klasorum.
+https://github.com/kocakburhan/Marketonomy
 
-Su resmi GitHub reposundaki PersonalAutonomy Marketing Agent kurulum ve proje olusturma sistemini
-bu Projects klasoru icin hazirla:
-<GITHUB_REPO_URL>
+Şu anda Google Drive ile senkronize ana "Projects" klasöründeyiz.
+Ben bu repodaki PersonalAutonomy Marketing Agent'ı kullanacak marketer'ım.
 
-Kurulumu serbest elle yapma. Once Windows'ta scripts/install-projects-root.ps1, macOS'ta
-scripts/install-projects-root.sh ile ana Projects onboarding kokunu v5.5.1 surumunden kur.
-Kurulumdan sonra Projects/AGENTS.md ve Projects/onboarding-guide.md dosyalarini oku.
+Kurulumu serbest elle yapma. Repoyu geçici bir klasöre klonla veya indir.
+İşletim sistemime göre resmi Projects root installer'ını çalıştır:
+- Windows: scripts/install-projects-root.ps1
+- macOS: scripts/install-projects-root.sh
 
-Once bu ana Projects klasorunde onboarding akisini baslat:
-1. Codex App plugin checklist'ini bana yaptir.
-2. Benden reusable marketer profilimi topla ve .pa/marketer-profile.md olarak kaydet. Standart
-   sorular disinda gonullu paylastigim ek bilgileri `Ek kullanici baglami` altinda koru.
-3. Bundan sonra yeni proje istedigimde Windows'ta create-project.ps1, macOS'ta create-project.sh
-   akisini kullanarak Projects/<proje-adi> klasorunu olustur.
+Installer'ı repo URL'si olarak https://github.com/kocakburhan/Marketonomy ve sürüm olarak latest
+ile çalıştır. Hedef kök şu anda Codex'te açık olan ana Projects klasörüdür.
 
-Yeni proje olustururken `.pa/onboarding-install.json` icindeki repo URL'sini ve v5.5.1 surumunu
-kullan.
-Olusan proje klasorune Marketing Agent paketini kur, release-manifest.json
-dogrulamasini yap ve mevcut dosyalarimi silme.
+Kurulumdan sonra şunları doğrula:
+1. Projects/AGENTS.md oluşturuldu ve PersonalAutonomy Projects bootstrap'ı içeriyor.
+2. Projects/onboarding-guide.md oluşturuldu.
+3. Projects/.pa/onboarding-install.json içinde repo_url ve installed_version doğru.
+4. Projects/.pa/onboarding/scripts/ altında check/update installer scriptleri mevcut.
+
+Sonra bana Codex App içinde manuel kurmam gereken pluginleri listele. Pluginleri benim manuel
+kuracağımı varsay; kurulu olmayan plugini varmış gibi kullanma.
+
+Plugin listesinden sonra onboarding akışını başlat:
+1. Benden reusable marketer profilimi topla.
+2. Profili Projects/.pa/marketer-profile.md dosyasına UTF-8 olarak yaz.
+3. Türkçe konuşmalarda ve Türkçe dosyalarda Türkçe karakterleri doğru kullan; "satış için çok
+   mantıklı" yaz, "satis icin cok mantikli" yazma.
+4. Yeni proje istediğimde resmi create-project akışını kullan:
+   Windows'ta scripts/create-project.ps1, macOS'ta scripts/create-project.sh.
+5. Proje oluşturulduktan sonra bana Projects/<proje-adı> klasörünü Codex'te yeni workspace ve yeni
+   task olarak açmam gerektiğini söyle.
 ```
 
 ### 5. Plugin checklist'ini tamamlayin
@@ -308,7 +318,7 @@ Ya da daha acik yazmak isterseniz:
 ```text
 Bu Projects klasorunun altinda x-projesi isminde yeni bir PersonalAutonomy proje workspace'i
 olustur. Windows'ta resmi create-project.ps1 akisini, macOS'ta create-project.sh akisini kullan.
-GitHub repo kaynagi olarak daha once verdigim repo URL'sini ve v5.5.1 surumunu kullan. Proje
+GitHub repo kaynagi olarak daha once verdigim repo URL'sini ve v5.5.2 surumunu kullan. Proje
 olusunca bana hangi klasoru Codex'te acmam gerektigini soyle.
 ```
 

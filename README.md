@@ -17,7 +17,7 @@ her proje kendi kendine yeten bir klasördür ve kendi Codex workspace'i olarak 
 
 | | |
 |---|---|
-| **Sürüm** | `v5.5.1` |
+| **Sürüm** | `v5.5.2` |
 | **Çalışma Zamanı** | Codex |
 | **MVP Sözleşmesi** | 2026-06-21 |
 | **Dil** | Türkçe (varsayılan kullanıcı dili) |
@@ -195,16 +195,64 @@ Marketer'ların sistemi nasıl kuracağı ve kullanacağı adım adım
 6. Oluşturulan `Projects/<proje-adı>/` klasörü yeni Codex workspace olarak açılır
    ve tüm çalışma burada yürütülür.
 
-Installer, hedefin geçerli bir proje workspace'i olduğunu (`PROJE.md` +
-`.pa/project/state.json` kimlik eşleşmesi) doğrular, agent paketini atomik
-olarak kopyalar, bootstrap `AGENTS.md` oluşturur ve `release-manifest.json`
-ile SHA-256 bütünlük doğrulaması yapar. Mevcut proje dosyaları asla silinmez.
+### Codex'e Verilecek İlk Kurulum Promptu
+
+Yeni marketer, Google Drive ile senkronize edilen ana `Projects/` klasörünü Codex workspace/root
+olarak açtıktan sonra Codex'e şu promptu vermelidir:
+
+```text
+https://github.com/kocakburhan/Marketonomy
+
+Şu anda Google Drive ile senkronize ana "Projects" klasöründeyiz.
+Ben bu repodaki PersonalAutonomy Marketing Agent'ı kullanacak marketer'ım.
+
+Kurulumu serbest elle yapma. Repoyu geçici bir klasöre klonla veya indir.
+İşletim sistemime göre resmi Projects root installer'ını çalıştır:
+- Windows: scripts/install-projects-root.ps1
+- macOS: scripts/install-projects-root.sh
+
+Installer'ı repo URL'si olarak https://github.com/kocakburhan/Marketonomy ve sürüm olarak latest
+ile çalıştır. Hedef kök şu anda Codex'te açık olan ana Projects klasörüdür.
+
+Kurulumdan sonra şunları doğrula:
+1. Projects/AGENTS.md oluşturuldu ve PersonalAutonomy Projects bootstrap'ı içeriyor.
+2. Projects/onboarding-guide.md oluşturuldu.
+3. Projects/.pa/onboarding-install.json içinde repo_url ve installed_version doğru.
+4. Projects/.pa/onboarding/scripts/ altında check/update installer scriptleri mevcut.
+
+Sonra bana Codex App içinde manuel kurmam gereken pluginleri listele. Pluginleri benim manuel
+kuracağımı varsay; kurulu olmayan plugini varmış gibi kullanma.
+
+Plugin listesinden sonra onboarding akışını başlat:
+1. Benden reusable marketer profilimi topla.
+2. Profili Projects/.pa/marketer-profile.md dosyasına UTF-8 olarak yaz.
+3. Türkçe konuşmalarda ve Türkçe dosyalarda Türkçe karakterleri doğru kullan; "satış için çok
+   mantıklı" yaz, "satis icin cok mantikli" yazma.
+4. Yeni proje istediğimde resmi create-project akışını kullan:
+   Windows'ta scripts/create-project.ps1, macOS'ta scripts/create-project.sh.
+5. Proje oluşturulduktan sonra bana Projects/<proje-adı> klasörünü Codex'te yeni workspace ve yeni
+   task olarak açmam gerektiğini söyle.
+```
+
+Beklenen manuel Codex App plugin listesi:
+
+1. Google Drive
+2. Google Calendar
+3. Gmail
+4. Canva
+5. Figma
+6. GitHub
+
+Installer, `Projects/` kökünde onboarding dosyalarını kurar. Gerçek proje workspace'i daha sonra
+`create-project.ps1/.sh` ile oluşturulduğunda proje kökündeki `AGENTS.md`, Codex'i
+`.pa/agent/AGENTS.md` ve `.pa/agent/agents/orchestrator.md` yönlendirmesiyle agent paketine bağlar.
+Mevcut proje dosyaları asla silinmez.
 
 macOS kullanan marketer'lar ayni akis icin `.sh` dosyalarini kullanir:
 
 ```bash
-./scripts/create-project.sh --target-root "$HOME/Projects/x-projesi" --repo-url <GITHUB_REPO_URL> --version v5.5.1
-./scripts/install-marketing-agent.sh --target-root "$HOME/Projects/x-projesi" --repo-url <GITHUB_REPO_URL> --version v5.5.1
+./scripts/create-project.sh --target-root "$HOME/Projects/x-projesi" --repo-url <GITHUB_REPO_URL> --version v5.5.2
+./scripts/install-marketing-agent.sh --target-root "$HOME/Projects/x-projesi" --repo-url <GITHUB_REPO_URL> --version v5.5.2
 ```
 
 ---
@@ -226,8 +274,14 @@ powershell -ExecutionPolicy Bypass -File .\marketing-agent\scripts\healthcheck.p
 # Kurulum + güncelleme entegrasyon testi
 powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_install_update.ps1
 
+# Projects root onboarding testi
+powershell -ExecutionPolicy Bypass -File .\scripts\test_projects_root_onboarding.ps1
+
 # Workspace oluşturma testi
 powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_workspace_create.ps1
+
+# Kurulu workspace repair testi
+powershell -ExecutionPolicy Bypass -File .\scripts\test_repair_installed_marketing_agent.ps1
 
 # macOS script sozlesmesi
 powershell -ExecutionPolicy Bypass -File .\scripts\test_marketing_agent_macos_scripts.ps1

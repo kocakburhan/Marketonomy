@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$RepoRoot = (Split-Path -Parent $PSScriptRoot)
 )
 
@@ -58,6 +58,7 @@ Assert-FileContains $rootInstall 'sha256sum|shasum -a 256' "macOS installer SHA-
 Assert-FileContains $rootInstall 'agent\.installing' "macOS installer staging klasoruyle atomik kurulum yapmali."
 Assert-FileContains $rootInstall 'agent\.backup' "macOS installer rollback icin backup kullanmali."
 Assert-FileContains $rootInstall 'agent-install\.json' "macOS installer kurulum metadata dosyasini yazmali."
+Assert-FileContains $rootInstall 'metadata_source_agent_root' "macOS installer gecici source_agent_root metadata'sini filtrelemeli."
 Assert-FileContains $rootInstall 'workspace-bootstrap-AGENTS\.md' "macOS installer bootstrap sablonunu kullanmali."
 
 Assert-FileContains $rootCreate 'install-marketing-agent\.sh' "macOS create script macOS installer'i cagirmali."
@@ -85,6 +86,7 @@ Assert-FileContains $onboardingUpdate '\$script_dir/install-projects-root\.sh' "
 Assert-FileContains $agentCheck 'agent-install\.json' "macOS check-update metadata repo bilgisini okuyabilmeli."
 Assert-FileContains $agentCheck 'git ls-remote' "macOS check-update RepoUrl ile tag kontrolu yapabilmeli."
 Assert-FileContains $agentCheck '--json' "macOS check-update JSON cikti opsiyonu sunmali."
+Assert-FileContains $agentCheck 'repo_url yok|Güncelleme kaynağı bulunamadı' "macOS check-update eksik repo_url mesajini acik vermeli."
 
 Assert-FileContains $agentUpdate '--yes' "macOS update kullanici onayi icin --yes gerektirmeli."
 Assert-FileContains $agentUpdate '\.pa/project' "macOS update .pa/project alanini korumali."

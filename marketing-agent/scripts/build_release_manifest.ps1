@@ -4,6 +4,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+$AgentRoot = (Resolve-Path -LiteralPath $AgentRoot).Path
 $Utf8 = [System.Text.UTF8Encoding]::new($false)
 $versionPath = Join-Path $AgentRoot "agent-version.json"
 $TextExtensions = @(".md", ".json", ".ps1", ".sh", ".py", ".yaml", ".yml", ".toml", ".txt")
@@ -32,7 +33,7 @@ if ($Version -notmatch '^v\d+\.\d+\.\d+$') {
     throw "Version vMAJOR.MINOR.PATCH biciminde olmali."
 }
 
-$excludedNames = @("release-manifest.json", "migrate_to_codex.ps1")
+$excludedNames = @("release-manifest.json", "migrate_to_codex.ps1", "build_release_manifest.ps1")
 $files = Get-ChildItem -LiteralPath $AgentRoot -Recurse -File | Where-Object {
     $_.FullName -notmatch "[\\/]vendor[\\/]" -and
     $_.FullName -notmatch "[\\/]node_modules[\\/]" -and

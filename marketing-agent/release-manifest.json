@@ -1,6 +1,6 @@
 {
     "schema_version":  "1.0",
-    "version":  "v5.5.1",
+    "version":  "v5.5.2",
     "hash_algorithm":  "SHA-256",
     "generated_at":  "deterministic",
     "files":  [
@@ -11,8 +11,8 @@
                   },
                   {
                       "path":  "AGENTS.md",
-                      "sha256":  "aacc26b25e81bd1df0cdc59b21c1b0f6d08ead0c815f2d6b4444145d36e608cd",
-                      "size":  11620
+                      "sha256":  "15d42c142ef6b5312dd64f1b8d11ac0b452a835a25a97d00820492919c1df053",
+                      "size":  12611
                   },
                   {
                       "path":  "agents/analytics-master.md",
@@ -66,8 +66,8 @@
                   },
                   {
                       "path":  "agents/orchestrator.md",
-                      "sha256":  "255cdfcb974b906e4a9e6227fa5114041450cf12bf8eb2a337796d2e6c683441",
-                      "size":  19350
+                      "sha256":  "d045cfa914e9d12dfcc1fb5e20604dc5acba41acb8cf715ca994e7c7a6fa1044",
+                      "size":  19533
                   },
                   {
                       "path":  "agents/outreach-specialist.md",
@@ -91,7 +91,7 @@
                   },
                   {
                       "path":  "agent-version.json",
-                      "sha256":  "51c45bff757515b9977c1ad07c6517116f37c8b7877dd189676de91cef0b56ba",
+                      "sha256":  "ad2ff4ba4c894fedeb51e8729fcd20a95e7a5a427b3e66b17df024fb269c95f7",
                       "size":  132
                   },
                   {
@@ -186,18 +186,13 @@
                   },
                   {
                       "path":  "QUICKSTART.md",
-                      "sha256":  "c43ea1726f913dcc72ba0bae9f6fb63af90c59abf338401a740a9ac9a002d4bc",
+                      "sha256":  "45a9a02eb09feb39512b68a904c3ec37197a6ffb589872601e959e63d4ca4dc3",
                       "size":  3711
                   },
                   {
                       "path":  "scripts/analyze_page.py",
                       "sha256":  "38cacff00a5ba3e19824ec794722d326b5acdf2f413db4c2b199a2a5682d5988",
                       "size":  7159
-                  },
-                  {
-                      "path":  "scripts/build_release_manifest.ps1",
-                      "sha256":  "e26498f2900cf8a1689dcddb75f783bad1e71801cdf6b7f2902c05b07d81a215",
-                      "size":  2272
                   },
                   {
                       "path":  "scripts/check-onboarding-update.ps1",
@@ -211,13 +206,13 @@
                   },
                   {
                       "path":  "scripts/check-update.ps1",
-                      "sha256":  "925baec55902d3eb559586e30fab8df8af497c0cba48e1a44875627a53fa609d",
-                      "size":  4386
+                      "sha256":  "ee2663618d358adf01f4b92b1cf0c2c001a495c828597575f4d74f5b553e8220",
+                      "size":  4469
                   },
                   {
                       "path":  "scripts/check-update.sh",
-                      "sha256":  "b3155da355813b9feefa19498ba42fa6582ea575c7945ce9ec1cbaab57ea07e1",
-                      "size":  4136
+                      "sha256":  "b61b731a9bd8c16088e91285526e0e1f5a4e04a9091e6eaf98161dcd4f1dcf95",
+                      "size":  4216
                   },
                   {
                       "path":  "scripts/competitor_scanner.py",
@@ -241,8 +236,8 @@
                   },
                   {
                       "path":  "scripts/healthcheck.ps1",
-                      "sha256":  "6464b25b01386946b72d7587b9fcc93e75f75cf5d82d34cd76fb1e5c6f0ea7a2",
-                      "size":  9346
+                      "sha256":  "b61071ab167349897315c244b5e18796eb22e6d22a036d9c7c2f35f24e9f8995",
+                      "size":  9626
                   },
                   {
                       "path":  "scripts/reconcile-workspace-state.ps1",
@@ -536,8 +531,8 @@
                   },
                   {
                       "path":  "skills/list.md",
-                      "sha256":  "c70313679ddd0b462526b4db4944d42999d4f23583e9fa51c5aa3cc77093cbe7",
-                      "size":  5783
+                      "sha256":  "9a79613871c87bab5005676301d8630f595db60953cc97dfed0ddb9dbfc5b6e7",
+                      "size":  5956
                   },
                   {
                       "path":  "skills/market-ads/agents/openai.yaml",
@@ -776,8 +771,8 @@
                   },
                   {
                       "path":  "templates/projects-root-bootstrap-AGENTS.md",
-                      "sha256":  "e050e5ab962b15e71d84f07e7867dea3f7e303eb84d7ae760379f1cb3994c18e",
-                      "size":  1730
+                      "sha256":  "8dced6e89632fd589d67ceb9bd2ce9c120bd920d0f2e956175358d2334d6ae84",
+                      "size":  2046
                   },
                   {
                       "path":  "templates/proposal-template.md",
@@ -786,8 +781,8 @@
                   },
                   {
                       "path":  "templates/workspace-bootstrap-AGENTS.md",
-                      "sha256":  "2bf78388add4e47b62224ca29b6db9b8df7de86f0875f8a42bfaba658eb6e7e4",
-                      "size":  1849
+                      "sha256":  "56c6c0092052dd0a49147adf17c4624e973d71978b8224e927ac0b72a32790ba",
+                      "size":  2428
                   }
               ]
 }

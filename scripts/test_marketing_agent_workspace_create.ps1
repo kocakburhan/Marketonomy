@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$RepoRoot = (Split-Path -Parent $PSScriptRoot)
 )
 
@@ -91,7 +91,7 @@ try {
         $projectsRoot = Join-Path $tmpRoot "Projects"
         New-Item -ItemType Directory -Force -Path (Join-Path $projectsRoot ".pa") | Out-Null
         $rootProfileContent = @"
-Profil durumu: Tamamlandi
+Profil durumu: Tamamlandı
 Kaynak: Test Projects root
 Ek kullanıcı bağlamı: Ben otistiğim; yazılı ve net görevleri tercih ederim.
 "@
@@ -128,7 +128,13 @@ Ek kullanıcı bağlamı: Ben otistiğim; yazılı ve net görevleri tercih eder
         Assert-Equal $projectState.idea_id "idea-test-001" "Project idea_id state'e yazilmali."
         Assert-Equal $projectState.project_id "project-test-001" "Project project_id state'e yazilmali."
         Assert-True ((Read-Utf8 (Join-Path $projectRoot "PROJE.md")) -match "project-test-001") "PROJE.md project_id icermeli."
-        Assert-True ((Read-Utf8 (Join-Path $projectRoot "PROJE.md")) -match "Fikir Degerlendirme Modu") "PROJE.md fikir degerlendirmeyi proje ici mod olarak anlatmali."
+        Assert-NoControlChars (Join-Path $projectRoot "PROJE.md") "Project PROJE.md kontrol karakteri içermemeli."
+        Assert-NoControlChars (Join-Path $projectRoot "KARARLAR.md") "Project KARARLAR.md kontrol karakteri içermemeli."
+        $projectText = Read-Utf8 (Join-Path $projectRoot "PROJE.md")
+        $decisionsText = Read-Utf8 (Join-Path $projectRoot "KARARLAR.md")
+        Assert-True ($projectText -match "Fikir Değerlendirme Modu") "PROJE.md doğru Türkçe karakter kullanmalı."
+        Assert-True ($decisionsText -match "Henüz karar kaydı yok\.") "KARARLAR.md doğru Türkçe karakter kullanmalı."
+        Assert-True ($projectText -notmatch "Fikir Degerlendirme|Kullanici|arastirma ve karar") "PROJE.md Türkçe kullanıcı metnini ASCII'ye çevirmemeli."
         $projectReconcile = powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $projectRoot ".pa\agent\scripts\reconcile-workspace-state.ps1") `
             -WorkspaceRoot $projectRoot `
             -Json
@@ -161,12 +167,12 @@ Ek kullanıcı bağlamı: Ben otistiğim; yazılı ve net görevleri tercih eder
         }
 
         $projectDurum = Read-Utf8 (Join-Path $projectRoot "DURUM.md")
-        Assert-True ($projectDurum -match "Proje baglami tamamlaniyor") "Project DURUM.md baslangic durumunu mvp sozlesmesine gore yazmali."
+        Assert-True ($projectDurum -match "Proje bağlamı tamamlanıyor") "Project DURUM.md baslangic durumunu mvp sozlesmesine gore yazmali."
         Assert-True ($projectDurum -match [regex]::Escape("05-haftalik-planlar/$weekName.md")) "Project DURUM.md aktif haftalik plan yolunu yazmali."
 
         $weekContent = Read-Utf8 $weekFile
         Assert-True ($weekContent -notmatch "\[ \]\s+PROJE\.md ve 01-baglam/") "Baslangic haftalik plani kullanici adina gorev yazmamali."
-        Assert-True ($weekContent -match "Baslangic gorevi yok") "Baslangic haftalik plani bos gorev durumunu acik yazmali."
+        Assert-True ($weekContent -match "Başlangıç görevi yok") "Baslangic haftalik plani bos gorev durumunu acik yazmali."
 
         $gitkeepFolders = @(
             "00-gelen-kutusu",

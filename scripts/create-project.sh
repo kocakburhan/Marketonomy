@@ -209,17 +209,17 @@ cat > "$target/PROJE.md" <<EOF
 project_id: $project_id
 idea_id: $idea_id
 
-## Ozet
+## Özet
 - Durum: Yeni proje workspace'i
-- Olusturma tarihi: $now_date
-- Olusturma akisi: approved create flow, Codex + Google Drive first
+- Oluşturma tarihi: $now_date
+- Oluşturma akışı: approved create flow, Codex + Google Drive first
 
-## Fikir Degerlendirme Modu
-Bu workspace tek proje calisma alanidir. Fikir ayri bir calisma klasorune tasinmaz.
-Kullanici isterse ilk is olarak fikir burada acimasizca degerlendirilir; arastirma ve karar
+## Fikir Değerlendirme Modu
+Bu workspace tek proje çalışma alanıdır. Fikir ayrı bir çalışma klasörüne taşınmaz.
+Kullanıcı isterse ilk iş olarak fikir burada acımasızca değerlendirilir; araştırma ve karar
 izleri \`02-arastirma/fikir-degerlendirme/\`, \`03-strateji/dogrulama/\`, \`KARARLAR.md\` ve
-\`DURUM.md\` icinde tutulur. Fikir denenmeye degmezse proje dosyalari silinmez; gerekce ve sonraki
-secenekler kayda gecirilir.
+\`DURUM.md\` içinde tutulur. Fikir denenmeye değmezse proje dosyaları silinmez; gerekçe ve sonraki
+seçenekler kayda geçirilir.
 
 EOF
 
@@ -227,35 +227,35 @@ cat > "$target/DURUM.md" <<EOF
 # Durum
 
 - Workspace turu: Project
-- Aktif is: Proje baglami tamamlaniyor
+- Aktif iş: Proje bağlamı tamamlanıyor
 - Aktif haftalik plan: 05-haftalik-planlar/$active_week.md
-- Sonraki adim: 01-baglam/ proje baglamini tamamla.
+- Sonraki adım: 01-baglam/ proje bağlamını tamamla.
 
 EOF
 
-printf '# Kararlar\n\nHenuz karar kaydi yok.\n' > "$target/KARARLAR.md"
-printf '# Workspace Rehberi\n\nBu klasor PersonalAutonomy proje workspaceidir.\n' > "$target/README.md"
+printf '# Kararlar\n\nHenüz karar kaydı yok.\n' > "$target/KARARLAR.md"
+printf "# Workspace Rehberi\n\nBu klasör PersonalAutonomy proje workspace'idir.\n" > "$target/README.md"
 printf '# Active Task\n\nDurum: Bos\n' > "$target/.pa/project/active-task.md"
 printf '{"timezone":"Europe/Istanbul"}\n' > "$target/.pa/project/settings.json"
-printf '# Project Overrides\n\nOnayli proje-ozel tercih yok.\n' > "$target/.pa/project/overrides.md"
-printf '# Approved Project Overrides\n\nOnayli proje-ozel tercih yok.\n' > "$target/.pa/project/overrides-approved.md"
-printf '# Final Linkler\n\nHenuz final teslim linki yok.\n' > "$target/10-final/linkler.md"
+printf '# Project Overrides\n\nOnaylı proje-özel tercih yok.\n' > "$target/.pa/project/overrides.md"
+printf '# Approved Project Overrides\n\nOnaylı proje-özel tercih yok.\n' > "$target/.pa/project/overrides-approved.md"
+printf '# Final Linkler\n\nHenüz final teslim linki yok.\n' > "$target/10-final/linkler.md"
 
 week_folder="$target/05-haftalik-planlar/$active_week"
 mkdir -p "$week_folder"
 cat > "$target/05-haftalik-planlar/$active_week.md" <<EOF
-# $active_week Haftalik Plan
+# $active_week Haftalık Plan
 
 - Workspace: $title
-- Durum: Baslangic plan taslagi
-- Kapanis kurali: Workspace artifact'i gorevi acikca kanitliyorsa agent gorevi kapatir ve kullaniciyi bilgilendirir. Harici aksiyonlar kullanici bildirimi bekler. Final yayin veya teslim acik onay ister.
+- Durum: Başlangıç plan taslağı
+- Kapanış kuralı: Workspace artifact'i görevi açıkça kanıtlıyorsa agent görevi kapatır ve kullanıcıyı bilgilendirir. Harici aksiyonlar kullanıcı bildirimi bekler. Final yayın veya teslim açık onay ister.
 
-## Bu Haftanin Odaklari
-- Baslangic gorevi yok.
+## Bu Haftanın Odakları
+- Başlangıç görevi yok.
 
 ## Notlar
-- Bu dosya create-project.sh tarafindan baslangic iskeleti olarak olusturuldu.
-- Ilk gercek haftalik gorevler kullanici ile birlikte planlanir.
+- Bu dosya create-project.sh tarafından başlangıç iskeleti olarak oluşturuldu.
+- İlk gerçek haftalık görevler kullanıcı ile birlikte planlanır.
 
 EOF
 
@@ -264,18 +264,18 @@ cat > "$week_folder/schedule.md" <<EOF
 
 Timezone: Europe/Istanbul
 
-## Haftalik Gorunum
+## Haftalık Görünüm
 - Pazartesi:
-- Sali:
-- Carsamba:
-- Persembe:
+- Salı:
+- Çarşamba:
+- Perşembe:
 - Cuma:
 - Cumartesi:
 - Pazar:
 
 EOF
 
-for day in pazartesi:Pazartesi sali:Sali carsamba:Carsamba persembe:Persembe cuma:Cuma cumartesi:Cumartesi pazar:Pazar; do
+for day in pazartesi:Pazartesi sali:Salı carsamba:Çarşamba persembe:Perşembe cuma:Cuma cumartesi:Cumartesi pazar:Pazar; do
   file="${day%%:*}.md"
   label="${day#*:}"
   cat > "$week_folder/$file" <<EOF
@@ -284,13 +284,13 @@ for day in pazartesi:Pazartesi sali:Sali carsamba:Carsamba persembe:Persembe cum
 Timezone: Europe/Istanbul
 
 ## Gorevler
-- Baslangic gorevi yok.
+- Başlangıç görevi yok.
 
 EOF
 done
 
-printf '# Bilgi Haritasi\n\nKalici cikti, karar ve kaynak iliskileri burada izlenir.\n' > "$target/11-notlar/bilgi-haritasi/index.md"
-printf '# Bilgi Haritasi Log\n\n' > "$target/11-notlar/bilgi-haritasi/log.md"
+printf '# Bilgi Haritası\n\nKalıcı çıktı, karar ve kaynak ilişkileri burada izlenir.\n' > "$target/11-notlar/bilgi-haritasi/index.md"
+printf '# Bilgi Haritası Log\n\n' > "$target/11-notlar/bilgi-haritasi/log.md"
 
 write_state_json "$target/.pa/project/state.json" "$project_id" "$idea_id" "$title" "$active_week" "$now_iso"
 

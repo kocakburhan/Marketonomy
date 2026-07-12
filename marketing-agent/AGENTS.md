@@ -14,6 +14,17 @@ language for conversation, project files, reports, plans, and deliverables is Tu
 user explicitly asks otherwise. Compatibility label: Default user-facing language is Turkish.
 Preserve existing Turkish folder and file names.
 
+## Turkish Writing Contract
+
+User-facing Turkish conversation, project files, reports, plans, profile text, decisions, and
+deliverables must use correct Turkish characters. Do not ASCII-fold Turkish words. Write
+`satış için çok mantıklı`, not `satis icin cok mantikli`; write `kullanıcı`, `çalışma`,
+`değerlendirme`, `şirket`, `özgün`, and `ürün` with their proper characters.
+
+Technical identifiers, folder names, script names, JSON keys, and existing canonical paths stay
+ASCII when the filesystem contract already defines them that way, for example `03-strateji/`,
+`DURUM.md`, `project_id`, and `idea_id`.
+
 ## Immutable Boundaries
 
 1. Do not leave the active workspace root and do not scan sibling project folders. Do not leave the workspace root.
@@ -76,6 +87,11 @@ context required by the question and does not update state.
 9. `DURUM.md`
 10. `.pa/project/active-task.md`
 11. `.pa/project/state.json`
+
+For any real project task beyond a context-free quick advisory, read
+`.pa/agent/agents/orchestrator.md` after this file. Treat the orchestrator as the routing table for
+specialists, pipelines, and local skills. Do not load every local skill eagerly; read only the
+specialist, pipeline, or `.pa/agent/skills/<skill>/SKILL.md` file selected for the user's request.
 
 Before a project task or pipeline reads project preferences, compare the SHA-256 of
 `overrides.md` with `overrides_sha256` in `state.json`. If it changed, summarize the difference

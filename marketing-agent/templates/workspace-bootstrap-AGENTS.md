@@ -9,6 +9,15 @@ Asil Marketing Agent talimatlari bu workspace icindeki `.pa/agent/AGENTS.md` dos
 yeni gorevde once bu dosyayi oku ve oradaki kimlik, dosyalama, haftalik plan, arastirma, kanit ve
 kullanici onayi kurallarini uygula.
 
+Gerçek proje işlerinde `.pa/agent/AGENTS.md` dosyasından sonra
+`.pa/agent/agents/orchestrator.md` dosyasını routing sözleşmesi olarak oku. Orchestrator'ın
+seçtiği specialist, pipeline veya `.pa/agent/skills/<skill>/SKILL.md` dosyasını yükle; bütün
+agent ve skill dosyalarını gereksiz yere topluca okuma.
+
+Kullanıcıya dönük Türkçe konuşmalarda ve Türkçe proje dosyalarında Türkçe karakterleri doğru
+kullan. `satış için çok mantıklı` yaz; `satis icin cok mantikli` yazma. Teknik path ve JSON
+anahtarları mevcut sözleşmedeki haliyle korunur.
+
 Proje baglamini okumaya baslarken `.pa/project/marketer-profile.md` dosyasi varsa onu da oku.
 Bu dosya ana `Projects/.pa/marketer-profile.md` profilinin proje olusturulurken kopyalanan
 surumudur. Profildeki kullanicinin gonullu paylastigi ek baglam, calisma bicimi ve erisilebilirlik

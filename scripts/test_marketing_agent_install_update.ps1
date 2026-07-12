@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$RepoRoot = (Split-Path -Parent $PSScriptRoot)
 )
 
@@ -104,6 +104,7 @@ try {
         Assert-Equal $installMetadata.repo_url "https://github.com/example/personalautonomy-mvp" "Repo URL metadata'ya yazilmali."
         Assert-Equal $installMetadata.installed_version "v5.0.0" "Kurulan surum metadata'ya yazilmali."
         Assert-Equal $installMetadata.update_policy "ask" "Varsayilan update policy ask olmali."
+        Assert-True (-not ([string]$installMetadata.source_agent_root -match "\\AppData\\Local\\Temp|/tmp/|pa-agent-fixture")) "Gecici source_agent_root metadata'ya kalici kaynak gibi yazilmamali."
     }
 
     Assert-True (Test-Path -LiteralPath (Join-Path $workspace ".pa\agent\scripts\check-update.ps1")) "check-update.ps1 release paketinde olmali"

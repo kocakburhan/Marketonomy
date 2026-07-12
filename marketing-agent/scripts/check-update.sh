@@ -97,7 +97,7 @@ get_source_version() {
     latest_git_tag "$repo_url"
     return
   fi
-  fail "Guncelleme kaynagi bulunamadi. --source-agent-root veya --repo-url ver."
+  fail "Güncelleme kaynağı bulunamadı. .pa/agent-install.json içinde repo_url yok. Repair script ile repo_url metadata'sını düzelt veya --repo-url ver."
 }
 
 need_command python3

@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$AgentRoot = (Split-Path -Parent $PSScriptRoot)
 )
 
@@ -142,20 +142,25 @@ Test-RequiredText "pipelines\idea-to-prd.md" "03-strateji/dogrulama/marketer-uyg
 Test-RequiredText "AGENTS.md" "treat the request as product onboarding"
 Test-RequiredText "agents\onboarding-guide.md" "usable workspace profile already exists"
 Test-RequiredText "agents\orchestrator.md" "After the idea-value recommendation is clear"
-Test-RequiredText "skills\list.md" "v5.5.1"
-Test-RequiredText "..\mvp\mvp.md" "Post-MVP Appendix"
-Test-RequiredText "..\mvp\mvp.md" "web app/PWA"
-Test-RequiredText "..\mvp\mvp.md" "ilk product fazi icin runtime gereksinimi degildir"
-Test-RequiredText "..\mvp\mvp.md" "### 10. Web App'in Post-MVP Rolu"
-Test-RequiredText "..\mvp\mvp.md" "### 11. Post-MVP Drive Link Modeli"
-Test-RequiredText "..\mvp\mvp.md" "### 12. Post-MVP Gunluk Kullanim Akislari"
-Test-RequiredText "..\mvp\mvp.md" "PersonalAutonomy ilk product fazi"
-Test-RequiredText "..\mvp\mvp.md" "Codex App + Google Drive for desktop + onayli create/install/update scriptleri"
-Test-RequiredText "..\mvp\mvp.md" 'Windows kullanicilari `.ps1`, macOS kullanicilari `.sh` scriptlerini kullanir.'
-Test-RequiredText "..\mvp\mvp.md" "Workspace artifact'i gorevi acikca kanitliyorsa"
-Test-ForbiddenText "..\mvp\mvp.md" "idea-workspace"
-Test-ForbiddenText "..\mvp\mvp.md" "create-evaluation.ps1"
-Test-ForbiddenText "..\mvp\mvp.md" ".pa/evaluation"
+Test-RequiredText "skills\list.md" "v5.5.2"
+$repoMvpPath = Join-Path (Split-Path -Parent $AgentRoot) "mvp\mvp.md"
+if (-not (Test-Path -LiteralPath $repoMvpPath)) {
+    Write-Output "SKIP     ..\mvp\mvp.md : kurulu agent paketinde repo-level MVP dokümanı yok"
+} else {
+    Test-RequiredText "..\mvp\mvp.md" "Post-MVP Appendix"
+    Test-RequiredText "..\mvp\mvp.md" "web app/PWA"
+    Test-RequiredText "..\mvp\mvp.md" "ilk product fazi icin runtime gereksinimi degildir"
+    Test-RequiredText "..\mvp\mvp.md" "### 10. Web App'in Post-MVP Rolu"
+    Test-RequiredText "..\mvp\mvp.md" "### 11. Post-MVP Drive Link Modeli"
+    Test-RequiredText "..\mvp\mvp.md" "### 12. Post-MVP Gunluk Kullanim Akislari"
+    Test-RequiredText "..\mvp\mvp.md" "PersonalAutonomy ilk product fazi"
+    Test-RequiredText "..\mvp\mvp.md" "Codex App + Google Drive for desktop + onayli create/install/update scriptleri"
+    Test-RequiredText "..\mvp\mvp.md" 'Windows kullanicilari `.ps1`, macOS kullanicilari `.sh` scriptlerini kullanir.'
+    Test-RequiredText "..\mvp\mvp.md" "Workspace artifact'i gorevi acikca kanitliyorsa"
+    Test-ForbiddenText "..\mvp\mvp.md" "idea-workspace"
+    Test-ForbiddenText "..\mvp\mvp.md" "create-evaluation.ps1"
+    Test-ForbiddenText "..\mvp\mvp.md" ".pa/evaluation"
+}
 Test-ForbiddenText "QUICKSTART.md" "create-evaluation.ps1"
 Test-ForbiddenText "AGENTS.md" ".pa/evaluation"
 Test-ForbiddenText "pipelines\idea-to-prd.md" "User Marketing Advantage"

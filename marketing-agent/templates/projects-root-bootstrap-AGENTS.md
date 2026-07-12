@@ -13,6 +13,10 @@ Reusable marketer profili `.pa/marketer-profile.md` yolundadir. Kullanici gonull
 sorularin disinda ek baglam paylasabilir; bu bilgiyi anlamini bozmadan profile ekle. Hassas bilgi
 cikarsama, teshis isteme veya kullaniciyi paylasmaya zorlama.
 
+Kullanıcıya yönelik Türkçe metinlerde ve Türkçe içerik barındıran dosyalarda Türkçe karakterleri
+eksiksiz koru. `ç`, `ğ`, `ı`, `İ`, `ö`, `ş`, `ü` harflerini ASCII karşılıklarına çevirme;
+dosyaları UTF-8 olarak yaz ve yazımdan sonra Türkçe karakterlerin gerçekten korunduğunu doğrula.
+
 Yeni proje olustururken `.pa/onboarding-install.json` dosyasindaki repo URL'si ve surumu kullan.
 Windows'ta resmi `scripts/create-project.ps1`, macOS'ta `scripts/create-project.sh` akisini gecici
 repo kaynagindan calistir. Serbest elle workspace olusturma. Basarili kurulumdan sonra kullaniciya

@@ -50,7 +50,7 @@ try {
         -TargetRoot $projectsRoot `
         -SourceRepoRoot $RepoRoot `
         -RepoUrl "https://github.com/kocakburhan/Marketonomy.git" `
-        -Version "v5.5.1" | Out-Null
+        -Version "v5.5.2" | Out-Null
 
     Assert-True (Test-Path -LiteralPath (Join-Path $projectsRoot "AGENTS.md")) "Projects AGENTS.md olusmali."
     Assert-True ((Read-Utf8 (Join-Path $projectsRoot "AGENTS.md")) -match "onboarding-guide\.md") "Projects bootstrap onboarding-guide.md dosyasina yonlendirmeli."
@@ -72,8 +72,8 @@ try {
 
     $metadata = Read-Utf8 (Join-Path $projectsRoot ".pa\onboarding-install.json") | ConvertFrom-Json
     Assert-Equal $metadata.repo_url "https://github.com/kocakburhan/Marketonomy.git" "Onboarding metadata repo URL yazmali."
-    Assert-Equal $metadata.requested_version "v5.5.1" "Onboarding metadata requested version yazmali."
-    Assert-Equal $metadata.installed_version "v5.5.1" "Onboarding metadata installed version yazmali."
+    Assert-Equal $metadata.requested_version "v5.5.2" "Onboarding metadata requested version yazmali."
+    Assert-Equal $metadata.installed_version "v5.5.2" "Onboarding metadata installed version yazmali."
     Assert-Equal $metadata.update_policy "ask" "Onboarding update policy ask olmali."
 
     Write-Utf8 (Join-Path $projectsRoot "onboarding-guide.md") "eski onboarding`n"
@@ -84,7 +84,7 @@ try {
         powershell -NoProfile -ExecutionPolicy Bypass -File $updateScript `
             -ProjectsRoot $projectsRoot `
             -SourceRepoRoot $RepoRoot `
-            -Version "v5.5.1" *> $null
+            -Version "v5.5.2" *> $null
         $unapprovedUpdateExitCode = $LASTEXITCODE
     } finally {
         $ErrorActionPreference = $previousErrorActionPreference
@@ -94,7 +94,7 @@ try {
     powershell -NoProfile -ExecutionPolicy Bypass -File $updateScript `
         -ProjectsRoot $projectsRoot `
         -SourceRepoRoot $RepoRoot `
-        -Version "v5.5.1" `
+        -Version "v5.5.2" `
         -Yes | Out-Null
     Assert-Equal (Read-Utf8 (Join-Path $projectsRoot "onboarding-guide.md")) (Read-Utf8 $canonicalGuide) "Onayli onboarding update canonical guide'i yenilemeli."
     Assert-Equal (Read-Utf8 (Join-Path $projectsRoot ".pa\marketer-profile.md")) $profileContent "Onboarding update marketer profilini korumali."
@@ -111,7 +111,7 @@ try {
         powershell -NoProfile -ExecutionPolicy Bypass -File $installer `
             -TargetRoot $projectRoot `
             -SourceRepoRoot $RepoRoot `
-            -Version "v5.5.1" *> $null
+            -Version "v5.5.2" *> $null
         $invalidExitCode = $LASTEXITCODE
     } finally {
         $ErrorActionPreference = $previousErrorActionPreference
@@ -126,7 +126,7 @@ try {
         powershell -NoProfile -ExecutionPolicy Bypass -File $installer `
             -TargetRoot $customRoot `
             -SourceRepoRoot $RepoRoot `
-            -Version "v5.5.1" *> $null
+            -Version "v5.5.2" *> $null
         $customAgentsExitCode = $LASTEXITCODE
     } finally {
         $ErrorActionPreference = $previousErrorActionPreference
@@ -137,7 +137,7 @@ try {
     powershell -NoProfile -ExecutionPolicy Bypass -File $installer `
         -TargetRoot $customRoot `
         -SourceRepoRoot $RepoRoot `
-        -Version "v5.5.1" `
+        -Version "v5.5.2" `
         -ForceBootstrap | Out-Null
     $agentsBackups = @(Get-ChildItem -LiteralPath $customRoot -Filter "AGENTS.md.pre-pa-projects-install-*.bak")
     Assert-True ($agentsBackups.Count -eq 1) "ForceBootstrap eski AGENTS.md icin bir yedek birakmali."

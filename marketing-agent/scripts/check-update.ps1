@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$TargetRoot,
     [string]$SourceAgentRoot,
     [string]$RepoUrl,
@@ -90,7 +90,7 @@ function Get-SourceVersion([string]$RequestedVersion, [string]$LocalSource, [str
         return "unknown"
     }
 
-    throw "Guncelleme kaynagi bulunamadi. -SourceAgentRoot veya -RepoUrl ver."
+    throw "Güncelleme kaynağı bulunamadı. .pa/agent-install.json içinde repo_url yok. Repair script ile repo_url metadata'sını düzelt veya -RepoUrl ver."
 }
 
 $root = Find-TargetRoot

@@ -42,7 +42,7 @@ From the cloned repo on Windows:
 .\scripts\install-projects-root.ps1 `
   -TargetRoot "G:\Drive\PersonalAutonomy\Projects" `
   -RepoUrl "<GITHUB_REPO_URL>" `
-  -Version v5.5.1
+  -Version v5.5.2
 ```
 
 On macOS:
@@ -51,7 +51,7 @@ On macOS:
 ./scripts/install-projects-root.sh \
   --target-root "$HOME/Projects" \
   --repo-url "<GITHUB_REPO_URL>" \
-  --version v5.5.1
+  --version v5.5.2
 ```
 
 This installs root `AGENTS.md`, the canonical `onboarding-guide.md`, onboarding update scripts,
@@ -76,7 +76,7 @@ GitHub repo when available:
   -TargetRoot "G:\Drive\PersonalAutonomy\Projects\x-projesi" `
   -Title "X Projesi" `
   -RepoUrl "<GITHUB_REPO_URL>" `
-  -Version v5.5.1
+  -Version v5.5.2
 ```
 
 The script creates the project folder, copies `Projects/.pa/marketer-profile.md` byte-for-byte

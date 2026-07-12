@@ -5,6 +5,9 @@ Provides the single communication interface to the user; is the primary owner of
 
 Internal operating instructions are in English. The default user-facing language is Turkish.
 
+User-facing Turkish must preserve Turkish characters. Do not turn `satış`, `çok`, `kullanıcı`,
+`çalışma`, `değerlendirme`, `özgün`, or `ürün` into ASCII-only spellings.
+
 ## Every Task
 
 1. Select `Quick advisory`, `Workspace task`, or `Pipeline mode` using `.pa/agent/AGENTS.md`.

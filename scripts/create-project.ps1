@@ -1,4 +1,4 @@
-param(
+﻿param(
     [Parameter(Mandatory = $true)]
     [string]$TargetRoot,
     [string]$Title = "Yeni Proje",
@@ -109,7 +109,7 @@ try {
 if (-not $MarketerProfilePath) {
     $MarketerProfilePath = Get-MarketerRootProfilePath $target
 }
-if (-not $SourceAgentRoot -and -not $RepoUrl) {
+if (-not $RepoUrl) {
     $onboardingInstall = Get-OnboardingInstallMetadata $target
     if ($onboardingInstall) {
         if (-not [string]::IsNullOrWhiteSpace([string]$onboardingInstall.repo_url)) {
@@ -207,25 +207,26 @@ foreach ($folder in $gitkeepFolders) {
     Write-Utf8 (Join-Path $target "$folder\.gitkeep") ""
 }
 
-Write-Utf8 (Join-Path $target "PROJE.md") @"
-# $Title
+$projectTemplate = @'
+# {0}
 
-project_id: $ProjectId
-idea_id: $IdeaId
+project_id: {1}
+idea_id: {2}
 
-## Ozet
+## Özet
 - Durum: Yeni proje workspace'i
-- Olusturma tarihi: $($now.ToString("yyyy-MM-dd"))
-- Olusturma akisi: approved create flow, Codex + Google Drive first
+- Oluşturma tarihi: {3}
+- Oluşturma akışı: approved create flow, Codex + Google Drive first
 
-## Fikir Degerlendirme Modu
-Bu workspace tek proje calisma alanidir. Fikir ayri bir calisma klasorune tasinmaz.
-Kullanici isterse ilk is olarak fikir burada acimasizca degerlendirilir; arastirma ve karar
+## Fikir Değerlendirme Modu
+Bu workspace tek proje çalışma alanıdır. Fikir ayrı bir çalışma klasörüne taşınmaz.
+Kullanıcı isterse ilk iş olarak fikir burada acımasızca değerlendirilir; araştırma ve karar
 izleri `02-arastirma/fikir-degerlendirme/`, `03-strateji/dogrulama/`, `KARARLAR.md` ve
-`DURUM.md` icinde tutulur. Fikir denenmeye degmezse proje dosyalari silinmez; gerekce ve sonraki
-secenekler kayda gecirilir.
+`DURUM.md` içinde tutulur. Fikir denenmeye değmezse proje dosyaları silinmez; gerekçe ve sonraki
+seçenekler kayda geçirilir.
 
-"@
+'@
+Write-Utf8 (Join-Path $target "PROJE.md") ($projectTemplate -f $Title, $ProjectId, $IdeaId, $now.ToString("yyyy-MM-dd"))
 
 $activeWeek = Get-ActiveIsoWeekName $now
 
@@ -233,21 +234,21 @@ Write-Utf8 (Join-Path $target "DURUM.md") @"
 # Durum
 
 - Workspace turu: Project
-- Aktif is: Proje baglami tamamlaniyor
+- Aktif iş: Proje bağlamı tamamlanıyor
 - Aktif haftalik plan: 05-haftalik-planlar/$activeWeek.md
-- Sonraki adim: 01-baglam/ proje baglamini tamamla.
+- Sonraki adım: 01-baglam/ proje bağlamını tamamla.
 
 "@
 
-Write-Utf8 (Join-Path $target "KARARLAR.md") "# Kararlar`n`nHenüz karar kaydi yok.`n"
-Write-Utf8 (Join-Path $target "README.md") "# Workspace Rehberi`n`nBu klasor PersonalAutonomy proje workspace'idir.`n"
+Write-Utf8 (Join-Path $target "KARARLAR.md") "# Kararlar`n`nHenüz karar kaydı yok.`n"
+Write-Utf8 (Join-Path $target "README.md") "# Workspace Rehberi`n`nBu klasör PersonalAutonomy proje workspace'idir.`n"
 Write-Utf8 (Join-Path $target ".pa\project\active-task.md") "# Active Task`n`nDurum: Bos`n"
 Write-Utf8 (Join-Path $target ".pa\project\settings.json") "{`"timezone`":`"Europe/Istanbul`"}`n"
-Write-Utf8 (Join-Path $target ".pa\project\overrides.md") "# Project Overrides`n`nOnayli proje-ozel tercih yok.`n"
-Write-Utf8 (Join-Path $target ".pa\project\overrides-approved.md") "# Approved Project Overrides`n`nOnayli proje-ozel tercih yok.`n"
-Write-Utf8 (Join-Path $target "10-final\linkler.md") "# Final Linkler`n`nHenuz final teslim linki yok.`n"
-Write-Utf8 (Join-Path $target "11-notlar\bilgi-haritasi\index.md") "# Bilgi Haritasi`n`nKalici cikti, karar ve kaynak iliskileri burada izlenir.`n"
-Write-Utf8 (Join-Path $target "11-notlar\bilgi-haritasi\log.md") "# Bilgi Haritasi Log`n`n"
+Write-Utf8 (Join-Path $target ".pa\project\overrides.md") "# Project Overrides`n`nOnaylı proje-özel tercih yok.`n"
+Write-Utf8 (Join-Path $target ".pa\project\overrides-approved.md") "# Approved Project Overrides`n`nOnaylı proje-özel tercih yok.`n"
+Write-Utf8 (Join-Path $target "10-final\linkler.md") "# Final Linkler`n`nHenüz final teslim linki yok.`n"
+Write-Utf8 (Join-Path $target "11-notlar\bilgi-haritasi\index.md") "# Bilgi Haritası`n`nKalıcı çıktı, karar ve kaynak ilişkileri burada izlenir.`n"
+Write-Utf8 (Join-Path $target "11-notlar\bilgi-haritasi\log.md") "# Bilgi Haritası Log`n`n"
 
 $weekFile = Join-Path $target "05-haftalik-planlar\$activeWeek.md"
 $weekFolder = Join-Path $target "05-haftalik-planlar\$activeWeek"
@@ -255,18 +256,18 @@ $scheduleFile = Join-Path $weekFolder "schedule.md"
 New-Item -ItemType Directory -Force -Path $weekFolder | Out-Null
 
 Write-Utf8 $weekFile @"
-# $activeWeek Haftalik Plan
+# $activeWeek Haftalık Plan
 
 - Workspace: $Title
-- Durum: Baslangic plan taslagi
-- Kapanis kurali: Workspace artifact'i gorevi acikca kanitliyorsa agent gorevi kapatir ve kullaniciyi bilgilendirir. Harici aksiyonlar kullanici bildirimi bekler. Final yayin veya teslim acik onay ister.
+- Durum: Başlangıç plan taslağı
+- Kapanış kuralı: Workspace artifact'i görevi açıkça kanıtlıyorsa agent görevi kapatır ve kullanıcıyı bilgilendirir. Harici aksiyonlar kullanıcı bildirimi bekler. Final yayın veya teslim açık onay ister.
 
-## Bu Haftanin Odaklari
-- Baslangic gorevi yok.
+## Bu Haftanın Odakları
+- Başlangıç görevi yok.
 
 ## Notlar
-- Bu dosya create-project.ps1 tarafindan baslangic iskeleti olarak olusturuldu.
-- Ilk gercek haftalik gorevler kullanici ile birlikte planlanir.
+- Bu dosya create-project.ps1 tarafından başlangıç iskeleti olarak oluşturuldu.
+- İlk gerçek haftalık görevler kullanıcı ile birlikte planlanır.
 
 "@
 
@@ -275,11 +276,11 @@ Write-Utf8 $scheduleFile @"
 
 Timezone: Europe/Istanbul
 
-## Haftalik Gorunum
+## Haftalık Görünüm
 - Pazartesi:
-- Sali:
-- Carsamba:
-- Persembe:
+- Salı:
+- Çarşamba:
+- Perşembe:
 - Cuma:
 - Cumartesi:
 - Pazar:
@@ -288,9 +289,9 @@ Timezone: Europe/Istanbul
 
 $dayFiles = [ordered]@{
     "pazartesi.md" = "Pazartesi"
-    "sali.md" = "Sali"
-    "carsamba.md" = "Carsamba"
-    "persembe.md" = "Persembe"
+    "sali.md" = "Salı"
+    "carsamba.md" = "Çarşamba"
+    "persembe.md" = "Perşembe"
     "cuma.md" = "Cuma"
     "cumartesi.md" = "Cumartesi"
     "pazar.md" = "Pazar"
@@ -304,7 +305,7 @@ foreach ($entry in $dayFiles.GetEnumerator()) {
 Timezone: Europe/Istanbul
 
 ## Gorevler
-- Baslangic gorevi yok.
+- Başlangıç görevi yok.
 
 "@
 }

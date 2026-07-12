@@ -244,7 +244,11 @@ install_bootstrap() {
 
 write_install_metadata() {
   local installed_version="$1"
-  python3 - "$target_root/.pa/agent-install.json" "$repo_url" "$source_agent_root" "$installed_version" "$update_policy" "$version" <<'PY'
+  local metadata_source_agent_root=""
+  if [[ -n "$source_agent_root" && -z "$repo_url" ]]; then
+    metadata_source_agent_root="$source_agent_root"
+  fi
+  python3 - "$target_root/.pa/agent-install.json" "$repo_url" "$metadata_source_agent_root" "$installed_version" "$update_policy" "$version" <<'PY'
 import json, pathlib, sys
 from datetime import datetime, timezone
 path, repo_url, source_agent_root, installed_version, update_policy, requested_version = sys.argv[1:7]
